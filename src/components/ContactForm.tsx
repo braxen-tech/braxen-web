@@ -15,10 +15,10 @@ function buildWhatsAppUrl(form: {
   }
 
   const text = [
-    "Hello Braxen,",
+    "Olá!",
     "",
-    `Name: ${form.name.trim()}`,
-    `Email: ${form.email.trim()}`,
+    `Nome: ${form.name.trim()}`,
+    `E-mail: ${form.email.trim()}`,
     "",
     form.message.trim(),
   ].join("\n");
@@ -55,7 +55,7 @@ export function ContactForm() {
     >
       <div className="grid md:grid-cols-2 gap-6">
         <Field
-          label="Name"
+          label="Nome"
           id="name"
           value={form.name}
           onChange={(v) => setForm((f) => ({ ...f, name: v }))}
@@ -63,7 +63,7 @@ export function ContactForm() {
           maxLength={100}
         />
         <Field
-          label="Email"
+          label="E-mail"
           id="email"
           type="email"
           value={form.email}
@@ -77,7 +77,7 @@ export function ContactForm() {
           htmlFor="message"
           className="block text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-3"
         >
-          Message
+          Mensagem
         </label>
         <textarea
           id="message"
@@ -88,7 +88,7 @@ export function ContactForm() {
           value={form.message}
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
           className="w-full bg-transparent border-b border-border focus:border-primary outline-none py-3 text-base resize-none transition-colors"
-          placeholder="Tell us about the project…"
+          placeholder="Conte-nos sobre o seu projeto…"
         />
       </div>
 
@@ -98,13 +98,13 @@ export function ContactForm() {
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
         <p className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-          Opens WhatsApp with your message
+          Abre o WhatsApp com sua mensagem
         </p>
         <button
           type="submit"
           className="cursor-pointer inline-flex items-center justify-center gap-3 border-hairline px-8 py-4 text-xs tracking-[0.3em] uppercase hover:bg-primary hover:text-primary-foreground transition-colors"
         >
-          Send via WhatsApp
+          Enviar pelo WhatsApp
           <span aria-hidden>→</span>
         </button>
       </div>

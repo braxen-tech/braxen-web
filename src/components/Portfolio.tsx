@@ -19,9 +19,13 @@ import heroCity from "@/assets/hero-city.jpg";
 import textureStone from "@/assets/texture-stone.jpg";
 import { imageSrc } from "@/lib/utils";
 
-const sources = [chapterMonolith, chapterCraft, chapterBlueprint, heroCity, textureStone].map(
-  imageSrc,
-);
+const sources = [
+  chapterMonolith,
+  chapterCraft,
+  chapterBlueprint,
+  heroCity,
+  textureStone,
+].map(imageSrc);
 
 const titles = [
   "Monolith OS",
@@ -70,7 +74,11 @@ function Plane({
 }) {
   const prefersReducedMotion = useReducedMotion();
   const hoverLift = useSpring(0, { stiffness: 400, damping: 25 });
-  const velocityOffset = useSpring(0, { stiffness: 300, damping: 20, mass: 0.3 });
+  const velocityOffset = useSpring(0, {
+    stiffness: 300,
+    damping: 20,
+    mass: 0.3,
+  });
   const baseX = index * PLANE_SPACING;
 
   useEffect(() => {
@@ -84,7 +92,8 @@ function Plane({
     }
 
     const wrapped =
-      wrap(-SCROLL_RANGE / 2, SCROLL_RANGE / 2, baseX + scrollX.get()) / (SCROLL_RANGE / 2);
+      wrap(-SCROLL_RANGE / 2, SCROLL_RANGE / 2, baseX + scrollX.get()) /
+      (SCROLL_RANGE / 2);
     const wave = Math.sin(wrapped * Math.PI * 2);
     velocityOffset.set((velocity / 50) * wave * 5);
   });
@@ -176,7 +185,11 @@ export function Portfolio() {
     mass: 0.5,
   });
 
-  const scrollXBase = useTransform(smoothProgress, [0, 1], [0, -SCROLL_RANGE * 0.65]);
+  const scrollXBase = useTransform(
+    smoothProgress,
+    [0, 1],
+    [0, -SCROLL_RANGE * 0.65],
+  );
   const scrollX = useTransform(
     [scrollXBase, scrollOffset],
     ([base, offset]) => (base as number) + (offset as number),
@@ -198,21 +211,21 @@ export function Portfolio() {
       <motion.div
         ref={containerRef}
         className="sticky top-0 h-screen w-full touch-none overflow-hidden"
-        onPan={(_event, info: PanInfo) => scrollOffset.set(scrollOffset.get() + info.delta.x * 2.5)}
+        onPan={(_event, info: PanInfo) =>
+          scrollOffset.set(scrollOffset.get() + info.delta.x * 2.5)
+        }
       >
         <div className="absolute top-12 z-50 max-w-xl md:top-20 md:left-12 left-6 pointer-events-none">
-          <p className="mb-4 text-xs uppercase tracking-[0.4em] text-primary">— Portfolio</p>
+          <p className="mb-4 text-xs uppercase tracking-[0.4em] text-primary">
+            — Portfólio
+          </p>
           <h2 className="font-display text-5xl leading-[0.95] md:text-7xl">
-            Heritage<span className="text-cyan-glow">.</span>
-            <br />
-            <em className="italic text-muted-foreground">
-              Vol. {String(PLANE_COUNT).padStart(2, "0")}
-            </em>
+            Projetos<span className="text-cyan-glow">.</span>
           </h2>
         </div>
 
         <p className="absolute bottom-8 right-8 z-50 font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
-          Scroll to surf
+          Role para explorar
         </p>
 
         <div
@@ -224,7 +237,10 @@ export function Portfolio() {
         >
           <div
             className="relative flex items-center justify-center"
-            style={{ transformStyle: "preserve-3d", transform: "translateY(100px)" }}
+            style={{
+              transformStyle: "preserve-3d",
+              transform: "translateY(100px)",
+            }}
           >
             {Array.from({ length: PLANE_COUNT }).map((_, index) => (
               <Plane

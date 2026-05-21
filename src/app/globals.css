@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss" source(none);
 @import "tw-animate-css";
 
@@ -31,8 +31,9 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-serif: "Instrument Serif", serif;
-  --font-sans: "Work Sans", sans-serif;
+  --font-serif: "Inter", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Inter", sans-serif;
 }
 
 :root {
@@ -78,10 +79,13 @@
     -webkit-font-smoothing: antialiased;
   }
   .font-display {
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
     font-weight: 400;
     letter-spacing: -0.02em;
     line-height: 0.95;
+  }
+  .font-body {
+    font-family: var(--font-sans);
   }
 }
 

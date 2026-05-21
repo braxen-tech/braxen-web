@@ -11,26 +11,26 @@ const members: Member[] = [
   {
     name: "Hugo Lemos",
     role: "Chief Executive Officer",
-    image: "https://www.braxentech.com/_next/image?url=%2Fhugo_profile.png&w=3840&q=75",
-    bio: "Former staff engineer at global-scale fintechs. Hugo leads Braxen with a builder's bias — strategy distilled into systems that ship.",
+    image: "/hugo_profile.webp",
+    bio: "Ex-engenheiro sênior em fintechs de escala global. Hugo lidera a Braxen com viés de construtor — estratégia destilada em sistemas que funcionam de verdade.",
   },
   {
     name: "Neemias Rocha",
     role: "Chief Technology Officer",
-    image: "https://www.braxentech.com/_next/image?url=%2Fneemias_profile.png&w=3840&q=75",
-    bio: "Distributed systems architect. Two decades turning ambiguous product bets into observable, defensible platforms.",
+    image: "/neemias_profile.webp",
+    bio: "Arquiteto de sistemas distribuídos. Duas décadas transformando apostas de produto em plataformas observáveis, escaláveis e defensáveis.",
   },
   {
     name: "Rodrigo Gama",
     role: "Head of Product Engineering",
-    image: "https://www.braxentech.com/_next/image?url=%2Frodrigo_profile.png&w=3840&q=75",
-    bio: "Product-minded engineer. Rodrigo brings the bench discipline — small teams, tight loops, releases that hold up under load.",
+    image: "/rodrigo_profile.webp",
+    bio: "Engenheiro orientado a produto. Rodrigo conduz times pequenos em ciclos curtos — entregas que sustentam carga sem quebrar na segunda versão.",
   },
   {
     name: "Tiago Rocha",
     role: "Head of AI & Platform",
-    image: "https://www.braxentech.com/_next/image?url=%2Ftiago_profile.png&w=3840&q=75",
-    bio: "Applied ML and infrastructure. Tiago embeds models where they earn their keep and keeps the platform underneath honest.",
+    image: "/tiago_profile.webp",
+    bio: "ML aplicado e infraestrutura. Tiago embute modelos onde eles geram valor real e mantém a plataforma abaixo deles honesta e rastreável.",
   },
 ];
 
@@ -51,7 +51,10 @@ function Card({ member, flipped }: { member: Member; flipped: boolean }) {
       >
         {/* FRONT — Photo */}
         <div
-          style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+          style={{
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+          }}
           className="absolute inset-0 overflow-hidden border-hairline"
         >
           <img
@@ -72,7 +75,7 @@ function Card({ member, flipped }: { member: Member; flipped: boolean }) {
         {/* BACK — bio */}
         <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] border-hairline bg-background p-8 flex flex-col">
           <p className="text-[10px] tracking-[0.4em] uppercase text-primary mb-6">
-            — Profile
+            — Perfil
           </p>
           <p className="font-display text-2xl md:text-3xl leading-tight mb-4">
             {member.name}
@@ -84,7 +87,7 @@ function Card({ member, flipped }: { member: Member; flipped: boolean }) {
             {member.bio}
           </p>
           <span className="mt-auto text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-            Tap to flip
+            Clique para virar
           </span>
         </div>
       </div>
@@ -106,7 +109,10 @@ export function Leadership() {
       const total = rect.height - vh;
       const scrolled = -rect.top;
       const p = Math.max(0, Math.min(1, scrolled / Math.max(total, 1)));
-      const n = Math.min(members.length, Math.floor(p * (members.length + 0.5)));
+      const n = Math.min(
+        members.length,
+        Math.floor(p * (members.length + 0.5)),
+      );
       setRevealed(n);
     };
     onScroll();
@@ -127,19 +133,20 @@ export function Leadership() {
       <div className="mx-auto max-w-7xl sticky top-24">
         <div className="text-center mb-20">
           <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            — Leadership
+            — Time
           </p>
           <h2 className="font-display text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.05] mb-8">
-            High-level{" "}
-            <em className="italic text-muted-foreground">strategic leadership</em>.
+            Liderança técnica{" "}
+            <em className="italic text-muted-foreground">de alto nível</em>.
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground leading-relaxed">
-            Our leadership carries the DNA of global technology giants. Every Braxen
-            engagement is shepherded by specialists who have shipped against complex
-            architectures and unforgiving deadlines.
+            Nosso time carrega o DNA das maiores empresas de tecnologia do
+            mundo. Cada projeto da Braxen é conduzido por especialistas que já
+            entregaram sistemas críticos em escala — sem tolerância para
+            desculpas.
           </p>
           <p className="mt-6 text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-            Scroll to reveal · Tap to flip
+            Role para revelar · Clique para virar
           </p>
         </div>
 

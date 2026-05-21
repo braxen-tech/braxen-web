@@ -1,27 +1,15 @@
 "use client";
 
 import textureStone from "@/assets/texture-stone.jpg";
-// import boy from "@/assets/boy.png";
 import chapterMonolith from "@/assets/chapter-monolith.jpg";
 import chapterCraft from "@/assets/chapter-craft.jpg";
 import chapterBlueprint from "@/assets/chapter-blueprint.jpg";
-import logoB2w from "@/assets/logos/b2w.png";
-import logoGlobo from "@/assets/logos/globo.png";
-import logoRivian from "@/assets/logos/rivian.png";
-import logoSerasa from "@/assets/logos/serasa.png";
 import { ContactForm } from "@/components/ContactForm";
 import { Leadership } from "@/components/Leadership";
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { Portfolio } from "@/components/Portfolio";
 import { imageSrc, type ImageSrc } from "@/lib/utils";
-
-const expertiseClients = [
-  { name: "Globo", logo: logoGlobo },
-  { name: "Rivian", logo: logoRivian },
-  { name: "Serasa", logo: logoSerasa },
-  { name: "B2W", logo: logoB2w },
-] as const;
 
 function RevealWords({
   text,
@@ -36,10 +24,7 @@ function RevealWords({
   return (
     <span className={className}>
       {words.map((word, i) => (
-        <span
-          key={i}
-          className="inline-block overflow-hidden mr-[0.25em] last:mr-0"
-        >
+        <span key={i} className="inline-block mr-[0.25em] last:mr-0">
           <motion.span
             className="inline-block"
             initial={{ y: "110%", opacity: 0 }}
@@ -92,29 +77,29 @@ function Nav() {
               href="#chapter-1"
               className="hover:text-primary transition-colors"
             >
-              Origin
+              Empresa
             </a>
             <a
               href="#chapter-2"
               className="hover:text-primary transition-colors"
             >
-              Craft
+              Serviços
             </a>
             <a
               href="#chapter-3"
               className="hover:text-primary transition-colors"
             >
-              Practice
+              Resultados
             </a>
             <a href="#contact" className="hover:text-primary transition-colors">
-              Contact
+              Contato
             </a>
           </nav>
           <a
             href="#contact"
             className="text-xs tracking-[0.25em] uppercase border-hairline px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors"
           >
-            Brief us
+            Fale conosco
           </a>
         </div>
       </header>
@@ -136,35 +121,48 @@ function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background" />
 
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-        {/* <p className="fade-up text-xs tracking-[0.45em] uppercase text-primary mb-8">
-          Software House · Est. 2019
-        </p> */}
-        <h1 className="fade-up font-display text-[clamp(3.5rem,12vw,11rem)] leading-[0.9]">
-          <RevealWords text="BRAXEN" delay={0.4} />
+      <div className="relative z-10 flex h-full flex-col items-start justify-center px-6 md:px-10 lg:px-16 text-left max-w-2xl">
+        <h1 className="fade-up font-display text-4xl tracking-tight">
+          <RevealWords text="BRAXEN" delay={0.4} className="text-7xl" />
           <RevealWords text="." delay={0.4} className="text-cyan-glow" />
           <br />
           <RevealWords
-            text="Tech, sculpted."
+            text="Tecnologia que escala."
             delay={0.4}
             className="font-display italic text-muted-foreground"
           />
-          {/* <em className="font-display italic text-muted-foreground">Tech, sculpted.</em> */}
         </h1>
-        {/* <p className="fade-up mt-10 max-w-xl text-sm md:text-base text-muted-foreground leading-relaxed">
-          We build digital systems the way a city is built — slowly, in layers, with foundations
-          that outlast the architects.
-        </p> */}
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="font-body text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed mb-12 md:mb-16"
+          className="font-body mt-6 text-md md:text-xl text-muted-foreground max-w-lg leading-relaxed mb-8 md:mb-10"
         >
-          We transform ambitious ideas into high-performance software. Your
-          strategic partner to build the future, today.
+          Desenvolvemos software sob medida, agentes de IA e automações que
+          transformam operações manuais em crescimento real.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.5 }}
+          className="flex flex-col sm:flex-row items-start gap-4"
+        >
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-xs tracking-[0.25em] uppercase hover:opacity-90 transition-opacity"
+          >
+            Quero uma solução
+            <span aria-hidden>→</span>
+          </a>
+          <a
+            href="#chapter-2"
+            className="inline-flex items-center gap-3 border-hairline px-8 py-4 text-xs tracking-[0.25em] uppercase hover:bg-card transition-colors"
+          >
+            Ver como funciona
+          </a>
+        </motion.div>
       </div>
 
       <div className="absolute bottom-6 left-6 z-10 text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
@@ -182,12 +180,12 @@ function Statement() {
     <section className="relative px-6 md:px-10 py-32 md:py-48">
       <div className="mx-auto max-w-5xl text-center">
         <p className="text-xs tracking-[0.4em] uppercase text-primary mb-10">
-          — Manifesto
+          — O Diagnóstico
         </p>
         <h2 className="font-display text-[clamp(2rem,5vw,4.5rem)]">
-          More than a vendor.{" "}
+          Cada processo manual que ainda roda na sua empresa{" "}
           <em className="italic text-muted-foreground">
-            A workshop where ideas are forged into infrastructure.
+            é receita sendo deixada na mesa.
           </em>
         </h2>
       </div>
@@ -254,23 +252,23 @@ function Practices() {
   const items = [
     {
       k: "01",
-      t: "Product Engineering",
-      d: "Web, mobile, and back-of-house systems built to scale past the demo.",
+      t: "Software Sob Medida",
+      d: "ERPs, CRMs, dashboards e plataformas internas construídos para o seu processo — não para um template genérico.",
     },
     {
       k: "02",
-      t: "Platform & Cloud",
-      d: "Infrastructure as a discipline — observable, reproducible, defensible.",
+      t: "Sites e Aplicativos",
+      d: "Presença digital que converte. Web, mobile e landing pages de alto desempenho, do design à produção.",
     },
     {
       k: "03",
-      t: "AI Integration",
-      d: "Models embedded where they earn their keep, not as theatre.",
+      t: "Agentes de IA",
+      d: "Atendimento, qualificação de leads e automação de operações rodando 24h com inteligência artificial generativa.",
     },
     {
       k: "04",
-      t: "Design Systems",
-      d: "Interfaces that age well, written down so teams can extend them.",
+      t: "Automações e Integrações",
+      d: "WhatsApp, Stripe, APIs externas e processos internos conectados e automatizados — seu time faz menos, entrega mais.",
     },
   ];
   return (
@@ -279,15 +277,16 @@ function Practices() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">
-              — Practice
+              — Serviços
             </p>
-            <h2 className="font-display text-5xl md:text-7xl">
-              The <em className="italic text-muted-foreground">workshop</em>.
+            <h2 className="font-display text-2xl md:text-4xl">
+              O que{" "}
+              <em className="italic text-muted-foreground">construímos</em>.
             </h2>
           </div>
           <p className="text-muted-foreground max-w-sm">
-            Four disciplines, one bench. We assemble small teams that ship
-            together and stay through the second release.
+            Quatro pilares, uma equipe. Montamos times especializados que
+            entregam juntos e acompanham os resultados ao longo do tempo.
           </p>
         </div>
 
@@ -328,12 +327,13 @@ function StoneBreak() {
       <div className="absolute inset-0 bg-background/40" />
       <blockquote className="relative z-10 text-center px-6 max-w-4xl">
         <p className="font-display italic text-3xl md:text-5xl leading-tight">
-          “We don&apos;t ship features. We{" "}
-          <span className="text-cyan-glow">cut stone</span> — piece by piece —
-          until something stands on its own.”
+          &ldquo;Uma clínica reduziu 80% das ligações com um agente de IA. Uma
+          imobiliária{" "}
+          <span className="text-cyan-glow">triplicou o atendimento</span> sem
+          contratar ninguém. Isso não é futuro — já está rodando.&rdquo;
         </p>
         <footer className="mt-8 text-xs tracking-[0.4em] uppercase text-muted-foreground">
-          — Founding Note, 2019
+          — Resultados reais de clientes Braxen
         </footer>
       </blockquote>
     </section>
@@ -348,39 +348,43 @@ function Contact() {
     >
       <div className="mx-auto max-w-3xl text-center">
         <p className="text-xs tracking-[0.4em] uppercase text-primary mb-8">
-          — Chapter Final
+          — Próximo Passo
         </p>
-        <h2 className="font-display text-[clamp(3rem,9vw,8rem)] leading-[0.95] mb-12">
-          Let&apos;s build the{" "}
-          <em className="italic text-muted-foreground">next one</em>.
+        <h2 className="font-display text-4xl leading-[0.95] mb-6">
+          Vamos construir{" "}
+          <em className="italic text-muted-foreground">sua solução</em>.
         </h2>
+        <p className="text-muted-foreground text-base md:text-lg max-w-lg mx-auto mb-12 leading-relaxed">
+          Descreva o problema. Nossa equipe retorna em até 24 horas com uma
+          análise técnica e os próximos passos.
+        </p>
         <ContactForm />
         <div className="mt-20 grid md:grid-cols-3 gap-10 text-left text-sm">
           <div>
             <p className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">
-              Studio
+              Localização
             </p>
             <p>
-              14 Rue des Forges
+              Brasil · Remoto
               <br />
-              31000 Toulouse, FR
+              Atendimento nacional
             </p>
           </div>
           <div>
             <p className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">
-              Hours
+              Horário
             </p>
             <p>
-              Mon — Fri
+              Seg — Sex
               <br />
-              09:00 — 19:00 CET
+              09:00 — 19:00 BRT
             </p>
           </div>
           <div>
             <p className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">
-              Social
+              Redes
             </p>
-            <p>LinkedIn · GitHub · Are.na</p>
+            <p>LinkedIn · GitHub · Instagram</p>
           </div>
         </div>
       </div>
@@ -391,10 +395,12 @@ function Contact() {
 function Footer() {
   return (
     <footer className="px-6 md:px-10 py-10 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-      <p>© {new Date().getFullYear()} Braxen Tech — All rights reserved</p>
+      <p>
+        © {new Date().getFullYear()} Braxen Tech — Todos os direitos reservados
+      </p>
       <p className="flex items-center gap-2">
         <span className="inline-block size-1.5 rounded-full bg-primary blink" />
-        Crafted in the dark
+        Construído no escuro
       </p>
     </footer>
   );
@@ -409,17 +415,17 @@ export function HomePage() {
       <Chapter
         id="chapter-1"
         index="I"
-        kicker="Origin"
-        title="Born in the back rooms."
-        body="Braxen began as a side bench in a Toulouse apartment — three engineers, one whiteboard, and the conviction that good software is closer to masonry than to magic. Every project since has carried the same patience: lay the stone, check the line, lay the next."
+        kicker="O Problema"
+        title="Crescer com processo manual tem um limite."
+        body="Planilhas que não escalam. Leads que somem sem resposta. Times sobrecarregados com trabalho repetitivo. Empresas que dependem de esforço humano para tudo não conseguem crescer — elas apenas sobrevivem. Em algum ponto, a operação quebra antes do negócio chegar ao próximo nível."
         image={chapterMonolith}
       />
       <Chapter
         id="chapter-2"
         index="II"
-        kicker="Craft"
-        title="Code as a quiet discipline."
-        body="We write in the open, review without ceremony, and refuse the temptation to ship something we don't understand. The result is rarely flashy at launch. It is, however, still standing five years later."
+        kicker="A Abordagem"
+        title="Tecnologia construída para o seu negócio."
+        body="Não vendemos templates nem licenças de software genérico. Mapeamos seu processo, identificamos os gargalos reais e desenvolvemos a solução exata que resolve. Software sob medida, agentes de IA que atendem e qualificam, automações que eliminam trabalho repetitivo. Tecnologia que paga por si mesma."
         image={chapterCraft}
         reverse
       />
@@ -427,9 +433,9 @@ export function HomePage() {
       <Chapter
         id="chapter-3"
         index="III"
-        kicker="Practice"
-        title="From blueprint to load-bearing wall."
-        body="Discovery, architecture, build, hand-off — but never linear. Our teams sit beside yours, prototype in days, and harden in weeks. The hand-off is documentation a stranger could extend."
+        kicker="A Entrega"
+        title="De briefing a produção em semanas."
+        body="Sem projetos de 18 meses. Sem escopo que nunca fecha. Mapeamos o problema, prototipamos a solução, entregamos funcionando e medimos o impacto. Cada entrega é documentada para que seu time continue evoluindo — com ou sem nós."
         image={chapterBlueprint}
       />
       <Portfolio />
