@@ -329,7 +329,7 @@ function StoneBreak() {
         <p className="font-display italic text-3xl md:text-5xl leading-tight">
           &ldquo;Uma clínica reduziu 80% das ligações com um agente de IA. Uma
           imobiliária{" "}
-          <span className="text-cyan-glow">triplicou o atendimento</span> sem
+          <span className="text-cyan-glow">triplicou o atendimento </span> sem
           contratar ninguém. Isso não é futuro — já está rodando.&rdquo;
         </p>
         <footer className="mt-8 text-xs tracking-[0.4em] uppercase text-muted-foreground">

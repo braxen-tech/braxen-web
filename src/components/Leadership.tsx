@@ -18,7 +18,7 @@ const members: Member[] = [
     name: "Neemias Rocha",
     role: "Chief Technology Officer",
     image: "/neemias_profile.webp",
-    bio: "Arquiteto de sistemas distribuídos. Duas décadas transformando apostas de produto em plataformas observáveis, escaláveis e defensáveis.",
+    bio: "Especialista em gestão de novos negócios e projetos. Dez anos de experiência conectando estratégia comercial à execução precisa, construindo operações eficientes e escaláveis que geram valor real.",
   },
   {
     name: "Rodrigo Gama",

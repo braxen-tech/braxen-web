@@ -46,11 +46,36 @@ const titles = [
   "Cathedral",
 ];
 
-const PLANE_WIDTH = 320;
-const PLANE_GAP = -80;
-const PLANE_SPACING = PLANE_WIDTH + PLANE_GAP;
 const PLANE_COUNT = titles.length;
-const SCROLL_RANGE = PLANE_SPACING * PLANE_COUNT;
+
+const PLANE_LAYOUT = {
+  desktop: { width: 320, height: 384, gap: -80 },
+  mobile: { width: 220, height: 264, gap: -55 },
+} as const;
+
+type PlaneLayout = (typeof PLANE_LAYOUT)[keyof typeof PLANE_LAYOUT];
+
+function usePlaneLayout() {
+  const [layout, setLayout] = useState<PlaneLayout>(PLANE_LAYOUT.desktop);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => {
+      const mobile = mq.matches;
+      setIsMobile(mobile);
+      setLayout(mobile ? PLANE_LAYOUT.mobile : PLANE_LAYOUT.desktop);
+    };
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  const spacing = layout.width + layout.gap;
+  const scrollRange = spacing * PLANE_COUNT;
+
+  return { ...layout, spacing, scrollRange, isMobile };
+}
 
 function wrap(min: number, max: number, value: number) {
   const range = max - min;
@@ -61,6 +86,10 @@ function Plane({
   index,
   scrollX,
   scrollVelocity,
+  planeWidth,
+  planeHeight,
+  planeSpacing,
+  scrollRange,
   isHovered,
   onHoverStart,
   onHoverEnd,
@@ -68,6 +97,10 @@ function Plane({
   index: number;
   scrollX: MotionValue<number>;
   scrollVelocity: MotionValue<number>;
+  planeWidth: number;
+  planeHeight: number;
+  planeSpacing: number;
+  scrollRange: number;
   isHovered: boolean;
   onHoverStart: () => void;
   onHoverEnd: () => void;
@@ -79,7 +112,7 @@ function Plane({
     damping: 20,
     mass: 0.3,
   });
-  const baseX = index * PLANE_SPACING;
+  const baseX = index * planeSpacing;
 
   useEffect(() => {
     hoverLift.set(isHovered ? -30 : 0);
@@ -92,8 +125,8 @@ function Plane({
     }
 
     const wrapped =
-      wrap(-SCROLL_RANGE / 2, SCROLL_RANGE / 2, baseX + scrollX.get()) /
-      (SCROLL_RANGE / 2);
+      wrap(-scrollRange / 2, scrollRange / 2, baseX + scrollX.get()) /
+      (scrollRange / 2);
     const wave = Math.sin(wrapped * Math.PI * 2);
     velocityOffset.set((velocity / 50) * wave * 5);
   });
@@ -102,7 +135,7 @@ function Plane({
     const sx = scrollX.get();
     const offset = velocityOffset.get();
     const lift = hoverLift.get();
-    const x = wrap(-SCROLL_RANGE / 2, SCROLL_RANGE / 2, baseX + sx);
+    const x = wrap(-scrollRange / 2, scrollRange / 2, baseX + sx);
     const y = x * -0.35 + offset + lift;
     const z = x * -1.2;
 
@@ -116,8 +149,8 @@ function Plane({
     <motion.figure
       className="absolute flex items-center justify-center text-foreground will-change-transform"
       style={{
-        width: PLANE_WIDTH,
-        height: 384,
+        width: planeWidth,
+        height: planeHeight,
         transform,
         zIndex: isHovered ? 100 : 1,
         filter: isHovered ? "brightness(1.15)" : "brightness(1)",
@@ -173,6 +206,7 @@ export function Portfolio() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollOffset = useMotionValue(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { width, height, spacing, scrollRange, isMobile } = usePlaneLayout();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -188,7 +222,7 @@ export function Portfolio() {
   const scrollXBase = useTransform(
     smoothProgress,
     [0, 1],
-    [0, -SCROLL_RANGE * 0.65],
+    [0, -scrollRange * 0.65],
   );
   const scrollX = useTransform(
     [scrollXBase, scrollOffset],
@@ -205,28 +239,43 @@ export function Portfolio() {
     <section
       id="portfolio"
       ref={sectionRef}
-      className="relative border-t border-border bg-background"
-      style={{ height: "320vh" }}
+      className="relative border-t border-border bg-background h-[200vh] md:h-[320vh]"
     >
       <motion.div
         ref={containerRef}
-        className="sticky top-0 h-screen w-full touch-none overflow-hidden"
-        onPan={(_event, info: PanInfo) =>
-          scrollOffset.set(scrollOffset.get() + info.delta.x * 2.5)
+        className="sticky top-[10vh] h-[78vh] w-full overflow-hidden md:top-0 md:h-screen md:touch-none"
+        onPan={
+          isMobile
+            ? undefined
+            : (_event, info: PanInfo) =>
+                scrollOffset.set(scrollOffset.get() + info.delta.x * 2.5)
         }
       >
-        <div className="absolute top-12 z-50 max-w-xl md:top-20 md:left-12 left-6 pointer-events-none">
-          <p className="mb-4 text-xs uppercase tracking-[0.4em] text-primary">
+        <div className="pointer-events-none absolute left-5 top-5 z-50 max-w-xs md:left-12 md:top-20 md:max-w-xl">
+          <p className="mb-2 text-[10px] uppercase tracking-[0.4em] text-primary md:mb-4 md:text-xs">
             — Portfólio
           </p>
-          <h2 className="font-display text-5xl leading-[0.95] md:text-7xl">
+          <h2 className="font-display text-4xl leading-[0.95] md:text-7xl">
             Projetos<span className="text-cyan-glow">.</span>
           </h2>
         </div>
 
-        <p className="absolute bottom-8 right-8 z-50 font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
+        <p className="absolute bottom-3 right-5 z-50 font-mono text-[9px] uppercase tracking-[0.35em] text-muted-foreground md:bottom-8 md:right-8 md:text-[10px] md:tracking-[0.4em]">
           Role para explorar
         </p>
+
+        {isMobile && (
+          <>
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 top-0 z-40 h-8 bg-gradient-to-b from-background to-transparent"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-8 bg-gradient-to-t from-background to-transparent"
+            />
+          </>
+        )}
 
         <div
           className="relative flex h-full w-full items-center justify-center"
@@ -236,11 +285,8 @@ export function Portfolio() {
           }}
         >
           <div
-            className="relative flex items-center justify-center"
-            style={{
-              transformStyle: "preserve-3d",
-              transform: "translateY(100px)",
-            }}
+            className="relative flex translate-y-4 items-center justify-center md:translate-y-[100px]"
+            style={{ transformStyle: "preserve-3d" }}
           >
             {Array.from({ length: PLANE_COUNT }).map((_, index) => (
               <Plane
@@ -248,6 +294,10 @@ export function Portfolio() {
                 index={index}
                 scrollX={smoothScrollX}
                 scrollVelocity={scrollVelocity}
+                planeWidth={width}
+                planeHeight={height}
+                planeSpacing={spacing}
+                scrollRange={scrollRange}
                 isHovered={hoveredIndex === index}
                 onHoverStart={() => setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
