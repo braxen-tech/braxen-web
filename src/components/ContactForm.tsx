@@ -4,15 +4,14 @@ import { useState } from "react";
 
 type Status = "idle" | "error";
 
+const WHATSAPP_NUMBER = "5521973118404";
+
 function buildWhatsAppUrl(form: {
   name: string;
   email: string;
   message: string;
 }) {
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "");
-  if (!phone) {
-    throw new Error("WhatsApp is not configured.");
-  }
+  const phone = WHATSAPP_NUMBER;
 
   const text = [
     "Olá!",

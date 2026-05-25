@@ -45,6 +45,7 @@ function RevealWords({
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -52,58 +53,93 @@ function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const links = [
+    { href: "#chapter-1", label: "A Dor" },
+    { href: "#chapter-2", label: "A Solução" },
+    { href: "#chapter-3", label: "O Resultado" },
+    { href: "#contact", label: "Contato" },
+  ];
+
   return (
-    <motion.nav
-      initial={{ y: -80 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border"
-          : "bg-transparent"
-      }`}
-    >
-      <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
-        <div className="flex items-center justify-between px-6 md:px-10 py-6 text-foreground">
-          <a
-            href="#top"
-            className="flex items-center gap-2 text-sm tracking-[0.3em] uppercase"
-          >
-            <span className="inline-block size-2 rounded-full bg-primary" />
-            Braxen
-          </a>
-          <nav className="hidden md:flex items-center gap-10 text-xs tracking-[0.25em] uppercase">
+    <>
+      <motion.nav
+        initial={{ y: -80 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-background/80 backdrop-blur-xl border-b border-border"
+            : "bg-transparent"
+        }`}
+      >
+        <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
+          <div className="flex items-center justify-between px-6 md:px-10 py-6 text-foreground">
             <a
-              href="#chapter-1"
-              className="hover:text-primary transition-colors"
+              href="#top"
+              className="flex items-center gap-2 text-sm tracking-[0.3em] uppercase"
             >
-              A Dor
+              <span className="inline-block size-2 rounded-full bg-primary" />
+              Braxen
             </a>
+            <nav className="hidden md:flex items-center gap-10 text-xs tracking-[0.25em] uppercase">
+              {links.map((l) => (
+                <a key={l.href} href={l.href} className="hover:text-primary transition-colors">
+                  {l.label}
+                </a>
+              ))}
+            </nav>
+            <div className="flex items-center gap-4">
+              <a
+                href="#contact"
+                className="hidden md:inline-flex text-xs tracking-[0.25em] uppercase border-hairline px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                Fale conosco
+              </a>
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="md:hidden flex flex-col gap-1.5 p-1 cursor-pointer"
+                aria-label="Menu"
+              >
+                <span className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+                <span className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
+              </button>
+            </div>
+          </div>
+        </header>
+      </motion.nav>
+
+      {menuOpen && (
+        <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8">
+          {links.map((l) => (
             <a
-              href="#chapter-2"
-              className="hover:text-primary transition-colors"
+              key={l.href}
+              href={l.href}
+              onClick={() => setMenuOpen(false)}
+              className="font-display text-3xl tracking-[0.1em] uppercase hover:text-primary transition-colors"
             >
-              A Solução
+              {l.label}
             </a>
-            <a
-              href="#chapter-3"
-              className="hover:text-primary transition-colors"
-            >
-              O Resultado
-            </a>
-            <a href="#contact" className="hover:text-primary transition-colors">
-              Contato
-            </a>
-          </nav>
+          ))}
           <a
             href="#contact"
-            className="text-xs tracking-[0.25em] uppercase border-hairline px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+            onClick={() => setMenuOpen(false)}
+            className="mt-4 inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-xs tracking-[0.25em] uppercase"
           >
             Fale conosco
+            <span aria-hidden>→</span>
           </a>
         </div>
-      </header>
-    </motion.nav>
+      )}
+    </>
   );
 }
 
@@ -423,6 +459,28 @@ export function HomePage() {
       />
       <Portfolio />
       <Practices />
+      <section className="px-6 md:px-10 py-20 border-t border-border bg-card">
+        <div className="mx-auto max-w-4xl flex flex-col md:flex-row items-center justify-between gap-8">
+          <div>
+            <p className="text-xs tracking-[0.4em] uppercase text-primary mb-3">
+              — Produto em destaque
+            </p>
+            <h3 className="font-display text-2xl md:text-3xl mb-2">
+              Automação WhatsApp + CRM
+            </h3>
+            <p className="text-muted-foreground text-sm md:text-base max-w-md">
+              Agente de IA atendendo 24/7, leads no Chatwoot e agendamentos automáticos. Tudo rodando sem você levantar do sofá.
+            </p>
+          </div>
+          <a
+            href="/whatsapp-crm"
+            className="shrink-0 inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-xs tracking-[0.25em] uppercase hover:opacity-90 transition-opacity"
+          >
+            Conhecer solução
+            <span aria-hidden>→</span>
+          </a>
+        </div>
+      </section>
       <Leadership />
       <Contact />
       <Footer />
