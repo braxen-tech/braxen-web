@@ -73,20 +73,20 @@ function Card({ member, flipped }: { member: Member; flipped: boolean }) {
         </div>
 
         {/* BACK — bio */}
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] border-hairline bg-background p-8 flex flex-col">
-          <p className="text-[10px] tracking-[0.4em] uppercase text-primary mb-6">
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] border-hairline bg-background p-4 md:p-8 flex flex-col overflow-hidden">
+          <p className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-primary mb-3 md:mb-6">
             — Perfil
           </p>
-          <p className="font-display text-2xl md:text-3xl leading-tight mb-4">
+          <p className="font-display text-lg md:text-3xl leading-tight mb-2 md:mb-4">
             {member.name}
           </p>
-          <p className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-6">
+          <p className="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-3 md:mb-6">
             {member.role}
           </p>
-          <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+          <p className="text-xs md:text-base text-muted-foreground leading-relaxed flex-1 overflow-y-auto">
             {member.bio}
           </p>
-          <span className="mt-auto text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+          <span className="mt-2 md:mt-auto text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
             Clique para virar
           </span>
         </div>
