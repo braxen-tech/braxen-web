@@ -37,6 +37,13 @@ export const metadata: Metadata = {
       "Software sob medida, agentes de IA e automações que transformam operações manuais em crescimento real.",
     images: ["/og-home.jpg"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
   robots: {
     index: true,
     follow: true,
