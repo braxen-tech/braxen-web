@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://braxen.tech"),
+  metadataBase: new URL("https://braxentech.com"),
   title: {
     default: "Braxen Tech — Software sob medida, agentes de IA e automações",
     template: "%s — Braxen Tech",
