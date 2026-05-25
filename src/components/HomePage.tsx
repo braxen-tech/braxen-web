@@ -461,7 +461,7 @@ export function HomePage() {
               Automação WhatsApp + CRM
             </h3>
             <p className="text-muted-foreground text-sm md:text-base max-w-md">
-              Agente de IA atendendo 24/7, leads no Chatwoot e agendamentos automáticos. Tudo rodando sem você levantar do sofá.
+              Agente de IA atendendo 24/7, leads no CRM e agendamentos automáticos. Tudo rodando sem você levantar do sofá.
             </p>
           </div>
           <a
