@@ -120,7 +120,7 @@ function Hero() {
     <section className="relative min-h-screen w-full overflow-hidden flex items-center">
       <img
         src={imageSrc(heroImg)}
-        alt="WhatsApp integrado ao Chatwoot CRM"
+        alt="WhatsApp integrado ao CRM"
         className="absolute inset-0 size-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
@@ -151,7 +151,7 @@ function Hero() {
           className="text-base md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-lg"
         >
           Atendimento 24/7 com IA, leads qualificados automaticamente e tudo
-          organizado no Chatwoot — sem você levantar do sofá.
+          organizado num CRM visual — sem você levantar do sofá.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -254,7 +254,7 @@ function Solution() {
         </h2>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
           Mapeamos seu processo de atendimento, configuramos um agente de IA
-          treinado pro seu negócio, integramos tudo ao Chatwoot e entregamos
+          treinado pro seu negócio, integramos tudo ao CRM e entregamos
           funcionando. Seu time só entra quando a IA precisa de ajuda — o resto
           roda sozinho.
         </p>
@@ -273,12 +273,12 @@ function HowItWorks() {
     {
       n: "02",
       title: "Setup do agente IA",
-      desc: "Configuramos o Claude com o conhecimento do seu negócio — produtos, preços, regras, tom de voz.",
+      desc: "Configuramos a IA com o conhecimento do seu negócio — produtos, preços, regras, tom de voz.",
     },
     {
       n: "03",
-      title: "Integração Chatwoot",
-      desc: "Conectamos WhatsApp Business, Chatwoot, Cal.com e ElevenLabs. Tudo conversando entre si.",
+      title: "Integração completa",
+      desc: "Conectamos WhatsApp Business, CRM, agenda e áudio inteligente. Tudo conversando entre si.",
     },
     {
       n: "04",
@@ -303,7 +303,7 @@ function HowItWorks() {
         <div className="mb-16">
           <img
             src={imageSrc(flowImg)}
-            alt="Fluxo: cliente → WhatsApp → IA → Chatwoot → time humano"
+            alt="Fluxo: cliente → WhatsApp → IA → CRM → time humano"
             loading="lazy"
             className="w-full h-auto max-h-[400px] object-contain"
           />
@@ -335,7 +335,7 @@ function HowItWorks() {
 function Features() {
   const items = [
     {
-      title: "Agente IA com Claude",
+      title: "Agente IA personalizado",
       desc: "Treinado com o conhecimento do seu negócio. Atende, qualifica e agenda — em texto e áudio.",
     },
     {
@@ -343,20 +343,20 @@ function Features() {
       desc: "Seu WhatsApp Business nunca dorme. Cada lead recebe resposta em segundos, qualquer hora do dia.",
     },
     {
-      title: "CRM no Chatwoot",
-      desc: "Pipeline visual, histórico completo, tags automáticas. Open-source, sem lock-in de fornecedor.",
+      title: "CRM integrado",
+      desc: "Pipeline visual, histórico completo, tags automáticas. Tudo organizado sem precisar de mais uma ferramenta.",
     },
     {
-      title: "Agendamento via Cal.com",
+      title: "Agendamento automático",
       desc: "O agente consulta sua agenda e marca reuniões direto na conversa. Sem link externo, sem atrito.",
     },
     {
-      title: "Áudio com ElevenLabs",
-      desc: "Respostas em áudio com voz natural. O cliente sente que está falando com uma pessoa de verdade.",
+      title: "Respostas em áudio",
+      desc: "Áudios com voz natural e humanizada. O cliente sente que está falando com uma pessoa de verdade.",
     },
     {
       title: "Handoff humano",
-      desc: "Quando a IA não resolve, transfere pra um atendente real dentro do Chatwoot. Sem perder contexto.",
+      desc: "Quando a IA não resolve, transfere pra um atendente real dentro do CRM. Sem perder contexto.",
     },
     {
       title: "Métricas de conversão",
@@ -568,8 +568,8 @@ function FAQ() {
       a: "Sim, trabalhamos com a API oficial do WhatsApp Business para garantir conformidade e estabilidade. Se você ainda não tem, cuidamos da configuração.",
     },
     {
-      q: "O Chatwoot é hospedado por vocês ou na minha infra?",
-      a: "Você escolhe. Podemos hospedar na nossa infraestrutura com manutenção inclusa, ou instalar na sua. Chatwoot é open-source — sem lock-in.",
+      q: "O CRM é hospedado por vocês ou na minha infra?",
+      a: "Você escolhe. Podemos hospedar na nossa infraestrutura com manutenção inclusa, ou instalar na sua. Sem lock-in de fornecedor.",
     },
     {
       q: "Quanto tempo leva pra ir ao ar?",
@@ -577,11 +577,11 @@ function FAQ() {
     },
     {
       q: "Posso customizar o agente e trocar a voz?",
-      a: "Totalmente. O agente é treinado com o conhecimento do seu negócio, no seu tom de voz. A voz do ElevenLabs pode ser customizada também.",
+      a: "Totalmente. O agente é treinado com o conhecimento do seu negócio, no seu tom de voz. A voz dos áudios também pode ser customizada.",
     },
     {
       q: "E se a IA errar? Como funciona o handoff?",
-      a: "A IA sabe reconhecer quando não consegue resolver. Nesses casos, transfere automaticamente para um atendente humano dentro do Chatwoot, com todo o contexto da conversa.",
+      a: "A IA sabe reconhecer quando não consegue resolver. Nesses casos, transfere automaticamente para um atendente humano dentro do CRM, com todo o contexto da conversa.",
     },
     {
       q: "Vocês conectam com meu sistema atual?",

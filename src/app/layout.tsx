@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "software sob medida",
     "agentes de IA",
     "automação WhatsApp",
-    "CRM Chatwoot",
+    "CRM integrado",
     "desenvolvimento de software",
     "inteligência artificial",
     "automação de processos",
