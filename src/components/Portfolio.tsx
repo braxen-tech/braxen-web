@@ -12,41 +12,36 @@ import {
   type MotionValue,
   type PanInfo,
 } from "framer-motion";
-import chapterMonolith from "@/assets/chapter-monolith.jpg";
-import chapterCraft from "@/assets/chapter-craft.jpg";
-import chapterBlueprint from "@/assets/chapter-blueprint.jpg";
-import heroCity from "@/assets/hero-city.jpg";
-import textureStone from "@/assets/texture-stone.jpg";
+import portfolioAiAgent from "@/assets/portfolio-ai-agent.jpg";
+import portfolioCrm from "@/assets/portfolio-crm.jpg";
+import portfolioDashboard from "@/assets/portfolio-dashboard.jpg";
+import portfolioSchedulingApp from "@/assets/portfolio-scheduling-app.jpg";
+import portfolioLeadScoring from "@/assets/portfolio-lead-scoring.jpg";
+import portfolioStripe from "@/assets/portfolio-stripe.jpg";
+import portfolioClientPortal from "@/assets/portfolio-client-portal.jpg";
+import portfolioWhatsappAutomation from "@/assets/portfolio-whatsapp-automation.jpg";
+import portfolioErp from "@/assets/portfolio-erp.jpg";
+import portfolioLandingPage from "@/assets/portfolio-landing-page.jpg";
+import portfolioTeam from "@/assets/portfolio-team.jpg";
+import portfolioAdminPanel from "@/assets/portfolio-admin-panel.jpg";
 import { imageSrc } from "@/lib/utils";
 
-const sources = [
-  chapterMonolith,
-  chapterCraft,
-  chapterBlueprint,
-  heroCity,
-  textureStone,
-].map(imageSrc);
-
-const titles = [
-  "Monolith OS",
-  "Quiet Ledger",
-  "Blueprint Cloud",
-  "Northbound",
-  "Stonecutter",
-  "Foundry",
-  "Hearth",
-  "Lantern",
-  "Anchor",
-  "Vellum",
-  "Cinder",
-  "Compass",
-  "Mosaic",
-  "Pillar",
-  "Aperture",
-  "Cathedral",
+const projects = [
+  { title: "Agente de Atendimento", tag: "IA · WhatsApp", description: "Redução de 80% nas ligações com atendimento 24/7", image: portfolioAiAgent },
+  { title: "CRM Sob Medida", tag: "Software · CRM", description: "Pipeline comercial integrado ao WhatsApp e e-mail", image: portfolioCrm },
+  { title: "Dashboard Operacional", tag: "Analytics · BI", description: "Métricas de equipe e receita em tempo real", image: portfolioDashboard },
+  { title: "App de Agendamento", tag: "Mobile · API", description: "Reservas, pagamentos e notificações automáticas", image: portfolioSchedulingApp },
+  { title: "Qualificação de Leads", tag: "IA · Automação", description: "Triagem inteligente com scoring por IA generativa", image: portfolioLeadScoring },
+  { title: "Integração Stripe", tag: "Pagamentos · API", description: "Checkout, assinaturas e webhooks sob medida", image: portfolioStripe },
+  { title: "Portal do Cliente", tag: "Web App · SaaS", description: "Área logada com contratos, faturas e suporte", image: portfolioClientPortal },
+  { title: "Automação WhatsApp", tag: "Integração · Bot", description: "Fluxos de onboarding e follow-up automatizados", image: portfolioWhatsappAutomation },
+  { title: "ERP Interno", tag: "Software · Gestão", description: "Controle de estoque, compras e faturamento", image: portfolioErp },
+  { title: "Landing Page", tag: "Site · Performance", description: "Página de alta conversão com SEO e analytics", image: portfolioLandingPage },
+  { title: "Team as a Service", tag: "Squad · Alocação", description: "Equipe dedicada integrada ao seu time", image: portfolioTeam },
+  { title: "Painel Administrativo", tag: "Dashboard · CRUD", description: "Gestão de usuários, permissões e conteúdo", image: portfolioAdminPanel },
 ];
 
-const PLANE_COUNT = titles.length;
+const PLANE_COUNT = projects.length;
 
 const PLANE_LAYOUT = {
   desktop: { width: 320, height: 384, gap: -80 },
@@ -142,8 +137,8 @@ function Plane({
     return `translate3d(${x}px, ${y}px, ${z}px) rotateY(-50deg)`;
   });
 
-  const src = sources[index % sources.length];
-  const title = titles[index];
+  const { title, tag, description, image } = projects[index];
+  const src = imageSrc(image);
 
   return (
     <motion.figure
@@ -172,13 +167,25 @@ function Plane({
           draggable={false}
           className="size-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+
+        <div className="absolute inset-x-0 bottom-0 p-4 md:p-5">
+          <span className="mb-1 inline-block font-mono text-[9px] uppercase tracking-[0.3em] text-primary md:text-[10px]">
+            {tag}
+          </span>
+          <h3 className="font-display text-sm leading-tight text-foreground md:text-base">
+            {title}
+          </h3>
+          <p className="mt-1 text-[10px] leading-snug text-muted-foreground md:text-xs">
+            {description}
+          </p>
+        </div>
       </div>
 
       <AnimatePresence>
         {isHovered && (
           <motion.div
-            className="pointer-events-none absolute left-full top-1/2 ml-3 flex items-center"
+            className="pointer-events-none absolute left-full top-1/2 ml-3 hidden items-center md:flex"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -191,7 +198,7 @@ function Plane({
               exit={{ scaleX: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             />
-            <div className="px-2 py-1 font-mono text-[10px] uppercase tracking-[0.35em] text-foreground">
+            <div className="whitespace-nowrap px-2 py-1 font-mono text-[10px] uppercase tracking-[0.35em] text-foreground">
               {title}
             </div>
           </motion.div>
@@ -253,11 +260,14 @@ export function Portfolio() {
       >
         <div className="pointer-events-none absolute left-5 top-5 z-50 max-w-xs md:left-12 md:top-20 md:max-w-xl">
           <p className="mb-2 text-[10px] uppercase tracking-[0.4em] text-primary md:mb-4 md:text-xs">
-            — Portfólio
+            — O que entregamos
           </p>
           <h2 className="font-display text-4xl leading-[0.95] md:text-7xl">
-            Projetos<span className="text-cyan-glow">.</span>
+            Soluções<span className="text-cyan-glow">.</span>
           </h2>
+          <p className="mt-3 max-w-[240px] text-xs leading-relaxed text-muted-foreground md:mt-5 md:max-w-sm md:text-sm">
+            De agentes de IA a dashboards sob medida — cada projeto é construído para o seu processo.
+          </p>
         </div>
 
         <p className="absolute bottom-3 right-5 z-50 font-mono text-[9px] uppercase tracking-[0.35em] text-muted-foreground md:bottom-8 md:right-8 md:text-[10px] md:tracking-[0.4em]">

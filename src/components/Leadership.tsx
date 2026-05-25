@@ -10,19 +10,19 @@ type Member = {
 const members: Member[] = [
   {
     name: "Hugo Lemos",
-    role: "Chief Executive Officer",
+    role: "Head of Product & UI/UX",
     image: "/hugo_profile.webp",
-    bio: "Ex-engenheiro sênior em fintechs de escala global. Hugo lidera a Braxen com viés de construtor — estratégia destilada em sistemas que funcionam de verdade.",
+    bio: "Design com intenção. Hugo traduz problemas de negócio em interfaces que funcionam — cada tela, cada fluxo, cada detalhe pensado para o usuário final e para o resultado da operação.",
   },
   {
     name: "Neemias Rocha",
-    role: "Chief Technology Officer",
+    role: "Head of Sales",
     image: "/neemias_profile.webp",
-    bio: "Especialista em gestão de novos negócios e projetos. Dez anos de experiência conectando estratégia comercial à execução precisa, construindo operações eficientes e escaláveis que geram valor real.",
+    bio: "Dez anos conectando estratégia comercial à execução. Neemias entende a dor do cliente antes da primeira reunião e garante que cada projeto entregue valor mensurável desde o dia um.",
   },
   {
     name: "Rodrigo Gama",
-    role: "Head of Product Engineering",
+    role: "Head of Engineering",
     image: "/rodrigo_profile.webp",
     bio: "Engenheiro orientado a produto. Rodrigo conduz times pequenos em ciclos curtos — entregas que sustentam carga sem quebrar na segunda versão.",
   },
@@ -30,7 +30,7 @@ const members: Member[] = [
     name: "Tiago Rocha",
     role: "Head of AI & Platform",
     image: "/tiago_profile.webp",
-    bio: "ML aplicado e infraestrutura. Tiago embute modelos onde eles geram valor real e mantém a plataforma abaixo deles honesta e rastreável.",
+    bio: "IA aplicada e infraestrutura. Tiago projeta agentes e automações que geram valor real, e mantém a plataforma por trás deles confiável e rastreável.",
   },
 ];
 

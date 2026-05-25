@@ -1,9 +1,9 @@
 "use client";
 
-import textureStone from "@/assets/texture-stone.jpg";
-import chapterMonolith from "@/assets/chapter-monolith.jpg";
-import chapterCraft from "@/assets/chapter-craft.jpg";
-import chapterBlueprint from "@/assets/chapter-blueprint.jpg";
+import textureTech from "@/assets/texture-tech.jpg";
+import chapterProblem from "@/assets/chapter-problem.jpg";
+import chapterSolution from "@/assets/chapter-solution.jpg";
+import chapterResult from "@/assets/chapter-result.jpg";
 import { ContactForm } from "@/components/ContactForm";
 import { Leadership } from "@/components/Leadership";
 import { motion } from "framer-motion";
@@ -77,19 +77,19 @@ function Nav() {
               href="#chapter-1"
               className="hover:text-primary transition-colors"
             >
-              Empresa
+              A Dor
             </a>
             <a
               href="#chapter-2"
               className="hover:text-primary transition-colors"
             >
-              Serviços
+              A Solução
             </a>
             <a
               href="#chapter-3"
               className="hover:text-primary transition-colors"
             >
-              Resultados
+              O Resultado
             </a>
             <a href="#contact" className="hover:text-primary transition-colors">
               Contato
@@ -183,9 +183,9 @@ function Statement() {
           — O Diagnóstico
         </p>
         <h2 className="font-display text-[clamp(2rem,5vw,4.5rem)]">
-          Cada processo manual que ainda roda na sua empresa{" "}
+          Enquanto sua equipe apaga incêndios,{" "}
           <em className="italic text-muted-foreground">
-            é receita sendo deixada na mesa.
+            seu concorrente automatizou.
           </em>
         </h2>
       </div>
@@ -194,16 +194,12 @@ function Statement() {
 }
 
 function Chapter({
-  index,
-  title,
   kicker,
   body,
   image,
   reverse,
   id,
 }: {
-  index: string;
-  title: string;
   kicker: string;
   body: string;
   image: ImageSrc;
@@ -223,23 +219,16 @@ function Chapter({
         <div className="md:col-span-7">
           <img
             src={imageSrc(image)}
-            alt={title}
+            alt={kicker}
             loading="lazy"
             className="w-full h-[60vh] md:h-[80vh] object-cover grayscale-[0.2]"
           />
         </div>
         <div className="md:col-span-5 md:px-6">
-          <div className="flex items-baseline gap-4 mb-8">
-            <span className="font-display text-6xl text-primary">{index}</span>
-            <span className="text-xs tracking-[0.4em] uppercase text-muted-foreground">
-              Chapter
-            </span>
-          </div>
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">
-            {kicker}
+          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
+            — {kicker}
           </p>
-          <h3 className="font-display text-4xl md:text-6xl mb-8">{title}</h3>
-          <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-md">
+          <p className="text-muted-foreground leading-relaxed text-lg md:text-xl max-w-md">
             {body}
           </p>
         </div>
@@ -319,7 +308,7 @@ function StoneBreak() {
     <section
       className="relative h-[60vh] overflow-hidden flex items-center justify-center"
       style={{
-        backgroundImage: `url(${imageSrc(textureStone)})`,
+        backgroundImage: `url(${imageSrc(textureTech)})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -414,29 +403,23 @@ export function HomePage() {
       <Statement />
       <Chapter
         id="chapter-1"
-        index="I"
-        kicker="O Problema"
-        title="Crescer com processo manual tem um limite."
-        body="Planilhas que não escalam. Leads que somem sem resposta. Times sobrecarregados com trabalho repetitivo. Empresas que dependem de esforço humano para tudo não conseguem crescer — elas apenas sobrevivem. Em algum ponto, a operação quebra antes do negócio chegar ao próximo nível."
-        image={chapterMonolith}
+        kicker="A Dor"
+        body="Leads sem resposta. Equipe no limite. Planilhas que ninguém confia. Você sabe que precisa de tecnologia — mas não de mais uma ferramenta genérica que ninguém vai usar."
+        image={chapterProblem}
       />
       <Chapter
         id="chapter-2"
-        index="II"
-        kicker="A Abordagem"
-        title="Tecnologia construída para o seu negócio."
-        body="Não vendemos templates nem licenças de software genérico. Mapeamos seu processo, identificamos os gargalos reais e desenvolvemos a solução exata que resolve. Software sob medida, agentes de IA que atendem e qualificam, automações que eliminam trabalho repetitivo. Tecnologia que paga por si mesma."
-        image={chapterCraft}
+        kicker="A Solução"
+        body="Mapeamos onde sua operação trava, construímos exatamente o que resolve e colocamos pra rodar. Agente de IA no WhatsApp, CRM que seu time realmente usa, dashboard que mostra o que importa. Sem template. Sem licença."
+        image={chapterSolution}
         reverse
       />
       <StoneBreak />
       <Chapter
         id="chapter-3"
-        index="III"
-        kicker="A Entrega"
-        title="De briefing a produção em semanas."
-        body="Sem projetos de 18 meses. Sem escopo que nunca fecha. Mapeamos o problema, prototipamos a solução, entregamos funcionando e medimos o impacto. Cada entrega é documentada para que seu time continue evoluindo — com ou sem nós."
-        image={chapterBlueprint}
+        kicker="O Resultado"
+        body="Primeira entrega em semanas, não em meses. Você acompanha cada etapa, valida antes de ir pro ar e mede o impacto real. Se não funcionar, a gente ajusta até funcionar."
+        image={chapterResult}
       />
       <Portfolio />
       <Practices />
