@@ -451,14 +451,6 @@ export function HomePage() {
         reverse
       />
       <StoneBreak />
-      <Chapter
-        id="chapter-3"
-        kicker="O Resultado"
-        body="Primeira entrega em semanas, não em meses. Você acompanha cada etapa, valida antes de ir pro ar e mede o impacto real. Se não funcionar, a gente ajusta até funcionar."
-        image={chapterResult}
-      />
-      <Portfolio />
-      <Practices />
       <section className="px-6 md:px-10 py-20 border-t border-border bg-card">
         <div className="mx-auto max-w-4xl flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
@@ -481,6 +473,14 @@ export function HomePage() {
           </a>
         </div>
       </section>
+      <Chapter
+        id="chapter-3"
+        kicker="O Resultado"
+        body="Primeira entrega em semanas, não em meses. Você acompanha cada etapa, valida antes de ir pro ar e mede o impacto real. Se não funcionar, a gente ajusta até funcionar."
+        image={chapterResult}
+      />
+      <Portfolio />
+      <Practices />
       <Leadership />
       <Contact />
       <Footer />

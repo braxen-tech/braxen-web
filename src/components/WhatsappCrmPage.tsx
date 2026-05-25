@@ -1,13 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-whatsapp-crm.jpg";
 import flowImg from "@/assets/flow-whatsapp-crm.jpg";
 import portfolioAiAgent from "@/assets/portfolio-ai-agent.jpg";
 import portfolioWhatsapp from "@/assets/portfolio-whatsapp-automation.jpg";
 import portfolioCrm from "@/assets/portfolio-crm.jpg";
-import { imageSrc } from "@/lib/utils";
+import portfolioSchedulingApp from "@/assets/portfolio-scheduling-app.jpg";
+import portfolioClientPortal from "@/assets/portfolio-client-portal.jpg";
+import portfolioDashboard from "@/assets/portfolio-dashboard.jpg";
+import portfolioLeadScoring from "@/assets/portfolio-lead-scoring.jpg";
+import portfolioErp from "@/assets/portfolio-erp.jpg";
+import { imageSrc, type ImageSrc } from "@/lib/utils";
 import { ContactForm } from "@/components/ContactForm";
 
 function Nav() {
@@ -401,68 +406,30 @@ function Features() {
   );
 }
 
-function Stack() {
-  const tools = [
-    {
-      name: "WhatsApp Business",
-      desc: "Canal oficial. Conformidade total com as políticas do Meta.",
-    },
-    {
-      name: "Chatwoot",
-      desc: "CRM open-source com pipeline visual. Sem lock-in de fornecedor.",
-    },
-    {
-      name: "Claude (Anthropic)",
-      desc: "Modelo de IA de última geração. Respostas inteligentes e contextuais.",
-    },
-    {
-      name: "ElevenLabs",
-      desc: "Síntese de voz natural. O cliente ouve áudio, não lê texto.",
-    },
-    {
-      name: "Cal.com",
-      desc: "Agendamento automatizado de reuniões direto na conversa.",
-    },
-  ];
-
+function UseCaseCard({ title, desc, image, tag }: { title: string; desc: string; image: ImageSrc; tag: string }) {
   return (
-    <section className="px-6 md:px-10 py-32 border-t border-border">
-      <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            — Stack tecnológico
-          </p>
-          <h2 className="font-display text-3xl md:text-5xl">
-            Ferramentas de{" "}
-            <em className="italic text-muted-foreground">ponta a ponta</em>.
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-5 gap-px bg-border">
-          {tools.map((tool) => (
-            <div
-              key={tool.name}
-              className="bg-background p-8 text-center group hover:bg-card transition-colors"
-            >
-              <h4 className="font-display text-lg mb-3 group-hover:text-primary transition-colors">
-                {tool.name}
-              </h4>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                {tool.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <p className="text-center text-sm text-muted-foreground mt-8">
-          Mais integrações por vir — Stripe, Notion, HubSpot, planilhas
-          internas.{" "}
-          <span className="text-foreground">
-            Se tem API, a gente conecta.
-          </span>
+    <div className="group shrink-0 w-[300px] md:w-[360px] border-hairline overflow-hidden hover:border-primary/30 transition-colors snap-start">
+      <div className="relative h-44 overflow-hidden">
+        <img
+          src={imageSrc(image)}
+          alt={title}
+          loading="lazy"
+          className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+        <span className="absolute top-3 left-3 font-mono text-[9px] uppercase tracking-[0.3em] text-primary bg-background/80 px-2 py-1">
+          {tag}
+        </span>
+      </div>
+      <div className="p-6">
+        <h3 className="font-display text-lg mb-2 group-hover:text-primary transition-colors">
+          {title}
+        </h3>
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          {desc}
         </p>
       </div>
-    </section>
+    </div>
   );
 }
 
@@ -470,60 +437,125 @@ function UseCases() {
   const cases = [
     {
       title: "Clínicas e consultórios",
+      tag: "Saúde",
       desc: "Agendamento automático, lembretes de consulta e triagem por IA. Uma clínica reduziu 80% das ligações no primeiro mês.",
-      image: portfolioAiAgent,
+      image: portfolioSchedulingApp,
     },
     {
       title: "E-commerce e varejo",
-      desc: "Qualificação de leads, recuperação de carrinho abandonado e suporte pós-venda — tudo pelo WhatsApp.",
+      tag: "Vendas",
+      desc: "Qualificação de leads, recuperação de carrinho abandonado e suporte pós-venda — tudo pelo WhatsApp, 24 horas.",
       image: portfolioWhatsapp,
     },
     {
       title: "Imobiliárias",
-      desc: "Atendimento inicial, qualificação por perfil e agendamento de visitas. Triplicou o atendimento sem contratar ninguém.",
+      tag: "Atendimento",
+      desc: "Atendimento inicial, qualificação por perfil e agendamento de visitas. Triplicou o atendimento sem contratar.",
       image: portfolioCrm,
+    },
+    {
+      title: "Escritórios de advocacia",
+      tag: "Jurídico",
+      desc: "Triagem de casos pelo WhatsApp, coleta de documentos e agendamento de consultas com zero intervenção humana.",
+      image: portfolioClientPortal,
+    },
+    {
+      title: "Academias e estúdios",
+      tag: "Fitness",
+      desc: "Agendamento de aulas, lembretes de treino e renovação de planos. Tudo pelo canal que o aluno já usa.",
+      image: portfolioAiAgent,
+    },
+    {
+      title: "Agências de marketing",
+      tag: "Agências",
+      desc: "Qualificação e distribuição de leads entre clientes. Dashboard por conta, métricas por campanha.",
+      image: portfolioDashboard,
+    },
+    {
+      title: "Consultorias e coaches",
+      tag: "Serviços",
+      desc: "Follow-up automatizado, onboarding de clientes e pesquisa de satisfação — sem perder o toque pessoal.",
+      image: portfolioLeadScoring,
+    },
+    {
+      title: "Indústria e distribuição",
+      tag: "B2B",
+      desc: "Pedidos via WhatsApp integrados ao ERP. Confirmação automática, rastreamento e suporte pós-venda.",
+      image: portfolioErp,
     },
   ];
 
-  return (
-    <section className="px-6 md:px-10 py-32 border-t border-border">
-      <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            — Casos de uso
-          </p>
-          <h2 className="font-display text-3xl md:text-5xl">
-            Já está{" "}
-            <em className="italic text-muted-foreground">rodando</em>.
-          </h2>
-        </div>
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {cases.map((c) => (
-            <div
-              key={c.title}
-              className="group border-hairline overflow-hidden hover:border-primary/30 transition-colors"
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener("scroll", checkScroll, { passive: true });
+    window.addEventListener("resize", checkScroll);
+    return () => {
+      el.removeEventListener("scroll", checkScroll);
+      window.removeEventListener("resize", checkScroll);
+    };
+  }, [checkScroll]);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === "left" ? -380 : 380, behavior: "smooth" });
+  };
+
+  return (
+    <section className="py-32 border-t border-border">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
+              — Casos de uso
+            </p>
+            <h2 className="font-display text-3xl md:text-5xl">
+              Já está{" "}
+              <em className="italic text-muted-foreground">rodando</em>.
+            </h2>
+          </div>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => scroll("left")}
+              disabled={!canScrollLeft}
+              className="size-10 border-hairline flex items-center justify-center hover:bg-card transition-colors disabled:opacity-20 cursor-pointer disabled:cursor-default"
+              aria-label="Anterior"
             >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={imageSrc(c.image)}
-                  alt={c.title}
-                  loading="lazy"
-                  className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-              </div>
-              <div className="p-8">
-                <h3 className="font-display text-xl mb-3 group-hover:text-primary transition-colors">
-                  {c.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {c.desc}
-                </p>
-              </div>
-            </div>
-          ))}
+              ←
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              disabled={!canScrollRight}
+              className="size-10 border-hairline flex items-center justify-center hover:bg-card transition-colors disabled:opacity-20 cursor-pointer disabled:cursor-default"
+              aria-label="Próximo"
+            >
+              →
+            </button>
+          </div>
         </div>
+      </div>
+
+      <div
+        ref={scrollRef}
+        className="flex gap-5 overflow-x-auto px-6 md:px-10 pb-4 snap-x snap-mandatory scrollbar-none"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      >
+        {cases.map((c) => (
+          <UseCaseCard key={c.title} {...c} />
+        ))}
       </div>
     </section>
   );
@@ -651,7 +683,6 @@ export function WhatsappCrmPage() {
       <Solution />
       <HowItWorks />
       <Features />
-      <Stack />
       <UseCases />
       <FAQ />
       <Contact />
