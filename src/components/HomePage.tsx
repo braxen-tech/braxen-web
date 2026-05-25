@@ -452,25 +452,45 @@ export function HomePage() {
       />
       <StoneBreak />
       <section className="px-6 md:px-10 py-20 border-t border-border bg-card">
-        <div className="mx-auto max-w-4xl flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <p className="text-xs tracking-[0.4em] uppercase text-primary mb-3">
-              — Produto em destaque
-            </p>
-            <h3 className="font-display text-2xl md:text-3xl mb-2">
-              Automação WhatsApp + CRM
-            </h3>
-            <p className="text-muted-foreground text-sm md:text-base max-w-md">
-              Agente de IA atendendo 24/7, leads no CRM e agendamentos automáticos. Tudo rodando sem você levantar do sofá.
-            </p>
+        <div className="mx-auto max-w-5xl grid md:grid-cols-2 gap-px bg-border">
+          <div className="bg-background p-8 md:p-10 flex flex-col justify-between gap-6">
+            <div>
+              <p className="text-xs tracking-[0.4em] uppercase text-primary mb-3">
+                — Automação
+              </p>
+              <h3 className="font-display text-xl md:text-2xl mb-2">
+                WhatsApp + CRM
+              </h3>
+              <p className="text-muted-foreground text-sm max-w-md">
+                Agente de IA atendendo 24/7, leads no CRM e agendamentos automáticos.
+              </p>
+            </div>
+            <a
+              href="/whatsapp-crm"
+              className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
+            >
+              Conhecer solução <span aria-hidden>→</span>
+            </a>
           </div>
-          <a
-            href="/whatsapp-crm"
-            className="shrink-0 inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-xs tracking-[0.25em] uppercase hover:opacity-90 transition-opacity"
-          >
-            Conhecer solução
-            <span aria-hidden>→</span>
-          </a>
+          <div className="bg-background p-8 md:p-10 flex flex-col justify-between gap-6">
+            <div>
+              <p className="text-xs tracking-[0.4em] uppercase text-primary mb-3">
+                — Equipe
+              </p>
+              <h3 className="font-display text-xl md:text-2xl mb-2">
+                Tech Squads
+              </h3>
+              <p className="text-muted-foreground text-sm max-w-md">
+                Times completos de desenvolvimento, produto, dados e IA integrados ao seu negócio.
+              </p>
+            </div>
+            <a
+              href="/tech-squads"
+              className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
+            >
+              Montar meu squad <span aria-hidden>→</span>
+            </a>
+          </div>
         </div>
       </section>
       <Chapter
