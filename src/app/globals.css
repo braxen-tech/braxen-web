@@ -34,6 +34,7 @@
   --font-serif: "Raleway", sans-serif;
   --font-sans: "Raleway", sans-serif;
   --font-mono: "Raleway", sans-serif;
+  --animate-marquee: marquee 30s linear infinite;
 }
 
 :root {

@@ -229,6 +229,46 @@ function Statement() {
   );
 }
 
+function Clients() {
+  const logos = [
+    { src: "/globo.png", alt: "Globo" },
+    { src: "/amazon.png", alt: "Amazon" },
+    { src: "/rivian.png", alt: "Rivian" },
+    { src: "/serasa.png", alt: "Serasa" },
+    { src: "/b2w.png", alt: "B2W" },
+  ];
+
+  const track = [...logos, ...logos];
+
+  return (
+    <section className="py-20 border-t border-border overflow-hidden">
+      <p className="text-center text-xs tracking-[0.4em] uppercase text-muted-foreground mb-12 px-6">
+        — Quem confiou em nossa expertise
+      </p>
+      <div className="relative flex w-max animate-marquee hover:[animation-play-state:paused]">
+        {track.map((logo, i) => (
+          <div key={`${logo.alt}-${i}`} className="flex items-center justify-center px-10 md:px-14">
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              className="h-14 md:h-20 w-auto object-contain opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+            />
+          </div>
+        ))}
+        {track.map((logo, i) => (
+          <div key={`${logo.alt}-dup-${i}`} className="flex items-center justify-center px-10 md:px-14" aria-hidden="true">
+            <img
+              src={logo.src}
+              alt=""
+              className="h-14 md:h-20 w-auto object-contain opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function Chapter({
   kicker,
   body,
@@ -437,6 +477,7 @@ export function HomePage() {
       <Nav />
       <Hero />
       <Statement />
+      <Clients />
       <Chapter
         id="chapter-1"
         kicker="A Dor"
