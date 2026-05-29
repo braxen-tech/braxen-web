@@ -113,6 +113,13 @@
   .border-hairline {
     border: 1px solid color-mix(in oklab, var(--foreground) 15%, transparent);
   }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
   .marquee {
     width: max-content;
     animation: marquee 35s linear infinite;
