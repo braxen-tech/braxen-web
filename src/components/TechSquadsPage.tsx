@@ -39,57 +39,52 @@ function Nav() {
 
   return (
     <>
-      <motion.nav
+      <motion.header
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-background/80 backdrop-blur-xl border-b border-border"
-            : "bg-transparent"
-        }`}
+        className={siteHeaderClass(scrolled)}
       >
-        <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
-          <div className="flex items-center justify-between px-6 md:px-10 py-6 text-foreground">
-            <a
-              href="/"
-              className="flex items-center gap-2 text-sm tracking-[0.3em] uppercase"
-            >
-              <span className="inline-block size-2 rounded-full bg-primary" />
-              Braxen
-            </a>
-            <nav className="hidden md:flex items-center gap-10 text-xs tracking-[0.25em] uppercase">
-              {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className="hover:text-primary transition-colors"
-                >
-                  {l.label}
-                </a>
-              ))}
-            </nav>
-            <div className="flex items-center gap-4">
+        <div className={siteHeaderInnerClass(scrolled)}>
+          <a
+            href="/"
+            className="flex items-center gap-2 text-sm tracking-[0.3em] uppercase"
+          >
+            <span className="inline-block size-2 rounded-full bg-primary" />
+            Braxen
+          </a>
+          <nav className="hidden md:flex items-center gap-10 text-xs tracking-[0.25em] uppercase">
+            {links.map((l) => (
               <a
-                href="#contato"
-                className="hidden md:inline-flex text-xs tracking-[0.25em] uppercase border-hairline px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+                key={l.href}
+                href={l.href}
+                className="hover:text-primary transition-colors"
               >
-                Montar meu squad
+                {l.label}
               </a>
-              <button
-                onClick={() => setMenuOpen(!menuOpen)}
-                className="md:hidden flex flex-col gap-1.5 p-1 cursor-pointer"
-                aria-label="Menu"
-              >
-                <span
-                  className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`}
-                />
-                <span
-                  className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`}
-                />
-              </button>
-            </div>
+            ))}
+          </nav>
+          <div className="flex items-center gap-4">
+            <a
+              href="#contato"
+              className="hidden md:inline-flex text-xs tracking-[0.25em] uppercase border-hairline px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              Montar meu squad
+            </a>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden flex flex-col gap-1.5 p-1 cursor-pointer"
+              aria-label="Menu"
+            >
+              <span
+                className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`}
+              />
+              <span
+                className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`}
+              />
+            </button>
           </div>
+        </div>
       </motion.header>
 
       {menuOpen && (

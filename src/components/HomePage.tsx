@@ -242,29 +242,30 @@ function Clients() {
   ];
 
   const track = [...logos, ...logos];
+  const logoClass =
+    "h-20 w-auto max-w-[140px] object-contain transition-opacity grayscale hover:grayscale-0 sm:h-24 sm:max-w-[180px] md:h-28 md:max-w-[220px]";
 
   return (
-    <section className="py-20 border-t border-border overflow-hidden">
-      <p className="text-center text-xs tracking-[0.4em] uppercase text-muted-foreground mb-12 px-6">
+    <section className="overflow-hidden border-t border-border py-24 md:py-28">
+      <p className="mb-14 px-6 text-center text-xs tracking-[0.4em] uppercase text-muted-foreground md:mb-16">
         — Quem confiou em nossa expertise
       </p>
       <div className="relative flex w-max animate-marquee hover:[animation-play-state:paused]">
         {track.map((logo, i) => (
-          <div key={`${logo.alt}-${i}`} className="flex items-center justify-center px-10 md:px-14">
-            <img
-              src={logo.src}
-              alt={logo.alt}
-              className="h-14 md:h-20 w-auto object-contain transition-opacity grayscale hover:grayscale-0"
-            />
+          <div
+            key={`${logo.alt}-${i}`}
+            className="flex items-center justify-center px-12 md:px-16 lg:px-20"
+          >
+            <img src={logo.src} alt={logo.alt} className={logoClass} />
           </div>
         ))}
         {track.map((logo, i) => (
-          <div key={`${logo.alt}-dup-${i}`} className="flex items-center justify-center px-10 md:px-14" aria-hidden="true">
-            <img
-              src={logo.src}
-              alt=""
-              className="h-14 md:h-20 w-auto object-contain transition-opacity grayscale hover:grayscale-0"
-            />
+          <div
+            key={`${logo.alt}-dup-${i}`}
+            className="flex items-center justify-center px-12 md:px-16 lg:px-20"
+            aria-hidden="true"
+          >
+            <img src={logo.src} alt="" className={logoClass} />
           </div>
         ))}
       </div>
