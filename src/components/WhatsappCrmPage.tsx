@@ -14,6 +14,7 @@ import portfolioLeadScoring from "@/assets/portfolio-lead-scoring.jpg";
 import portfolioErp from "@/assets/portfolio-erp.jpg";
 import { imageSrc, type ImageSrc } from "@/lib/utils";
 import { ContactForm } from "@/components/ContactForm";
+import { INBOXY_URL } from "@/lib/inboxy";
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -172,7 +173,44 @@ function Hero() {
           >
             Ver como funciona
           </a>
+          <a
+            href={INBOXY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 border-hairline px-8 py-4 text-xs tracking-[0.25em] uppercase hover:bg-card transition-colors"
+          >
+            Conhecer o Inboxy
+          </a>
         </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function InboxyCta() {
+  return (
+    <section className="px-6 md:px-10 py-20 border-t border-border bg-card">
+      <div className="mx-auto max-w-3xl text-center">
+        <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
+          — Produto Braxen
+        </p>
+        <h2 className="font-display text-3xl md:text-4xl mb-4">
+          Prefere começar com a{" "}
+          <em className="italic text-muted-foreground">plataforma pronta</em>?
+        </h2>
+        <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10">
+          O Inboxy é nosso agente multicanal com Chatwoot, vendas Stripe e
+          agendamento Cal.com — configure pelo painel e coloque o chat no seu site.
+        </p>
+        <a
+          href={INBOXY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-xs tracking-[0.25em] uppercase hover:opacity-90 transition-opacity"
+        >
+          Acessar o Inboxy
+          <span aria-hidden>→</span>
+        </a>
       </div>
     </section>
   );
@@ -685,6 +723,7 @@ export function WhatsappCrmPage() {
       <Features />
       <UseCases />
       <FAQ />
+      <InboxyCta />
       <Contact />
       <Footer />
     </main>

@@ -1,29 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { buildBraxenWhatsAppUrl } from "@/lib/contact";
 
 type Status = "idle" | "error";
-
-const WHATSAPP_NUMBER = "5521973118404";
-
-function buildWhatsAppUrl(form: {
-  name: string;
-  email: string;
-  message: string;
-}) {
-  const phone = WHATSAPP_NUMBER;
-
-  const text = [
-    "Olá!",
-    "",
-    `Nome: ${form.name.trim()}`,
-    `E-mail: ${form.email.trim()}`,
-    "",
-    form.message.trim(),
-  ].join("\n");
-
-  return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-}
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -36,7 +16,7 @@ export function ContactForm() {
     setErrorMsg("");
 
     try {
-      const url = buildWhatsAppUrl(form);
+      const url = buildBraxenWhatsAppUrl(form);
       window.open(url, "_blank", "noopener,noreferrer");
       setForm({ name: "", email: "", message: "" });
     } catch (err) {

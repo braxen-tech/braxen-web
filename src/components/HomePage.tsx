@@ -5,6 +5,7 @@ import chapterProblem from "@/assets/chapter-problem.jpg";
 import chapterSolution from "@/assets/chapter-solution.jpg";
 import chapterResult from "@/assets/chapter-result.jpg";
 import { ContactForm } from "@/components/ContactForm";
+import { INBOXY_URL } from "@/lib/inboxy";
 import { Leadership } from "@/components/Leadership";
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
@@ -463,9 +464,20 @@ function Footer() {
       <p>
         © {new Date().getFullYear()} Braxen Tech — Todos os direitos reservados
       </p>
-      <p className="flex items-center gap-2">
-        <span className="inline-block size-1.5 rounded-full bg-primary blink" />
-        Construído no escuro
+      <p className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2">
+        <a
+          href={INBOXY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-foreground transition-colors"
+        >
+          Inboxy
+        </a>
+        <span className="hidden sm:inline text-border">·</span>
+        <span className="flex items-center gap-2">
+          <span className="inline-block size-1.5 rounded-full bg-primary blink" />
+          Construído no escuro
+        </span>
       </p>
     </footer>
   );
@@ -493,8 +505,29 @@ export function HomePage() {
       />
       <StoneBreak />
       <section className="px-6 md:px-10 py-20 border-t border-border bg-card">
-        <div className="mx-auto max-w-5xl grid md:grid-cols-2 gap-px bg-border">
+        <div className="mx-auto max-w-5xl grid md:grid-cols-2 lg:grid-cols-2 gap-px bg-border">
           <div className="bg-background p-8 md:p-10 flex flex-col justify-between gap-6">
+            <div>
+              <p className="text-xs tracking-[0.4em] uppercase text-primary mb-3">
+                — Produto
+              </p>
+              <h3 className="font-display text-xl md:text-2xl mb-2">
+                Inboxy
+              </h3>
+              <p className="text-muted-foreground text-sm max-w-md">
+                Agente de IA multicanal com vendas Stripe, agendamento Cal.com e inbox via Chatwoot.
+              </p>
+            </div>
+            <a
+              href={INBOXY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
+            >
+              Conhecer o Inboxy <span aria-hidden>→</span>
+            </a>
+          </div>
+          {/* <div className="bg-background p-8 md:p-10 flex flex-col justify-between gap-6">
             <div>
               <p className="text-xs tracking-[0.4em] uppercase text-primary mb-3">
                 — Automação
@@ -512,8 +545,8 @@ export function HomePage() {
             >
               Conhecer solução <span aria-hidden>→</span>
             </a>
-          </div>
-          <div className="bg-background p-8 md:p-10 flex flex-col justify-between gap-6">
+          </div> */}
+          <div className="bg-background p-8 md:p-10 flex flex-col justify-between gap-6 md:col-span-2 lg:col-span-1">
             <div>
               <p className="text-xs tracking-[0.4em] uppercase text-primary mb-3">
                 — Equipe
