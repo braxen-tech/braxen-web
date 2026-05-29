@@ -12,6 +12,7 @@ import portfolioClientPortal from "@/assets/portfolio-client-portal.jpg";
 import portfolioDashboard from "@/assets/portfolio-dashboard.jpg";
 import portfolioLeadScoring from "@/assets/portfolio-lead-scoring.jpg";
 import portfolioErp from "@/assets/portfolio-erp.jpg";
+import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { imageSrc, type ImageSrc } from "@/lib/utils";
 import { ContactForm } from "@/components/ContactForm";
 import { INBOXY_URL } from "@/lib/inboxy";
@@ -22,7 +23,8 @@ function Nav() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -44,18 +46,13 @@ function Nav() {
 
   return (
     <>
-      <motion.nav
+      <motion.header
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-background/80 backdrop-blur-xl border-b border-border"
-            : "bg-transparent"
-        }`}
+        className={siteHeaderClass(scrolled)}
       >
-        <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
-          <div className="flex items-center justify-between px-6 md:px-10 py-6 text-foreground">
+          <div className={siteHeaderInnerClass(scrolled)}>
             <a
               href="/"
               className="flex items-center gap-2 text-sm tracking-[0.3em] uppercase"
@@ -87,8 +84,7 @@ function Nav() {
               </button>
             </div>
           </div>
-        </header>
-      </motion.nav>
+      </motion.header>
 
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8">

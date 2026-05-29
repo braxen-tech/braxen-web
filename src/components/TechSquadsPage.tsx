@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-tech-squads.jpg";
+import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { imageSrc } from "@/lib/utils";
 import { ContactForm } from "@/components/ContactForm";
 
@@ -12,7 +13,8 @@ function Nav() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -88,8 +90,7 @@ function Nav() {
               </button>
             </div>
           </div>
-        </header>
-      </motion.nav>
+      </motion.header>
 
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8">

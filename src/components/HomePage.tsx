@@ -10,6 +10,7 @@ import { Leadership } from "@/components/Leadership";
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { Portfolio } from "@/components/Portfolio";
+import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { imageSrc, type ImageSrc } from "@/lib/utils";
 
 function RevealWords({
@@ -50,7 +51,8 @@ function Nav() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -72,18 +74,13 @@ function Nav() {
 
   return (
     <>
-      <motion.nav
+      <motion.header
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-background/80 backdrop-blur-xl border-b border-border"
-            : "bg-transparent"
-        }`}
+        className={siteHeaderClass(scrolled)}
       >
-        <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
-          <div className="flex items-center justify-between px-6 md:px-10 py-6 text-foreground">
+          <div className={siteHeaderInnerClass(scrolled)}>
             <a
               href="#top"
               className="flex items-center gap-2 text-sm tracking-[0.3em] uppercase"
@@ -115,8 +112,7 @@ function Nav() {
               </button>
             </div>
           </div>
-        </header>
-      </motion.nav>
+      </motion.header>
 
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8">
@@ -148,7 +144,7 @@ function Hero() {
   return (
     <section id="top" className="relative h-screen w-full overflow-hidden">
       <video
-        src="/hero-smooth.mp4"
+        src="/hero-2.mp4"
         autoPlay
         muted
         loop
@@ -157,16 +153,19 @@ function Hero() {
         className="absolute inset-0 size-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background" />
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-transparent md:via-black/35"
+        aria-hidden
+      />
 
       <div className="relative z-10 flex h-full flex-col items-start justify-center px-6 md:px-10 lg:px-16 text-left max-w-2xl">
         <h1 className="fade-up font-display text-4xl tracking-tight">
-          <RevealWords text="BRAXEN" delay={0.4} className="text-7xl" />
-          <RevealWords text="." delay={0.4} className="text-cyan-glow" />
+          <RevealWords text="BRAXEN" delay={0.4} className="text-7xl font-bold text-[#f1f1f1]" />
           <br />
           <RevealWords
             text="Tecnologia que escala."
             delay={0.4}
-            className="font-display italic text-muted-foreground"
+            className="font-display italic font-semibold text-[#f1f1f1]"
           />
         </h1>
 
@@ -174,7 +173,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="font-body mt-6 text-md md:text-xl text-muted-foreground max-w-lg leading-relaxed mb-8 md:mb-10"
+          className="font-body mt-6 text-md md:text-xl max-w-lg leading-relaxed mb-8 md:mb-10 text-white"
         >
           Desenvolvemos software sob medida, agentes de IA e automações que
           transformam operações manuais em crescimento real.
@@ -188,14 +187,14 @@ function Hero() {
         >
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-xs tracking-[0.25em] uppercase hover:opacity-90 transition-opacity"
+            className="inline-flex font-semibold items-center gap-3 bg-white text-primary-foreground px-8 py-4 text-xs tracking-[0.25em] uppercase hover:opacity-90 transition-opacity"
           >
             Quero uma solução
             <span aria-hidden>→</span>
           </a>
           <a
             href="#chapter-2"
-            className="inline-flex items-center gap-3 border-hairline px-8 py-4 text-xs tracking-[0.25em] uppercase hover:bg-card transition-colors"
+            className="inline-flex font-semibold items-center gap-3 border-hairline px-8 py-4 text-xs tracking-[0.25em] uppercase hover:bg-card transition-colors"
           >
             Ver como funciona
           </a>
@@ -506,7 +505,7 @@ export function HomePage() {
         image={chapterSolution}
         reverse
       />
-      <StoneBreak />
+      {/* <StoneBreak /> */}
       <section className="px-6 md:px-10 py-20 border-t border-border bg-card">
         <div className="mx-auto max-w-5xl grid md:grid-cols-2 lg:grid-cols-2 gap-px bg-border">
           <div className="bg-background p-8 md:p-10 flex flex-col justify-between gap-6">
