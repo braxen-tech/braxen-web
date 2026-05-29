@@ -255,7 +255,7 @@ function Clients() {
             <img
               src={logo.src}
               alt={logo.alt}
-              className="h-14 md:h-20 w-auto object-contain opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+              className="h-14 md:h-20 w-auto object-contain transition-opacity grayscale hover:grayscale-0"
             />
           </div>
         ))}
@@ -264,7 +264,7 @@ function Clients() {
             <img
               src={logo.src}
               alt=""
-              className="h-14 md:h-20 w-auto object-contain opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+              className="h-14 md:h-20 w-auto object-contain transition-opacity grayscale hover:grayscale-0"
             />
           </div>
         ))}
