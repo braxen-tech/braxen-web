@@ -233,9 +233,12 @@ function Statement() {
 function Clients() {
   const logos = [
     { src: "/globo.png", alt: "Globo" },
+    { src: "/tim.png", alt: "TIM" },
+    { src: "/disney.png", alt: "Disney" },
     { src: "/amazon.png", alt: "Amazon" },
     { src: "/rivian.png", alt: "Rivian" },
     { src: "/serasa.png", alt: "Serasa" },
+    { src: "/sicredi.png", alt: "Sicredi" },
     { src: "/b2w.png", alt: "B2W" },
   ];
 
