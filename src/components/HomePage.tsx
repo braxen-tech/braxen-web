@@ -79,6 +79,7 @@ function Nav() {
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={siteHeaderClass(scrolled)}
+        style={{zIndex: 9999}}
       >
           <div className={siteHeaderInnerClass(scrolled)}>
             <a
