@@ -88,9 +88,9 @@ function Nav() {
               <span className="inline-block size-2 rounded-full bg-primary" />
               Braxen
             </a>
-            <nav className="hidden md:flex items-center gap-10 text-xs tracking-[0.25em] uppercase">
+            <nav className="hidden lg:flex items-center gap-8 text-xs tracking-[0.25em] uppercase">
               {links.map((l) => (
-                <a key={l.href} href={l.href} className="hover:text-primary transition-colors">
+                <a key={l.href} href={l.href} className="hover:text-primary transition-colors whitespace-nowrap">
                   {l.label}
                 </a>
               ))}
@@ -98,13 +98,13 @@ function Nav() {
             <div className="flex items-center gap-4">
               <a
                 href="#contact"
-                className="hidden md:inline-flex text-xs tracking-[0.25em] uppercase border-hairline px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="hidden lg:inline-flex text-xs tracking-[0.2em] uppercase border-hairline px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors whitespace-nowrap"
               >
                 Fale conosco
               </a>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="md:hidden flex flex-col gap-1.5 p-1 cursor-pointer"
+                className="lg:hidden flex flex-col gap-1.5 p-1 cursor-pointer"
                 aria-label="Menu"
               >
                 <span className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
