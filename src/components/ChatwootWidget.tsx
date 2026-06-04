@@ -22,7 +22,7 @@ export function ChatwootWidget() {
   return (
     <>
       <Script id="chatwoot-settings" strategy="afterInteractive">
-        {`window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":"Iniciar conversa"};`}
+        {`window.chatwootSettings = {"position":"right","type":"expanded_bubble","launcherTitle":"Converse conosco"};`}
       </Script>
       <Script
         id="chatwoot-sdk"
