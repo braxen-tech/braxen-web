@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://braxentech.com"),
@@ -8,23 +10,12 @@ export const metadata: Metadata = {
     template: "%s — Braxen Tech",
   },
   description:
-    "Desenvolvemos software sob medida, agentes de IA e automações que transformam operações manuais em crescimento real. WhatsApp, CRM, dashboards e mais.",
+    "Desenvolvemos software sob medida, agentes de IA e automações para empresas no Brasil. Primeira entrega em semanas. Fale conosco — resposta em 24h.",
   authors: [{ name: "Braxen Tech" }],
-  keywords: [
-    "software sob medida",
-    "agentes de IA",
-    "automação WhatsApp",
-    "CRM integrado",
-    "desenvolvimento de software",
-    "inteligência artificial",
-    "automação de processos",
-    "dashboard",
-    "Braxen",
-  ],
   openGraph: {
     title: "Braxen Tech — Software sob medida, agentes de IA e automações",
     description:
-      "Software sob medida, agentes de IA e automações que transformam operações manuais em crescimento real.",
+      "Software sob medida, agentes de IA e automações para empresas no Brasil. Primeira entrega em semanas. Resposta em 24h.",
     type: "website",
     locale: "pt_BR",
     siteName: "Braxen Tech",
@@ -34,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Braxen Tech — Software sob medida, agentes de IA e automações",
     description:
-      "Software sob medida, agentes de IA e automações que transformam operações manuais em crescimento real.",
+      "Software sob medida, agentes de IA e automações para empresas no Brasil. Primeira entrega em semanas. Resposta em 24h.",
     images: ["/og-home.jpg"],
   },
   icons: {
@@ -60,7 +51,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body>
+        <JsonLd data={organizationJsonLd()} />
+        <JsonLd data={websiteJsonLd()} />
+        {children}
+      </body>
     </html>
   );
 }

@@ -6,6 +6,7 @@ import heroImg from "@/assets/hero-tech-squads.jpg";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { imageSrc } from "@/lib/utils";
 import { ContactForm } from "@/components/ContactForm";
+import { techSquadsFaq } from "@/lib/faq-data";
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -520,36 +521,7 @@ function MarketContext() {
 }
 
 function FAQ() {
-  const items = [
-    {
-      q: "Qual o tamanho mínimo de um squad?",
-      a: "Geralmente começamos com 2 a 3 pessoas, mas o squad pode ter qualquer configuração. Montamos sob medida para o seu contexto.",
-    },
-    {
-      q: "Quanto tempo leva pra montar o squad?",
-      a: "De 1 a 3 semanas, dependendo dos perfis necessários. Profissionais mais especializados podem levar um pouco mais.",
-    },
-    {
-      q: "O squad usa minhas ferramentas ou traz as próprias?",
-      a: "O squad se adapta ao seu stack, suas ferramentas e seus processos. Operamos como extensão do seu time, não como um silo separado.",
-    },
-    {
-      q: "Qual o modelo de contratação?",
-      a: "Contrato mensal, sem lock-in de longo prazo. Você pode escalar pra cima ou pra baixo conforme a demanda do projeto.",
-    },
-    {
-      q: "Como funciona a gestão técnica?",
-      a: "Cada squad tem um tech lead da Braxen que acompanha entregas, qualidade de código e evolução dos profissionais. Você recebe relatórios periódicos.",
-    },
-    {
-      q: "E se um profissional não performar?",
-      a: "Substituímos rapidamente sem impacto no projeto. Nosso modelo de gestão ativa identifica problemas antes que afetem a entrega.",
-    },
-    {
-      q: "Vocês trabalham em qual fuso horário?",
-      a: "Brasil, com flexibilidade para se alinhar ao seu horário. Atuamos remotamente com comunicação assíncrona eficiente e rituais síncronos quando necessário.",
-    },
-  ];
+  const items = techSquadsFaq;
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 

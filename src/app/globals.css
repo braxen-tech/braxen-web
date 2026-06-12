@@ -34,7 +34,9 @@
   --font-serif: "Raleway", sans-serif;
   --font-sans: "Raleway", sans-serif;
   --font-mono: "Raleway", sans-serif;
-  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee: marquee var(--duration, 40s) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration, 40s) linear infinite;
+  --animate-marquee-clients: marquee-clients 30s linear infinite;
 }
 
 :root {
@@ -90,6 +92,27 @@
   .font-body {
     font-family: var(--font-sans);
   }
+  .text-heading-1 {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+  }
+  .text-heading-2 {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  }
+  .text-heading-3 {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+  }
 }
 
 @layer utilities {
@@ -125,6 +148,22 @@
     animation: marquee 35s linear infinite;
   }
   @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-clients {
     0% {
       transform: translateX(0);
     }
@@ -151,6 +190,19 @@
   @keyframes blink {
     to {
       visibility: hidden;
+    }
+  }
+  .portfolio-3d-stage {
+    transform: translate3d(0, 0, -30px) rotateX(10deg) rotateY(-4deg) rotateZ(3deg);
+  }
+  @media (min-width: 768px) {
+    .portfolio-3d-stage {
+      transform: translate3d(-24px, 0, -60px) rotateX(16deg) rotateY(-7deg) rotateZ(6deg);
+    }
+  }
+  @media (min-width: 1024px) {
+    .portfolio-3d-stage {
+      transform: translate3d(-40px, 0, -80px) rotateX(18deg) rotateY(-8deg) rotateZ(8deg);
     }
   }
 }

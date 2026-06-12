@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
 import { WhatsappCrmPage } from "@/components/WhatsappCrmPage";
+import { whatsappCrmFaq } from "@/lib/faq-data";
+import { faqPageJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   title: "Automação WhatsApp + CRM Inteligente",
@@ -22,5 +25,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <WhatsappCrmPage />;
+  return (
+    <>
+      <JsonLd data={faqPageJsonLd(whatsappCrmFaq)} />
+      <WhatsappCrmPage />
+    </>
+  );
 }

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
 import { TechSquadsPage } from "@/components/TechSquadsPage";
+import { techSquadsFaq } from "@/lib/faq-data";
+import { faqPageJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   title: "Tech Squads — Times de Tecnologia Sob Medida",
@@ -29,5 +32,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <TechSquadsPage />;
+  return (
+    <>
+      <JsonLd data={faqPageJsonLd(techSquadsFaq)} />
+      <TechSquadsPage />
+    </>
+  );
 }

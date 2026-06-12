@@ -1,6 +1,5 @@
 "use client";
 
-import textureTech from "@/assets/texture-tech.jpg";
 import chapterProblem from "@/assets/chapter-problem.jpg";
 import chapterSolution from "@/assets/chapter-solution.jpg";
 import chapterResult from "@/assets/chapter-result.jpg";
@@ -8,9 +7,10 @@ import { ContactForm } from "@/components/ContactForm";
 import { INBOXY_URL } from "@/lib/inboxy";
 import { Leadership } from "@/components/Leadership";
 import { motion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Portfolio } from "@/components/Portfolio";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
+import { SOCIAL_LINKS } from "@/lib/site";
 import { imageSrc, type ImageSrc } from "@/lib/utils";
 
 function RevealWords({
@@ -62,13 +62,17 @@ function Nav() {
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   const links = [
     { href: "#chapter-1", label: "A Dor" },
     { href: "#chapter-2", label: "A Solução" },
     { href: "#chapter-3", label: "O Resultado" },
+    { href: "#portfolio", label: "Soluções" },
+    { href: "#leadership", label: "Time" },
     { href: "#contact", label: "Contato" },
   ];
 
@@ -79,40 +83,48 @@ function Nav() {
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={siteHeaderClass(scrolled)}
-        style={{zIndex: 9999}}
+        style={{ zIndex: 9999 }}
       >
-          <div className={siteHeaderInnerClass(scrolled)}>
-            <a
-              href="#top"
-              className="flex items-center gap-2 text-sm tracking-[0.3em] uppercase"
-            >
-              <span className="inline-block size-2 rounded-full bg-primary" />
-              Braxen
-            </a>
-            <nav className="hidden lg:flex items-center gap-8 text-xs tracking-[0.25em] uppercase">
-              {links.map((l) => (
-                <a key={l.href} href={l.href} className="hover:text-primary transition-colors whitespace-nowrap">
-                  {l.label}
-                </a>
-              ))}
-            </nav>
-            <div className="flex items-center gap-4">
+        <div className={siteHeaderInnerClass(scrolled)}>
+          <a
+            href="#top"
+            className="flex items-center gap-2 text-sm tracking-[0.3em] uppercase"
+          >
+            <span className="inline-block size-2 rounded-full bg-primary" />
+            Braxen
+          </a>
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-xs tracking-[0.25em] uppercase">
+            {links.map((l) => (
               <a
-                href="#contact"
-                className="hidden lg:inline-flex text-xs tracking-[0.2em] uppercase border-hairline px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors whitespace-nowrap"
+                key={l.href}
+                href={l.href}
+                className="hover:text-primary transition-colors whitespace-nowrap"
               >
-                Fale conosco
+                {l.label}
               </a>
-              <button
-                onClick={() => setMenuOpen(!menuOpen)}
-                className="lg:hidden flex flex-col gap-1.5 p-1 cursor-pointer"
-                aria-label="Menu"
-              >
-                <span className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
-                <span className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
-              </button>
-            </div>
+            ))}
+          </nav>
+          <div className="flex items-center gap-4">
+            <a
+              href="#contact"
+              className="hidden lg:inline-flex text-xs tracking-[0.2em] uppercase border-hairline px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors whitespace-nowrap"
+            >
+              Fale conosco
+            </a>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="lg:hidden flex flex-col gap-1.5 p-1 cursor-pointer"
+              aria-label="Menu"
+            >
+              <span
+                className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`}
+              />
+              <span
+                className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`}
+              />
+            </button>
           </div>
+        </div>
       </motion.header>
 
       {menuOpen && (
@@ -160,14 +172,19 @@ function Hero() {
       />
 
       <div className="relative z-10 flex h-full flex-col items-start justify-center px-6 md:px-10 lg:px-16 text-left max-w-2xl">
-        <h1 className="fade-up font-display text-4xl tracking-tight">
-          <RevealWords text="BRAXEN" delay={0.4} className="text-7xl font-bold text-[#f1f1f1]" />
-          <br />
+        <h1 className="fade-up font-display text-heading-1 tracking-tight text-[#f1f1f1]">
           <RevealWords
-            text="Tecnologia que escala."
+            text="Software sob medida e agentes de IA"
             delay={0.4}
-            className="font-display italic font-semibold text-[#f1f1f1]"
+            className="block"
           />
+          <span className="mt-2 block">
+            <RevealWords
+              text="Tecnologia que escala."
+              delay={0.6}
+              className="font-display italic font-semibold text-[#f1f1f1]"
+            />
+          </span>
         </h1>
 
         <motion.p
@@ -201,13 +218,6 @@ function Hero() {
           </a>
         </motion.div>
       </div>
-
-      <div className="absolute bottom-6 left-6 z-10 text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-        N 43°36′ · E 1°26′
-      </div>
-      <div className="absolute bottom-6 right-6 z-10 text-[10px] tracking-[0.3em] uppercase text-muted-foreground blink">
-        ● Live
-      </div>
     </section>
   );
 }
@@ -219,7 +229,7 @@ function Statement() {
         <p className="text-xs tracking-[0.4em] uppercase text-primary mb-10">
           — O Diagnóstico
         </p>
-        <h2 className="font-display text-[clamp(2rem,5vw,4.5rem)]">
+        <h2 className="font-display text-heading-2">
           Enquanto sua equipe apaga incêndios,{" "}
           <em className="italic text-muted-foreground">
             seu concorrente automatizou.
@@ -248,9 +258,9 @@ function Clients() {
   return (
     <section className="overflow-hidden border-t border-border py-24 md:py-28">
       <p className="mb-14 px-6 text-center text-xs tracking-[0.4em] uppercase text-muted-foreground md:mb-16">
-        — Quem confiou em nossa expertise
+        — Experiência acumulada em empresas como
       </p>
-      <div className="relative flex w-max animate-marquee hover:[animation-play-state:paused]">
+      <div className="relative flex w-max animate-marquee-clients hover:[animation-play-state:paused]">
         {track.map((logo, i) => (
           <div
             key={`${logo.alt}-${i}`}
@@ -275,14 +285,18 @@ function Clients() {
 
 function Chapter({
   kicker,
+  title,
   body,
   image,
+  imageAlt,
   reverse,
   id,
 }: {
   kicker: string;
+  title: string;
   body: string;
   image: ImageSrc;
+  imageAlt: string;
   reverse?: boolean;
   id: string;
 }) {
@@ -299,7 +313,7 @@ function Chapter({
         <div className="md:col-span-7">
           <img
             src={imageSrc(image)}
-            alt={kicker}
+            alt={imageAlt}
             loading="lazy"
             className="w-full h-[60vh] md:h-[80vh] object-cover grayscale-[0.2]"
           />
@@ -308,6 +322,7 @@ function Chapter({
           <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
             — {kicker}
           </p>
+          <h2 className="font-display text-heading-2 mb-6">{title}</h2>
           <p className="text-muted-foreground leading-relaxed text-lg md:text-xl max-w-md">
             {body}
           </p>
@@ -341,14 +356,14 @@ function Practices() {
     },
   ];
   return (
-    <section className="px-6 md:px-10 py-32 border-t border-border">
+    <section id="services" className="px-6 md:px-10 py-32 border-t border-border">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">
               — Serviços
             </p>
-            <h2 className="font-display text-2xl md:text-4xl">
+            <h2 className="font-display text-heading-2">
               O que{" "}
               <em className="italic text-muted-foreground">construímos</em>.
             </h2>
@@ -371,9 +386,9 @@ function Practices() {
                 </span>
                 <span className="h-px flex-1 bg-border" />
               </div>
-              <h4 className="font-display text-3xl mb-4 group-hover:text-primary transition-colors">
+              <h3 className="text-heading-3 font-display mb-4 group-hover:text-primary transition-colors">
                 {i.t}
-              </h4>
+              </h3>
               <p className="text-muted-foreground leading-relaxed">{i.d}</p>
             </div>
           ))}
@@ -383,28 +398,83 @@ function Practices() {
   );
 }
 
-function StoneBreak() {
+function Products() {
   return (
     <section
-      className="relative h-[60vh] overflow-hidden flex items-center justify-center"
-      style={{
-        backgroundImage: `url(${imageSrc(textureTech)})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      id="products"
+      className="px-6 md:px-10 py-20 border-t border-border bg-card"
     >
-      <div className="absolute inset-0 bg-background/40" />
-      <blockquote className="relative z-10 text-center px-6 max-w-4xl">
-        <p className="font-display italic text-3xl md:text-5xl leading-tight">
-          &ldquo;Uma clínica reduziu 80% das ligações com um agente de IA. Uma
-          imobiliária{" "}
-          <span className="text-cyan-glow">triplicou o atendimento </span> sem
-          contratar ninguém. Isso não é futuro — já está rodando.&rdquo;
-        </p>
-        <footer className="mt-8 text-xs tracking-[0.4em] uppercase text-muted-foreground">
-          — Resultados reais de clientes Braxen
-        </footer>
-      </blockquote>
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10">
+          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">
+            — Produtos e squads
+          </p>
+          <h2 className="font-display text-heading-2">
+            Pronto para{" "}
+            <em className="italic text-muted-foreground">começar</em>?
+          </h2>
+        </div>
+        <div className="grid gap-px bg-border md:grid-cols-3">
+          <div className="flex flex-col justify-between gap-6 bg-background p-8 md:p-10">
+            <div>
+              <p className="mb-3 text-xs tracking-[0.4em] uppercase text-primary">
+                — Produto
+              </p>
+              <h3 className="text-heading-3 font-display mb-2">Inboxy</h3>
+              <p className="max-w-md text-sm text-muted-foreground">
+                Agente de IA multicanal com vendas Stripe, agendamento Cal.com
+                e inbox via Chatwoot.
+              </p>
+            </div>
+            <a
+              href={INBOXY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
+            >
+              Conhecer o Inboxy <span aria-hidden>→</span>
+            </a>
+          </div>
+          <div className="flex flex-col justify-between gap-6 bg-background p-8 md:p-10">
+            <div>
+              <p className="mb-3 text-xs tracking-[0.4em] uppercase text-primary">
+                — Automação
+              </p>
+              <h3 className="text-heading-3 font-display mb-2">
+                WhatsApp + CRM
+              </h3>
+              <p className="max-w-md text-sm text-muted-foreground">
+                Agente de IA atendendo 24/7, leads no CRM e agendamentos
+                automáticos.
+              </p>
+            </div>
+            <a
+              href="/whatsapp-crm"
+              className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
+            >
+              Conhecer solução <span aria-hidden>→</span>
+            </a>
+          </div>
+          <div className="flex flex-col justify-between gap-6 bg-background p-8 md:p-10">
+            <div>
+              <p className="mb-3 text-xs tracking-[0.4em] uppercase text-primary">
+                — Equipe
+              </p>
+              <h3 className="text-heading-3 font-display mb-2">Tech Squads</h3>
+              <p className="max-w-md text-sm text-muted-foreground">
+                Times completos de desenvolvimento, produto, dados e IA
+                integrados ao seu negócio.
+              </p>
+            </div>
+            <a
+              href="/tech-squads"
+              className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
+            >
+              Montar meu squad <span aria-hidden>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
@@ -419,7 +489,7 @@ function Contact() {
         <p className="text-xs tracking-[0.4em] uppercase text-primary mb-8">
           — Próximo Passo
         </p>
-        <h2 className="font-display text-4xl leading-[0.95] mb-6">
+        <h2 className="font-display text-heading-2 mb-6">
           Vamos construir{" "}
           <em className="italic text-muted-foreground">sua solução</em>.
         </h2>
@@ -453,7 +523,32 @@ function Contact() {
             <p className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">
               Redes
             </p>
-            <p>LinkedIn · GitHub · Instagram</p>
+            <p className="flex flex-wrap gap-x-3 gap-y-1">
+              <a
+                href={SOCIAL_LINKS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                LinkedIn
+              </a>
+              <a
+                href={SOCIAL_LINKS.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                GitHub
+              </a>
+              <a
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                Instagram
+              </a>
+            </p>
           </div>
         </div>
       </div>
@@ -477,10 +572,7 @@ function Footer() {
           Inboxy
         </a>
         <span className="hidden sm:inline text-border">·</span>
-        <span className="flex items-center gap-2">
-          <span className="inline-block size-1.5 rounded-full bg-primary blink" />
-          Construído no escuro
-        </span>
+        <span>Braxen Tech · Brasil</span>
       </p>
     </footer>
   );
@@ -496,88 +588,31 @@ export function HomePage() {
       <Chapter
         id="chapter-1"
         kicker="A Dor"
+        title="Sua operação trava antes de escalar"
+        imageAlt="Equipe sobrecarregada com processos manuais e planilhas desorganizadas"
         body="Leads sem resposta. Equipe no limite. Planilhas que ninguém confia. Você sabe que precisa de tecnologia — mas não de mais uma ferramenta genérica que ninguém vai usar."
         image={chapterProblem}
       />
       <Chapter
         id="chapter-2"
         kicker="A Solução"
+        title="Tecnologia feita pro seu processo"
+        imageAlt="Dashboard e automações sob medida integrados à operação"
         body="Mapeamos onde sua operação trava, construímos exatamente o que resolve e colocamos pra rodar. Agente de IA no WhatsApp, CRM que seu time realmente usa, dashboard que mostra o que importa. Sem template. Sem licença."
         image={chapterSolution}
         reverse
       />
-      {/* <StoneBreak /> */}
-      <section className="px-6 md:px-10 py-20 border-t border-border bg-card">
-        <div className="mx-auto max-w-5xl grid md:grid-cols-2 lg:grid-cols-2 gap-px bg-border">
-          <div className="bg-background p-8 md:p-10 flex flex-col justify-between gap-6">
-            <div>
-              <p className="text-xs tracking-[0.4em] uppercase text-primary mb-3">
-                — Produto
-              </p>
-              <h3 className="font-display text-xl md:text-2xl mb-2">
-                Inboxy
-              </h3>
-              <p className="text-muted-foreground text-sm max-w-md">
-                Agente de IA multicanal com vendas Stripe, agendamento Cal.com e inbox via Chatwoot.
-              </p>
-            </div>
-            <a
-              href={INBOXY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
-            >
-              Conhecer o Inboxy <span aria-hidden>→</span>
-            </a>
-          </div>
-          {/* <div className="bg-background p-8 md:p-10 flex flex-col justify-between gap-6">
-            <div>
-              <p className="text-xs tracking-[0.4em] uppercase text-primary mb-3">
-                — Automação
-              </p>
-              <h3 className="font-display text-xl md:text-2xl mb-2">
-                WhatsApp + CRM
-              </h3>
-              <p className="text-muted-foreground text-sm max-w-md">
-                Agente de IA atendendo 24/7, leads no CRM e agendamentos automáticos.
-              </p>
-            </div>
-            <a
-              href="/whatsapp-crm"
-              className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
-            >
-              Conhecer solução <span aria-hidden>→</span>
-            </a>
-          </div> */}
-          <div className="bg-background p-8 md:p-10 flex flex-col justify-between gap-6 md:col-span-2 lg:col-span-1">
-            <div>
-              <p className="text-xs tracking-[0.4em] uppercase text-primary mb-3">
-                — Equipe
-              </p>
-              <h3 className="font-display text-xl md:text-2xl mb-2">
-                Tech Squads
-              </h3>
-              <p className="text-muted-foreground text-sm max-w-md">
-                Times completos de desenvolvimento, produto, dados e IA integrados ao seu negócio.
-              </p>
-            </div>
-            <a
-              href="/tech-squads"
-              className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
-            >
-              Montar meu squad <span aria-hidden>→</span>
-            </a>
-          </div>
-        </div>
-      </section>
       <Chapter
         id="chapter-3"
         kicker="O Resultado"
+        title="Entrega rápida, impacto mensurável"
+        imageAlt="Resultados de negócio com entregas de software em produção"
         body="Primeira entrega em semanas, não em meses. Você acompanha cada etapa, valida antes de ir pro ar e mede o impacto real. Se não funcionar, a gente ajusta até funcionar."
         image={chapterResult}
       />
       <Portfolio />
       <Practices />
+      <Products />
       <Leadership />
       <Contact />
       <Footer />
