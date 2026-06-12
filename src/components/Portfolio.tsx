@@ -1,5 +1,7 @@
 "use client";
 
+import { Fragment } from "react";
+import { motion } from "framer-motion";
 import portfolioAiAgent from "@/assets/portfolio-ai-agent.jpg";
 import portfolioCrm from "@/assets/portfolio-crm.jpg";
 import portfolioDashboard from "@/assets/portfolio-dashboard.jpg";
@@ -12,8 +14,6 @@ import portfolioErp from "@/assets/portfolio-erp.jpg";
 import portfolioLandingPage from "@/assets/portfolio-landing-page.jpg";
 import portfolioTeam from "@/assets/portfolio-team.jpg";
 import portfolioAdminPanel from "@/assets/portfolio-admin-panel.jpg";
-import { Marquee } from "@/components/ui/3d-testimonails";
-import { Card, CardContent } from "@/components/ui/card";
 import { cn, imageSrc } from "@/lib/utils";
 
 const projects = [
@@ -105,39 +105,81 @@ const projects = [
 
 type Project = (typeof projects)[number];
 
+const firstColumn = projects.slice(0, 4);
+const secondColumn = projects.slice(4, 8);
+const thirdColumn = projects.slice(8, 12);
+
 function SolutionCard({ project }: { project: Project }) {
   return (
-    <Card className="mx-auto box-border w-[min(calc(50vw-1.25rem),380px)] min-w-0 max-w-[380px] shrink-0 overflow-hidden border-border bg-card/95 shadow-lg backdrop-blur-sm sm:w-[min(calc(50vw-2rem),380px)] md:w-[320px] lg:w-[360px] xl:w-[380px]">
-      <div className="relative h-36 w-full overflow-hidden sm:h-40 md:h-44 lg:h-52">
-        <img
-          src={imageSrc(project.image)}
-          alt={project.title}
-          loading="lazy"
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-card/80 to-transparent" />
-      </div>
-      <CardContent className="p-4 md:p-5">
-        <span className="block truncate font-mono text-[10px] tracking-[0.2em] text-primary">
-          {String(project.id).padStart(2, "0")} · {project.tag}
+    <div className="group relative h-[22rem] w-full min-w-0 shrink-0 overflow-hidden rounded-sm border border-border shadow-lg shadow-black/25 sm:h-[24rem] md:h-[26rem] lg:h-[28rem]">
+      <img
+        src={imageSrc(project.image)}
+        alt={project.title}
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-linear-to-t from-[oklch(0.12_0.012_220/95%)] via-[oklch(0.12_0.012_220/35%)] to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8">
+        <span className="mb-2 block font-mono text-[10px] tracking-[0.3em] text-primary">
+          {String(project.id).padStart(2, "0")}
         </span>
-        <h3 className="mt-2 text-base font-medium leading-tight text-foreground md:text-lg">
+        <span className="mb-2 block text-[10px] uppercase tracking-[0.25em] text-primary">
+          {project.tag}
+        </span>
+        <h3 className="text-heading-3 font-medium leading-tight text-foreground">
           {project.title}
         </h3>
-        <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-muted-foreground md:text-sm">
+        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
           {project.description}
         </p>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }
 
-const columns = [
-  projects.slice(0, 3),
-  projects.slice(3, 6),
-  projects.slice(6, 9),
-  projects.slice(9, 12),
-];
+function SolutionsColumn({
+  className,
+  items,
+  duration = 10,
+}: {
+  className?: string;
+  items: Project[];
+  duration?: number;
+}) {
+  return (
+    <div className={cn("min-w-0 flex-1", className)}>
+      <motion.div
+        animate={{ translateY: "-50%" }}
+        transition={{
+          duration,
+          repeat: Infinity,
+          ease: "linear",
+          repeatType: "loop",
+        }}
+        className="flex flex-col gap-5 bg-background pb-5 md:gap-6 md:pb-6"
+      >
+        {[0, 1].map((index) => (
+          <Fragment key={index}>
+            {items.map((project) => (
+              <motion.div
+                key={`${index}-${project.id}`}
+                aria-hidden={index === 1 ? true : undefined}
+                whileHover={{
+                  scale: 1.02,
+                  y: -6,
+                  transition: { type: "spring", stiffness: 400, damping: 17 },
+                }}
+                className="w-full"
+              >
+                <SolutionCard project={project} />
+              </motion.div>
+            ))}
+          </Fragment>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
 
 export function Portfolio() {
   return (
@@ -158,36 +200,27 @@ export function Portfolio() {
         </p>
       </div>
 
-      <div className="relative h-[36rem] w-full overflow-hidden sm:h-[38rem] md:h-[42rem] lg:h-[48rem] [perspective:400px]">
-        <div className="portfolio-3d-stage flex h-full w-full min-w-0 items-stretch justify-center gap-2 px-2 sm:gap-3 md:gap-5 lg:gap-8 lg:px-4">
-          {columns.map((columnProjects, index) => (
-            <div
-              key={index}
-              className={cn(
-                "flex h-full min-w-0 flex-1 basis-0",
-                index >= 2 && "hidden md:flex",
-              )}
-            >
-              <Marquee
-                vertical
-                pauseOnHover
-                reverse={index % 2 === 1}
-                repeat={3}
-                className="h-full w-full min-w-0 max-w-none flex-1 [--duration:45s] [--gap:1rem] md:[--gap:1.25rem]"
-                ariaLabel={`Coluna de soluções ${index + 1}`}
-              >
-                {columnProjects.map((project) => (
-                  <SolutionCard key={project.id} project={project} />
-                ))}
-              </Marquee>
-            </div>
-          ))}
+      <div
+        className="relative w-full px-4 sm:px-6 md:px-8 lg:px-10"
+        role="region"
+        aria-label="Soluções entregues pela Braxen"
+      >
+        <div className="mx-auto flex w-full max-w-[1400px] justify-center gap-4 md:gap-6 lg:gap-8 [mask-image:linear-gradient(to_bottom,transparent,black_8%,black_92%,transparent)] max-h-[780px] overflow-hidden">
+          <SolutionsColumn items={firstColumn} duration={22} />
+          <SolutionsColumn
+            items={secondColumn}
+            className="hidden md:block"
+            duration={26}
+          />
+          <SolutionsColumn
+            items={thirdColumn}
+            className="hidden lg:block"
+            duration={24}
+          />
         </div>
 
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-1/5 bg-gradient-to-b from-background via-background/80 to-transparent sm:h-1/4" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-1/5 bg-gradient-to-t from-background via-background/80 to-transparent sm:h-1/4" />
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[12%] bg-gradient-to-r from-background via-background/70 to-transparent sm:w-[10%] md:w-[8%]" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[12%] bg-gradient-to-l from-background via-background/70 to-transparent sm:w-[10%] md:w-[8%]" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[8%] bg-gradient-to-r from-background to-transparent sm:w-[6%]" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[8%] bg-gradient-to-l from-background to-transparent sm:w-[6%]" />
       </div>
     </section>
   );
