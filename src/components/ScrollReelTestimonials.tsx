@@ -31,7 +31,7 @@ const AUTHOR_CLASSES =
   "m-0 text-sm font-medium leading-[1.3] text-muted-foreground";
 
 const FEATURED_SHADOW =
-  "0 0 0 1px color-mix(in oklab, var(--primary) 35%, transparent), 0 12px 32px -8px rgba(0,0,0,0.45)";
+  "0 0 0 1px color-mix(in oklab, var(--foreground) 12%, transparent), 0 12px 32px -8px rgba(0,0,0,0.45)";
 
 function Cell() {
   return (
@@ -46,7 +46,7 @@ function Cell() {
 function Featured({ src, alt }: { src: string; alt?: string }) {
   return (
     <div
-      className="relative shrink-0 overflow-hidden rounded-xl border border-primary/30 bg-card ring-1 ring-primary/20"
+      className="relative shrink-0 overflow-hidden rounded-xl border border-border bg-card ring-1 ring-foreground/10"
       style={{ width: CELL, height: CELL, boxShadow: FEATURED_SHADOW }}
     >
       <img
@@ -61,7 +61,7 @@ function Featured({ src, alt }: { src: string; alt?: string }) {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[3] bg-gradient-to-br from-primary/25 via-transparent to-transparent"
+        className="pointer-events-none absolute inset-0 z-[3] bg-gradient-to-br from-foreground/10 via-transparent to-transparent"
       />
     </div>
   );
@@ -261,7 +261,7 @@ export function ScrollReelTestimonials({
       <div className="flex min-w-0 flex-1 flex-col justify-between self-stretch px-5 py-7 md:py-10">
         <div className="flex flex-col gap-[9px]">
           <svg
-            className="block h-12 w-12 text-primary/25"
+            className="block h-12 w-12 text-muted-foreground/40"
             viewBox="0 0 24 24"
             fill="currentColor"
             aria-hidden="true"

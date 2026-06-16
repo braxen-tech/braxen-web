@@ -23,13 +23,13 @@ export default function Error({
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => reset()}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="btn btn-sm btn-primary normal-case tracking-normal text-sm font-medium px-4 py-2"
           >
             Try again
           </button>
           <Link
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="btn btn-sm btn-outline normal-case tracking-normal text-sm font-medium px-4 py-2"
           >
             Go home
           </Link>

@@ -68,7 +68,7 @@ function Nav() {
           <div className="flex items-center gap-4">
             <a
               href="#contato"
-              className="hidden md:inline-flex text-xs tracking-[0.25em] uppercase border-hairline px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+              className="btn btn-sm btn-outline btn-outline-primary hidden md:inline-flex"
             >
               Montar meu squad
             </a>
@@ -95,7 +95,7 @@ function Nav() {
               key={l.href}
               href={l.href}
               onClick={() => setMenuOpen(false)}
-              className="font-display text-3xl tracking-[0.1em] uppercase hover:text-primary transition-colors"
+              className="font-sans text-3xl tracking-[0.1em] uppercase hover:text-primary transition-colors"
             >
               {l.label}
             </a>
@@ -103,7 +103,7 @@ function Nav() {
           <a
             href="#contato"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-xs tracking-[0.25em] uppercase"
+            className="btn btn-lg btn-primary mt-4"
           >
             Montar meu squad
             <span aria-hidden>→</span>
@@ -138,10 +138,10 @@ function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] mb-6"
+          className="font-sans text-4xl md:text-6xl lg:text-7xl leading-[0.95] mb-6"
         >
           Seu time de tecnologia,
-          <span className="text-cyan-glow"> pronto amanhã</span>.
+          <span className="text-foreground"> pronto amanhã</span>.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -160,14 +160,14 @@ function Hero() {
         >
           <a
             href="#contato"
-            className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-xs tracking-[0.25em] uppercase hover:opacity-90 transition-opacity"
+            className="btn btn-lg btn-primary"
           >
             Montar meu squad
             <span aria-hidden>→</span>
           </a>
           <a
             href="#como-funciona"
-            className="inline-flex items-center gap-3 border-hairline px-8 py-4 text-xs tracking-[0.25em] uppercase hover:bg-card transition-colors"
+            className="btn btn-lg btn-outline"
           >
             Ver como funciona
           </a>
@@ -190,7 +190,7 @@ function Stats() {
       <div className="mx-auto max-w-7xl grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
         {stats.map((s) => (
           <div key={s.label} className="text-center">
-            <p className="font-display text-3xl md:text-4xl text-primary mb-2">
+            <p className="font-sans text-3xl md:text-4xl text-primary mb-2">
               {s.value}
             </p>
             <p className="text-xs text-muted-foreground leading-relaxed max-w-[200px] mx-auto">
@@ -241,7 +241,7 @@ function Challenges() {
           <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
             — Reconhece algum desses?
           </p>
-          <h2 className="font-display text-3xl md:text-5xl">
+          <h2 className="font-sans text-3xl md:text-5xl">
             Os desafios que{" "}
             <em className="italic text-muted-foreground">
               travam seu crescimento
@@ -256,7 +256,7 @@ function Challenges() {
               key={item.title}
               className="bg-background p-8 md:p-10 group hover:bg-card transition-colors"
             >
-              <h3 className="font-display text-xl mb-3 group-hover:text-primary transition-colors">
+              <h3 className="font-sans text-xl mb-3 group-hover:text-primary transition-colors">
                 {item.title}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -304,7 +304,7 @@ function HowItWorks() {
           <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
             — Processo
           </p>
-          <h2 className="font-display text-3xl md:text-5xl">
+          <h2 className="font-sans text-3xl md:text-5xl">
             Do diagnóstico ao{" "}
             <em className="italic text-muted-foreground">squad rodando</em>.
           </h2>
@@ -314,12 +314,12 @@ function HowItWorks() {
           {steps.map((step) => (
             <div key={step.n} className="group">
               <div className="flex items-baseline gap-3 mb-4">
-                <span className="font-display text-3xl text-primary">
+                <span className="font-sans text-3xl text-primary">
                   {step.n}
                 </span>
                 <span className="h-px flex-1 bg-border" />
               </div>
-              <h3 className="font-display text-xl mb-3 group-hover:text-primary transition-colors">
+              <h3 className="font-sans text-xl mb-3 group-hover:text-primary transition-colors">
                 {step.title}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -372,7 +372,7 @@ function Differentials() {
             <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">
               — Diferenciais
             </p>
-            <h2 className="font-display text-2xl md:text-4xl">
+            <h2 className="font-sans text-2xl md:text-4xl">
               Mais que outsourcing{" "}
               <em className="italic text-muted-foreground">tradicional</em>.
             </h2>
@@ -389,7 +389,7 @@ function Differentials() {
               key={item.title}
               className="bg-background p-8 md:p-10 group hover:bg-card transition-colors"
             >
-              <h3 className="font-display text-xl mb-3 group-hover:text-primary transition-colors">
+              <h3 className="font-sans text-xl mb-3 group-hover:text-primary transition-colors">
                 {item.title}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -447,7 +447,7 @@ function Profiles() {
           <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
             — Perfis disponíveis
           </p>
-          <h2 className="font-display text-3xl md:text-5xl">
+          <h2 className="font-sans text-3xl md:text-5xl">
             Squads completos para{" "}
             <em className="italic text-muted-foreground">seu desafio</em>.
           </h2>
@@ -459,7 +459,7 @@ function Profiles() {
               key={cat.title}
               className="bg-background p-8 md:p-10"
             >
-              <h3 className="font-display text-2xl mb-6 text-primary">
+              <h3 className="font-sans text-2xl mb-6 text-primary">
                 {cat.title}
               </h3>
               <ul className="space-y-3">
@@ -480,7 +480,7 @@ function Profiles() {
         <div className="text-center mt-12">
           <a
             href="#contato"
-            className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-xs tracking-[0.25em] uppercase hover:opacity-90 transition-opacity"
+            className="btn btn-lg btn-primary"
           >
             Definir meu squad
             <span aria-hidden>→</span>
@@ -498,7 +498,7 @@ function MarketContext() {
         <p className="text-xs tracking-[0.4em] uppercase text-primary mb-10">
           — O mercado global
         </p>
-        <h2 className="font-display text-[clamp(2rem,5vw,4.5rem)] mb-8">
+        <h2 className="font-sans text-[clamp(2rem,5vw,4.5rem)] mb-8">
           Outsourcing de TI vai de{" "}
           <em className="italic text-muted-foreground">
             US$ 462 bi para US$ 861 bi até 2033
@@ -532,7 +532,7 @@ function FAQ() {
           <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
             — Perguntas frequentes
           </p>
-          <h2 className="font-display text-3xl md:text-5xl">
+          <h2 className="font-sans text-3xl md:text-5xl">
             Tire suas{" "}
             <em className="italic text-muted-foreground">dúvidas</em>.
           </h2>
@@ -546,7 +546,7 @@ function FAQ() {
               className="w-full text-left py-6 group cursor-pointer"
             >
               <div className="flex items-start justify-between gap-4">
-                <h3 className="font-display text-base md:text-lg group-hover:text-primary transition-colors">
+                <h3 className="font-sans text-base md:text-lg group-hover:text-primary transition-colors">
                   {item.q}
                 </h3>
                 <span className="text-primary text-xl shrink-0 mt-0.5">
@@ -576,7 +576,7 @@ function Contact() {
         <p className="text-xs tracking-[0.4em] uppercase text-primary mb-8">
           — Próximo Passo
         </p>
-        <h2 className="font-display text-4xl leading-[0.95] mb-6">
+        <h2 className="font-sans text-4xl leading-[0.95] mb-6">
           Vamos montar{" "}
           <em className="italic text-muted-foreground">seu squad</em>.
         </h2>

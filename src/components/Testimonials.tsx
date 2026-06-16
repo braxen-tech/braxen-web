@@ -118,7 +118,7 @@ function TestimonialsColumn({
                   y: -8,
                   transition: { type: "spring", stiffness: 400, damping: 17 },
                 }}
-                className="group w-full max-w-xs cursor-default rounded-sm border border-border bg-card p-8 shadow-lg shadow-black/20 transition-all duration-300 select-none focus:outline-none focus:ring-2 focus:ring-primary/30 md:p-10"
+                className="group w-full max-w-xs cursor-default rounded-sm border border-border bg-card p-8 shadow-lg shadow-black/20 transition-all duration-300 select-none focus:outline-none focus:ring-2 focus:ring-ring md:p-10"
               >
                 <blockquote className="m-0 p-0">
                   <p className="m-0 leading-relaxed text-muted-foreground">
@@ -130,7 +130,7 @@ function TestimonialsColumn({
                       height={40}
                       src={image}
                       alt={`Avatar de ${name}`}
-                      className="h-10 w-10 rounded-full object-cover ring-2 ring-border transition-all duration-300 ease-in-out group-hover:ring-primary/30"
+                      className="h-10 w-10 rounded-full object-cover ring-2 ring-border transition-all duration-300 ease-in-out group-hover:ring-foreground/20"
                     />
                     <div className="flex flex-col">
                       <cite className="leading-5 font-medium not-italic tracking-tight text-foreground">
@@ -174,7 +174,7 @@ export function Testimonials({ enabled = false }: { enabled?: boolean }) {
         <p className="mb-4 text-xs tracking-[0.4em] uppercase text-primary">
           — Resultados reais
         </p>
-        <h2 className="font-display text-heading-2">
+        <h2 className="font-sans text-heading-2">
           O que nossos clientes{" "}
           <em className="italic text-muted-foreground">dizem</em>.
         </h2>

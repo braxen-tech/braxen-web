@@ -43,12 +43,8 @@ export const atendimentoIaFaq = [
     a: "Se tem API, a gente conecta. ERPs, pagamentos, estoque, planilhas internas, sistemas legados — fazemos a integração sob medida.",
   },
   {
-    q: "E se precisar de humano no meio do atendimento?",
-    a: "O agente reconhece quando não resolve sozinho e transfere para um atendente real, com todo o histórico e contexto da conversa no CRM.",
-  },
-  {
-    q: "Vocês ajudam a operar depois do go-live?",
-    a: "Sim. Podemos acompanhar a implantação e cuidar da operação contínua — monitoramento, ajustes do agente, evolução e suporte no dia a dia.",
+    q: "E se precisar de humano ou suporte depois de colocar no ar?",
+    a: "O agente transfere para um atendente real quando necessário, com todo o histórico no CRM. Depois que entra no ar, podemos cuidar da operação contínua — monitoramento, ajustes e evolução do agente.",
   },
   {
     q: "Quanto custa?",

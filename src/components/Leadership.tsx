@@ -47,7 +47,7 @@ export function Leadership() {
           <p className="mb-6 text-xs tracking-[0.4em] uppercase text-primary">
             — Time
           </p>
-          <h2 className="mb-8 font-display text-heading-2">
+          <h2 className="mb-8 font-sans text-heading-2">
             Liderança técnica{" "}
             <em className="italic text-muted-foreground">de alto nível</em>.
           </h2>

@@ -220,7 +220,7 @@ export function CircularTestimonials({
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <h3
-                className="mb-1 font-display font-medium"
+                className="mb-1 font-sans font-medium"
                 style={{ color: colorName, fontSize: fontSizeName }}
               >
                 {activeTestimonial.name}

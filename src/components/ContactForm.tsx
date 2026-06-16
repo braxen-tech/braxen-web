@@ -76,7 +76,7 @@ export function ContactForm({
           rows={5}
           value={form.message}
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-          className="w-full bg-transparent border-b border-border focus:border-primary outline-none py-3 text-base resize-none transition-colors"
+          className="w-full bg-transparent border-b border-border focus:border-foreground outline-none py-3 text-base resize-none transition-colors"
           placeholder={messagePlaceholder}
         />
       </div>
@@ -91,7 +91,7 @@ export function ContactForm({
         </p>
         <button
           type="submit"
-          className="cursor-pointer inline-flex items-center justify-center gap-3 border-hairline px-8 py-4 text-xs tracking-[0.3em] uppercase hover:bg-primary hover:text-primary-foreground transition-colors"
+          className="btn btn-lg btn-outline btn-outline-primary cursor-pointer tracking-[0.3em]"
         >
           Enviar pelo WhatsApp
           <span aria-hidden>→</span>
@@ -133,7 +133,7 @@ function Field({
         maxLength={maxLength}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full bg-transparent border-b border-border focus:border-primary outline-none py-3 text-base transition-colors"
+        className="w-full bg-transparent border-b border-border focus:border-foreground outline-none py-3 text-base transition-colors"
       />
     </div>
   );

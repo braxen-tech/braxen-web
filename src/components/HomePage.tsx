@@ -107,7 +107,7 @@ function Nav() {
           <div className="flex items-center gap-4">
             <a
               href="#contact"
-              className="hidden lg:inline-flex text-xs tracking-[0.2em] uppercase border-hairline px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors whitespace-nowrap"
+              className="btn btn-sm btn-outline btn-outline-primary hidden lg:inline-flex whitespace-nowrap tracking-[0.2em]"
             >
               Fale conosco
             </a>
@@ -134,7 +134,7 @@ function Nav() {
               key={l.href}
               href={l.href}
               onClick={() => setMenuOpen(false)}
-              className="font-display text-3xl tracking-[0.1em] uppercase hover:text-primary transition-colors"
+              className="font-sans text-3xl tracking-[0.1em] uppercase hover:text-primary transition-colors"
             >
               {l.label}
             </a>
@@ -142,7 +142,7 @@ function Nav() {
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-xs tracking-[0.25em] uppercase"
+            className="btn btn-lg btn-primary mt-4"
           >
             Fale conosco
             <span aria-hidden>→</span>
@@ -172,7 +172,7 @@ function Hero() {
       />
 
       <div className="relative z-10 flex h-full flex-col items-start justify-center px-6 md:px-10 lg:px-16 text-left max-w-2xl">
-        <h1 className="fade-up font-display text-heading-1 tracking-tight text-[#f1f1f1]">
+        <h1 className="fade-up font-sans text-heading-1 tracking-tight text-foreground">
           <RevealWords
             text="Software sob medida e agentes de IA"
             delay={0.4}
@@ -182,7 +182,7 @@ function Hero() {
             <RevealWords
               text="Tecnologia que escala."
               delay={0.6}
-              className="font-display italic font-semibold text-[#f1f1f1]"
+              className="font-sans italic font-semibold text-foreground"
             />
           </span>
         </h1>
@@ -191,7 +191,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="font-body mt-6 text-md md:text-xl max-w-lg leading-relaxed mb-8 md:mb-10 text-white"
+          className="font-sans mt-6 text-md md:text-xl max-w-lg leading-relaxed mb-8 md:mb-10 text-foreground"
         >
           Desenvolvemos software sob medida, agentes de IA e automações que
           transformam operações manuais em crescimento real.
@@ -205,14 +205,14 @@ function Hero() {
         >
           <a
             href="#contact"
-            className="inline-flex font-semibold items-center gap-3 bg-white text-primary-foreground px-8 py-4 text-xs tracking-[0.25em] uppercase hover:opacity-90 transition-opacity"
+            className="btn btn-lg btn-primary font-semibold"
           >
             Quero uma solução
             <span aria-hidden>→</span>
           </a>
           <a
             href="#chapter-2"
-            className="inline-flex font-semibold items-center gap-3 border-hairline px-8 py-4 text-xs tracking-[0.25em] uppercase hover:bg-card transition-colors"
+            className="btn btn-lg btn-outline font-semibold"
           >
             Ver como funciona
           </a>
@@ -229,7 +229,7 @@ function Statement() {
         <p className="text-xs tracking-[0.4em] uppercase text-primary mb-10">
           — O Diagnóstico
         </p>
-        <h2 className="font-display text-heading-2">
+        <h2 className="font-sans text-heading-2">
           Enquanto sua equipe apaga incêndios,{" "}
           <em className="italic text-muted-foreground">
             seu concorrente automatizou.
@@ -322,7 +322,7 @@ function Chapter({
           <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
             — {kicker}
           </p>
-          <h2 className="font-display text-heading-2 mb-6">{title}</h2>
+          <h2 className="font-sans text-heading-2 mb-6">{title}</h2>
           <p className="text-muted-foreground leading-relaxed text-lg md:text-xl max-w-md">
             {body}
           </p>
@@ -363,7 +363,7 @@ function Practices() {
             <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">
               — Serviços
             </p>
-            <h2 className="font-display text-heading-2">
+            <h2 className="font-sans text-heading-2">
               O que{" "}
               <em className="italic text-muted-foreground">construímos</em>.
             </h2>
@@ -381,12 +381,12 @@ function Practices() {
               className="bg-background p-10 md:p-14 group hover:bg-card transition-colors"
             >
               <div className="flex items-baseline gap-4 mb-6">
-                <span className="font-display text-3xl text-primary">
+                <span className="font-sans text-3xl text-primary">
                   {i.k}
                 </span>
                 <span className="h-px flex-1 bg-border" />
               </div>
-              <h3 className="text-heading-3 font-display mb-4 group-hover:text-primary transition-colors">
+              <h3 className="text-heading-3 font-sans mb-4 group-hover:text-primary transition-colors">
                 {i.t}
               </h3>
               <p className="text-muted-foreground leading-relaxed">{i.d}</p>
@@ -409,7 +409,7 @@ function Products() {
           <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">
             — Produtos e squads
           </p>
-          <h2 className="font-display text-heading-2">
+          <h2 className="font-sans text-heading-2">
             Pronto para{" "}
             <em className="italic text-muted-foreground">começar</em>?
           </h2>
@@ -420,7 +420,7 @@ function Products() {
               <p className="mb-3 text-xs tracking-[0.4em] uppercase text-primary">
                 — Produto
               </p>
-              <h3 className="text-heading-3 font-display mb-2">Inboxy</h3>
+              <h3 className="text-heading-3 font-sans mb-2">Inboxy</h3>
               <p className="max-w-md text-sm text-muted-foreground">
                 Agente de IA multicanal com vendas Stripe, agendamento Cal.com
                 e inbox via Chatwoot.
@@ -440,7 +440,7 @@ function Products() {
               <p className="mb-3 text-xs tracking-[0.4em] uppercase text-primary">
                 — Automação
               </p>
-              <h3 className="text-heading-3 font-display mb-2">
+              <h3 className="text-heading-3 font-sans mb-2">
                 Agentes de IA
               </h3>
               <p className="max-w-md text-sm text-muted-foreground">
@@ -460,7 +460,7 @@ function Products() {
               <p className="mb-3 text-xs tracking-[0.4em] uppercase text-primary">
                 — Equipe
               </p>
-              <h3 className="text-heading-3 font-display mb-2">Tech Squads</h3>
+              <h3 className="text-heading-3 font-sans mb-2">Tech Squads</h3>
               <p className="max-w-md text-sm text-muted-foreground">
                 Times completos de desenvolvimento, produto, dados e IA
                 integrados ao seu negócio.
@@ -489,7 +489,7 @@ function Contact() {
         <p className="text-xs tracking-[0.4em] uppercase text-primary mb-8">
           — Próximo Passo
         </p>
-        <h2 className="font-display text-heading-2 mb-6">
+        <h2 className="font-sans text-heading-2 mb-6">
           Vamos construir{" "}
           <em className="italic text-muted-foreground">sua solução</em>.
         </h2>

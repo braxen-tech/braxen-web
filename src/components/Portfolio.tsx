@@ -120,7 +120,7 @@ function SolutionCard({ project }: { project: Project }) {
       />
       <div className="absolute inset-0 bg-linear-to-t from-background/95 via-background/35 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8">
-        <span className="mb-2 block font-mono text-[10px] tracking-[0.3em] text-primary">
+        <span className="mb-2 block font-sans text-[10px] tracking-[0.3em] text-primary">
           {String(project.id).padStart(2, "0")}
         </span>
         <span className="mb-2 block text-[10px] uppercase tracking-[0.25em] text-primary">
@@ -191,7 +191,7 @@ export function Portfolio() {
         <p className="mb-4 text-xs tracking-[0.4em] uppercase text-primary">
           — O que entregamos
         </p>
-        <h2 className="text-heading-2 font-display">
+        <h2 className="text-heading-2 font-sans">
           Soluções<span className="text-primary">.</span>
         </h2>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
