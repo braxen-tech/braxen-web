@@ -5,8 +5,8 @@ export function siteHeaderClass(scrolled: boolean) {
   return cn(
     "fixed inset-x-0 top-0 z-50 w-full transition-all duration-500",
     scrolled
-      ? "border-b border-border bg-background/95 shadow-[0_8px_32px_rgb(0_0_0/0.55)] backdrop-blur-xl"
-      : "bg-transparent mix-blend-difference",
+      ? "border-b border-border bg-background/95 shadow-[0_8px_32px_rgb(0_0_0/0.08)] backdrop-blur-xl dark:shadow-[0_8px_32px_rgb(0_0_0/0.55)]"
+      : "bg-transparent dark:mix-blend-difference",
   );
 }
 

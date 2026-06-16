@@ -3,47 +3,46 @@
 import chapterProblem from "@/assets/chapter-problem.jpg";
 import chapterSolution from "@/assets/chapter-solution.jpg";
 import chapterResult from "@/assets/chapter-result.jpg";
+import { AnimatedHero } from "@/components/AnimatedHero";
 import { ContactForm } from "@/components/ContactForm";
-import { INBOXY_URL } from "@/lib/inboxy";
+import { IntegrationCarousel } from "@/components/IntegrationCarousel";
 import { Leadership } from "@/components/Leadership";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Portfolio } from "@/components/Portfolio";
+import { StackedCardsSection } from "@/components/StackedCardsSection";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { SOCIAL_LINKS } from "@/lib/site";
+import { clientLogoRow1, clientLogoRow2 } from "@/lib/client-logos-data";
 import { imageSrc, type ImageSrc } from "@/lib/utils";
 
-function RevealWords({
-  text,
-  className,
-  delay = 0,
-}: {
-  text: string;
-  className?: string;
-  delay: number;
-}) {
-  const words = text.split(" ");
-  return (
-    <span className={className}>
-      {words.map((word, i) => (
-        <span key={i} className="inline-block mr-[0.25em] last:mr-0">
-          <motion.span
-            className="inline-block"
-            initial={{ y: "110%", opacity: 0 }}
-            animate={{ y: "0%", opacity: 1 }}
-            transition={{
-              duration: 1,
-              delay: delay + i * 0.12,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-          >
-            {word}
-          </motion.span>
-        </span>
-      ))}
-    </span>
-  );
-}
+const serviceCards = [
+  {
+    id: "service-1",
+    title: "Software Sob Medida",
+    description:
+      "ERPs, CRMs, dashboards e plataformas internas construídos para o seu processo — não para um template genérico.",
+  },
+  {
+    id: "service-2",
+    title: "Sites e Aplicativos",
+    description:
+      "Presença digital que converte. Web, mobile e landing pages de alto desempenho, do design à produção.",
+  },
+  {
+    id: "service-3",
+    title: "Agentes de IA",
+    description:
+      "Atendimento, qualificação de leads e automação de operações rodando 24h com inteligência artificial generativa.",
+  },
+  {
+    id: "service-4",
+    title: "Automações e Integrações",
+    description:
+      "WhatsApp, pagamentos, APIs externas e processos internos conectados — seu time faz menos, entrega mais.",
+  },
+] as const;
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -104,7 +103,8 @@ function Nav() {
               </a>
             ))}
           </nav>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <ThemeToggle />
             <a
               href="#contact"
               className="btn btn-sm btn-outline btn-outline-primary hidden lg:inline-flex whitespace-nowrap tracking-[0.2em]"
@@ -147,78 +147,10 @@ function Nav() {
             Fale conosco
             <span aria-hidden>→</span>
           </a>
+          <ThemeToggle className="mt-2" />
         </div>
       )}
     </>
-  );
-}
-
-function Hero() {
-  return (
-    <section id="top" className="relative h-screen w-full overflow-hidden">
-      <video
-        src="/hero-2.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="absolute inset-0 size-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background" />
-      <div
-        className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-transparent md:via-black/35"
-        aria-hidden
-      />
-
-      <div className="relative z-10 flex h-full flex-col items-start justify-center px-6 md:px-10 lg:px-16 text-left max-w-2xl">
-        <h1 className="fade-up font-sans text-heading-1 tracking-tight text-foreground">
-          <RevealWords
-            text="Software sob medida e agentes de IA"
-            delay={0.4}
-            className="block"
-          />
-          <span className="mt-2 block">
-            <RevealWords
-              text="Tecnologia que escala."
-              delay={0.6}
-              className="font-sans italic font-semibold text-foreground"
-            />
-          </span>
-        </h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="font-sans mt-6 text-md md:text-xl max-w-lg leading-relaxed mb-8 md:mb-10 text-foreground"
-        >
-          Desenvolvemos software sob medida, agentes de IA e automações que
-          transformam operações manuais em crescimento real.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
-          className="flex flex-col sm:flex-row items-start gap-4"
-        >
-          <a
-            href="#contact"
-            className="btn btn-lg btn-primary font-semibold"
-          >
-            Quero uma solução
-            <span aria-hidden>→</span>
-          </a>
-          <a
-            href="#chapter-2"
-            className="btn btn-lg btn-outline font-semibold"
-          >
-            Ver como funciona
-          </a>
-        </motion.div>
-      </div>
-    </section>
   );
 }
 
@@ -235,49 +167,6 @@ function Statement() {
             seu concorrente automatizou.
           </em>
         </h2>
-      </div>
-    </section>
-  );
-}
-
-function Clients() {
-  const logos = [
-    { src: "/globo.png", alt: "Globo" },
-    { src: "/tim.png", alt: "TIM" },
-    { src: "/disney.png", alt: "Disney" },
-    { src: "/rivian.png", alt: "Rivian" },
-    { src: "/serasa.png", alt: "Serasa" },
-    { src: "/sicredi.png", alt: "Sicredi" },
-    { src: "/b2w.png", alt: "B2W" },
-  ];
-
-  const track = [...logos, ...logos];
-  const logoClass =
-    "h-20 w-auto max-w-[140px] object-contain transition-opacity grayscale hover:grayscale-0 sm:h-24 sm:max-w-[180px] md:h-28 md:max-w-[220px]";
-
-  return (
-    <section className="overflow-hidden border-t border-border py-24 md:py-28">
-      <p className="mb-14 px-6 text-center text-xs tracking-[0.4em] uppercase text-muted-foreground md:mb-16">
-        — Experiência acumulada em empresas como
-      </p>
-      <div className="relative flex w-max animate-marquee-clients hover:[animation-play-state:paused]">
-        {track.map((logo, i) => (
-          <div
-            key={`${logo.alt}-${i}`}
-            className="flex items-center justify-center px-12 md:px-16 lg:px-20"
-          >
-            <img src={logo.src} alt={logo.alt} className={logoClass} />
-          </div>
-        ))}
-        {track.map((logo, i) => (
-          <div
-            key={`${logo.alt}-dup-${i}`}
-            className="flex items-center justify-center px-12 md:px-16 lg:px-20"
-            aria-hidden="true"
-          >
-            <img src={logo.src} alt="" className={logoClass} />
-          </div>
-        ))}
       </div>
     </section>
   );
@@ -332,72 +221,6 @@ function Chapter({
   );
 }
 
-function Practices() {
-  const items = [
-    {
-      k: "01",
-      t: "Software Sob Medida",
-      d: "ERPs, CRMs, dashboards e plataformas internas construídos para o seu processo — não para um template genérico.",
-    },
-    {
-      k: "02",
-      t: "Sites e Aplicativos",
-      d: "Presença digital que converte. Web, mobile e landing pages de alto desempenho, do design à produção.",
-    },
-    {
-      k: "03",
-      t: "Agentes de IA",
-      d: "Atendimento, qualificação de leads e automação de operações rodando 24h com inteligência artificial generativa.",
-    },
-    {
-      k: "04",
-      t: "Automações e Integrações",
-      d: "WhatsApp, Stripe, APIs externas e processos internos conectados e automatizados — seu time faz menos, entrega mais.",
-    },
-  ];
-  return (
-    <section id="services" className="px-6 md:px-10 py-32 border-t border-border">
-      <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">
-              — Serviços
-            </p>
-            <h2 className="font-sans text-heading-2">
-              O que{" "}
-              <em className="italic text-muted-foreground">construímos</em>.
-            </h2>
-          </div>
-          <p className="text-muted-foreground max-w-sm">
-            Quatro pilares, uma equipe. Montamos times especializados que
-            entregam juntos e acompanham os resultados ao longo do tempo.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-px bg-border">
-          {items.map((i) => (
-            <div
-              key={i.k}
-              className="bg-background p-10 md:p-14 group hover:bg-card transition-colors"
-            >
-              <div className="flex items-baseline gap-4 mb-6">
-                <span className="font-sans text-3xl text-primary">
-                  {i.k}
-                </span>
-                <span className="h-px flex-1 bg-border" />
-              </div>
-              <h3 className="text-heading-3 font-sans mb-4 group-hover:text-primary transition-colors">
-                {i.t}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">{i.d}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Products() {
   return (
     <section
@@ -414,35 +237,13 @@ function Products() {
             <em className="italic text-muted-foreground">começar</em>?
           </h2>
         </div>
-        <div className="grid gap-px bg-border md:grid-cols-3">
-          <div className="flex flex-col justify-between gap-6 bg-background p-8 md:p-10">
-            <div>
-              <p className="mb-3 text-xs tracking-[0.4em] uppercase text-primary">
-                — Produto
-              </p>
-              <h3 className="text-heading-3 font-sans mb-2">Inboxy</h3>
-              <p className="max-w-md text-sm text-muted-foreground">
-                Agente de IA multicanal com vendas Stripe, agendamento Cal.com
-                e inbox via Chatwoot.
-              </p>
-            </div>
-            <a
-              href={INBOXY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
-            >
-              Conhecer o Inboxy <span aria-hidden>→</span>
-            </a>
-          </div>
+        <div className="grid gap-px bg-border md:grid-cols-2">
           <div className="flex flex-col justify-between gap-6 bg-background p-8 md:p-10">
             <div>
               <p className="mb-3 text-xs tracking-[0.4em] uppercase text-primary">
                 — Automação
               </p>
-              <h3 className="text-heading-3 font-sans mb-2">
-                Agentes de IA
-              </h3>
+              <h3 className="text-heading-3 font-sans mb-2">Agentes de IA</h3>
               <p className="max-w-md text-sm text-muted-foreground">
                 Atendimento omnichannel com CRM integrado, agenda, vendas e
                 integração com suas APIs.
@@ -564,12 +365,17 @@ function Footer() {
       </p>
       <p className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2">
         <a
-          href={INBOXY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/atendimento-ia"
           className="hover:text-foreground transition-colors"
         >
-          Inboxy
+          Automação
+        </a>
+        <span className="hidden sm:inline text-border">·</span>
+        <a
+          href="/tech-squads"
+          className="hover:text-foreground transition-colors"
+        >
+          Tech Squads
         </a>
         <span className="hidden sm:inline text-border">·</span>
         <span>Braxen Tech · Brasil</span>
@@ -582,9 +388,34 @@ export function HomePage() {
   return (
     <main className="relative">
       <Nav />
-      <Hero />
+      <AnimatedHero
+        id="top"
+        staticTitle="Software e agentes de IA"
+        rotatingWords={[
+          "escaláveis",
+          "inteligentes",
+          "integrados",
+          "automatizados",
+          "sob medida",
+        ]}
+        subtitle="Desenvolvemos software sob medida, agentes de IA e automações que transformam operações manuais em crescimento real."
+        trustLine="Resposta em 24h · primeira entrega em semanas"
+        primaryCta={{
+          href: "#contact",
+          label: "Quero uma solução",
+          dataCta: "hero",
+        }}
+        secondaryCta={{
+          href: "#services",
+          label: "Ver serviços",
+        }}
+      />
       <Statement />
-      <Clients />
+      <IntegrationCarousel
+        variant="logo"
+        row1={clientLogoRow1}
+        row2={clientLogoRow2}
+      />
       <Chapter
         id="chapter-1"
         kicker="A Dor"
@@ -611,7 +442,18 @@ export function HomePage() {
         image={chapterResult}
       />
       <Portfolio />
-      <Practices />
+      <StackedCardsSection
+        id="services"
+        eyebrow="— Serviços"
+        title={
+          <>
+            O que{" "}
+            <em className="italic text-muted-foreground">construímos</em>.
+          </>
+        }
+        description="Quatro pilares, uma equipe. Montamos times especializados que entregam juntos e acompanham os resultados ao longo do tempo."
+        cards={serviceCards}
+      />
       <Products />
       <Leadership />
       <Contact />

@@ -1,14 +1,15 @@
 "use client";
 
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
-import { ContainerScroll, CardSticky } from "@/components/ui/cards-stack";
+import { AnimatedHero } from "@/components/AnimatedHero";
+import { StackedCardsSection } from "@/components/StackedCardsSection";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { ContactForm } from "@/components/ContactForm";
 import { ScrollReelTestimonials } from "@/components/ScrollReelTestimonials";
 import { IntegrationCarousel } from "@/components/IntegrationCarousel";
-import { INBOXY_URL } from "@/lib/inboxy";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { atendimentoIaFaq } from "@/lib/faq-data";
 import { atendimentoIaTestimonials } from "@/lib/atendimento-ia-testimonials";
 
@@ -39,20 +40,23 @@ function Nav() {
           <span className="inline-block size-2 rounded-full bg-primary" />
           Braxen
         </a>
-        <a
-          href="#contato"
-          data-cta="nav"
-          className="btn btn-sm btn-primary md:hidden"
-        >
-          Falar
-        </a>
-        <a
-          href="#contato"
-          data-cta="nav"
-          className="btn btn-sm btn-outline btn-outline-primary hidden md:inline-flex"
-        >
-          Quero meus agentes
-        </a>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <a
+            href="#contato"
+            data-cta="nav"
+            className="btn btn-sm btn-primary md:hidden"
+          >
+            Falar
+          </a>
+          <a
+            href="#contato"
+            data-cta="nav"
+            className="btn btn-sm btn-outline btn-outline-primary hidden md:inline-flex"
+          >
+            Quero meus agentes
+          </a>
+        </div>
       </div>
     </motion.header>
   );
@@ -97,108 +101,6 @@ function StickyCta() {
         <MoveRight className="size-4" aria-hidden />
       </a>
     </div>
-  );
-}
-
-function Hero() {
-  const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(
-    () => ["inteligente", "omnichannel", "integrada", "automatizada", "escalável"],
-    [],
-  );
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setTitleNumber((current) => (current + 1) % titles.length);
-    }, 2000);
-    return () => clearTimeout(timeoutId);
-  }, [titleNumber, titles.length]);
-
-  return (
-    <section
-      id="hero"
-      className="relative w-full border-b border-border bg-background bg-grain pt-28 pb-16 md:flex md:min-h-[85vh] md:items-center md:pt-32 md:pb-24"
-    >
-      <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center md:gap-8">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="font-sans text-[2rem] leading-[1.05] tracking-tight sm:text-4xl md:text-6xl lg:text-7xl"
-          >
-            <span className="text-foreground">Operação de atendimento</span>
-            <span className="relative mt-1 flex h-[1.1em] w-full justify-center overflow-hidden md:mt-2">
-              {titles.map((title, index) => (
-                <motion.span
-                  key={title}
-                  className="absolute font-sans text-foreground"
-                  initial={{ opacity: 0, y: "-100%" }}
-                  transition={{ type: "spring", stiffness: 50 }}
-                  animate={
-                    titleNumber === index
-                      ? { y: 0, opacity: 1 }
-                      : {
-                          y: titleNumber > index ? "-150%" : "150%",
-                          opacity: 0,
-                        }
-                  }
-                >
-                  {title}
-                </motion.span>
-              ))}
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.35 }}
-            className="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-lg"
-          >
-            Agentes de IA com CRM integrado. Qualificação 24/7, vendas na
-            conversa e integração com suas APIs.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.45 }}
-            className="text-[10px] tracking-[0.22em] uppercase text-muted-foreground md:text-xs"
-          >
-            Proposta em 24h · no ar em semanas
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.55 }}
-            className="flex w-full max-w-sm flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:justify-center"
-          >
-            <a
-              href="#contato"
-              data-cta="hero"
-              className="btn btn-lg btn-primary w-full sm:w-auto"
-            >
-              Quero meus agentes
-              <MoveRight className="size-4" aria-hidden />
-            </a>
-            <a
-              href="#como-funciona"
-              className="btn btn-lg btn-outline btn-muted hidden sm:inline-flex"
-            >
-              Ver como funciona
-            </a>
-            <a
-              href="#como-funciona"
-              className="py-1 text-[10px] tracking-[0.22em] uppercase text-muted-foreground transition-colors hover:text-foreground sm:hidden"
-            >
-              Ver como funciona →
-            </a>
-          </motion.div>
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -283,9 +185,6 @@ function ProblemSolution() {
   );
 }
 
-const NAV_STICKY_OFFSET = 96;
-const CARD_STACK_INCREMENT_Y = 12;
-
 const processSteps = [
   {
     id: "step-1",
@@ -312,89 +211,6 @@ const processSteps = [
       "Em semanas — não meses. Acompanhamos os primeiros dias, ajustamos o agente e garantimos que a operação rode redondo.",
   },
 ] as const;
-
-function HowItWorks() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const updateStackScroll = () => {
-      const container = containerRef.current;
-      const card = cardRef.current;
-      if (!container || !card) return;
-
-      const cardHeight = card.getBoundingClientRect().height;
-      const count = processSteps.length;
-      const gap = 16;
-      const stackRunway =
-        (count - 1) * Math.max(cardHeight - CARD_STACK_INCREMENT_Y, 120);
-
-      container.style.minHeight = `${Math.ceil(
-        cardHeight * count + gap * (count - 1) + stackRunway,
-      )}px`;
-    };
-
-    updateStackScroll();
-
-    const observer = new ResizeObserver(updateStackScroll);
-    if (cardRef.current) observer.observe(cardRef.current);
-
-    window.addEventListener("resize", updateStackScroll, { passive: true });
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", updateStackScroll);
-    };
-  }, []);
-
-  return (
-    <section
-      id="como-funciona"
-      className="scroll-mt-24 border-t border-border px-6 md:px-10 py-24 md:py-28"
-    >
-      <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 md:items-start md:gap-12 xl:gap-16">
-        <div className="md:sticky md:top-24 md:self-start md:py-4">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            — Como funciona
-          </p>
-          <h2 className="font-sans text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6">
-            Do diagnóstico à operação{" "}
-            <em className="italic text-muted-foreground">no ar em semanas</em>.
-          </h2>
-          <p className="max-w-prose text-sm leading-relaxed text-muted-foreground md:text-base">
-            Implantação com suporte na operação — monitoramento, ajustes do
-            agente e evolução contínua depois de colocar no ar.
-          </p>
-        </div>
-
-        <ContainerScroll ref={containerRef} className="space-y-4 pb-4 md:pb-8">
-          {processSteps.map((step, index) => (
-            <CardSticky
-              key={step.id}
-              ref={index === 0 ? cardRef : undefined}
-              index={index + 1}
-              baseTop={NAV_STICKY_OFFSET}
-              incrementY={CARD_STACK_INCREMENT_Y}
-              incrementZ={10}
-              className="rounded-lg border border-border bg-card/80 p-6 shadow-lg shadow-black/10 backdrop-blur-md md:p-8"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="font-sans text-xl md:text-2xl tracking-tight">
-                  {step.title}
-                </h3>
-                <span className="font-sans text-xl md:text-2xl text-primary tabular-nums">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-                {step.description}
-              </p>
-            </CardSticky>
-          ))}
-        </ContainerScroll>
-      </div>
-    </section>
-  );
-}
 
 function TestimonialsSection() {
   return (
@@ -495,25 +311,6 @@ function Contact() {
   );
 }
 
-function InboxyLink() {
-  return (
-    <section className="px-6 md:px-10 py-12 border-t border-border">
-      <p className="text-center text-sm text-muted-foreground">
-        Prefere começar sozinho?{" "}
-        <a
-          href={INBOXY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-cta="inboxy"
-          className="text-primary hover:text-foreground transition-colors underline-offset-4 hover:underline"
-        >
-          Conheça o Inboxy
-        </a>
-      </p>
-    </section>
-  );
-}
-
 function Footer() {
   return (
     <footer className="px-6 md:px-10 py-10 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
@@ -532,14 +329,44 @@ export function AtendimentoIaPage() {
   return (
     <main className="relative">
       <Nav />
-      <Hero />
+      <AnimatedHero
+        staticTitle="Operação de atendimento"
+        rotatingWords={[
+          "inteligente",
+          "omnichannel",
+          "integrada",
+          "automatizada",
+          "escalável",
+        ]}
+        subtitle="Agentes de IA com CRM integrado. Qualificação 24/7, vendas na conversa e integração com suas APIs."
+        trustLine="Proposta em 24h · no ar em semanas"
+        primaryCta={{
+          href: "#contato",
+          label: "Quero meus agentes",
+          dataCta: "hero",
+        }}
+        secondaryCta={{
+          href: "#como-funciona",
+          label: "Ver como funciona",
+        }}
+      />
       <ProblemSolution />
       <IntegrationCarousel />
-      <HowItWorks />
+      <StackedCardsSection
+        id="como-funciona"
+        eyebrow="— Como funciona"
+        title={
+          <>
+            Do diagnóstico à operação{" "}
+            <em className="italic text-muted-foreground">no ar em semanas</em>.
+          </>
+        }
+        description="Implantação com suporte na operação — monitoramento, ajustes do agente e evolução contínua depois de colocar no ar."
+        cards={processSteps}
+      />
       <TestimonialsSection />
       <FAQ />
       <Contact />
-      <InboxyLink />
       <Footer />
       <StickyCta />
     </main>

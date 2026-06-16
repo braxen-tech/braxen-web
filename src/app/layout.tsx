@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { JsonLd } from "@/components/JsonLd";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
@@ -50,11 +51,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body>
-        <JsonLd data={organizationJsonLd()} />
-        <JsonLd data={websiteJsonLd()} />
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <JsonLd data={organizationJsonLd()} />
+          <JsonLd data={websiteJsonLd()} />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

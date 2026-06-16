@@ -1,7 +1,9 @@
 "use client";
 
-import type { ComponentType } from "react";
+import type { ComponentType, ReactNode } from "react";
 import { MessageSquare, Webhook } from "lucide-react";
+import { useTheme } from "next-themes";
+import type { LogoCarouselItem } from "@/lib/client-logos-data";
 import {
   integrationRow1,
   integrationRow2,
@@ -9,8 +11,8 @@ import {
   type IntegrationLucideIcon,
 } from "@/lib/integrations-data";
 
-function iconUrl(slug: string) {
-  return `https://cdn.simpleicons.org/${slug}/ffffff`;
+function iconUrl(slug: string, color: string) {
+  return `https://cdn.simpleicons.org/${slug}/${color.replace("#", "")}`;
 }
 
 const lucideIcons: Record<
@@ -21,7 +23,12 @@ const lucideIcons: Record<
   sms: MessageSquare,
 };
 
-function IntegrationChip({ name, slug, lucide }: IntegrationItem) {
+function IntegrationChip({
+  name,
+  slug,
+  lucide,
+  iconColor,
+}: IntegrationItem & { iconColor: string }) {
   const LucideIcon = lucide ? lucideIcons[lucide] : null;
 
   return (
@@ -31,7 +38,7 @@ function IntegrationChip({ name, slug, lucide }: IntegrationItem) {
           <LucideIcon className="size-6 text-foreground opacity-80" aria-hidden />
         ) : slug ? (
           <img
-            src={iconUrl(slug)}
+            src={iconUrl(slug, iconColor)}
             alt=""
             width={28}
             height={28}
@@ -52,12 +59,30 @@ function IntegrationChip({ name, slug, lucide }: IntegrationItem) {
   );
 }
 
+function LogoChip({ name, src }: LogoCarouselItem) {
+  return (
+    <div className="flex h-28 w-48 shrink-0 items-center justify-center px-4 sm:h-32 sm:w-56 md:h-36 md:w-64">
+      <img
+        src={src}
+        alt={name}
+        className="h-14 w-auto max-w-full object-contain opacity-60 grayscale transition-opacity hover:opacity-100 sm:h-16 md:h-20"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  );
+}
+
 function MarqueeRow({
   items,
   direction,
+  variant,
+  iconColor,
 }: {
-  items: IntegrationItem[];
+  items: IntegrationItem[] | LogoCarouselItem[];
   direction: "left" | "right";
+  variant: "integration" | "logo";
+  iconColor?: string;
 }) {
   const track = [...items, ...items];
 
@@ -69,17 +94,80 @@ function MarqueeRow({
           : "animate-marquee-integrations-right"
       } motion-reduce:animate-none`}
     >
-      {track.map((item, i) => (
-        <IntegrationChip key={`${item.name}-${i}`} {...item} />
-      ))}
+      {track.map((item, i) =>
+        variant === "logo" ? (
+          <LogoChip key={`${item.name}-${i}`} {...(item as LogoCarouselItem)} />
+        ) : (
+          <IntegrationChip
+            key={`${item.name}-${i}`}
+            {...(item as IntegrationItem)}
+            iconColor={iconColor ?? "ffffff"}
+          />
+        ),
+      )}
     </div>
   );
 }
 
-export function IntegrationCarousel() {
+export type IntegrationCarouselProps = {
+  id?: string;
+  eyebrow?: string;
+  title?: ReactNode;
+  description?: string;
+  row1?: IntegrationItem[];
+  row2?: IntegrationItem[];
+  variant?: "integration";
+};
+
+export type LogoCarouselProps = {
+  id?: string;
+  eyebrow?: string;
+  title?: ReactNode;
+  description?: string;
+  row1: LogoCarouselItem[];
+  row2: LogoCarouselItem[];
+  variant: "logo";
+};
+
+type CarouselProps = IntegrationCarouselProps | LogoCarouselProps;
+
+export function IntegrationCarousel(props: CarouselProps = {}) {
+  const { resolvedTheme } = useTheme();
+  const variant = props.variant ?? "integration";
+  const iconColor = resolvedTheme === "light" ? "18181b" : "ffffff";
+  const id = props.id ?? (variant === "logo" ? "clientes" : "integracoes");
+  const eyebrow =
+    props.eyebrow ??
+    (variant === "logo" ? "— Experiência" : "— Integrações");
+  const title =
+    props.title ??
+    (variant === "logo" ? (
+      <>
+        Experiência acumulada em{" "}
+        <em className="italic text-muted-foreground">empresas como</em>
+      </>
+    ) : (
+      <>
+        Conecta com as ferramentas que{" "}
+        <em className="italic text-muted-foreground">você já usa</em>.
+      </>
+    ));
+  const description =
+    props.description ??
+    (variant === "logo"
+      ? "Time com histórico em operações de escala, mídia, varejo e tecnologia."
+      : "Calendário, mensageria, pagamentos e APIs — plugamos no fluxo do agente sem refazer sua operação.");
+
+  const row1 =
+    props.row1 ?? (variant === "integration" ? integrationRow1 : undefined);
+  const row2 =
+    props.row2 ?? (variant === "integration" ? integrationRow2 : undefined);
+
+  if (!row1 || !row2) return null;
+
   return (
     <section
-      id="integracoes"
+      id={id}
       className="relative overflow-hidden border-t border-border px-6 py-24 md:px-10 md:py-28"
     >
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-50" />
@@ -87,22 +175,30 @@ export function IntegrationCarousel() {
       <div className="relative mx-auto max-w-7xl">
         <div className="mx-auto mb-12 max-w-2xl text-center md:mb-14">
           <p className="mb-6 text-xs tracking-[0.4em] uppercase text-primary">
-            — Integrações
+            {eyebrow}
           </p>
-          <h2 className="font-sans text-3xl md:text-5xl">
-            Conecta com as ferramentas que{" "}
-            <em className="italic text-muted-foreground">você já usa</em>.
-          </h2>
-          <p className="mt-5 text-sm leading-relaxed text-muted-foreground md:text-base">
-            Calendário, mensageria, pagamentos e APIs — plugamos no fluxo do
-            agente sem refazer sua operação.
-          </p>
+          <h2 className="font-sans text-3xl md:text-5xl">{title}</h2>
+          {description ? (
+            <p className="mt-5 text-sm leading-relaxed text-muted-foreground md:text-base">
+              {description}
+            </p>
+          ) : null}
         </div>
 
         <div className="relative overflow-hidden pb-2">
-          <MarqueeRow items={integrationRow1} direction="left" />
+          <MarqueeRow
+            items={row1}
+            direction="left"
+            variant={variant}
+            iconColor={iconColor}
+          />
           <div className="mt-6">
-            <MarqueeRow items={integrationRow2} direction="right" />
+            <MarqueeRow
+              items={row2}
+              direction="right"
+              variant={variant}
+              iconColor={iconColor}
+            />
           </div>
 
           <div

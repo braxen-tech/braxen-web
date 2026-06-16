@@ -54,6 +54,7 @@
 }
 
 :root {
+  color-scheme: light;
   --card: #ffffff;
   --ring: #d4d4d8;
   --input: #d4d4d8;

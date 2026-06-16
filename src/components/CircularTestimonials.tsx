@@ -66,16 +66,11 @@ export function CircularTestimonials({
   const colorName = colors.name ?? "var(--foreground)";
   const colorDesignation = colors.designation ?? "var(--muted-foreground)";
   const colorTestimony = colors.testimony ?? "var(--muted-foreground)";
-  const colorArrowBg = colors.arrowBackground ?? "var(--card)";
-  const colorArrowFg = colors.arrowForeground ?? "#ffffff";
-  const colorArrowHoverBg = colors.arrowHoverBackground ?? "var(--primary)";
   const fontSizeName = fontSizes.name ?? "1.5rem";
   const fontSizeDesignation = fontSizes.designation ?? "0.925rem";
   const fontSizeQuote = fontSizes.quote ?? "1.125rem";
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [hoverPrev, setHoverPrev] = useState(false);
-  const [hoverNext, setHoverNext] = useState(false);
   const [containerWidth, setContainerWidth] = useState(1200);
 
   const imageContainerRef = useRef<HTMLDivElement>(null);
@@ -202,7 +197,7 @@ export function CircularTestimonials({
               key={testimonial.src}
               src={testimonial.src}
               alt={testimonial.name}
-              className="absolute size-full rounded-sm border border-border object-cover object-top shadow-2xl shadow-black/30 grayscale"
+              className="absolute size-full rounded-sm object-cover object-top shadow-2xl shadow-black/30 grayscale"
               data-index={index}
               style={getImageStyle(index)}
             />
@@ -268,29 +263,19 @@ export function CircularTestimonials({
           <div className="flex gap-4 pt-8 md:pt-0">
             <button
               type="button"
-              className="flex size-11 items-center justify-center rounded-full border border-border transition-colors"
+              className="flex size-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
               onClick={handlePrev}
-              style={{
-                backgroundColor: hoverPrev ? colorArrowHoverBg : colorArrowBg,
-              }}
-              onMouseEnter={() => setHoverPrev(true)}
-              onMouseLeave={() => setHoverPrev(false)}
               aria-label="Perfil anterior"
             >
-              <ArrowLeft size={20} color={colorArrowFg} />
+              <ArrowLeft className="size-5" aria-hidden />
             </button>
             <button
               type="button"
-              className="flex size-11 items-center justify-center rounded-full border border-border transition-colors"
+              className="flex size-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
               onClick={handleNext}
-              style={{
-                backgroundColor: hoverNext ? colorArrowHoverBg : colorArrowBg,
-              }}
-              onMouseEnter={() => setHoverNext(true)}
-              onMouseLeave={() => setHoverNext(false)}
               aria-label="Próximo perfil"
             >
-              <ArrowRight size={20} color={colorArrowFg} />
+              <ArrowRight className="size-5" aria-hidden />
             </button>
           </div>
         </div>

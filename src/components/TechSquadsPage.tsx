@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import heroImg from "@/assets/hero-tech-squads.jpg";
+import { AnimatedHero } from "@/components/AnimatedHero";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
-import { imageSrc } from "@/lib/utils";
 import { ContactForm } from "@/components/ContactForm";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { techSquadsFaq } from "@/lib/faq-data";
 
 function Nav() {
@@ -65,7 +65,8 @@ function Nav() {
               </a>
             ))}
           </nav>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <ThemeToggle />
             <a
               href="#contato"
               className="btn btn-sm btn-outline btn-outline-primary hidden md:inline-flex"
@@ -108,72 +109,10 @@ function Nav() {
             Montar meu squad
             <span aria-hidden>→</span>
           </a>
+          <ThemeToggle className="mt-2" />
         </div>
       )}
     </>
-  );
-}
-
-function Hero() {
-  return (
-    <section className="relative min-h-screen w-full overflow-hidden flex items-center">
-      <img
-        src={imageSrc(heroImg)}
-        alt="Time de desenvolvimento trabalhando juntos"
-        className="absolute inset-0 size-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
-
-      <div className="relative z-10 px-6 md:px-10 lg:px-16 max-w-2xl py-32">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xs tracking-[0.4em] uppercase text-primary mb-6"
-        >
-          — Tech Squads
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="font-sans text-4xl md:text-6xl lg:text-7xl leading-[0.95] mb-6"
-        >
-          Seu time de tecnologia,
-          <span className="text-foreground"> pronto amanhã</span>.
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-base md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-lg"
-        >
-          Squads completos de desenvolvimento, produto, dados e IA integrados ao
-          seu time. Sem inflar estrutura, sem meses de recrutamento.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
-          className="flex flex-col sm:flex-row items-start gap-4"
-        >
-          <a
-            href="#contato"
-            className="btn btn-lg btn-primary"
-          >
-            Montar meu squad
-            <span aria-hidden>→</span>
-          </a>
-          <a
-            href="#como-funciona"
-            className="btn btn-lg btn-outline"
-          >
-            Ver como funciona
-          </a>
-        </motion.div>
-      </div>
-    </section>
   );
 }
 
@@ -608,7 +547,27 @@ export function TechSquadsPage() {
   return (
     <main className="relative">
       <Nav />
-      <Hero />
+      <AnimatedHero
+        staticTitle="Seu time de tecnologia"
+        rotatingWords={[
+          "pronto amanhã",
+          "sob demanda",
+          "integrado",
+          "escalável",
+          "dedicado",
+        ]}
+        subtitle="Squads completos de desenvolvimento, produto, dados e IA integrados ao seu time. Sem inflar estrutura, sem meses de recrutamento."
+        trustLine="Proposta em 24h · squad operando em semanas"
+        primaryCta={{
+          href: "#contato",
+          label: "Montar meu squad",
+          dataCta: "hero",
+        }}
+        secondaryCta={{
+          href: "#como-funciona",
+          label: "Ver como funciona",
+        }}
+      />
       <Stats />
       <Challenges />
       <HowItWorks />
