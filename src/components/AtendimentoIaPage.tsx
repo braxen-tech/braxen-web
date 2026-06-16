@@ -7,11 +7,15 @@ import { AnimatedHero } from "@/components/AnimatedHero";
 import { StackedCardsSection } from "@/components/StackedCardsSection";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { ContactForm } from "@/components/ContactForm";
-import { ScrollReelTestimonials } from "@/components/ScrollReelTestimonials";
 import { IntegrationCarousel } from "@/components/IntegrationCarousel";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import {
+  ScrollReveal,
+  SectionHeader,
+  StaggerChildren,
+} from "@/components/ui/scroll-reveal";
 import { atendimentoIaFaq } from "@/lib/faq-data";
-import { atendimentoIaTestimonials } from "@/lib/atendimento-ia-testimonials";
 
 const PAGE_SOURCE = "/atendimento-ia";
 
@@ -138,46 +142,51 @@ function ProblemSolution() {
   return (
     <section id="desafios" className="px-6 md:px-10 py-24 md:py-28 border-t border-border">
       <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            — Problema e solução
-          </p>
-          <h2 className="font-sans text-3xl md:text-5xl">
-            Do caos manual à{" "}
-            <em className="italic text-muted-foreground">operação que escala</em>.
-          </h2>
-        </div>
+        <SectionHeader
+          align="center"
+          className="mb-12 md:mb-16"
+          title={
+            <>
+              Do caos manual à{" "}
+              <em className="italic text-muted-foreground">
+                operação que escala
+              </em>
+              .
+            </>
+          }
+          titleClassName="font-sans text-3xl md:text-5xl"
+        />
 
         <div className="grid lg:grid-cols-2 gap-px bg-border">
           <div className="bg-background p-8 md:p-10">
             <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-8">
               Hoje
             </p>
-            <ul className="space-y-8">
+            <StaggerChildren className="space-y-8">
               {pains.map((item) => (
-                <li key={item.title}>
+                <div key={item.title}>
                   <h3 className="font-sans text-lg mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {item.desc}
                   </p>
-                </li>
+                </div>
               ))}
-            </ul>
+            </StaggerChildren>
           </div>
           <div className="bg-card/30 p-8 md:p-10">
             <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-8">
               Com agentes Braxen
             </p>
-            <ul className="space-y-8">
+            <StaggerChildren className="space-y-8">
               {solutions.map((item) => (
-                <li key={item.title}>
+                <div key={item.title}>
                   <h3 className="font-sans text-lg mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {item.desc}
                   </p>
-                </li>
+                </div>
               ))}
-            </ul>
+            </StaggerChildren>
           </div>
         </div>
       </div>
@@ -212,31 +221,6 @@ const processSteps = [
   },
 ] as const;
 
-function TestimonialsSection() {
-  return (
-    <section className="px-6 md:px-10 py-24 md:py-28 border-t border-border">
-      <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            — Clientes satisfeitos
-          </p>
-          <h2 className="font-sans text-3xl md:text-5xl mb-4">
-            Quem já confia na{" "}
-            <em className="italic text-muted-foreground">Braxen</em>
-          </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-sm md:text-base">
-            Resultados reais em atendimento, CRM e automação.
-          </p>
-        </div>
-
-        <div className="flex justify-center">
-          <ScrollReelTestimonials testimonials={atendimentoIaTestimonials} />
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function FAQ() {
   const items = atendimentoIaFaq;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -244,40 +228,43 @@ function FAQ() {
   return (
     <section id="faq" className="px-6 md:px-10 py-24 md:py-28 border-t border-border">
       <div className="mx-auto max-w-3xl">
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            — Perguntas frequentes
-          </p>
-          <h2 className="font-sans text-3xl md:text-5xl">
-            Tire suas{" "}
-            <em className="italic text-muted-foreground">dúvidas</em>.
-          </h2>
-        </div>
+        <SectionHeader
+          align="center"
+          className="mb-12 md:mb-16"
+          title={
+            <>
+              Tire suas{" "}
+              <em className="italic text-muted-foreground">dúvidas</em>.
+            </>
+          }
+          titleClassName="font-sans text-3xl md:text-5xl"
+        />
 
-        <div className="divide-y divide-border">
+        <StaggerChildren className="divide-y divide-border">
           {items.map((item, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              className="w-full text-left py-6 group cursor-pointer"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="font-sans text-base md:text-lg group-hover:text-primary transition-colors">
-                  {item.q}
-                </h3>
-                <span className="text-primary text-xl shrink-0 mt-0.5">
-                  {openIndex === i ? "−" : "+"}
-                </span>
-              </div>
-              {openIndex === i && (
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                  {item.a}
-                </p>
-              )}
-            </button>
+            <div key={i}>
+              <button
+                type="button"
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full text-left py-6 group cursor-pointer"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="font-sans text-base md:text-lg group-hover:text-primary transition-colors">
+                    {item.q}
+                  </h3>
+                  <span className="text-primary text-xl shrink-0 mt-0.5">
+                    {openIndex === i ? "−" : "+"}
+                  </span>
+                </div>
+                {openIndex === i && (
+                  <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                    {item.a}
+                  </p>
+                )}
+              </button>
+            </div>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </section>
   );
@@ -290,22 +277,26 @@ function Contact() {
       className="px-6 md:px-10 py-24 md:py-36 border-t border-border scroll-mt-24"
     >
       <div className="mx-auto max-w-3xl text-center">
-        <p className="text-xs tracking-[0.4em] uppercase text-primary mb-8">
-          — Próximo passo
-        </p>
-        <h2 className="font-sans text-4xl leading-[0.95] mb-6">
-          Monte seus agentes de IA com a{" "}
-          <em className="italic text-muted-foreground">Braxen</em>
-        </h2>
-        <p className="text-muted-foreground text-base md:text-lg max-w-lg mx-auto mb-12 leading-relaxed">
-          Descreva sua operação. Retorno em até 24 horas com análise técnica —
-          sem compromisso.
-        </p>
-        <ContactForm
-          source={PAGE_SOURCE}
-          messagePlaceholder="Ex.: atendo ~200 leads/mês no WhatsApp e preciso integrar com meu ERP..."
-          submitMicrocopy="Abre o WhatsApp · Resposta em até 24h"
+        <SectionHeader
+          align="center"
+          className="mb-12"
+          title={
+            <>
+              Monte seus agentes de IA com a{" "}
+              <em className="italic text-muted-foreground">Braxen</em>
+            </>
+          }
+          description="Descreva sua operação. Retorno em até 24 horas com análise técnica — sem compromisso."
+          titleClassName="font-sans text-4xl leading-[0.95] mb-0"
+          descriptionClassName="text-base md:text-lg max-w-lg mx-auto mt-6 max-w-none"
         />
+        <ScrollReveal>
+          <ContactForm
+            source={PAGE_SOURCE}
+            messagePlaceholder="Ex.: atendo ~200 leads/mês no WhatsApp e preciso integrar com meu ERP..."
+            submitMicrocopy="Abre o WhatsApp · Resposta em até 24h"
+          />
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -354,7 +345,6 @@ export function AtendimentoIaPage() {
       <IntegrationCarousel />
       <StackedCardsSection
         id="como-funciona"
-        eyebrow="— Como funciona"
         title={
           <>
             Do diagnóstico à operação{" "}

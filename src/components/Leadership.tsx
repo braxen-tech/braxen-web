@@ -4,6 +4,7 @@ import {
   CircularTestimonials,
   type CircularTestimonial,
 } from "@/components/CircularTestimonials";
+import { SectionHeader } from "@/components/ui/scroll-reveal";
 
 const members: CircularTestimonial[] = [
   {
@@ -43,20 +44,19 @@ export function Leadership() {
       className="border-t border-border px-6 py-24 md:px-10 md:py-32"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 text-center md:mb-16">
-          <p className="mb-6 text-xs tracking-[0.4em] uppercase text-primary">
-            — Time
-          </p>
-          <h2 className="mb-8 font-sans text-heading-2">
-            Liderança técnica{" "}
-            <em className="italic text-muted-foreground">de alto nível</em>.
-          </h2>
-          <p className="mx-auto max-w-2xl leading-relaxed text-muted-foreground">
-            Nosso time carrega experiência das maiores empresas de tecnologia do
-            mundo. Cada projeto da Braxen é conduzido por especialistas que já
-            entregaram sistemas críticos em escala.
-          </p>
-        </div>
+        <SectionHeader
+          align="center"
+          className="mb-12 md:mb-16"
+          title={
+            <>
+              Liderança técnica{" "}
+              <em className="italic text-muted-foreground">de alto nível</em>.
+            </>
+          }
+          description="Nosso time carrega experiência das maiores empresas de tecnologia do mundo. Cada projeto da Braxen é conduzido por especialistas que já entregaram sistemas críticos em escala."
+          titleClassName="mb-0 font-sans text-heading-2"
+          descriptionClassName="mx-auto max-w-2xl leading-relaxed mt-8 max-w-none"
+        />
 
         <CircularTestimonials testimonials={members} />
       </div>

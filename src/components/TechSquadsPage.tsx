@@ -6,6 +6,11 @@ import { AnimatedHero } from "@/components/AnimatedHero";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { ContactForm } from "@/components/ContactForm";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import {
+  ScrollReveal,
+  SectionHeader,
+  StaggerChildren,
+} from "@/components/ui/scroll-reveal";
 import { techSquadsFaq } from "@/lib/faq-data";
 
 function Nav() {
@@ -126,7 +131,7 @@ function Stats() {
 
   return (
     <section className="px-6 md:px-10 py-20 border-t border-border bg-card">
-      <div className="mx-auto max-w-7xl grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+      <StaggerChildren className="mx-auto max-w-7xl grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
         {stats.map((s) => (
           <div key={s.label} className="text-center">
             <p className="font-sans text-3xl md:text-4xl text-primary mb-2">
@@ -137,7 +142,7 @@ function Stats() {
             </p>
           </div>
         ))}
-      </div>
+      </StaggerChildren>
       <p className="text-center text-[9px] tracking-[0.2em] uppercase text-muted-foreground/50 mt-8">
         Fontes: Coherent Market Insights, 2026 · Saigon Technology · Gartner
       </p>
@@ -176,20 +181,22 @@ function Challenges() {
   return (
     <section id="desafios" className="px-6 md:px-10 py-32 border-t border-border">
       <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            — Reconhece algum desses?
-          </p>
-          <h2 className="font-sans text-3xl md:text-5xl">
-            Os desafios que{" "}
-            <em className="italic text-muted-foreground">
-              travam seu crescimento
-            </em>
-            .
-          </h2>
-        </div>
+        <SectionHeader
+          align="center"
+          className="mb-16"
+          title={
+            <>
+              Os desafios que{" "}
+              <em className="italic text-muted-foreground">
+                travam seu crescimento
+              </em>
+              .
+            </>
+          }
+          titleClassName="font-sans text-3xl md:text-5xl"
+        />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+        <StaggerChildren className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {items.map((item) => (
             <div
               key={item.title}
@@ -203,7 +210,7 @@ function Challenges() {
               </p>
             </div>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </section>
   );
@@ -239,17 +246,19 @@ function HowItWorks() {
       className="px-6 md:px-10 py-32 border-t border-border"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            — Processo
-          </p>
-          <h2 className="font-sans text-3xl md:text-5xl">
-            Do diagnóstico ao{" "}
-            <em className="italic text-muted-foreground">squad rodando</em>.
-          </h2>
-        </div>
+        <SectionHeader
+          align="center"
+          className="mb-16"
+          title={
+            <>
+              Do diagnóstico ao{" "}
+              <em className="italic text-muted-foreground">squad rodando</em>.
+            </>
+          }
+          titleClassName="font-sans text-3xl md:text-5xl"
+        />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <StaggerChildren className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step) => (
             <div key={step.n} className="group">
               <div className="flex items-baseline gap-3 mb-4">
@@ -266,7 +275,7 @@ function HowItWorks() {
               </p>
             </div>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </section>
   );
@@ -306,23 +315,18 @@ function Differentials() {
       className="px-6 md:px-10 py-32 border-t border-border"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">
-              — Diferenciais
-            </p>
-            <h2 className="font-sans text-2xl md:text-4xl">
-              Mais que outsourcing{" "}
-              <em className="italic text-muted-foreground">tradicional</em>.
-            </h2>
-          </div>
+        <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <h2 className="font-sans text-2xl md:text-4xl">
+            Mais que outsourcing{" "}
+            <em className="italic text-muted-foreground">tradicional</em>.
+          </h2>
           <p className="text-muted-foreground max-w-sm">
             Não entregamos apenas pessoas. Entregamos capacidade real de
             entrega, com gestão e continuidade.
           </p>
-        </div>
+        </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+        <StaggerChildren className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {items.map((item) => (
             <div
               key={item.title}
@@ -336,7 +340,7 @@ function Differentials() {
               </p>
             </div>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </section>
   );
@@ -382,22 +386,21 @@ function Profiles() {
   return (
     <section id="perfis" className="px-6 md:px-10 py-32 border-t border-border">
       <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            — Perfis disponíveis
-          </p>
-          <h2 className="font-sans text-3xl md:text-5xl">
-            Squads completos para{" "}
-            <em className="italic text-muted-foreground">seu desafio</em>.
-          </h2>
-        </div>
+        <SectionHeader
+          align="center"
+          className="mb-16"
+          title={
+            <>
+              Squads completos para{" "}
+              <em className="italic text-muted-foreground">seu desafio</em>.
+            </>
+          }
+          titleClassName="font-sans text-3xl md:text-5xl"
+        />
 
-        <div className="grid md:grid-cols-3 gap-px bg-border">
+        <StaggerChildren className="grid md:grid-cols-3 gap-px bg-border">
           {categories.map((cat) => (
-            <div
-              key={cat.title}
-              className="bg-background p-8 md:p-10"
-            >
+            <div key={cat.title} className="bg-background p-8 md:p-10">
               <h3 className="font-sans text-2xl mb-6 text-primary">
                 {cat.title}
               </h3>
@@ -414,9 +417,9 @@ function Profiles() {
               </ul>
             </div>
           ))}
-        </div>
+        </StaggerChildren>
 
-        <div className="text-center mt-12">
+        <ScrollReveal className="text-center mt-12">
           <a
             href="#contato"
             className="btn btn-lg btn-primary"
@@ -424,7 +427,7 @@ function Profiles() {
             Definir meu squad
             <span aria-hidden>→</span>
           </a>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -433,27 +436,28 @@ function Profiles() {
 function MarketContext() {
   return (
     <section className="px-6 md:px-10 py-32 md:py-48 border-t border-border">
-      <div className="mx-auto max-w-5xl text-center">
-        <p className="text-xs tracking-[0.4em] uppercase text-primary mb-10">
-          — O mercado global
-        </p>
-        <h2 className="font-sans text-[clamp(2rem,5vw,4.5rem)] mb-8">
-          Outsourcing de TI vai de{" "}
-          <em className="italic text-muted-foreground">
-            US$ 462 bi para US$ 861 bi até 2033
-          </em>
-          .
-        </h2>
-        <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-          Empresas líderes já entenderam: construir capacidade de entrega com
-          times externos especializados não é terceirização — é estratégia. O
-          modelo evoluiu de cortar custos para gerar valor real, com IA, cloud e
-          DevOps integrados desde o início.
-        </p>
-        <p className="text-xs text-muted-foreground/60">
-          Fonte: Coherent Market Insights, IT Services Outsourcing Market
-          2026–2033
-        </p>
+      <div className="mx-auto max-w-5xl">
+        <SectionHeader
+          align="center"
+          title={
+            <>
+              Outsourcing de TI vai de{" "}
+              <em className="italic text-muted-foreground">
+                US$ 462 bi para US$ 861 bi até 2033
+              </em>
+              .
+            </>
+          }
+          description="Empresas líderes já entenderam: construir capacidade de entrega com times externos especializados não é terceirização — é estratégia. O modelo evoluiu de cortar custos para gerar valor real, com IA, cloud e DevOps integrados desde o início."
+          titleClassName="font-sans text-[clamp(2rem,5vw,4.5rem)] mb-0"
+          descriptionClassName="text-base md:text-lg max-w-2xl mx-auto mt-8 mb-0 max-w-none"
+        />
+        <ScrollReveal delay={0.2}>
+          <p className="text-center text-xs text-muted-foreground/60 mt-8">
+            Fonte: Coherent Market Insights, IT Services Outsourcing Market
+            2026–2033
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -467,39 +471,42 @@ function FAQ() {
   return (
     <section id="faq" className="px-6 md:px-10 py-32 border-t border-border">
       <div className="mx-auto max-w-3xl">
-        <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            — Perguntas frequentes
-          </p>
-          <h2 className="font-sans text-3xl md:text-5xl">
-            Tire suas{" "}
-            <em className="italic text-muted-foreground">dúvidas</em>.
-          </h2>
-        </div>
+        <SectionHeader
+          align="center"
+          className="mb-16"
+          title={
+            <>
+              Tire suas{" "}
+              <em className="italic text-muted-foreground">dúvidas</em>.
+            </>
+          }
+          titleClassName="font-sans text-3xl md:text-5xl"
+        />
 
-        <div className="divide-y divide-border">
+        <StaggerChildren className="divide-y divide-border">
           {items.map((item, i) => (
-            <button
-              key={i}
-              onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              className="w-full text-left py-6 group cursor-pointer"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="font-sans text-base md:text-lg group-hover:text-primary transition-colors">
-                  {item.q}
-                </h3>
-                <span className="text-primary text-xl shrink-0 mt-0.5">
-                  {openIndex === i ? "−" : "+"}
-                </span>
-              </div>
-              {openIndex === i && (
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                  {item.a}
-                </p>
-              )}
-            </button>
+            <div key={i}>
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full text-left py-6 group cursor-pointer"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="font-sans text-base md:text-lg group-hover:text-primary transition-colors">
+                    {item.q}
+                  </h3>
+                  <span className="text-primary text-xl shrink-0 mt-0.5">
+                    {openIndex === i ? "−" : "+"}
+                  </span>
+                </div>
+                {openIndex === i && (
+                  <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                    {item.a}
+                  </p>
+                )}
+              </button>
+            </div>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </section>
   );
@@ -512,18 +519,22 @@ function Contact() {
       className="px-6 md:px-10 py-32 md:py-48 border-t border-border"
     >
       <div className="mx-auto max-w-3xl text-center">
-        <p className="text-xs tracking-[0.4em] uppercase text-primary mb-8">
-          — Próximo Passo
-        </p>
-        <h2 className="font-sans text-4xl leading-[0.95] mb-6">
-          Vamos montar{" "}
-          <em className="italic text-muted-foreground">seu squad</em>.
-        </h2>
-        <p className="text-muted-foreground text-base md:text-lg max-w-lg mx-auto mb-12 leading-relaxed">
-          Descreva seu desafio técnico. Retornamos em até 24 horas com uma
-          proposta de squad sob medida.
-        </p>
-        <ContactForm />
+        <SectionHeader
+          align="center"
+          className="mb-12"
+          title={
+            <>
+              Vamos montar{" "}
+              <em className="italic text-muted-foreground">seu squad</em>.
+            </>
+          }
+          description="Descreva seu desafio técnico. Retornamos em até 24 horas com uma proposta de squad sob medida."
+          titleClassName="font-sans text-4xl leading-[0.95] mb-0"
+          descriptionClassName="text-base md:text-lg max-w-lg mx-auto mt-6 max-w-none"
+        />
+        <ScrollReveal>
+          <ContactForm />
+        </ScrollReveal>
       </div>
     </section>
   );

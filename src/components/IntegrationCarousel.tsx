@@ -4,6 +4,7 @@ import type { ComponentType, ReactNode } from "react";
 import { MessageSquare, Webhook } from "lucide-react";
 import { useTheme } from "next-themes";
 import type { LogoCarouselItem } from "@/lib/client-logos-data";
+import { SectionHeader } from "@/components/ui/scroll-reveal";
 import {
   integrationRow1,
   integrationRow2,
@@ -111,7 +112,6 @@ function MarqueeRow({
 
 export type IntegrationCarouselProps = {
   id?: string;
-  eyebrow?: string;
   title?: ReactNode;
   description?: string;
   row1?: IntegrationItem[];
@@ -121,7 +121,6 @@ export type IntegrationCarouselProps = {
 
 export type LogoCarouselProps = {
   id?: string;
-  eyebrow?: string;
   title?: ReactNode;
   description?: string;
   row1: LogoCarouselItem[];
@@ -136,9 +135,6 @@ export function IntegrationCarousel(props: CarouselProps = {}) {
   const variant = props.variant ?? "integration";
   const iconColor = resolvedTheme === "light" ? "18181b" : "ffffff";
   const id = props.id ?? (variant === "logo" ? "clientes" : "integracoes");
-  const eyebrow =
-    props.eyebrow ??
-    (variant === "logo" ? "— Experiência" : "— Integrações");
   const title =
     props.title ??
     (variant === "logo" ? (
@@ -173,17 +169,14 @@ export function IntegrationCarousel(props: CarouselProps = {}) {
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-50" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mx-auto mb-12 max-w-2xl text-center md:mb-14">
-          <p className="mb-6 text-xs tracking-[0.4em] uppercase text-primary">
-            {eyebrow}
-          </p>
-          <h2 className="font-sans text-3xl md:text-5xl">{title}</h2>
-          {description ? (
-            <p className="mt-5 text-sm leading-relaxed text-muted-foreground md:text-base">
-              {description}
-            </p>
-          ) : null}
-        </div>
+        <SectionHeader
+          title={title}
+          description={description}
+          align="center"
+          className="mx-auto mb-12 max-w-2xl md:mb-14"
+          titleClassName="font-sans text-3xl md:text-5xl"
+          descriptionClassName="mt-5 max-w-none"
+        />
 
         <div className="relative overflow-hidden pb-2">
           <MarqueeRow

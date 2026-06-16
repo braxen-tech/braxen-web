@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { ContainerScroll, CardSticky } from "@/components/ui/cards-stack";
+import { SectionHeader } from "@/components/ui/scroll-reveal";
 
 export type StackedCardItem = {
   id: string;
@@ -11,7 +12,6 @@ export type StackedCardItem = {
 
 export type StackedCardsSectionProps = {
   id: string;
-  eyebrow: string;
   title: React.ReactNode;
   description?: string;
   cards: readonly StackedCardItem[];
@@ -24,7 +24,6 @@ const DEFAULT_INCREMENT_Y = 12;
 
 export function StackedCardsSection({
   id,
-  eyebrow,
   title,
   description,
   cards,
@@ -70,17 +69,12 @@ export function StackedCardsSection({
     >
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 md:items-start md:gap-12 xl:gap-16">
         <div className="md:sticky md:top-24 md:self-start md:py-4">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            {eyebrow}
-          </p>
-          <h2 className="font-sans text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6">
-            {title}
-          </h2>
-          {description ? (
-            <p className="max-w-prose text-sm leading-relaxed text-muted-foreground md:text-base">
-              {description}
-            </p>
-          ) : null}
+          <SectionHeader
+            title={title}
+            description={description}
+            titleClassName="font-sans text-3xl md:text-4xl lg:text-5xl tracking-tight mb-0"
+            descriptionClassName="max-w-prose text-sm md:text-base mt-6 mb-0"
+          />
         </div>
 
         <ContainerScroll ref={containerRef} className="space-y-4 pb-4 md:pb-8">

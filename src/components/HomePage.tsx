@@ -1,21 +1,25 @@
 "use client";
 
-import chapterProblem from "@/assets/chapter-problem.jpg";
-import chapterSolution from "@/assets/chapter-solution.jpg";
-import chapterResult from "@/assets/chapter-result.jpg";
 import { AnimatedHero } from "@/components/AnimatedHero";
 import { ContactForm } from "@/components/ContactForm";
 import { IntegrationCarousel } from "@/components/IntegrationCarousel";
 import { Leadership } from "@/components/Leadership";
+import { FeatureSection } from "@/components/ui/feature";
+import {
+  ScrollReveal,
+  SectionHeader,
+  StaggerChildren,
+} from "@/components/ui/scroll-reveal";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Portfolio } from "@/components/Portfolio";
 import { StackedCardsSection } from "@/components/StackedCardsSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { SOCIAL_LINKS } from "@/lib/site";
 import { clientLogoRow1, clientLogoRow2 } from "@/lib/client-logos-data";
-import { imageSrc, type ImageSrc } from "@/lib/utils";
+import { painFeature, solutionFeature } from "@/lib/home-story-data";
 
 const serviceCards = [
   {
@@ -67,10 +71,9 @@ function Nav() {
   }, [menuOpen]);
 
   const links = [
-    { href: "#chapter-1", label: "A Dor" },
-    { href: "#chapter-2", label: "A Solução" },
-    { href: "#chapter-3", label: "O Resultado" },
-    { href: "#portfolio", label: "Soluções" },
+    { href: "#problema", label: "A Dor" },
+    { href: "#como-fazemos", label: "Como fazemos" },
+    { href: "#entregas", label: "Entregas" },
     { href: "#leadership", label: "Time" },
     { href: "#contact", label: "Contato" },
   ];
@@ -154,73 +157,6 @@ function Nav() {
   );
 }
 
-function Statement() {
-  return (
-    <section className="relative px-6 md:px-10 py-32 md:py-48">
-      <div className="mx-auto max-w-5xl text-center">
-        <p className="text-xs tracking-[0.4em] uppercase text-primary mb-10">
-          — O Diagnóstico
-        </p>
-        <h2 className="font-sans text-heading-2">
-          Enquanto sua equipe apaga incêndios,{" "}
-          <em className="italic text-muted-foreground">
-            seu concorrente automatizou.
-          </em>
-        </h2>
-      </div>
-    </section>
-  );
-}
-
-function Chapter({
-  kicker,
-  title,
-  body,
-  image,
-  imageAlt,
-  reverse,
-  id,
-}: {
-  kicker: string;
-  title: string;
-  body: string;
-  image: ImageSrc;
-  imageAlt: string;
-  reverse?: boolean;
-  id: string;
-}) {
-  return (
-    <section
-      id={id}
-      className="relative px-6 md:px-10 py-24 md:py-40 border-t border-border"
-    >
-      <div
-        className={`mx-auto max-w-7xl grid md:grid-cols-12 gap-10 items-center ${
-          reverse ? "md:[&>*:first-child]:order-2" : ""
-        }`}
-      >
-        <div className="md:col-span-7">
-          <img
-            src={imageSrc(image)}
-            alt={imageAlt}
-            loading="lazy"
-            className="w-full h-[60vh] md:h-[80vh] object-cover grayscale-[0.2]"
-          />
-        </div>
-        <div className="md:col-span-5 md:px-6">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-6">
-            — {kicker}
-          </p>
-          <h2 className="font-sans text-heading-2 mb-6">{title}</h2>
-          <p className="text-muted-foreground leading-relaxed text-lg md:text-xl max-w-md">
-            {body}
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Products() {
   return (
     <section
@@ -228,21 +164,19 @@ function Products() {
       className="px-6 md:px-10 py-20 border-t border-border bg-card"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10">
-          <p className="text-xs tracking-[0.4em] uppercase text-primary mb-4">
-            — Produtos e squads
-          </p>
-          <h2 className="font-sans text-heading-2">
-            Pronto para{" "}
-            <em className="italic text-muted-foreground">começar</em>?
-          </h2>
-        </div>
-        <div className="grid gap-px bg-border md:grid-cols-2">
+        <SectionHeader
+          title={
+            <>
+              Pronto para{" "}
+              <em className="italic text-muted-foreground">começar</em>?
+            </>
+          }
+          className="mb-10"
+          titleClassName="font-sans text-heading-2"
+        />
+        <StaggerChildren className="grid gap-px bg-border md:grid-cols-2" stagger={0.1}>
           <div className="flex flex-col justify-between gap-6 bg-background p-8 md:p-10">
             <div>
-              <p className="mb-3 text-xs tracking-[0.4em] uppercase text-primary">
-                — Automação
-              </p>
               <h3 className="text-heading-3 font-sans mb-2">Agentes de IA</h3>
               <p className="max-w-md text-sm text-muted-foreground">
                 Atendimento omnichannel com CRM integrado, agenda, vendas e
@@ -258,9 +192,6 @@ function Products() {
           </div>
           <div className="flex flex-col justify-between gap-6 bg-background p-8 md:p-10">
             <div>
-              <p className="mb-3 text-xs tracking-[0.4em] uppercase text-primary">
-                — Equipe
-              </p>
               <h3 className="text-heading-3 font-sans mb-2">Tech Squads</h3>
               <p className="max-w-md text-sm text-muted-foreground">
                 Times completos de desenvolvimento, produto, dados e IA
@@ -274,7 +205,7 @@ function Products() {
               Montar meu squad <span aria-hidden>→</span>
             </a>
           </div>
-        </div>
+        </StaggerChildren>
       </div>
     </section>
   );
@@ -287,18 +218,22 @@ function Contact() {
       className="px-6 md:px-10 py-32 md:py-48 border-t border-border"
     >
       <div className="mx-auto max-w-3xl text-center">
-        <p className="text-xs tracking-[0.4em] uppercase text-primary mb-8">
-          — Próximo Passo
-        </p>
-        <h2 className="font-sans text-heading-2 mb-6">
-          Vamos construir{" "}
-          <em className="italic text-muted-foreground">sua solução</em>.
-        </h2>
-        <p className="text-muted-foreground text-base md:text-lg max-w-lg mx-auto mb-12 leading-relaxed">
-          Descreva o problema. Nossa equipe retorna em até 24 horas com uma
-          análise técnica e os próximos passos.
-        </p>
-        <ContactForm />
+        <SectionHeader
+          align="center"
+          title={
+            <>
+              Vamos construir{" "}
+              <em className="italic text-muted-foreground">sua solução</em>.
+            </>
+          }
+          description="Descreva o problema. Nossa equipe retorna em até 24 horas com uma análise técnica e os próximos passos."
+          className="mb-12"
+          titleClassName="font-sans text-heading-2 mb-0"
+          descriptionClassName="text-base md:text-lg max-w-lg mx-auto mt-6 max-w-none"
+        />
+        <ScrollReveal>
+          <ContactForm />
+        </ScrollReveal>
         <div className="mt-20 grid md:grid-cols-3 gap-10 text-left text-sm">
           <div>
             <p className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">
@@ -410,41 +345,16 @@ export function HomePage() {
           label: "Ver serviços",
         }}
       />
-      <Statement />
       <IntegrationCarousel
         variant="logo"
         row1={clientLogoRow1}
         row2={clientLogoRow2}
       />
-      <Chapter
-        id="chapter-1"
-        kicker="A Dor"
-        title="Sua operação trava antes de escalar"
-        imageAlt="Equipe sobrecarregada com processos manuais e planilhas desorganizadas"
-        body="Leads sem resposta. Equipe no limite. Planilhas que ninguém confia. Você sabe que precisa de tecnologia — mas não de mais uma ferramenta genérica que ninguém vai usar."
-        image={chapterProblem}
-      />
-      <Chapter
-        id="chapter-2"
-        kicker="A Solução"
-        title="Tecnologia feita pro seu processo"
-        imageAlt="Dashboard e automações sob medida integrados à operação"
-        body="Mapeamos onde sua operação trava, construímos exatamente o que resolve e colocamos pra rodar. Agente de IA no WhatsApp, CRM que seu time realmente usa, dashboard que mostra o que importa. Sem template. Sem licença."
-        image={chapterSolution}
-        reverse
-      />
-      <Chapter
-        id="chapter-3"
-        kicker="O Resultado"
-        title="Entrega rápida, impacto mensurável"
-        imageAlt="Resultados de negócio com entregas de software em produção"
-        body="Primeira entrega em semanas, não em meses. Você acompanha cada etapa, valida antes de ir pro ar e mede o impacto real. Se não funcionar, a gente ajusta até funcionar."
-        image={chapterResult}
-      />
+      <FeatureSection {...painFeature} variant="problem" />
+      <FeatureSection {...solutionFeature} variant="solution" reverse />
       <Portfolio />
       <StackedCardsSection
         id="services"
-        eyebrow="— Serviços"
         title={
           <>
             O que{" "}
@@ -456,6 +366,10 @@ export function HomePage() {
       />
       <Products />
       <Leadership />
+      <TestimonialsSection
+        id="depoimentos"
+        description="Resultados reais em software, atendimento e automação."
+      />
       <Contact />
       <Footer />
     </main>

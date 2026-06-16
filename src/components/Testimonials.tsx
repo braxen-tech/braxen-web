@@ -2,6 +2,7 @@
 
 import { Fragment } from "react";
 import { motion } from "framer-motion";
+import { SectionHeader } from "@/components/ui/scroll-reveal";
 
 interface Testimonial {
   text: string;
@@ -160,29 +161,19 @@ export function Testimonials({ enabled = false }: { enabled?: boolean }) {
       role="region"
       aria-label="Depoimentos de clientes"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{
-          duration: 1.2,
-          ease: [0.16, 1, 0.3, 1],
-          opacity: { duration: 0.8 },
-        }}
-        className="mb-10 text-center md:mb-14"
-      >
-        <p className="mb-4 text-xs tracking-[0.4em] uppercase text-primary">
-          — Resultados reais
-        </p>
-        <h2 className="font-sans text-heading-2">
-          O que nossos clientes{" "}
-          <em className="italic text-muted-foreground">dizem</em>.
-        </h2>
-        <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-          De agentes de IA a dashboards sob medida — cada projeto é construído
-          para o processo de quem confia na Braxen.
-        </p>
-      </motion.div>
+      <SectionHeader
+        align="center"
+        className="mb-10 md:mb-14"
+        title={
+          <>
+            O que nossos clientes{" "}
+            <em className="italic text-muted-foreground">dizem</em>.
+          </>
+        }
+        description="De agentes de IA a dashboards sob medida — cada projeto é construído para o processo de quem confia na Braxen."
+        titleClassName="font-sans text-heading-2 mb-0"
+        descriptionClassName="mx-auto mt-4 max-w-md max-w-none"
+      />
 
       <div className="mx-auto flex max-h-[740px] justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
         <TestimonialsColumn testimonials={firstColumn} duration={15} />

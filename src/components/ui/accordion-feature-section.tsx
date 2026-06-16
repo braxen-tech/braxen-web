@@ -13,10 +13,13 @@ import {
   type SolutionFeature,
 } from "@/lib/solutions-data";
 import { cn } from "@/lib/utils";
+import {
+  ScrollReveal,
+  SectionHeader,
+} from "@/components/ui/scroll-reveal";
 
 export type AccordionFeatureSectionProps = {
   id?: string;
-  eyebrow?: string;
   title?: ReactNode;
   description?: string;
   features?: SolutionFeature[];
@@ -25,10 +28,9 @@ export type AccordionFeatureSectionProps = {
 
 export function AccordionFeatureSection({
   id,
-  eyebrow = "— O que entregamos",
   title = (
     <>
-      Soluções<span className="text-primary">.</span>
+      Entregas<span className="text-primary">.</span>
     </>
   ),
   description = "De agentes de IA a dashboards sob medida — cada projeto é construído para o seu processo.",
@@ -49,22 +51,18 @@ export function AccordionFeatureSection({
       )}
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 md:mb-14">
-          <p className="mb-4 text-xs tracking-[0.4em] uppercase text-primary">
-            {eyebrow}
-          </p>
-          <h2 className="font-sans text-heading-2">{title}</h2>
-          {description ? (
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-              {description}
-            </p>
-          ) : null}
-        </div>
+        <SectionHeader
+          title={title}
+          description={description}
+          className="mb-10 md:mb-14"
+          titleClassName="font-sans text-heading-2"
+          descriptionClassName="max-w-md"
+        />
 
         <div
           className="flex w-full items-start justify-between gap-10 lg:gap-16"
           role="region"
-          aria-label="Soluções entregues pela Braxen"
+          aria-label="Entregas e projetos da Braxen"
         >
           <div className="w-full md:w-1/2">
             <Accordion
@@ -119,7 +117,7 @@ export function AccordionFeatureSection({
             </Accordion>
           </div>
 
-          <div className="relative m-auto hidden w-1/2 overflow-hidden rounded-sm border border-border bg-muted md:block">
+          <ScrollReveal className="relative m-auto hidden w-1/2 overflow-hidden rounded-sm border border-border bg-muted md:block">
             <img
               key={activeFeature.id}
               src={solutionImageSrc(activeFeature)}
@@ -136,7 +134,7 @@ export function AccordionFeatureSection({
                 {activeFeature.title}
               </p>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
