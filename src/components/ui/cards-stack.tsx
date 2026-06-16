@@ -1,11 +1,10 @@
 "use client";
 
 import * as React from "react";
-import { type HTMLMotionProps, motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
-interface CardStickyProps extends HTMLMotionProps<"div"> {
+interface CardStickyProps extends React.HTMLAttributes<HTMLDivElement> {
   index: number;
   incrementY?: number;
   incrementZ?: number;
@@ -43,24 +42,21 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
     },
     ref,
   ) => {
-    const y = baseTop + index * incrementY;
-    const z = index * incrementZ;
+    const top = baseTop + index * incrementY;
 
     return (
-      <motion.div
+      <div
         ref={ref}
-        layout="position"
         style={{
-          top: y,
-          zIndex: z,
-          backfaceVisibility: "hidden",
+          top,
+          zIndex: index * incrementZ,
           ...style,
         }}
         className={cn("sticky", className)}
         {...props}
       >
         {children}
-      </motion.div>
+      </div>
     );
   },
 );

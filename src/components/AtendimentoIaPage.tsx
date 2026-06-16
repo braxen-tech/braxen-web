@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
 import { ContainerScroll, CardSticky } from "@/components/ui/cards-stack";
@@ -314,6 +314,38 @@ const processSteps = [
 ] as const;
 
 function HowItWorks() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const updateStackScroll = () => {
+      const container = containerRef.current;
+      const card = cardRef.current;
+      if (!container || !card) return;
+
+      const cardHeight = card.getBoundingClientRect().height;
+      const count = processSteps.length;
+      const gap = 16;
+      const stackRunway =
+        (count - 1) * Math.max(cardHeight - CARD_STACK_INCREMENT_Y, 120);
+
+      container.style.minHeight = `${Math.ceil(
+        cardHeight * count + gap * (count - 1) + stackRunway,
+      )}px`;
+    };
+
+    updateStackScroll();
+
+    const observer = new ResizeObserver(updateStackScroll);
+    if (cardRef.current) observer.observe(cardRef.current);
+
+    window.addEventListener("resize", updateStackScroll, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateStackScroll);
+    };
+  }, []);
+
   return (
     <section
       id="como-funciona"
@@ -334,10 +366,11 @@ function HowItWorks() {
           </p>
         </div>
 
-        <ContainerScroll className="space-y-4 pb-4 md:pb-8">
+        <ContainerScroll ref={containerRef} className="space-y-4 pb-4 md:pb-8">
           {processSteps.map((step, index) => (
             <CardSticky
               key={step.id}
+              ref={index === 0 ? cardRef : undefined}
               index={index + 1}
               baseTop={NAV_STICKY_OFFSET}
               incrementY={CARD_STACK_INCREMENT_Y}
