@@ -9,6 +9,7 @@ import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { ContactForm } from "@/components/ContactForm";
 import { IntegrationCarousel } from "@/components/IntegrationCarousel";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Footer } from "@/components/ui/footer-section";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import {
   ScrollReveal,
@@ -302,20 +303,6 @@ function Contact() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="px-6 md:px-10 py-10 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-      <p>
-        © {new Date().getFullYear()} Braxen Tech — Todos os direitos reservados
-      </p>
-      <p className="flex items-center gap-2">
-        <span className="inline-block size-1.5 rounded-full bg-primary blink" />
-        Construído no escuro
-      </p>
-    </footer>
-  );
-}
-
 export function AtendimentoIaPage() {
   return (
     <main className="relative">
@@ -357,7 +344,7 @@ export function AtendimentoIaPage() {
       <TestimonialsSection />
       <FAQ />
       <Contact />
-      <Footer />
+      <Footer contactHref="#contato" />
       <StickyCta />
     </main>
   );

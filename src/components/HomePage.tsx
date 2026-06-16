@@ -16,8 +16,8 @@ import { Portfolio } from "@/components/Portfolio";
 import { StackedCardsSection } from "@/components/StackedCardsSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Footer } from "@/components/ui/footer-section";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
-import { SOCIAL_LINKS } from "@/lib/site";
 import { clientLogoRow1, clientLogoRow2 } from "@/lib/client-logos-data";
 import { painFeature, solutionFeature } from "@/lib/home-story-data";
 
@@ -234,88 +234,8 @@ function Contact() {
         <ScrollReveal>
           <ContactForm />
         </ScrollReveal>
-        <div className="mt-20 grid md:grid-cols-3 gap-10 text-left text-sm">
-          <div>
-            <p className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">
-              Localização
-            </p>
-            <p>
-              Brasil · Remoto
-              <br />
-              Atendimento nacional
-            </p>
-          </div>
-          <div>
-            <p className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">
-              Horário
-            </p>
-            <p>
-              Seg — Sex
-              <br />
-              09:00 — 19:00 BRT
-            </p>
-          </div>
-          <div>
-            <p className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">
-              Redes
-            </p>
-            <p className="flex flex-wrap gap-x-3 gap-y-1">
-              <a
-                href={SOCIAL_LINKS.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                LinkedIn
-              </a>
-              <a
-                href={SOCIAL_LINKS.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                GitHub
-              </a>
-              <a
-                href={SOCIAL_LINKS.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                Instagram
-              </a>
-            </p>
-          </div>
-        </div>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="px-6 md:px-10 py-10 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-      <p>
-        © {new Date().getFullYear()} Braxen Tech — Todos os direitos reservados
-      </p>
-      <p className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2">
-        <a
-          href="/atendimento-ia"
-          className="hover:text-foreground transition-colors"
-        >
-          Automação
-        </a>
-        <span className="hidden sm:inline text-border">·</span>
-        <a
-          href="/tech-squads"
-          className="hover:text-foreground transition-colors"
-        >
-          Tech Squads
-        </a>
-        <span className="hidden sm:inline text-border">·</span>
-        <span>Braxen Tech · Brasil</span>
-      </p>
-    </footer>
   );
 }
 
@@ -371,7 +291,7 @@ export function HomePage() {
         description="Resultados reais em software, atendimento e automação."
       />
       <Contact />
-      <Footer />
+      <Footer contactHref="#contact" />
     </main>
   );
 }
