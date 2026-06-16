@@ -295,7 +295,7 @@ function Contact() {
           <ContactForm
             source={PAGE_SOURCE}
             messagePlaceholder="Ex.: atendo ~200 leads/mês no WhatsApp e preciso integrar com meu ERP..."
-            submitMicrocopy="Abre o WhatsApp · Resposta em até 24h"
+            submitMicrocopy="Resposta em até 24h"
           />
         </ScrollReveal>
       </div>

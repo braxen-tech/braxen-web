@@ -534,7 +534,7 @@ function Contact() {
           descriptionClassName="text-base md:text-lg max-w-lg mx-auto mt-6 max-w-none"
         />
         <ScrollReveal>
-          <ContactForm />
+          <ContactForm source="/tech-squads" />
         </ScrollReveal>
       </div>
     </section>

@@ -21,7 +21,10 @@ cp .env.example .env.local
 
 | Variable | Description |
 |----------|-------------|
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | WhatsApp number in international format (digits only, e.g. `33612345678`) |
+| `RESEND_API_KEY` | API key do [Resend](https://resend.com) |
+| `RESEND_FROM_EMAIL` | Remetente verificado no Resend (ex.: `contato@braxentech.com`) |
+| `RESEND_FROM_NAME` | Nome exibido no remetente (padrão: `Braxen Tech`) |
+| `CONTACT_EMAIL_TO` | E-mail que recebe os leads do formulário |
 
 ## Scripts
 
@@ -37,7 +40,7 @@ cp .env.example .env.local
 1. Import the repository in [Vercel](https://vercel.com/new).
 2. Set **Root Directory** to `braxen-next` (if the repo contains `capitolium-clone` and other folders at the root).
 3. Framework preset: **Next.js** (auto-detected).
-4. Add `NEXT_PUBLIC_WHATSAPP_NUMBER` in Project Settings → Environment Variables.
+4. Add `RESEND_API_KEY`, `RESEND_FROM_EMAIL` and `CONTACT_EMAIL_TO` in Project Settings → Environment Variables.
 5. Deploy.
 
 The included [`vercel.json`](vercel.json) documents the framework; Vercel usually does not require extra config for a standard Next.js app.
