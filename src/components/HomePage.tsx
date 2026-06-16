@@ -441,15 +441,15 @@ function Products() {
                 — Automação
               </p>
               <h3 className="text-heading-3 font-display mb-2">
-                WhatsApp + CRM
+                Agentes de IA
               </h3>
               <p className="max-w-md text-sm text-muted-foreground">
-                Agente de IA atendendo 24/7, leads no CRM e agendamentos
-                automáticos.
+                Atendimento omnichannel com CRM integrado, agenda, vendas e
+                integração com suas APIs.
               </p>
             </div>
             <a
-              href="/whatsapp-crm"
+              href="/atendimento-ia"
               className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
             >
               Conhecer solução <span aria-hidden>→</span>

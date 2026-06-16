@@ -118,7 +118,7 @@ function SolutionCard({ project }: { project: Project }) {
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-linear-to-t from-[oklch(0.12_0.012_220/95%)] via-[oklch(0.12_0.012_220/35%)] to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-background/95 via-background/35 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8">
         <span className="mb-2 block font-mono text-[10px] tracking-[0.3em] text-primary">
           {String(project.id).padStart(2, "0")}

@@ -5,7 +5,17 @@ import { buildBraxenWhatsAppUrl } from "@/lib/contact";
 
 type Status = "idle" | "error";
 
-export function ContactForm() {
+type ContactFormProps = {
+  source?: string;
+  messagePlaceholder?: string;
+  submitMicrocopy?: string;
+};
+
+export function ContactForm({
+  source,
+  messagePlaceholder = "Conte-nos sobre o seu projeto…",
+  submitMicrocopy = "Abre o WhatsApp com sua mensagem",
+}: ContactFormProps = {}) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -16,7 +26,7 @@ export function ContactForm() {
     setErrorMsg("");
 
     try {
-      const url = buildBraxenWhatsAppUrl(form);
+      const url = buildBraxenWhatsAppUrl({ ...form, source });
       window.open(url, "_blank", "noopener,noreferrer");
       setForm({ name: "", email: "", message: "" });
     } catch (err) {
@@ -67,7 +77,7 @@ export function ContactForm() {
           value={form.message}
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
           className="w-full bg-transparent border-b border-border focus:border-primary outline-none py-3 text-base resize-none transition-colors"
-          placeholder="Conte-nos sobre o seu projeto…"
+          placeholder={messagePlaceholder}
         />
       </div>
 
@@ -77,7 +87,7 @@ export function ContactForm() {
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
         <p className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-          Abre o WhatsApp com sua mensagem
+          {submitMicrocopy}
         </p>
         <button
           type="submit"

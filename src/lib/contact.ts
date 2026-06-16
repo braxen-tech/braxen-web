@@ -4,15 +4,22 @@ export function buildBraxenWhatsAppUrl(form: {
   name: string;
   email: string;
   message: string;
+  source?: string;
 }): string {
-  const text = [
+  const lines = [
     "Olá!",
     "",
     `Nome: ${form.name.trim()}`,
     `E-mail: ${form.email.trim()}`,
-    "",
-    form.message.trim(),
-  ].join("\n");
+  ];
+
+  if (form.source?.trim()) {
+    lines.push(`Página: ${form.source.trim()}`);
+  }
+
+  lines.push("", form.message.trim());
+
+  const text = lines.join("\n");
 
   return `https://wa.me/${BRAXEN_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }

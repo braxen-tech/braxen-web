@@ -205,4 +205,35 @@
       transform: translate3d(-40px, 0, -80px) rotateX(18deg) rotateY(-8deg) rotateZ(8deg);
     }
   }
+  @keyframes scroll-reel-rise {
+    from {
+      opacity: 0;
+      transform: translateY(0.4em);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .scroll-reel-char {
+    display: inline-block;
+    animation: scroll-reel-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes scroll-reel-exit-keyframes {
+    to {
+      opacity: 0;
+      transform: translateY(-0.25em);
+    }
+  }
+  .scroll-reel-exit {
+    animation: scroll-reel-exit-keyframes 240ms ease-in forwards;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reel-char,
+    .scroll-reel-exit {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
 }

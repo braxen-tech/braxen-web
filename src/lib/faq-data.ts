@@ -29,6 +29,33 @@ export const techSquadsFaq = [
   },
 ] as const;
 
+export const atendimentoIaFaq = [
+  {
+    q: "Quanto tempo leva para ir ao ar?",
+    a: "A primeira versão costuma rodar em 2 a 4 semanas, dependendo dos canais e integrações. Projetos mais enxutos podem ir ao ar em dias.",
+  },
+  {
+    q: "Preciso trocar meu CRM?",
+    a: "Não necessariamente. Integramos ao CRM que você já usa ou entregamos um CRM integrado à operação — você escolhe o que faz sentido.",
+  },
+  {
+    q: "O agente integra com meu sistema (API)?",
+    a: "Se tem API, a gente conecta. ERPs, pagamentos, estoque, planilhas internas, sistemas legados — fazemos a integração sob medida.",
+  },
+  {
+    q: "E se precisar de humano no meio do atendimento?",
+    a: "O agente reconhece quando não resolve sozinho e transfere para um atendente real, com todo o histórico e contexto da conversa no CRM.",
+  },
+  {
+    q: "Vocês ajudam a operar depois do go-live?",
+    a: "Sim. Podemos acompanhar a implantação e cuidar da operação contínua — monitoramento, ajustes do agente, evolução e suporte no dia a dia.",
+  },
+  {
+    q: "Quanto custa?",
+    a: "Depende do escopo e dos canais. Cada operação é diferente. Fale conosco e montamos uma proposta técnica em até 24 horas.",
+  },
+] as const;
+
 export const whatsappCrmFaq = [
   {
     q: "Preciso ter API oficial do WhatsApp?",
