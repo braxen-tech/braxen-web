@@ -1,43 +1,29 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import {
   CircularTestimonials,
   type CircularTestimonial,
 } from "@/components/CircularTestimonials";
 import { SectionHeader } from "@/components/ui/scroll-reveal";
 
-const members: CircularTestimonial[] = [
-  {
-    name: "Hugo Lemos",
-    designation: "Head of Product & UI/UX",
-    src: "/hugo_profile.webp",
-    quote:
-      "Traduzo problemas de negócio em interfaces que funcionam — cada tela, cada fluxo e cada detalhe pensados para o usuário final e para o resultado da operação.",
-  },
-  {
-    name: "Neemias Rocha",
-    designation: "Head of Sales",
-    src: "/neemias_profile.webp",
-    quote:
-      "Com dez anos conectando estratégia comercial à execução, entendo a dor do cliente antes da primeira reunião e garanto valor mensurável desde o dia um.",
-  },
-  {
-    name: "Rodrigo Gama",
-    designation: "Head of Engineering",
-    src: "/rodrigo_profile.webp",
-    quote:
-      "Conduzo times pequenos em ciclos curtos, com foco em entregas que sustentam carga real sem quebrar na segunda versão.",
-  },
-  {
-    name: "Tiago Rocha",
-    designation: "Head of AI & Platform",
-    src: "/tiago_profile.webp",
-    quote:
-      "Projeto agentes e automações que geram valor real, e mantenho a plataforma por trás deles confiável, observável e pronta para escalar.",
-  },
+const memberSlots = [
+  { key: 0, src: "/hugo_profile.webp" },
+  { key: 1, src: "/neemias_profile.webp" },
+  { key: 2, src: "/rodrigo_profile.webp" },
+  { key: 3, src: "/tiago_profile.webp" },
 ];
 
 export function Leadership() {
+  const t = useTranslations("home.leadership");
+
+  const members: CircularTestimonial[] = memberSlots.map((slot, index) => ({
+    name: t(`members.${index}.name`),
+    designation: t(`members.${index}.designation`),
+    quote: t(`members.${index}.quote`),
+    src: slot.src,
+  }));
+
   return (
     <section
       id="leadership"
@@ -49,16 +35,19 @@ export function Leadership() {
           className="mb-12 md:mb-16"
           title={
             <>
-              Liderança técnica{" "}
-              <em className="italic text-muted-foreground">de alto nível</em>.
+              {t("titleLead")}{" "}
+              <em className="italic text-muted-foreground">{t("titleEm")}</em>.
             </>
           }
-          description="Nosso time carrega experiência das maiores empresas de tecnologia do mundo. Cada projeto da Braxen é conduzido por especialistas que já entregaram sistemas críticos em escala."
+          description={t("description")}
           titleClassName="mb-0 font-sans text-heading-2"
           descriptionClassName="mx-auto max-w-2xl leading-relaxed mt-8 max-w-none"
         />
 
-        <CircularTestimonials testimonials={members} />
+        <CircularTestimonials
+          testimonials={members}
+          labels={{ prev: t("prev"), next: t("next") }}
+        />
       </div>
     </section>
   );

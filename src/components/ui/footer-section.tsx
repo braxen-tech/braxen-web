@@ -2,7 +2,9 @@
 
 import type { ComponentProps, ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
+import { useLocale, useTranslations } from "next-intl";
 import { SOCIAL_LINKS } from "@/lib/site";
+import { ROUTES } from "@/lib/routes";
 
 interface FooterLink {
   title: string;
@@ -11,59 +13,78 @@ interface FooterLink {
 
 interface FooterSection {
   label: string;
+  key: "solutions" | "navigation" | "contact" | "social";
   links: FooterLink[];
 }
 
-const footerLinks: FooterSection[] = [
-  {
-    label: "Soluções",
-    links: [
-      { title: "Automação de atendimento", href: "/atendimento-ia" },
-      { title: "Tech Squads", href: "/tech-squads" },
-      { title: "Entregas", href: "/#entregas" },
-      { title: "Serviços", href: "/#services" },
-    ],
-  },
-  {
-    label: "Navegação",
-    links: [
-      { title: "A Dor", href: "/#problema" },
-      { title: "Como fazemos", href: "/#como-fazemos" },
-      { title: "Time", href: "/#leadership" },
-      { title: "Depoimentos", href: "/#depoimentos" },
-    ],
-  },
-  {
-    label: "Contato",
-    links: [
-      { title: "Fale conosco", href: "/#contact" },
-      { title: "Automação", href: "/atendimento-ia#contato" },
-      { title: "Tech Squads", href: "/tech-squads#contato" },
-    ],
-  },
-  {
-    label: "Redes",
-    links: [
-      { title: "LinkedIn", href: SOCIAL_LINKS.linkedin },
-      { title: "Instagram", href: SOCIAL_LINKS.instagram },
-      { title: "GitHub", href: SOCIAL_LINKS.github },
-    ],
-  },
-];
+function useFooterLinks(): FooterSection[] {
+  const tSections = useTranslations("footer.sections");
+  const tSolutions = useTranslations("footer.solutions");
+  const tNavigation = useTranslations("footer.navigation");
+  const tContact = useTranslations("footer.contact");
+  const locale = useLocale();
+  const base = `/${locale}`;
+
+  return [
+    {
+      key: "solutions",
+      label: tSections("solutions"),
+      links: [
+        { title: tSolutions("atendimentoIa"), href: `${base}${ROUTES.aiAgents}` },
+        { title: tSolutions("clinicas"), href: `${base}${ROUTES.clinics}` },
+        { title: tSolutions("techSquads"), href: `${base}${ROUTES.techSquads}` },
+        { title: tSolutions("deliveries"), href: `${base}/#entregas` },
+        { title: tSolutions("services"), href: `${base}/#services` },
+      ],
+    },
+    {
+      key: "navigation",
+      label: tSections("navigation"),
+      links: [
+        { title: tNavigation("pain"), href: `${base}/#problema` },
+        { title: tNavigation("howWeDo"), href: `${base}/#como-fazemos` },
+        { title: tNavigation("team"), href: `${base}/#leadership` },
+        { title: tNavigation("testimonials"), href: `${base}/#depoimentos` },
+      ],
+    },
+    {
+      key: "contact",
+      label: tSections("contact"),
+      links: [
+        { title: tContact("talkToUs"), href: `${base}/#contact` },
+        { title: tContact("automation"), href: `${base}${ROUTES.aiAgents}#contato` },
+        { title: tContact("techSquads"), href: `${base}${ROUTES.techSquads}#contato` },
+      ],
+    },
+    {
+      key: "social",
+      label: tSections("social"),
+      links: [
+        { title: "LinkedIn", href: SOCIAL_LINKS.linkedin },
+        { title: "Instagram", href: SOCIAL_LINKS.instagram },
+        { title: "GitHub", href: SOCIAL_LINKS.github },
+      ],
+    },
+  ];
+}
 
 type FooterProps = {
   contactHref?: string;
 };
 
-export function Footer({ contactHref = "/#contact" }: FooterProps) {
-  const links = footerLinks.map((section) =>
-    section.label === "Contato"
+export function Footer({ contactHref }: FooterProps = {}) {
+  const t = useTranslations("footer");
+  const locale = useLocale();
+  const base = `/${locale}`;
+  const sections = useFooterLinks();
+
+  const resolvedContactHref = contactHref ?? `${base}/#contact`;
+  const links = sections.map((section) =>
+    section.key === "contact"
       ? {
           ...section,
-          links: section.links.map((link) =>
-            link.title === "Fale conosco"
-              ? { ...link, href: contactHref }
-              : link,
+          links: section.links.map((link, index) =>
+            index === 0 ? { ...link, href: resolvedContactHref } : link,
           ),
         }
       : section,
@@ -76,21 +97,20 @@ export function Footer({ contactHref = "/#contact" }: FooterProps) {
       <div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
         <AnimatedContainer className="space-y-4">
           <a
-            href="/"
+            href={base}
             className="inline-flex items-center gap-2 text-sm tracking-[0.3em] uppercase"
           >
             <span className="inline-block size-2 rounded-full bg-primary" />
             Braxen
           </a>
           <p className="mt-8 text-sm text-muted-foreground md:mt-0">
-            © {new Date().getFullYear()} Braxen Tech — Todos os direitos
-            reservados.
+            {t("copyright", { year: new Date().getFullYear() })}
           </p>
         </AnimatedContainer>
 
         <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4 xl:col-span-2 xl:mt-0">
           {links.map((section, index) => (
-            <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
+            <AnimatedContainer key={section.key} delay={0.1 + index * 0.1}>
               <div className="mb-10 md:mb-0">
                 <h3 className="text-xs tracking-[0.2em] uppercase">
                   {section.label}

@@ -40,6 +40,7 @@ interface CircularTestimonialsProps {
   colors?: Colors;
   fontSizes?: FontSizes;
   className?: string;
+  labels?: { prev: string; next: string };
 }
 
 function calculateGap(width: number) {
@@ -62,6 +63,7 @@ export function CircularTestimonials({
   colors = {},
   fontSizes = {},
   className,
+  labels = { prev: "Previous", next: "Next" },
 }: CircularTestimonialsProps) {
   const colorName = colors.name ?? "var(--foreground)";
   const colorDesignation = colors.designation ?? "var(--muted-foreground)";
@@ -265,7 +267,7 @@ export function CircularTestimonials({
               type="button"
               className="flex size-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
               onClick={handlePrev}
-              aria-label="Perfil anterior"
+              aria-label={labels.prev}
             >
               <ArrowLeft className="size-5" aria-hidden />
             </button>
@@ -273,7 +275,7 @@ export function CircularTestimonials({
               type="button"
               className="flex size-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
               onClick={handleNext}
-              aria-label="Próximo perfil"
+              aria-label={labels.next}
             >
               <ArrowRight className="size-5" aria-hidden />
             </button>

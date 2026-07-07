@@ -12,21 +12,24 @@ import { ContactForm } from "@/components/ContactForm";
 import { IntegrationCarousel } from "@/components/IntegrationCarousel";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Footer } from "@/components/ui/footer-section";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
 import {
   ScrollReveal,
   SectionHeader,
   StaggerChildren,
 } from "@/components/ui/scroll-reveal";
-import { ATENDIMENTO_IA_FAQ_COUNT } from "@/lib/faq-data";
+import {
+  CLINICAS_PAINS_COUNT,
+  CLINICAS_SOLUTIONS_COUNT,
+  CLINICAS_PROCESS_STEP_IDS,
+} from "@/lib/clinicas-story-data";
+import { CLINICAS_FAQ_COUNT } from "@/lib/clinicas-faq";
 
 import { ROUTES } from "@/lib/routes";
 
-const PAGE_SOURCE = ROUTES.aiAgents;
-const PROCESS_STEP_IDS = ["step-1", "step-2", "step-3", "step-4"] as const;
+const PAGE_SOURCE = ROUTES.clinics;
 
 function Nav() {
-  const t = useTranslations("atendimentoIa.nav");
+  const t = useTranslations("clinicas.nav");
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -75,7 +78,7 @@ function Nav() {
 }
 
 function StickyCta() {
-  const t = useTranslations("atendimentoIa.sticky");
+  const t = useTranslations("clinicas.sticky");
   const [hideBar, setHideBar] = useState(true);
 
   useEffect(() => {
@@ -117,19 +120,59 @@ function StickyCta() {
   );
 }
 
+function OmnichannelVisual() {
+  const t = useTranslations("clinicas.omnichannel");
+  return (
+    <section
+      id="inbox"
+      className="border-t border-border px-6 md:px-10 py-16 md:py-24"
+    >
+      <div className="mx-auto max-w-6xl">
+        <SectionHeader
+          align="center"
+          className="mb-10 md:mb-14"
+          title={
+            <>
+              {t("titleLead")}{" "}
+              <em className="italic text-muted-foreground">{t("titleEm")}</em>
+            </>
+          }
+          description={t("description")}
+          titleClassName="font-sans text-3xl md:text-5xl"
+          descriptionClassName="mx-auto mt-5 max-w-2xl"
+        />
+        <ScrollReveal className="overflow-hidden rounded-sm border border-border bg-muted/20">
+          <img
+            src="/clinicas-omnichannel.jpg"
+            alt={t("imageAlt")}
+            width={1920}
+            height={1080}
+            loading="lazy"
+            decoding="async"
+            className="w-full aspect-video object-cover object-center"
+          />
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
 function ProblemSolution() {
-  const t = useTranslations("atendimentoIa.problem");
-  const pains = Array.from({ length: 3 }, (_, i) => ({
+  const t = useTranslations("clinicas.problem");
+  const pains = Array.from({ length: CLINICAS_PAINS_COUNT }, (_, i) => ({
     title: t(`pains.${i}.title`),
     desc: t(`pains.${i}.desc`),
   }));
-  const solutions = Array.from({ length: 3 }, (_, i) => ({
+  const solutions = Array.from({ length: CLINICAS_SOLUTIONS_COUNT }, (_, i) => ({
     title: t(`solutions.${i}.title`),
     desc: t(`solutions.${i}.desc`),
   }));
 
   return (
-    <section id="desafios" className="px-6 md:px-10 py-24 md:py-28 border-t border-border">
+    <section
+      id="desafios"
+      className="px-6 md:px-10 py-24 md:py-28 border-t border-border"
+    >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           align="center"
@@ -137,7 +180,10 @@ function ProblemSolution() {
           title={
             <>
               {t("titleLead")}{" "}
-              <em className="italic text-muted-foreground">{t("titleEm")}</em>.
+              <em className="italic text-muted-foreground">
+                {t("titleEm")}
+              </em>
+              .
             </>
           }
           titleClassName="font-sans text-3xl md:text-5xl"
@@ -161,7 +207,7 @@ function ProblemSolution() {
           </div>
           <div className="bg-card/30 p-8 md:p-10">
             <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-8">
-              {t("withAgentsLabel")}
+              {t("withBraxenLabel")}
             </p>
             <StaggerChildren className="space-y-8">
               {solutions.map((item) => (
@@ -180,16 +226,44 @@ function ProblemSolution() {
   );
 }
 
+function TrustSection() {
+  const t = useTranslations("clinicas.trust");
+  const items = Array.from({ length: 3 }, (_, i) => ({
+    title: t(`items.${i}.title`),
+    desc: t(`items.${i}.desc`),
+  }));
+
+  return (
+    <section className="border-t border-border px-6 md:px-10 py-20 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid md:grid-cols-3 gap-px bg-border">
+          {items.map((item) => (
+            <div key={item.title} className="bg-background p-8 md:p-10">
+              <h3 className="font-sans text-lg mb-2">{item.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FAQ() {
-  const t = useTranslations("atendimentoIa.faq");
-  const items = Array.from({ length: ATENDIMENTO_IA_FAQ_COUNT }, (_, i) => ({
+  const t = useTranslations("clinicas.faq");
+  const items = Array.from({ length: CLINICAS_FAQ_COUNT }, (_, i) => ({
     q: t(`items.${i}.q`),
     a: t(`items.${i}.a`),
   }));
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="px-6 md:px-10 py-24 md:py-28 border-t border-border">
+    <section
+      id="faq"
+      className="px-6 md:px-10 py-24 md:py-28 border-t border-border"
+    >
       <div className="mx-auto max-w-3xl">
         <SectionHeader
           align="center"
@@ -234,7 +308,7 @@ function FAQ() {
 }
 
 function Contact() {
-  const t = useTranslations("atendimentoIa.contact");
+  const t = useTranslations("clinicas.contact");
   const tCommon = useTranslations("common");
   return (
     <section
@@ -267,17 +341,19 @@ function Contact() {
   );
 }
 
-export function AtendimentoIaPage() {
-  const tHero = useTranslations("atendimentoIa.hero");
-  const tProcess = useTranslations("atendimentoIa.process");
-  const tTestimonials = useTranslations("atendimentoIa.testimonials");
+export function ClinicasPage() {
+  const tHero = useTranslations("clinicas.hero");
   const tCommon = useTranslations("common");
+  const tProcess = useTranslations("clinicas.process");
+  const tIntegrations = useTranslations("clinicas.integrations");
 
   const rotatingWords: string[] = tHero.raw("rotatingWords") ?? [];
-  const cards = PROCESS_STEP_IDS.map((id, index) => ({
+  const cards = CLINICAS_PROCESS_STEP_IDS.map((id) => ({
     id,
-    title: tProcess(`steps.${index}.title`),
-    description: tProcess(`steps.${index}.description`),
+    title: tProcess(`steps.${CLINICAS_PROCESS_STEP_IDS.indexOf(id)}.title`),
+    description: tProcess(
+      `steps.${CLINICAS_PROCESS_STEP_IDS.indexOf(id)}.description`,
+    ),
   }));
 
   return (
@@ -294,12 +370,13 @@ export function AtendimentoIaPage() {
           dataCta: "hero",
         }}
         secondaryCta={{
-          href: "#como-funciona",
+          href: "#inbox",
           label: tHero("secondaryCta"),
         }}
       />
+      <OmnichannelVisual />
       <ProblemSolution />
-      <IntegrationCarousel />
+      <IntegrationCarousel description={tIntegrations("description")} />
       <StackedCardsSection
         id="como-funciona"
         title={
@@ -314,7 +391,7 @@ export function AtendimentoIaPage() {
         description={tProcess("description")}
         cards={cards}
       />
-      <TestimonialsSection description={tTestimonials("description")} />
+      <TrustSection />
       <FAQ />
       <Contact />
       <Footer contactHref="#contato" />

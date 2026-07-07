@@ -1,25 +1,25 @@
 export type IntegrationLucideIcon = "webhook" | "sms";
 
 export type IntegrationItem = {
-  name: string;
+  key: string;
   slug?: string;
   lucide?: IntegrationLucideIcon;
 };
 
 export const integrationRow1: IntegrationItem[] = [
-  { name: "WhatsApp", slug: "whatsapp" },
-  { name: "Telegram", slug: "telegram" },
-  { name: "Gmail", slug: "gmail" },
-  { name: "SMS", lucide: "sms" },
-  { name: "Chat no site", slug: "livechat" },
-  { name: "Stripe", slug: "stripe" },
+  { key: "whatsapp", slug: "whatsapp" },
+  { key: "telegram", slug: "telegram" },
+  { key: "gmail", slug: "gmail" },
+  { key: "sms", lucide: "sms" },
+  { key: "livechat", slug: "livechat" },
+  { key: "stripe", slug: "stripe" },
 ];
 
 export const integrationRow2: IntegrationItem[] = [
-  { name: "G Calendar", slug: "googlecalendar" },
-  { name: "Cal.com", slug: "caldotcom" },
-  { name: "Stripe", slug: "stripe" },
-  { name: "APIs", slug: "openapiinitiative" },
-  { name: "Webhooks", lucide: "webhook" },
-  { name: "PIX", slug: "pix" },
+  { key: "googlecalendar", slug: "googlecalendar" },
+  { key: "caldotcom", slug: "caldotcom" },
+  { key: "stripe", slug: "stripe" },
+  { key: "apis", slug: "openapiinitiative" },
+  { key: "webhooks", lucide: "webhook" },
+  { key: "pix", slug: "pix" },
 ];

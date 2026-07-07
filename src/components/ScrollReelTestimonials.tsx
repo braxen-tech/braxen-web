@@ -14,6 +14,7 @@ export interface ScrollReelTestimonialsProps {
   testimonials: ScrollReelTestimonial[];
   charStaggerMs?: number;
   className?: string;
+  labels?: { prev: string; next: string; region: string };
 }
 
 const CELL = 121.33;
@@ -114,6 +115,7 @@ export function ScrollReelTestimonials({
   testimonials,
   charStaggerMs = 6,
   className,
+  labels = { prev: "Previous testimonial", next: "Next testimonial", region: "Testimonials" },
 }: ScrollReelTestimonialsProps) {
   const [index, setIndex] = React.useState(0);
   const [displayIndex, setDisplayIndex] = React.useState(0);
@@ -200,7 +202,7 @@ export function ScrollReelTestimonials({
     <div
       role="region"
       aria-roledescription="carousel"
-      aria-label="Testimonials"
+      aria-label={labels.region}
       tabIndex={0}
       onKeyDown={onKeyDown}
       className={cn(
@@ -305,16 +307,16 @@ export function ScrollReelTestimonials({
           </div>
         </div>
 
-        <div className="mt-6 flex items-center gap-1.5 md:mt-0">
+        <div className="mt-6 flex items-center gap-2.5 md:mt-0">
           <button
             type="button"
             onClick={() => paginate(-1)}
             disabled={index === 0}
-            aria-label="Previous testimonial"
-            className="grid h-6 w-6 cursor-pointer place-items-center rounded-full border-hairline bg-card/30 p-0 text-foreground transition-[opacity,transform,background-color] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:enabled:scale-[1.08] hover:enabled:bg-card active:enabled:scale-[0.94] disabled:cursor-default disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label={labels.prev}
+            className="grid h-10 w-10 cursor-pointer place-items-center rounded-full border-hairline bg-card/30 p-0 text-foreground transition-[opacity,transform,background-color] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:enabled:scale-[1.08] hover:enabled:bg-card active:enabled:scale-[0.94] disabled:cursor-default disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <svg
-              className="h-3 w-3 opacity-70"
+              className="h-5 w-5 opacity-70"
               viewBox="0 0 12 12"
               fill="none"
               stroke="currentColor"
@@ -329,11 +331,11 @@ export function ScrollReelTestimonials({
             type="button"
             onClick={() => paginate(1)}
             disabled={index === count - 1}
-            aria-label="Next testimonial"
-            className="grid h-6 w-6 cursor-pointer place-items-center rounded-full border-hairline bg-card/30 p-0 text-foreground transition-[opacity,transform,background-color] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:enabled:scale-[1.08] hover:enabled:bg-card active:enabled:scale-[0.94] disabled:cursor-default disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label={labels.next}
+            className="grid h-10 w-10 cursor-pointer place-items-center rounded-full border-hairline bg-card/30 p-0 text-foreground transition-[opacity,transform,background-color] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:enabled:scale-[1.08] hover:enabled:bg-card active:enabled:scale-[0.94] disabled:cursor-default disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <svg
-              className="h-3 w-3 opacity-70"
+              className="h-5 w-5 opacity-70"
               viewBox="0 0 12 12"
               fill="none"
               stroke="currentColor"

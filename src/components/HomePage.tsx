@@ -1,10 +1,12 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { AnimatedHero } from "@/components/AnimatedHero";
 import { ContactForm } from "@/components/ContactForm";
 import { IntegrationCarousel } from "@/components/IntegrationCarousel";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Leadership } from "@/components/Leadership";
-import { FeatureSection } from "@/components/ui/feature";
+import { FeatureSection, type FeatureListItem } from "@/components/ui/feature";
 import {
   ScrollReveal,
   SectionHeader,
@@ -19,36 +21,15 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { Footer } from "@/components/ui/footer-section";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { clientLogoRow1, clientLogoRow2 } from "@/lib/client-logos-data";
-import { painFeature, solutionFeature } from "@/lib/home-story-data";
-
-const serviceCards = [
-  {
-    id: "service-1",
-    title: "Software Sob Medida",
-    description:
-      "ERPs, CRMs, dashboards e plataformas internas construídos para o seu processo — não para um template genérico.",
-  },
-  {
-    id: "service-2",
-    title: "Sites e Aplicativos",
-    description:
-      "Presença digital que converte. Web, mobile e landing pages de alto desempenho, do design à produção.",
-  },
-  {
-    id: "service-3",
-    title: "Agentes de IA",
-    description:
-      "Atendimento, qualificação de leads e automação de operações rodando 24h com inteligência artificial generativa.",
-  },
-  {
-    id: "service-4",
-    title: "Automações e Integrações",
-    description:
-      "WhatsApp, pagamentos, APIs externas e processos internos conectados — seu time faz menos, entrega mais.",
-  },
-] as const;
+import {
+  painFeatureAssets,
+  solutionFeatureAssets,
+} from "@/lib/home-story-data";
+import { ROUTES } from "@/lib/routes";
 
 function Nav() {
+  const t = useTranslations("nav.home");
+  const tCommon = useTranslations("common");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -71,11 +52,11 @@ function Nav() {
   }, [menuOpen]);
 
   const links = [
-    { href: "#problema", label: "A Dor" },
-    { href: "#como-fazemos", label: "Como fazemos" },
-    { href: "#entregas", label: "Entregas" },
-    { href: "#leadership", label: "Time" },
-    { href: "#contact", label: "Contato" },
+    { href: "#problema", label: t("pain") },
+    { href: "#como-fazemos", label: t("howWeDo") },
+    { href: "#entregas", label: t("deliveries") },
+    { href: "#leadership", label: t("team") },
+    { href: "#contact", label: t("contact") },
   ];
 
   return (
@@ -107,17 +88,18 @@ function Nav() {
             ))}
           </nav>
           <div className="flex items-center gap-3 sm:gap-4">
+            <LanguageSwitcher />
             <ThemeToggle />
             <a
               href="#contact"
               className="btn btn-sm btn-outline btn-outline-primary hidden lg:inline-flex whitespace-nowrap tracking-[0.2em]"
             >
-              Fale conosco
+              {tCommon("contactCta")}
             </a>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="lg:hidden flex flex-col gap-1.5 p-1 cursor-pointer"
-              aria-label="Menu"
+              aria-label={tCommon("menu")}
             >
               <span
                 className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`}
@@ -147,10 +129,13 @@ function Nav() {
             onClick={() => setMenuOpen(false)}
             className="btn btn-lg btn-primary mt-4"
           >
-            Fale conosco
+            {tCommon("contactCta")}
             <span aria-hidden>→</span>
           </a>
-          <ThemeToggle className="mt-2" />
+          <div className="mt-2 flex items-center gap-3">
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
         </div>
       )}
     </>
@@ -158,6 +143,7 @@ function Nav() {
 }
 
 function Products() {
+  const t = useTranslations("home.products");
   return (
     <section
       id="products"
@@ -167,8 +153,8 @@ function Products() {
         <SectionHeader
           title={
             <>
-              Pronto para{" "}
-              <em className="italic text-muted-foreground">começar</em>?
+              {t("titleLead")}{" "}
+              <em className="italic text-muted-foreground">{t("titleEm")}</em>?
             </>
           }
           className="mb-10"
@@ -177,32 +163,34 @@ function Products() {
         <StaggerChildren className="grid gap-px bg-border md:grid-cols-2" stagger={0.1}>
           <div className="flex flex-col justify-between gap-6 bg-background p-8 md:p-10">
             <div>
-              <h3 className="text-heading-3 font-sans mb-2">Agentes de IA</h3>
+              <h3 className="text-heading-3 font-sans mb-2">
+                {t("aiAgents.title")}
+              </h3>
               <p className="max-w-md text-sm text-muted-foreground">
-                Atendimento omnichannel com CRM integrado, agenda, vendas e
-                integração com suas APIs.
+                {t("aiAgents.description")}
               </p>
             </div>
             <a
-              href="/atendimento-ia"
+              href={ROUTES.aiAgents.slice(1)}
               className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
             >
-              Conhecer solução <span aria-hidden>→</span>
+              {t("aiAgents.cta")} <span aria-hidden>→</span>
             </a>
           </div>
           <div className="flex flex-col justify-between gap-6 bg-background p-8 md:p-10">
             <div>
-              <h3 className="text-heading-3 font-sans mb-2">Tech Squads</h3>
+              <h3 className="text-heading-3 font-sans mb-2">
+                {t("techSquads.title")}
+              </h3>
               <p className="max-w-md text-sm text-muted-foreground">
-                Times completos de desenvolvimento, produto, dados e IA
-                integrados ao seu negócio.
+                {t("techSquads.description")}
               </p>
             </div>
             <a
-              href="/tech-squads"
+              href={ROUTES.techSquads.slice(1)}
               className="inline-flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors"
             >
-              Montar meu squad <span aria-hidden>→</span>
+              {t("techSquads.cta")} <span aria-hidden>→</span>
             </a>
           </div>
         </StaggerChildren>
@@ -212,6 +200,7 @@ function Products() {
 }
 
 function Contact() {
+  const t = useTranslations("home.contact");
   return (
     <section
       id="contact"
@@ -222,11 +211,11 @@ function Contact() {
           align="center"
           title={
             <>
-              Vamos construir{" "}
-              <em className="italic text-muted-foreground">sua solução</em>.
+              {t("titleLead")}{" "}
+              <em className="italic text-muted-foreground">{t("titleEm")}</em>.
             </>
           }
-          description="Descreva o problema. Nossa equipe retorna em até 24 horas com uma análise técnica e os próximos passos."
+          description={t("description")}
           className="mb-12"
           titleClassName="font-sans text-heading-2 mb-0"
           descriptionClassName="text-base md:text-lg max-w-lg mx-auto mt-6 max-w-none"
@@ -239,30 +228,76 @@ function Contact() {
   );
 }
 
+function useHomeFeatureItems(namespace: "home.pain" | "home.solution"): FeatureListItem[] {
+  const t = useTranslations(namespace);
+  return Array.from({ length: 4 }, (_, i) => ({
+    title: t(`items.${i}.title`),
+    description: t(`items.${i}.description`),
+  }));
+}
+
+function PainFeature() {
+  const t = useTranslations("home.pain");
+  const items = useHomeFeatureItems("home.pain");
+  return (
+    <FeatureSection
+      id={painFeatureAssets.id}
+      title={t("title")}
+      subtitle={t("subtitle")}
+      image={painFeatureAssets.image}
+      imageAlt={t("imageAlt")}
+      items={items}
+      variant="problem"
+    />
+  );
+}
+
+function SolutionFeature() {
+  const t = useTranslations("home.solution");
+  const items = useHomeFeatureItems("home.solution");
+  return (
+    <FeatureSection
+      id={solutionFeatureAssets.id}
+      title={t("title")}
+      subtitle={t("subtitle")}
+      image={solutionFeatureAssets.image}
+      imageAlt={t("imageAlt")}
+      items={items}
+      variant="solution"
+      reverse
+    />
+  );
+}
+
 export function HomePage() {
+  const t = useTranslations("home");
+  const tHero = useTranslations("home.hero");
+  const tServices = useTranslations("home.services");
+
+  const rotatingWords: string[] = tHero.raw("rotatingWords") ?? [];
+  const serviceCards = Array.from({ length: 4 }, (_, i) => ({
+    id: tServices.raw(`cards.${i}.id`) ?? `service-${i + 1}`,
+    title: tServices(`cards.${i}.title`),
+    description: tServices(`cards.${i}.description`),
+  }));
+
   return (
     <main className="relative">
       <Nav />
       <AnimatedHero
         id="top"
-        staticTitle="Software e agentes de IA"
-        rotatingWords={[
-          "escaláveis",
-          "inteligentes",
-          "integrados",
-          "automatizados",
-          "sob medida",
-        ]}
-        subtitle="Desenvolvemos software sob medida, agentes de IA e automações que transformam operações manuais em crescimento real."
-        trustLine="Resposta em 24h · primeira entrega em semanas"
+        staticTitle={tHero("staticTitle")}
+        rotatingWords={rotatingWords}
+        subtitle={tHero("subtitle")}
+        trustLine={tHero("trustLine")}
         primaryCta={{
           href: "#contact",
-          label: "Quero uma solução",
+          label: tHero("primaryCta"),
           dataCta: "hero",
         }}
         secondaryCta={{
           href: "#services",
-          label: "Ver serviços",
+          label: tHero("secondaryCta"),
         }}
       />
       <IntegrationCarousel
@@ -270,25 +305,28 @@ export function HomePage() {
         row1={clientLogoRow1}
         row2={clientLogoRow2}
       />
-      <FeatureSection {...painFeature} variant="problem" />
-      <FeatureSection {...solutionFeature} variant="solution" reverse />
+      <PainFeature />
+      <SolutionFeature />
       <Portfolio />
       <StackedCardsSection
         id="services"
         title={
           <>
-            O que{" "}
-            <em className="italic text-muted-foreground">construímos</em>.
+            {tServices("titleLead")}{" "}
+            <em className="italic text-muted-foreground">
+              {tServices("titleEm")}
+            </em>
+            .
           </>
         }
-        description="Quatro pilares, uma equipe. Montamos times especializados que entregam juntos e acompanham os resultados ao longo do tempo."
+        description={tServices("description")}
         cards={serviceCards}
       />
       <Products />
       <Leadership />
       <TestimonialsSection
         id="depoimentos"
-        description="Resultados reais em software, atendimento e automação."
+        description={t("testimonials.description")}
       />
       <Contact />
       <Footer contactHref="#contact" />

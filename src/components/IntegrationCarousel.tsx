@@ -2,7 +2,7 @@
 
 import type { ComponentType, ReactNode } from "react";
 import { MessageSquare, Webhook } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
 import type { LogoCarouselItem } from "@/lib/client-logos-data";
 import { SectionHeader } from "@/components/ui/scroll-reveal";
 import {
@@ -28,8 +28,11 @@ function IntegrationChip({
   name,
   slug,
   lucide,
-  iconColor,
-}: IntegrationItem & { iconColor: string }) {
+}: {
+  name: string;
+  slug?: string;
+  lucide?: IntegrationLucideIcon;
+}) {
   const LucideIcon = lucide ? lucideIcons[lucide] : null;
 
   return (
@@ -38,15 +41,26 @@ function IntegrationChip({
         {LucideIcon ? (
           <LucideIcon className="size-6 text-foreground opacity-80" aria-hidden />
         ) : slug ? (
-          <img
-            src={iconUrl(slug, iconColor)}
-            alt=""
-            width={28}
-            height={28}
-            className="size-7 object-contain opacity-90"
-            loading="lazy"
-            decoding="async"
-          />
+          <>
+            <img
+              src={iconUrl(slug, "18181b")}
+              alt=""
+              width={28}
+              height={28}
+              className="size-7 object-contain opacity-90 dark:hidden"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              src={iconUrl(slug, "ffffff")}
+              alt=""
+              width={28}
+              height={28}
+              className="hidden size-7 object-contain opacity-90 dark:block"
+              loading="lazy"
+              decoding="async"
+            />
+          </>
         ) : (
           <span className="font-sans text-xs font-medium text-foreground">
             {name.slice(0, 2)}
@@ -74,16 +88,16 @@ function LogoChip({ name, src }: LogoCarouselItem) {
   );
 }
 
+type ChipItem =
+  | { kind: "integration"; item: IntegrationItem; name: string }
+  | { kind: "logo"; item: LogoCarouselItem };
+
 function MarqueeRow({
   items,
   direction,
-  variant,
-  iconColor,
 }: {
-  items: IntegrationItem[] | LogoCarouselItem[];
+  items: ChipItem[];
   direction: "left" | "right";
-  variant: "integration" | "logo";
-  iconColor?: string;
 }) {
   const track = [...items, ...items];
 
@@ -95,14 +109,15 @@ function MarqueeRow({
           : "animate-marquee-integrations-right"
       } motion-reduce:animate-none`}
     >
-      {track.map((item, i) =>
-        variant === "logo" ? (
-          <LogoChip key={`${item.name}-${i}`} {...(item as LogoCarouselItem)} />
+      {track.map((entry, i) =>
+        entry.kind === "logo" ? (
+          <LogoChip key={`${entry.item.name}-${i}`} {...entry.item} />
         ) : (
           <IntegrationChip
-            key={`${item.name}-${i}`}
-            {...(item as IntegrationItem)}
-            iconColor={iconColor ?? "ffffff"}
+            key={`${entry.item.key}-${i}`}
+            name={entry.name}
+            slug={entry.item.slug}
+            lucide={entry.item.lucide}
           />
         ),
       )}
@@ -131,35 +146,50 @@ export type LogoCarouselProps = {
 type CarouselProps = IntegrationCarouselProps | LogoCarouselProps;
 
 export function IntegrationCarousel(props: CarouselProps = {}) {
-  const { resolvedTheme } = useTheme();
+  const tIntegrations = useTranslations("integrations");
+  const tHomeLogos = useTranslations("home.logos");
   const variant = props.variant ?? "integration";
-  const iconColor = resolvedTheme === "light" ? "18181b" : "ffffff";
   const id = props.id ?? (variant === "logo" ? "clientes" : "integracoes");
   const title =
     props.title ??
     (variant === "logo" ? (
       <>
-        Experiência acumulada em{" "}
-        <em className="italic text-muted-foreground">empresas como</em>
+        {tHomeLogos("titleLead")}{" "}
+        <em className="italic text-muted-foreground">{tHomeLogos("titleEm")}</em>
       </>
     ) : (
       <>
-        Conecta com as ferramentas que{" "}
-        <em className="italic text-muted-foreground">você já usa</em>.
+        {tIntegrations("titleLead")}{" "}
+        <em className="italic text-muted-foreground">
+          {tIntegrations("titleEm")}
+        </em>
+        .
       </>
     ));
   const description =
     props.description ??
     (variant === "logo"
-      ? "Time com histórico em operações de escala, mídia, varejo e tecnologia."
-      : "Calendário, mensageria, pagamentos e APIs — plugamos no fluxo do agente sem refazer sua operação.");
+      ? tHomeLogos("description")
+      : tIntegrations("description"));
 
-  const row1 =
+  const rawRow1 =
     props.row1 ?? (variant === "integration" ? integrationRow1 : undefined);
-  const row2 =
+  const rawRow2 =
     props.row2 ?? (variant === "integration" ? integrationRow2 : undefined);
 
-  if (!row1 || !row2) return null;
+  if (!rawRow1 || !rawRow2) return null;
+
+  const toChipItems = (items: IntegrationItem[] | LogoCarouselItem[]): ChipItem[] =>
+    variant === "logo"
+      ? (items as LogoCarouselItem[]).map((item) => ({ kind: "logo", item }))
+      : (items as IntegrationItem[]).map((item) => ({
+          kind: "integration",
+          item,
+          name: tIntegrations(`items.${item.key}`),
+        }));
+
+  const row1Items = toChipItems(rawRow1);
+  const row2Items = toChipItems(rawRow2);
 
   return (
     <section
@@ -179,19 +209,9 @@ export function IntegrationCarousel(props: CarouselProps = {}) {
         />
 
         <div className="relative overflow-hidden pb-2">
-          <MarqueeRow
-            items={row1}
-            direction="left"
-            variant={variant}
-            iconColor={iconColor}
-          />
+          <MarqueeRow items={row1Items} direction="left" />
           <div className="mt-6">
-            <MarqueeRow
-              items={row2}
-              direction="right"
-              variant={variant}
-              iconColor={iconColor}
-            />
+            <MarqueeRow items={row2Items} direction="right" />
           </div>
 
           <div

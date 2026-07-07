@@ -1,6 +1,23 @@
 import { NextResponse } from "next/server";
+import { getTranslations } from "next-intl/server";
 import { validateContactPayload } from "@/lib/contact-schema";
 import { sendContactEmail } from "@/lib/send-contact-email";
+import { routing } from "@/i18n/routing";
+
+function resolveLocaleFromBody(body: unknown): string {
+  if (
+    body &&
+    typeof body === "object" &&
+    "locale" in body &&
+    typeof (body as { locale?: unknown }).locale === "string" &&
+    (routing.locales as readonly string[]).includes(
+      (body as { locale: string }).locale,
+    )
+  ) {
+    return (body as { locale: string }).locale;
+  }
+  return routing.defaultLocale;
+}
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -8,13 +25,14 @@ export async function POST(request: Request) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json(
-      { error: "Corpo da requisição inválido." },
-      { status: 400 },
-    );
+    const t = await getTranslations({
+      locale: routing.defaultLocale,
+      namespace: "contactForm.errors",
+    });
+    return NextResponse.json({ error: t("invalidBody") }, { status: 400 });
   }
 
-  const validation = validateContactPayload(body);
+  const validation = await validateContactPayload(body);
 
   if (!validation.ok) {
     return NextResponse.json({ error: validation.error }, { status: 400 });
@@ -25,13 +43,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("[contact]", error);
+    const locale = resolveLocaleFromBody(body);
+    const t = await getTranslations({
+      locale,
+      namespace: "contactForm.errors",
+    });
 
-    return NextResponse.json(
-      {
-        error:
-          "Não foi possível enviar sua mensagem. Tente novamente em instantes.",
-      },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: t("sendFailed") }, { status: 500 });
   }
 }

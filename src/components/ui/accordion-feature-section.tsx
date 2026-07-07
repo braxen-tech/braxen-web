@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import {
   Accordion,
   AccordionContent,
@@ -8,9 +9,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  solutionFeatures,
+  solutionAssets,
   solutionImageSrc,
-  type SolutionFeature,
+  type SolutionAsset,
 } from "@/lib/solutions-data";
 import { cn } from "@/lib/utils";
 import {
@@ -22,25 +23,37 @@ export type AccordionFeatureSectionProps = {
   id?: string;
   title?: ReactNode;
   description?: string;
-  features?: SolutionFeature[];
+  features?: SolutionAsset[];
   className?: string;
 };
 
 export function AccordionFeatureSection({
   id,
-  title = (
-    <>
-      Entregas<span className="text-primary">.</span>
-    </>
-  ),
-  description = "De agentes de IA a dashboards sob medida — cada projeto é construído para o seu processo.",
-  features = solutionFeatures,
+  title,
+  description,
+  features = solutionAssets,
   className,
 }: AccordionFeatureSectionProps) {
-  const [activeValue, setActiveValue] = useState(`item-${features[0]?.id ?? 1}`);
+  const t = useTranslations("home.portfolio");
+  const tSolutions = useTranslations("solutions.items");
+  const [activeValue, setActiveValue] = useState(
+    `item-${features[0]?.id ?? 1}`,
+  );
   const activeFeature =
     features.find((feature) => `item-${feature.id}` === activeValue) ??
     features[0];
+
+  const resolvedTitle: ReactNode =
+    title ??
+    (
+      <>
+        {t("title")}
+        <span className="text-primary">{t("titleDot")}</span>
+      </>
+    );
+  const resolvedDescription = description ?? t("description");
+  const activeTitle = tSolutions(`${activeFeature.id}.title`);
+  const activeTag = tSolutions(`${activeFeature.id}.tag`);
 
   return (
     <section
@@ -52,8 +65,8 @@ export function AccordionFeatureSection({
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          title={title}
-          description={description}
+          title={resolvedTitle}
+          description={resolvedDescription}
           className="mb-10 md:mb-14"
           titleClassName="font-sans text-heading-2"
           descriptionClassName="max-w-md"
@@ -62,7 +75,7 @@ export function AccordionFeatureSection({
         <div
           className="flex w-full items-start justify-between gap-10 lg:gap-16"
           role="region"
-          aria-label="Entregas e projetos da Braxen"
+          aria-label={t("regionLabel")}
         >
           <div className="w-full md:w-1/2">
             <Accordion
@@ -77,13 +90,18 @@ export function AccordionFeatureSection({
               {features.map((feature) => {
                 const itemValue = `item-${feature.id}`;
                 const isActive = activeValue === itemValue;
+                const featureTitle = tSolutions(`${feature.id}.title`);
+                const featureTag = tSolutions(`${feature.id}.tag`);
+                const featureDescription = tSolutions(
+                  `${feature.id}.description`,
+                );
 
                 return (
                   <AccordionItem key={feature.id} value={itemValue}>
                     <AccordionTrigger className="cursor-pointer py-5 no-underline hover:no-underline">
                       <div className="text-left">
                         <p className="mb-1 text-[10px] tracking-[0.25em] uppercase text-primary">
-                          {feature.tag}
+                          {featureTag}
                         </p>
                         <h3
                           className={cn(
@@ -93,18 +111,18 @@ export function AccordionFeatureSection({
                               : "text-muted-foreground",
                           )}
                         >
-                          {feature.title}
+                          {featureTitle}
                         </h3>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent>
                       <p className="mt-1 text-sm leading-relaxed text-muted-foreground md:text-base">
-                        {feature.description}
+                        {featureDescription}
                       </p>
                       <div className="mt-5 md:hidden">
                         <img
                           src={solutionImageSrc(feature)}
-                          alt={feature.title}
+                          alt={featureTitle}
                           className="aspect-4/3 w-full rounded-sm object-cover"
                           loading="lazy"
                           decoding="async"
@@ -121,17 +139,17 @@ export function AccordionFeatureSection({
             <img
               key={activeFeature.id}
               src={solutionImageSrc(activeFeature)}
-              alt={activeFeature.title}
+              alt={activeTitle}
               className="aspect-4/3 w-full object-cover transition-opacity duration-300"
               loading="lazy"
               decoding="async"
             />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-black/70 via-black/20 to-transparent p-6">
               <p className="text-[10px] tracking-[0.25em] uppercase text-white/75">
-                {activeFeature.tag}
+                {activeTag}
               </p>
               <p className="mt-1 font-sans text-lg text-white">
-                {activeFeature.title}
+                {activeTitle}
               </p>
             </div>
           </ScrollReveal>

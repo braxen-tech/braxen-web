@@ -1,26 +1,31 @@
 import { SITE_URL, SOCIAL_LINKS_LIST } from "@/lib/site";
 
-export function organizationJsonLd() {
+const LOCALE_TO_INLANGUAGE: Record<string, string> = {
+  pt: "pt-BR",
+  en: "en-US",
+  es: "es-ES",
+};
+
+export function organizationJsonLd(description: string, locale = "pt") {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Braxen Tech",
     url: SITE_URL,
     logo: `${SITE_URL}/apple-touch-icon.png`,
-    description:
-      "Software sob medida, agentes de IA e automações para empresas no Brasil.",
+    description,
     sameAs: SOCIAL_LINKS_LIST,
-    areaServed: "BR",
+    inLanguage: LOCALE_TO_INLANGUAGE[locale] ?? "pt-BR",
   };
 }
 
-export function websiteJsonLd() {
+export function websiteJsonLd(locale = "pt") {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Braxen Tech",
     url: SITE_URL,
-    inLanguage: "pt-BR",
+    inLanguage: LOCALE_TO_INLANGUAGE[locale] ?? "pt-BR",
   };
 }
 

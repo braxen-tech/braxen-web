@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { AnimatedHero } from "@/components/AnimatedHero";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { ContactForm } from "@/components/ContactForm";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -12,9 +14,13 @@ import {
   SectionHeader,
   StaggerChildren,
 } from "@/components/ui/scroll-reveal";
-import { techSquadsFaq } from "@/lib/faq-data";
+import { TECH_SQUADS_FAQ_COUNT } from "@/lib/faq-data";
+import { ROUTES } from "@/lib/routes";
 
 function Nav() {
+  const tNav = useTranslations("nav.techSquads");
+  const tCta = useTranslations("techSquads.nav");
+  const tCommon = useTranslations("common");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -37,11 +43,11 @@ function Nav() {
   }, [menuOpen]);
 
   const links = [
-    { href: "#desafios", label: "Desafios" },
-    { href: "#como-funciona", label: "Como funciona" },
-    { href: "#diferenciais", label: "Diferenciais" },
-    { href: "#perfis", label: "Perfis" },
-    { href: "#faq", label: "FAQ" },
+    { href: "#desafios", label: tNav("challenges") },
+    { href: "#como-funciona", label: tNav("howItWorks") },
+    { href: "#diferenciais", label: tNav("differentials") },
+    { href: "#perfis", label: tNav("profiles") },
+    { href: "#faq", label: tNav("faq") },
   ];
 
   return (
@@ -54,7 +60,7 @@ function Nav() {
       >
         <div className={siteHeaderInnerClass(scrolled)}>
           <a
-            href="/"
+            href=".."
             className="flex items-center gap-2 text-sm tracking-[0.3em] uppercase"
           >
             <span className="inline-block size-2 rounded-full bg-primary" />
@@ -72,17 +78,18 @@ function Nav() {
             ))}
           </nav>
           <div className="flex items-center gap-3 sm:gap-4">
+            <LanguageSwitcher />
             <ThemeToggle />
             <a
               href="#contato"
               className="btn btn-sm btn-outline btn-outline-primary hidden md:inline-flex"
             >
-              Montar meu squad
+              {tCta("cta")}
             </a>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="md:hidden flex flex-col gap-1.5 p-1 cursor-pointer"
-              aria-label="Menu"
+              aria-label={tCommon("menu")}
             >
               <span
                 className={`block h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`}
@@ -112,10 +119,13 @@ function Nav() {
             onClick={() => setMenuOpen(false)}
             className="btn btn-lg btn-primary mt-4"
           >
-            Montar meu squad
+            {tCta("cta")}
             <span aria-hidden>→</span>
           </a>
-          <ThemeToggle className="mt-2" />
+          <div className="mt-2 flex items-center gap-3">
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
         </div>
       )}
     </>
@@ -123,12 +133,11 @@ function Nav() {
 }
 
 function Stats() {
-  const stats = [
-    { value: "US$ 462 bi", label: "Mercado global de IT outsourcing em 2026" },
-    { value: "92%", label: "das G2000 usam times externos de tecnologia" },
-    { value: "15–30%", label: "de redução de custo vs. contratação interna" },
-    { value: "9,3%", label: "CAGR projetado até 2033" },
-  ];
+  const t = useTranslations("techSquads.stats");
+  const stats = Array.from({ length: 4 }, (_, i) => ({
+    value: t(`items.${i}.value`),
+    label: t(`items.${i}.label`),
+  }));
 
   return (
     <section className="px-6 md:px-10 py-20 border-t border-border bg-card">
@@ -145,39 +154,18 @@ function Stats() {
         ))}
       </StaggerChildren>
       <p className="text-center text-[9px] tracking-[0.2em] uppercase text-muted-foreground/50 mt-8">
-        Fontes: Coherent Market Insights, 2026 · Saigon Technology · Gartner
+        {t("sources")}
       </p>
     </section>
   );
 }
 
 function Challenges() {
-  const items = [
-    {
-      title: "Contratar leva meses",
-      desc: "57% dos gestores consideram difícil encontrar profissionais de TI qualificados. Enquanto isso, o backlog cresce.",
-    },
-    {
-      title: "Time interno sobrecarregado",
-      desc: "Sua equipe apaga incêndios em vez de construir produto. Cada novo projeto vira mais um prato girando.",
-    },
-    {
-      title: "Falta de especialistas",
-      desc: "IA, cloud, DevOps, mobile — você precisa de perfis que não existem no seu quadro atual.",
-    },
-    {
-      title: "Projetos atrasando",
-      desc: "Sem capacidade de entrega, roadmaps deslizam e a concorrência passa na frente.",
-    },
-    {
-      title: "Rotatividade alta",
-      desc: "Desenvolvedores saem e levam o conhecimento embora. Recontratação custa tempo e dinheiro.",
-    },
-    {
-      title: "Escalar é arriscado",
-      desc: "Contratar CLT pra demanda sazonal é caro. Não contratar é perder oportunidade.",
-    },
-  ];
+  const t = useTranslations("techSquads.challenges");
+  const items = Array.from({ length: 6 }, (_, i) => ({
+    title: t(`items.${i}.title`),
+    desc: t(`items.${i}.desc`),
+  }));
 
   return (
     <section id="desafios" className="px-6 md:px-10 py-32 border-t border-border">
@@ -187,9 +175,9 @@ function Challenges() {
           className="mb-16"
           title={
             <>
-              Os desafios que{" "}
+              {t("titleLead")}{" "}
               <em className="italic text-muted-foreground">
-                travam seu crescimento
+                {t("titleEm")}
               </em>
               .
             </>
@@ -218,28 +206,12 @@ function Challenges() {
 }
 
 function HowItWorks() {
-  const steps = [
-    {
-      n: "01",
-      title: "Diagnóstico",
-      desc: "Entendemos seu contexto, stack, processos e objetivos. Mapeamos os perfis ideais para o seu desafio.",
-    },
-    {
-      n: "02",
-      title: "Montagem do squad",
-      desc: "Selecionamos profissionais seniores com experiência comprovada. Você aprova cada perfil antes de começar.",
-    },
-    {
-      n: "03",
-      title: "Integração",
-      desc: "O squad se conecta ao seu time, ferramentas e rituais. Funciona como extensão natural da sua equipe.",
-    },
-    {
-      n: "04",
-      title: "Gestão e evolução",
-      desc: "Acompanhamento com métricas, feedbacks e evolução contínua. Escale para cima ou para baixo quando precisar.",
-    },
-  ];
+  const t = useTranslations("techSquads.howItWorks");
+  const steps = Array.from({ length: 4 }, (_, i) => ({
+    n: t(`steps.${i}.n`),
+    title: t(`steps.${i}.title`),
+    desc: t(`steps.${i}.desc`),
+  }));
 
   return (
     <section
@@ -252,8 +224,8 @@ function HowItWorks() {
           className="mb-16"
           title={
             <>
-              Do diagnóstico ao{" "}
-              <em className="italic text-muted-foreground">squad rodando</em>.
+              {t("titleLead")}{" "}
+              <em className="italic text-muted-foreground">{t("titleEm")}</em>.
             </>
           }
           titleClassName="font-sans text-3xl md:text-5xl"
@@ -283,32 +255,11 @@ function HowItWorks() {
 }
 
 function Differentials() {
-  const items = [
-    {
-      title: "Profissionais seniores",
-      desc: "Não alocamos juniors disfarçados. Cada membro do squad tem experiência real em projetos de alta complexidade.",
-    },
-    {
-      title: "Gestão técnica ativa",
-      desc: "Tech lead acompanhando entregas, qualidade de código, arquitetura e evolução do time.",
-    },
-    {
-      title: "Integração real",
-      desc: "O squad participa das suas dailies, sprints e decisões. Não é fornecedor — é parte do time.",
-    },
-    {
-      title: "Baixa rotatividade",
-      desc: "Modelo de retenção que preserva conhecimento do projeto. Estabilidade é parte da entrega.",
-    },
-    {
-      title: "IA nativa",
-      desc: "Cada squad já opera com ferramentas de IA para acelerar desenvolvimento, revisão e testes.",
-    },
-    {
-      title: "Flexibilidade total",
-      desc: "Aumente ou reduza o squad conforme a demanda. Sem burocracia, sem multas, sem surpresas.",
-    },
-  ];
+  const t = useTranslations("techSquads.differentials");
+  const items = Array.from({ length: 6 }, (_, i) => ({
+    title: t(`items.${i}.title`),
+    desc: t(`items.${i}.desc`),
+  }));
 
   return (
     <section
@@ -318,13 +269,10 @@ function Differentials() {
       <div className="mx-auto max-w-7xl">
         <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <h2 className="font-sans text-2xl md:text-4xl">
-            Mais que outsourcing{" "}
-            <em className="italic text-muted-foreground">tradicional</em>.
+            {t("titleLead")}{" "}
+            <em className="italic text-muted-foreground">{t("titleEm")}</em>.
           </h2>
-          <p className="text-muted-foreground max-w-sm">
-            Não entregamos apenas pessoas. Entregamos capacidade real de
-            entrega, com gestão e continuidade.
-          </p>
+          <p className="text-muted-foreground max-w-sm">{t("subtitle")}</p>
         </ScrollReveal>
 
         <StaggerChildren className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
@@ -348,41 +296,14 @@ function Differentials() {
 }
 
 function Profiles() {
-  const categories = [
-    {
-      title: "Desenvolvimento",
-      roles: [
-        "Backend (Node, Python, Go)",
-        "Frontend (React, Next.js, Vue)",
-        "Mobile (React Native, Flutter)",
-        "Tech Lead",
-        "Arquiteto de Software",
-        "QA / Testes",
-        "DevOps / SRE",
-      ],
-    },
-    {
-      title: "Produto & Design",
-      roles: [
-        "Product Manager",
-        "Product Owner",
-        "UX Designer",
-        "UI Designer",
-        "Product Designer",
-      ],
-    },
-    {
-      title: "Dados & IA",
-      roles: [
-        "Engenheiro de Dados",
-        "Cientista de Dados",
-        "Engenheiro de IA / ML",
-        "Analista de Dados",
-        "Especialista em LLMs",
-        "Prompt Engineer",
-      ],
-    },
-  ];
+  const t = useTranslations("techSquads.profiles");
+  const categories = Array.from({ length: 3 }, (_, i) => {
+    const roles: string[] = t.raw(`categories.${i}.roles`) ?? [];
+    return {
+      title: t(`categories.${i}.title`),
+      roles,
+    };
+  });
 
   return (
     <section id="perfis" className="px-6 md:px-10 py-32 border-t border-border">
@@ -392,8 +313,8 @@ function Profiles() {
           className="mb-16"
           title={
             <>
-              Squads completos para{" "}
-              <em className="italic text-muted-foreground">seu desafio</em>.
+              {t("titleLead")}{" "}
+              <em className="italic text-muted-foreground">{t("titleEm")}</em>.
             </>
           }
           titleClassName="font-sans text-3xl md:text-5xl"
@@ -421,11 +342,8 @@ function Profiles() {
         </StaggerChildren>
 
         <ScrollReveal className="text-center mt-12">
-          <a
-            href="#contato"
-            className="btn btn-lg btn-primary"
-          >
-            Definir meu squad
+          <a href="#contato" className="btn btn-lg btn-primary">
+            {t("cta")}
             <span aria-hidden>→</span>
           </a>
         </ScrollReveal>
@@ -435,6 +353,7 @@ function Profiles() {
 }
 
 function MarketContext() {
+  const t = useTranslations("techSquads.marketContext");
   return (
     <section className="px-6 md:px-10 py-32 md:py-48 border-t border-border">
       <div className="mx-auto max-w-5xl">
@@ -442,21 +361,20 @@ function MarketContext() {
           align="center"
           title={
             <>
-              Outsourcing de TI vai de{" "}
+              {t("titleLead")}{" "}
               <em className="italic text-muted-foreground">
-                US$ 462 bi para US$ 861 bi até 2033
+                {t("titleEm")}
               </em>
               .
             </>
           }
-          description="Empresas líderes já entenderam: construir capacidade de entrega com times externos especializados não é terceirização — é estratégia. O modelo evoluiu de cortar custos para gerar valor real, com IA, cloud e DevOps integrados desde o início."
+          description={t("description")}
           titleClassName="font-sans text-[clamp(2rem,5vw,4.5rem)] mb-0"
           descriptionClassName="text-base md:text-lg max-w-2xl mx-auto mt-8 mb-0 max-w-none"
         />
         <ScrollReveal delay={0.2}>
           <p className="text-center text-xs text-muted-foreground/60 mt-8">
-            Fonte: Coherent Market Insights, IT Services Outsourcing Market
-            2026–2033
+            {t("source")}
           </p>
         </ScrollReveal>
       </div>
@@ -465,7 +383,11 @@ function MarketContext() {
 }
 
 function FAQ() {
-  const items = techSquadsFaq;
+  const t = useTranslations("techSquads.faq");
+  const items = Array.from({ length: TECH_SQUADS_FAQ_COUNT }, (_, i) => ({
+    q: t(`items.${i}.q`),
+    a: t(`items.${i}.a`),
+  }));
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -477,8 +399,8 @@ function FAQ() {
           className="mb-16"
           title={
             <>
-              Tire suas{" "}
-              <em className="italic text-muted-foreground">dúvidas</em>.
+              {t("titleLead")}{" "}
+              <em className="italic text-muted-foreground">{t("titleEm")}</em>.
             </>
           }
           titleClassName="font-sans text-3xl md:text-5xl"
@@ -514,6 +436,7 @@ function FAQ() {
 }
 
 function Contact() {
+  const t = useTranslations("techSquads.contact");
   return (
     <section
       id="contato"
@@ -525,16 +448,16 @@ function Contact() {
           className="mb-12"
           title={
             <>
-              Vamos montar{" "}
-              <em className="italic text-muted-foreground">seu squad</em>.
+              {t("titleLead")}{" "}
+              <em className="italic text-muted-foreground">{t("titleEm")}</em>.
             </>
           }
-          description="Descreva seu desafio técnico. Retornamos em até 24 horas com uma proposta de squad sob medida."
+          description={t("description")}
           titleClassName="font-sans text-4xl leading-[0.95] mb-0"
           descriptionClassName="text-base md:text-lg max-w-lg mx-auto mt-6 max-w-none"
         />
         <ScrollReveal>
-          <ContactForm source="/tech-squads" />
+          <ContactForm source={ROUTES.techSquads} />
         </ScrollReveal>
       </div>
     </section>
@@ -542,28 +465,26 @@ function Contact() {
 }
 
 export function TechSquadsPage() {
+  const tHero = useTranslations("techSquads.hero");
+
+  const rotatingWords: string[] = tHero.raw("rotatingWords") ?? [];
+
   return (
     <main className="relative">
       <Nav />
       <AnimatedHero
-        staticTitle="Seu time de tecnologia"
-        rotatingWords={[
-          "pronto amanhã",
-          "sob demanda",
-          "integrado",
-          "escalável",
-          "dedicado",
-        ]}
-        subtitle="Squads completos de desenvolvimento, produto, dados e IA integrados ao seu time. Sem inflar estrutura, sem meses de recrutamento."
-        trustLine="Proposta em 24h · squad operando em semanas"
+        staticTitle={tHero("staticTitle")}
+        rotatingWords={rotatingWords}
+        subtitle={tHero("subtitle")}
+        trustLine={tHero("trustLine")}
         primaryCta={{
           href: "#contato",
-          label: "Montar meu squad",
+          label: tHero("primaryCta"),
           dataCta: "hero",
         }}
         secondaryCta={{
           href: "#como-funciona",
-          label: "Ver como funciona",
+          label: tHero("secondaryCta"),
         }}
       />
       <Stats />

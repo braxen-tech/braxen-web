@@ -1,6 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+
+import { trackGenerateLead } from "@/lib/analytics";
+import {
+  captureAttributionFromUrl,
+  readStoredAttribution,
+  type ContactAttribution,
+} from "@/lib/attribution";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -12,40 +20,57 @@ type ContactFormProps = {
 
 export function ContactForm({
   source,
-  messagePlaceholder = "Conte-nos sobre o seu projeto…",
-  submitMicrocopy = "Retorno em até 24 horas",
+  messagePlaceholder,
+  submitMicrocopy,
 }: ContactFormProps = {}) {
+  const t = useTranslations("contactForm");
+  const tCommon = useTranslations("common");
+  const locale = useLocale();
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [attribution, setAttribution] = useState<ContactAttribution>({});
+
+  const placeholder = messagePlaceholder ?? t("defaultPlaceholder");
+  const microcopy = submitMicrocopy ?? tCommon("microcopy24h");
+
+  useEffect(() => {
+    setAttribution(captureAttributionFromUrl());
+  }, []);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
     setErrorMsg("");
 
+    const currentAttribution =
+      hasAttribution(attribution) ? attribution : readStoredAttribution();
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, source }),
+        body: JSON.stringify({
+          ...form,
+          source,
+          locale,
+          ...currentAttribution,
+        }),
       });
 
       const data = (await response.json()) as { error?: string };
 
       if (!response.ok) {
-        throw new Error(data.error ?? "Não foi possível enviar sua mensagem.");
+        throw new Error(data.error ?? t("genericError"));
       }
+
+      trackGenerateLead({ source, attribution: currentAttribution });
 
       setForm({ name: "", email: "", message: "" });
       setStatus("success");
     } catch (err) {
       setStatus("error");
-      setErrorMsg(
-        err instanceof Error
-          ? err.message
-          : "Não foi possível enviar sua mensagem.",
-      );
+      setErrorMsg(err instanceof Error ? err.message : t("genericError"));
     }
   }
 
@@ -53,17 +78,17 @@ export function ContactForm({
     return (
       <div className="border-hairline p-8 md:p-12 text-left text-center">
         <p className="font-sans text-2xl md:text-3xl mb-4">
-          Mensagem enviada.
+          {t("successTitle")}
         </p>
         <p className="text-muted-foreground text-sm md:text-base max-w-md mx-auto">
-          Recebemos seu contato e retornamos em até 24 horas.
+          {t("successBody")}
         </p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
           className="mt-8 text-xs tracking-[0.25em] uppercase text-primary hover:text-foreground transition-colors cursor-pointer"
         >
-          Enviar outra mensagem
+          {t("sendAnother")}
         </button>
       </div>
     );
@@ -76,7 +101,7 @@ export function ContactForm({
     >
       <div className="grid md:grid-cols-2 gap-6">
         <Field
-          label="Nome"
+          label={t("name")}
           id="name"
           value={form.name}
           onChange={(v) => setForm((f) => ({ ...f, name: v }))}
@@ -85,7 +110,7 @@ export function ContactForm({
           disabled={status === "loading"}
         />
         <Field
-          label="E-mail"
+          label={t("email")}
           id="email"
           type="email"
           value={form.email}
@@ -100,7 +125,7 @@ export function ContactForm({
           htmlFor="message"
           className="block text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-3"
         >
-          Mensagem
+          {t("message")}
         </label>
         <textarea
           id="message"
@@ -112,7 +137,7 @@ export function ContactForm({
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
           disabled={status === "loading"}
           className="w-full bg-transparent border-b border-border focus:border-foreground outline-none py-3 text-base resize-none transition-colors disabled:opacity-60"
-          placeholder={messagePlaceholder}
+          placeholder={placeholder}
         />
       </div>
 
@@ -122,19 +147,23 @@ export function ContactForm({
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
         <p className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-          {submitMicrocopy}
+          {microcopy}
         </p>
         <button
           type="submit"
           disabled={status === "loading"}
           className="btn btn-lg btn-outline btn-outline-primary cursor-pointer tracking-[0.3em] disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          {status === "loading" ? "Enviando…" : "Enviar mensagem"}
+          {status === "loading" ? tCommon("sending") : tCommon("sendMessage")}
           {status !== "loading" && <span aria-hidden>→</span>}
         </button>
       </div>
     </form>
   );
+}
+
+function hasAttribution(attribution: ContactAttribution): boolean {
+  return Object.values(attribution).some((value) => value?.length > 0);
 }
 
 function Field({
