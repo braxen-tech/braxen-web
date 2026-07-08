@@ -44,7 +44,8 @@ function useFooterLinks(): FooterSection[] {
         { title: tNavigation("pain"), href: `${base}/#problema` },
         { title: tNavigation("howWeDo"), href: `${base}/#como-fazemos` },
         { title: tNavigation("team"), href: `${base}/#leadership` },
-        { title: tNavigation("testimonials"), href: `${base}/#depoimentos` },
+        // TODO: Re-enable when testimonials are ready
+        // { title: tNavigation("testimonials"), href: `${base}/#depoimentos` },
       ],
     },
     {

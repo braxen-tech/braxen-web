@@ -16,7 +16,8 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Portfolio } from "@/components/Portfolio";
 import { StackedCardsSection } from "@/components/StackedCardsSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
+// TODO: Re-enable when testimonials are ready
+// import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Footer } from "@/components/ui/footer-section";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
@@ -339,10 +340,12 @@ export function HomePage() {
         row2={clientLogoRow2}
       />
       <Leadership />
+      {/* TODO: Re-enable when testimonials are ready
       <TestimonialsSection
         id="depoimentos"
         description={t("testimonials.description")}
       />
+      */}
       <Contact />
       <Footer contactHref="#contact" />
     </main>
