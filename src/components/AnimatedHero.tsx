@@ -43,7 +43,7 @@ export function AnimatedHero({
   return (
     <section
       id={id}
-      className="relative w-full border-b border-border bg-background bg-grain pt-28 pb-16 md:flex md:min-h-[85vh] md:items-center md:pt-32 md:pb-24"
+      className="relative w-full bg-background bg-grain pt-28 pb-16 md:flex md:min-h-[85vh] md:items-center md:pt-32 md:pb-24"
     >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center md:gap-8">

@@ -117,6 +117,14 @@
       "titleEm": "empresas como",
       "description": "Time com histórico em operações de escala, mídia, varejo e tecnologia."
     },
+    "diagnosis": {
+      "title": "O diagnóstico",
+      "description": "Cada processo manual que ainda roda na sua empresa é receita sendo deixada na mesa."
+    },
+    "transformation": {
+      "title": "A transformação",
+      "description": "Uma clínica reduziu 80% das ligações com um agente de IA. Uma imobiliária triplicou o atendimento sem contratar ninguém, isso não é o futuro - já está acontecendo."
+    },
     "pain": {
       "title": "Sua operação trava antes de escalar",
       "subtitle": "Você sabe que precisa de tecnologia — mas não de mais uma ferramenta genérica que ninguém vai usar.",

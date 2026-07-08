@@ -25,10 +25,7 @@ export function Leadership() {
   }));
 
   return (
-    <section
-      id="leadership"
-      className="border-t border-border px-6 py-24 md:px-10 md:py-32"
-    >
+    <section id="leadership" className="px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           align="center"

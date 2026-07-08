@@ -42,8 +42,7 @@ export function StackedCardsSection({
       const cardHeight = card.getBoundingClientRect().height;
       const count = cards.length;
       const gap = 16;
-      const stackRunway =
-        (count - 1) * Math.max(cardHeight - incrementY, 120);
+      const stackRunway = (count - 1) * Math.max(cardHeight - incrementY, 120);
 
       container.style.minHeight = `${Math.ceil(
         cardHeight * count + gap * (count - 1) + stackRunway,
@@ -63,10 +62,7 @@ export function StackedCardsSection({
   }, [cards.length, incrementY]);
 
   return (
-    <section
-      id={id}
-      className="scroll-mt-24 border-t border-border px-6 md:px-10 py-24 md:py-28"
-    >
+    <section id={id} className="scroll-mt-24 px-6 md:px-10 py-24 md:py-28">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 md:items-start md:gap-12 xl:gap-16">
         <div className="md:sticky md:top-24 md:self-start md:py-4">
           <SectionHeader

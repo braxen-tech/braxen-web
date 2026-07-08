@@ -31,10 +31,7 @@ export function TestimonialsSection({
     }));
 
   return (
-    <section
-      id={id}
-      className="border-t border-border px-6 py-24 md:px-10 md:py-28"
-    >
+    <section id={id} className="px-6 py-24 md:px-10 md:py-28">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           align="center"
