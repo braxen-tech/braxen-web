@@ -129,11 +129,11 @@ function Hero() {
   const t = useTranslations("clinicas.hero");
 
   return (
-    <section id="hero" className="relative overflow-hidden pt-28 md:pt-36">
-      {/* Desktop image — bleeds off the top-right corner of the screen */}
+    <section id="hero" className="relative overflow-hidden pt-24 md:pt-32 lg:pt-36 min-h-[420px] md:min-h-[500px] lg:min-h-[600px]">
+      {/* Image positioned absolutely to allow text overlap */}
       <ScrollReveal
         delay={0.1}
-        className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 lg:block"
+        className="absolute -bottom-4 -right-8 pointer-events-none sm:-right-4 md:bottom-0 md:right-0"
       >
         <img
           src="/clinicas-hero-doctor.png"
@@ -142,47 +142,31 @@ function Hero() {
           height={845}
           loading="eager"
           decoding="async"
-          className="absolute bottom-0 right-0 h-[90%] w-auto max-w-none"
+          className="w-[220px] max-w-none sm:w-[260px] md:w-[380px] lg:w-[480px]"
         />
       </ScrollReveal>
 
-      <div className="relative mx-auto grid max-w-7xl items-end gap-8 px-6 md:px-10 lg:grid-cols-2">
-        <ScrollReveal className="order-1 pb-16 md:pb-24 lg:py-28">
-          <p className="mb-6 text-xs tracking-[0.3em] uppercase text-muted-foreground font-medium">
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
+        <ScrollReveal className="py-6 md:py-12 lg:py-20">
+          <p className="mb-4 text-[10px] tracking-[0.3em] uppercase text-muted-foreground font-medium md:mb-6 md:text-xs">
             {t("eyebrow")}
           </p>
-          <h1 className="font-sans text-4xl leading-[1.08] md:text-5xl lg:text-[3.25rem] font-semibold tracking-tight">
+          <h1 className="font-sans text-2xl leading-[1.08] font-semibold tracking-tight sm:text-3xl md:text-5xl lg:text-[3.25rem] max-w-[75%] md:max-w-[65%] lg:max-w-xl">
             {t("title")}
           </h1>
-          <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:mt-6 md:text-lg max-w-[80%] md:max-w-md lg:max-w-lg">
             {t("subtitle")}
           </p>
-          <div className="mt-8">
+          <div className="mt-6 md:mt-8">
             <a
               href="#contato"
               data-cta="hero"
-              className="inline-flex items-center gap-3 rounded-full px-8 py-3.5 text-sm font-medium text-white tracking-wide transition-opacity hover:opacity-90 cursor-pointer"
+              className="inline-flex items-center gap-3 rounded-full px-6 py-3 text-xs font-medium text-white tracking-wide transition-opacity hover:opacity-90 cursor-pointer md:px-8 md:py-3.5 md:text-sm"
               style={{ backgroundColor: TEAL }}
             >
               {t("primaryCta")}
             </a>
           </div>
-        </ScrollReveal>
-
-        {/* Mobile/tablet image — bleeds off the right edge */}
-        <ScrollReveal
-          delay={0.1}
-          className="order-2 -mr-6 flex justify-end md:-mr-10 lg:hidden"
-        >
-          <img
-            src="/clinicas-hero-doctor.png"
-            alt={t("imageAlt")}
-            width={590}
-            height={845}
-            loading="eager"
-            decoding="async"
-            className="w-[min(80%,320px)] max-w-none"
-          />
         </ScrollReveal>
       </div>
     </section>
@@ -352,28 +336,14 @@ function ProblemSolution() {
   return (
     <section id="desafios" className="px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-6xl">
-        {/* Column headers */}
-        <ScrollReveal>
-          <div className="grid gap-4 md:grid-cols-2 mb-6">
+        <div className="grid gap-8 md:grid-cols-2 md:gap-4">
+          {/* Pain column */}
+          <ScrollReveal className="space-y-4">
             <div className="rounded-xl bg-zinc-200 dark:bg-zinc-700 px-6 py-4 text-center">
               <p className="text-sm md:text-base font-medium text-foreground/70">
                 {t("todayLabel")}
               </p>
             </div>
-            <div
-              className="rounded-xl px-6 py-4 text-center"
-              style={{ backgroundColor: TEAL }}
-            >
-              <p className="text-sm md:text-base font-medium text-white">
-                {t("withBraxenLabel")}
-              </p>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        {/* Pain / Solution cards */}
-        <StaggerChildren className="grid gap-4 md:grid-cols-2">
-          <div className="space-y-4">
             {pains.map((pain) => (
               <div
                 key={pain}
@@ -385,8 +355,18 @@ function ProblemSolution() {
                 <p className="text-sm md:text-base font-medium">{pain}</p>
               </div>
             ))}
-          </div>
-          <div className="space-y-4">
+          </ScrollReveal>
+
+          {/* Solution column */}
+          <ScrollReveal delay={0.1} className="space-y-4">
+            <div
+              className="rounded-xl px-6 py-4 text-center"
+              style={{ backgroundColor: TEAL }}
+            >
+              <p className="text-sm md:text-base font-medium text-white">
+                {t("withBraxenLabel")}
+              </p>
+            </div>
             {solutions.map((solution) => (
               <div
                 key={solution}
@@ -398,8 +378,8 @@ function ProblemSolution() {
                 <p className="text-sm md:text-base font-medium">{solution}</p>
               </div>
             ))}
-          </div>
-        </StaggerChildren>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );
