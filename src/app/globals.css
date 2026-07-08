@@ -6,6 +6,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@property --stats-border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -370,6 +376,46 @@
       animation: none;
       opacity: 1;
       transform: none;
+    }
+  }
+  .animated-border {
+    position: relative;
+  }
+  .animated-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: var(--animated-border-width, 1.5px);
+    background: conic-gradient(
+      from var(--stats-border-angle),
+      transparent 0deg,
+      color-mix(
+          in oklab,
+          var(--animated-border-color, #00c5cd) 95%,
+          transparent
+        )
+        70deg,
+      transparent 150deg,
+      transparent 360deg
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: animated-border-spin var(--animated-border-duration, 4s) linear
+      infinite;
+  }
+  @keyframes animated-border-spin {
+    to {
+      --stats-border-angle: 360deg;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animated-border::before {
+      animation: none;
     }
   }
 }

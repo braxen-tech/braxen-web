@@ -8,6 +8,7 @@ export type StackedCardItem = {
   id: string;
   title: string;
   description: string;
+  icon?: React.ReactNode;
 };
 
 export type StackedCardsSectionProps = {
@@ -85,9 +86,16 @@ export function StackedCardsSection({
               className="rounded-lg border border-border bg-card/80 p-6 shadow-lg shadow-black/10 backdrop-blur-md md:p-8"
             >
               <div className="flex items-start justify-between gap-4">
-                <h3 className="font-sans text-xl md:text-2xl tracking-tight">
-                  {card.title}
-                </h3>
+                <div className="flex items-center gap-3">
+                  {card.icon ? (
+                    <span className="inline-flex shrink-0 items-center justify-center">
+                      {card.icon}
+                    </span>
+                  ) : null}
+                  <h3 className="font-sans text-xl md:text-2xl tracking-tight">
+                    {card.title}
+                  </h3>
+                </div>
                 <span className="font-sans text-xl md:text-2xl text-primary tabular-nums">
                   {String(index + 1).padStart(2, "0")}
                 </span>

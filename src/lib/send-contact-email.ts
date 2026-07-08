@@ -59,6 +59,30 @@ function buildAttributionLines(payload: ContactPayload): string {
   return `<div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #e4e4e7;">${lines.join("")}</div>`;
 }
 
+function buildQualificationLines(
+  payload: ContactPayload,
+  t: Awaited<ReturnType<typeof getTranslations>>,
+): string {
+  const lines: string[] = [];
+
+  if (payload.phone) {
+    lines.push(`<p><strong>${escapeHtml(t("labels.phone"))}:</strong> ${escapeHtml(payload.phone)}</p>`);
+  }
+  if (payload.segment) {
+    lines.push(`<p><strong>${escapeHtml(t("labels.segment"))}:</strong> ${escapeHtml(payload.segment)}</p>`);
+  }
+  if (payload.teamSize) {
+    lines.push(`<p><strong>${escapeHtml(t("labels.teamSize"))}:</strong> ${escapeHtml(payload.teamSize)}</p>`);
+  }
+  if (payload.monthlyConversations) {
+    lines.push(
+      `<p><strong>${escapeHtml(t("labels.monthlyConversations"))}:</strong> ${escapeHtml(payload.monthlyConversations)}</p>`,
+    );
+  }
+
+  return lines.join("");
+}
+
 async function buildContactEmailHtml(payload: ContactPayload): Promise<string> {
   const t = await getTranslations({
     locale: payload.locale,
@@ -75,6 +99,7 @@ async function buildContactEmailHtml(payload: ContactPayload): Promise<string> {
       <p><strong>${escapeHtml(t("labels.name"))}:</strong> ${escapeHtml(payload.name)}</p>
       <p><strong>${escapeHtml(t("labels.email"))}:</strong> ${escapeHtml(payload.email)}</p>
       ${sourceLine}
+      ${buildQualificationLines(payload, t)}
       <p><strong>${escapeHtml(t("labels.message"))}:</strong></p>
       <p style="white-space: pre-wrap;">${escapeHtml(payload.message)}</p>
       ${buildAttributionLines(payload)}

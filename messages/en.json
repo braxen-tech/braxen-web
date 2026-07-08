@@ -94,7 +94,11 @@
       "name": "Name",
       "email": "Email",
       "source": "Page",
-      "message": "Message"
+      "message": "Message",
+      "phone": "WhatsApp",
+      "segment": "Segment",
+      "teamSize": "Scheduling team size",
+      "monthlyConversations": "Monthly WhatsApp conversations"
     }
   },
   "home": {
@@ -106,7 +110,13 @@
     },
     "hero": {
       "staticTitle": "Software and AI agents",
-      "rotatingWords": ["scalable", "intelligent", "integrated", "automated", "tailor-made"],
+      "rotatingWords": [
+        "scalable",
+        "intelligent",
+        "integrated",
+        "automated",
+        "tailor-made"
+      ],
       "subtitle": "We build custom software, AI agents and automation that turn manual operations into real growth.",
       "trustLine": "Reply within 24h · first delivery in weeks",
       "primaryCta": "I want a solution",
@@ -130,10 +140,22 @@
       "subtitle": "You know you need technology — but not another generic tool that no one will use.",
       "imageAlt": "Overworked team dealing with manual processes and messy spreadsheets",
       "items": [
-        { "title": "Leads without a response", "description": "Opportunities cool down while your team is busy putting out fires." },
-        { "title": "Team at the limit", "description": "Manual work eats up capacity that should be going to growth." },
-        { "title": "Spreadsheets no one trusts", "description": "Data scattered, versions out of date and zero real visibility." },
-        { "title": "Generic tools", "description": "Expensive licenses that don't fit the process and become a liability." }
+        {
+          "title": "Leads without a response",
+          "description": "Opportunities cool down while your team is busy putting out fires."
+        },
+        {
+          "title": "Team at the limit",
+          "description": "Manual work eats up capacity that should be going to growth."
+        },
+        {
+          "title": "Spreadsheets no one trusts",
+          "description": "Data scattered, versions out of date and zero real visibility."
+        },
+        {
+          "title": "Generic tools",
+          "description": "Expensive licenses that don't fit the process and become a liability."
+        }
       ]
     },
     "solution": {
@@ -141,10 +163,22 @@
       "subtitle": "We map where it breaks, build what solves it, and ship with measurable impact.",
       "imageAlt": "Custom dashboard and automation integrated with your operation",
       "items": [
-        { "title": "Diagnosis and tailor-made build", "description": "AI agent, CRM and dashboard designed for your workflow — no template, no license." },
-        { "title": "Integration with what you already use", "description": "WhatsApp, payments, external APIs and internal processes connected end to end." },
-        { "title": "First delivery in weeks", "description": "Short cycles with validation before going live — not multi-month projects with no results." },
-        { "title": "Measurable impact", "description": "You follow every step and measure real effect. If it doesn't work, we adjust." }
+        {
+          "title": "Diagnosis and tailor-made build",
+          "description": "AI agent, CRM and dashboard designed for your workflow — no template, no license."
+        },
+        {
+          "title": "Integration with what you already use",
+          "description": "WhatsApp, payments, external APIs and internal processes connected end to end."
+        },
+        {
+          "title": "First delivery in weeks",
+          "description": "Short cycles with validation before going live — not multi-month projects with no results."
+        },
+        {
+          "title": "Measurable impact",
+          "description": "You follow every step and measure real effect. If it doesn't work, we adjust."
+        }
       ]
     },
     "portfolio": {
@@ -158,10 +192,26 @@
       "titleEm": "build",
       "description": "Four pillars, one team. We assemble specialized teams that ship together and follow results over time.",
       "cards": [
-        { "id": "service-1", "title": "Custom Software", "description": "ERPs, CRMs, dashboards and internal platforms built for your process — not a generic template." },
-        { "id": "service-2", "title": "Websites and Apps", "description": "Digital presence that converts. High-performance web, mobile and landing pages, from design to production." },
-        { "id": "service-3", "title": "AI Agents", "description": "Support, lead qualification and operations automation running 24/7 with generative AI." },
-        { "id": "service-4", "title": "Automation and Integrations", "description": "WhatsApp, payments, external APIs and internal processes connected — your team does less, delivers more." }
+        {
+          "id": "service-1",
+          "title": "Custom Software",
+          "description": "ERPs, CRMs, dashboards and internal platforms built for your process — not a generic template."
+        },
+        {
+          "id": "service-2",
+          "title": "Websites and Apps",
+          "description": "Digital presence that converts. High-performance web, mobile and landing pages, from design to production."
+        },
+        {
+          "id": "service-3",
+          "title": "AI Agents",
+          "description": "Support, lead qualification and operations automation running 24/7 with generative AI."
+        },
+        {
+          "id": "service-4",
+          "title": "Automation and Integrations",
+          "description": "WhatsApp, payments, external APIs and internal processes connected — your team does less, delivers more."
+        }
       ]
     },
     "products": {
@@ -185,10 +235,26 @@
       "prev": "Previous profile",
       "next": "Next profile",
       "members": [
-        { "name": "Hugo Lemos", "designation": "Head of Product & UI/UX", "quote": "I translate business problems into interfaces that work — every screen, every flow and every detail thought out for the end user and for operational results." },
-        { "name": "Neemias Rocha", "designation": "Head of Sales", "quote": "With ten years connecting sales strategy to execution, I understand the customer's pain before the first meeting and ensure measurable value from day one." },
-        { "name": "Rodrigo Gama", "designation": "Head of Engineering", "quote": "I lead small teams in short cycles, focused on deliveries that hold real load without breaking on the second version." },
-        { "name": "Tiago Rocha", "designation": "Head of AI & Platform", "quote": "I design agents and automations that create real value, and I keep the platform behind them reliable, observable and ready to scale." }
+        {
+          "name": "Hugo Lemos",
+          "designation": "Head of Product & UI/UX",
+          "quote": "I translate business problems into interfaces that work — every screen, every flow and every detail thought out for the end user and for operational results."
+        },
+        {
+          "name": "Neemias Rocha",
+          "designation": "Head of Sales",
+          "quote": "With ten years connecting sales strategy to execution, I understand the customer's pain before the first meeting and ensure measurable value from day one."
+        },
+        {
+          "name": "Rodrigo Gama",
+          "designation": "Head of Engineering",
+          "quote": "I lead small teams in short cycles, focused on deliveries that hold real load without breaking on the second version."
+        },
+        {
+          "name": "Tiago Rocha",
+          "designation": "Head of AI & Platform",
+          "quote": "I design agents and automations that create real value, and I keep the platform behind them reliable, observable and ready to scale."
+        }
       ]
     },
     "testimonials": {
@@ -199,11 +265,31 @@
       "next": "Next testimonial",
       "regionLabel": "Testimonials",
       "items": [
-        { "quote": "We cut calls by 80% with a WhatsApp AI agent. The team stopped putting out fires and got back to what matters.", "author": "Mariana Costa · Clinical Director", "alt": "Mariana Costa" },
-        { "quote": "We tripled our service volume without hiring anyone. Qualified leads land in the CRM ready to close.", "author": "Rafael Mendes · Real Estate Partner", "alt": "Rafael Mendes" },
-        { "quote": "The CRM was built for our process — not a template. The team adopted it in the first week.", "author": "Camila Rocha · Head of Sales", "alt": "Camila Rocha" },
-        { "quote": "WhatsApp follow-up automation transformed our funnel. Onboarding and post-sale without depending on spreadsheets.", "author": "Felipe Santos · Marketing", "alt": "Felipe Santos" },
-        { "quote": "First delivery in weeks, not months. We followed every step and measured real impact from day one.", "author": "Pedro Almeida · Founder", "alt": "Pedro Almeida" }
+        {
+          "quote": "We cut calls by 80% with a WhatsApp AI agent. The team stopped putting out fires and got back to what matters.",
+          "author": "Mariana Costa · Clinical Director",
+          "alt": "Mariana Costa"
+        },
+        {
+          "quote": "We tripled our service volume without hiring anyone. Qualified leads land in the CRM ready to close.",
+          "author": "Rafael Mendes · Real Estate Partner",
+          "alt": "Rafael Mendes"
+        },
+        {
+          "quote": "The CRM was built for our process — not a template. The team adopted it in the first week.",
+          "author": "Camila Rocha · Head of Sales",
+          "alt": "Camila Rocha"
+        },
+        {
+          "quote": "WhatsApp follow-up automation transformed our funnel. Onboarding and post-sale without depending on spreadsheets.",
+          "author": "Felipe Santos · Marketing",
+          "alt": "Felipe Santos"
+        },
+        {
+          "quote": "First delivery in weeks, not months. We followed every step and measured real impact from day one.",
+          "author": "Pedro Almeida · Founder",
+          "alt": "Pedro Almeida"
+        }
       ]
     },
     "contact": {
@@ -228,76 +314,121 @@
       "cta": "Automate my clinic"
     },
     "hero": {
-      "staticTitle": "Omnichannel customer service for",
-      "rotatingWords": ["clinics", "practices", "dentistry", "aesthetics", "specialties"],
-      "subtitle": "WhatsApp, Gmail, Telegram, SMS and website chat — unified in Chatwoot with AI agent, integrated calendar and handoff to reception.",
-      "primaryCta": "Automate my clinic",
-      "secondaryCta": "See unified inbox"
+      "eyebrow": "WhatsApp AI + CRM",
+      "title": "Increase your service capacity while drastically reducing operational costs.",
+      "subtitle": "The revolution in automated customer service and intelligent conversation management to scale your company's revenue.",
+      "primaryCta": "I'm interested",
+      "imageAlt": "Smiling doctor in a white coat and stethoscope"
     },
-    "omnichannel": {
-      "titleLead": "Every channel in",
-      "titleEm": "one place",
-      "description": "WhatsApp, email, Telegram, SMS and website chat converge in the same inbox — with AI agent and handoff to reception.",
-      "imageAlt": "Unified inbox for clinics: WhatsApp, email, Telegram, SMS and website chat with AI agent"
+    "stats": {
+      "items": [
+        {
+          "value": "10x",
+          "caption": "less effort to book and schedule appointments"
+        },
+        {
+          "value": "85%",
+          "caption": "of appointments handled automatically, 24 hours a day"
+        },
+        {
+          "value": "8x",
+          "caption": "more client messages converted into sales"
+        }
+      ]
+    },
+    "secondHero": {
+      "title": "Losing leads and slow customer response times are no longer a problem for your business",
+      "description": "Forget manual customer service. With Braxen, you build flows in minutes and let your AI close deals on autopilot.",
+      "whatsappImageAlt": "WhatsApp conversation between a patient and the clinic's AI agent",
+      "features": [
+        {
+          "title": "AI Agent"
+        },
+        {
+          "title": "Conversation Flow"
+        },
+        {
+          "title": "CRM Kanban"
+        },
+        {
+          "title": "Automation"
+        }
+      ]
     },
     "problem": {
-      "titleLead": "From an overwhelmed front desk to",
-      "titleEm": "an organized operation",
-      "todayLabel": "Today",
-      "withBraxenLabel": "With Braxen",
+      "todayLabel": "Does your clinic face this?",
+      "withBraxenLabel": "The Inbox solves it like this:",
       "pains": [
-        { "title": "Fragmented channels", "desc": "WhatsApp in one app, email in Gmail, chat on the site left unanswered. Reception jumps between tools all day." },
-        { "title": "Patients without replies", "desc": "Message at night or on the weekend and reply only the next day — if the team can respond." },
-        { "title": "Manual confirmations", "desc": "Repeated calls and messages to confirm appointments, remind schedules and reduce no-shows." },
-        { "title": "Team fighting fires", "desc": "Hours, insurance, address, exam prep — the same volume of questions, every day." }
+        "Slow response times and service only during business hours?",
+        "Patients not showing up?",
+        "Few Google reviews?",
+        "Multiple screens to manage appointments?",
+        "No idea which ads are bringing in more patients?"
       ],
       "solutions": [
-        { "title": "24/7 omnichannel", "desc": "WhatsApp, Gmail, Telegram, SMS and website chat — one agent, one inbox, unified history in Chatwoot." },
-        { "title": "Scheduling in the chat", "desc": "Patients book and confirm in their preferred channel. Integrations with Google Calendar and Cal.com." },
-        { "title": "Handoff to reception", "desc": "When human help is needed, the team takes over with full context — no need to repeat what the patient already said." },
-        { "title": "Tags and visibility", "desc": "Booking, confirmation, question — every conversation categorized automatically so the operation can see the volume." }
-      ]
+        "AI-powered customer service and scheduling integrated with ChatGPT",
+        "Automatic appointment reminders via WhatsApp",
+        "Satisfaction surveys with Google review links",
+        "Unified message center integrated with all channels",
+        "Marketing reports with metrics per ad"
+      ],
+      "cta": "I'm interested"
     },
-    "integrations": {
-      "description": "WhatsApp, messaging, calendar, payments and APIs — we plug into the agent's flow without rebuilding your clinic's operation."
+    "pullQuote": {
+      "line1": "Imagine tripling your service capacity while drastically reducing operational costs.",
+      "line2": "AI scales your business without inflating your payroll."
     },
-    "process": {
-      "titleLead": "From diagnosis to a clinic",
-      "titleEm": "live in weeks",
-      "description": "Rollout with operational support — monitoring, agent tuning and continuous evolution after going live.",
-      "steps": [
-        { "id": "step-1", "title": "Diagnosis", "description": "We map active channels, message volume, scheduling flow and clinic integrations. We prioritize what most relieves the front desk." },
-        { "id": "step-2", "title": "Agent training", "description": "We configure the AI with specialties, hours, insurance plans, exam prep and the clinic's tone of voice." },
-        { "id": "step-3", "title": "Channel integration", "description": "We connect WhatsApp, email, SMS, website chat and calendar in Chatwoot. Everything in the same operation." },
-        { "id": "step-4", "title": "We go live", "description": "In 2 to 4 weeks, with hands-on support in the first days. We adjust responses and flows based on real operation." }
-      ]
-    },
-    "trust": {
+    "superpowers": {
+      "title": "Superpowers on your WhatsApp",
       "items": [
-        { "title": "Proposal in 24h", "desc": "Technical analysis of your operation, no commitment." },
-        { "title": "Live in weeks", "desc": "First version in 2 to 4 weeks, with hands-on support." },
-        { "title": "Privacy-conscious ops", "desc": "Customer service and scheduling — no access to medical records." }
-      ]
-    },
-    "faq": {
-      "titleLead": "Clear up your",
-      "titleEm": "questions",
-      "items": [
-        { "q": "Which channels do you support?", "a": "WhatsApp, Gmail, Telegram, SMS and site-embedded chat — all unified in the same inbox via Chatwoot. You can start with one channel and expand later." },
-        { "q": "Do I need to use all channels from the start?", "a": "No. Many clinics start with WhatsApp and add email, SMS or website chat as the operation grows. The inbox is ready to scale." },
-        { "q": "How does it work with data privacy and health data?", "a": "The agent handles service and scheduling — hours, confirmations, administrative questions. It does not access medical records, does not provide medical advice and does not replace the healthcare professional." },
-        { "q": "Does it integrate with my current calendar?", "a": "Yes. We connect Google Calendar, Cal.com and other systems via API when available. The patient books in the chat and the appointment lands in the calendar you already use." },
-        { "q": "What if reception needs a human?", "a": "The agent transfers to a real agent with the full conversation history — regardless of the channel. Reception stays in control." },
-        { "q": "Do I need to change my management system?", "a": "Not necessarily. We integrate via API when the system allows. If there's no integration, the agent handles scheduling and triage while your team complements the current flow." },
-        { "q": "How long does it take to go live?", "a": "The first version typically runs in 2 to 4 weeks, depending on channels and integrations. Leaner projects can go live in days." },
-        { "q": "How much does it cost?", "a": "It depends on scope, channels and integrations. Every clinic is different. Talk to us and we'll put together a technical proposal within 24 hours." }
-      ]
+        {
+          "title": "Smooth scheduling",
+          "desc": "Our AI checks your available business calendar, offers smart time slot options to the client, and confirms the booking instantly in the chat."
+        },
+        {
+          "title": "Fast payments",
+          "desc": "Pix generation, payment links, and payment verification natively integrated. The client completes the transaction with total security."
+        },
+        {
+          "title": "Question resolution",
+          "desc": "An up-to-date knowledge base to answer any technical question, plan pricing, FAQs, and institutional information without delay."
+        }
+      ],
+      "cta": "I'm interested"
     },
     "contact": {
-      "titleLead": "Automate your",
-      "titleEm": "clinic's customer service",
-      "description": "Tell us about your channels and message volume. Reply within 24 hours with a technical analysis — no commitment.",
-      "messagePlaceholder": "e.g., we handle patients via WhatsApp, email and website chat — I need to unify everything and automate scheduling…"
+      "title": "Ready to automate your customer service?",
+      "description": "No matter how complex the challenge, we have the expertise to deliver. Let's schedule a call to understand your scenario.",
+      "lgpdNote": "By submitting this form, you agree to be contacted by Braxen about your request, in accordance with our Privacy Policy.",
+      "form": {
+        "name": "Full name",
+        "email": "Work email",
+        "phone": "Your WhatsApp number with area code",
+        "segmentLabel": "Your company's specialty",
+        "segmentOptions": [
+          "Dentistry",
+          "Aesthetics",
+          "General practice",
+          "Specialties",
+          "Other"
+        ],
+        "teamSizeLabel": "How many people handle appointment scheduling at your clinic?",
+        "teamSizeOptions": [
+          "1-2",
+          "3-5",
+          "6-10",
+          "More than 10"
+        ],
+        "monthlyConversationsLabel": "How many different conversations does your clinic receive per month on WhatsApp?",
+        "monthlyConversationsOptions": [
+          "Up to 100",
+          "100 to 500",
+          "500 to 1,000",
+          "More than 1,000"
+        ],
+        "submitLabel": "Send",
+        "privacyConsent": "By submitting this form, you agree to be contacted by Braxen about your request, under LGPD."
+      }
     }
   },
   "atendimentoIa": {
@@ -317,7 +448,13 @@
     },
     "hero": {
       "staticTitle": "Customer service operations",
-      "rotatingWords": ["intelligent", "omnichannel", "integrated", "automated", "scalable"],
+      "rotatingWords": [
+        "intelligent",
+        "omnichannel",
+        "integrated",
+        "automated",
+        "scalable"
+      ],
       "subtitle": "AI agents with integrated CRM. 24/7 qualification, sales in the chat and integration with your APIs.",
       "primaryCta": "I want my agents",
       "secondaryCta": "See how it works"
@@ -328,14 +465,32 @@
       "todayLabel": "Today",
       "withAgentsLabel": "With Braxen agents",
       "pains": [
-        { "title": "Leads without a response", "desc": "The customer sends a message at night and only hears back the next day — if at all." },
-        { "title": "Fragmented channels", "desc": "WhatsApp, email and website chat in different places. Nothing talks to each other." },
-        { "title": "Zero visibility", "desc": "You don't know how many leads came in, how many were served, how many became sales." }
+        {
+          "title": "Leads without a response",
+          "desc": "The customer sends a message at night and only hears back the next day — if at all."
+        },
+        {
+          "title": "Fragmented channels",
+          "desc": "WhatsApp, email and website chat in different places. Nothing talks to each other."
+        },
+        {
+          "title": "Zero visibility",
+          "desc": "You don't know how many leads came in, how many were served, how many became sales."
+        }
       ],
       "solutions": [
-        { "title": "24/7 service across all channels", "desc": "WhatsApp, Telegram, email, SMS and website chat — one agent, one queue, unified history." },
-        { "title": "CRM integrated with the operation", "desc": "Visual pipeline, automatic tags and conversion metrics. All in one place." },
-        { "title": "Sales, calendar and APIs connected", "desc": "Books meetings, sells in the chat and integrates ERP, payments or internal systems." }
+        {
+          "title": "24/7 service across all channels",
+          "desc": "WhatsApp, Telegram, email, SMS and website chat — one agent, one queue, unified history."
+        },
+        {
+          "title": "CRM integrated with the operation",
+          "desc": "Visual pipeline, automatic tags and conversion metrics. All in one place."
+        },
+        {
+          "title": "Sales, calendar and APIs connected",
+          "desc": "Books meetings, sells in the chat and integrates ERP, payments or internal systems."
+        }
       ]
     },
     "process": {
@@ -343,10 +498,26 @@
       "titleEm": "live in weeks",
       "description": "Rollout with operational support — monitoring, agent tuning and continuous evolution after going live.",
       "steps": [
-        { "id": "step-1", "title": "Diagnosis", "description": "We map your service flow, active channels and required integrations. We understand volume, bottlenecks and what needs to be automated first." },
-        { "id": "step-2", "title": "Agent training", "description": "We configure the AI with your business knowledge — products, commercial rules, tone of voice and answers to the most common objections." },
-        { "id": "step-3", "title": "Integration", "description": "We connect WhatsApp, Telegram, email, website chat, CRM and external APIs. Everything working in the same operation." },
-        { "id": "step-4", "title": "We go live", "description": "In weeks — not months. We follow the first days, tune the agent and make sure the operation runs smoothly." }
+        {
+          "id": "step-1",
+          "title": "Diagnosis",
+          "description": "We map your service flow, active channels and required integrations. We understand volume, bottlenecks and what needs to be automated first."
+        },
+        {
+          "id": "step-2",
+          "title": "Agent training",
+          "description": "We configure the AI with your business knowledge — products, commercial rules, tone of voice and answers to the most common objections."
+        },
+        {
+          "id": "step-3",
+          "title": "Integration",
+          "description": "We connect WhatsApp, Telegram, email, website chat, CRM and external APIs. Everything working in the same operation."
+        },
+        {
+          "id": "step-4",
+          "title": "We go live",
+          "description": "In weeks — not months. We follow the first days, tune the agent and make sure the operation runs smoothly."
+        }
       ]
     },
     "testimonials": {
@@ -356,11 +527,26 @@
       "titleLead": "Clear up your",
       "titleEm": "questions",
       "items": [
-        { "q": "How long does it take to go live?", "a": "The first version typically runs in 2 to 4 weeks, depending on channels and integrations. Leaner projects can go live in days." },
-        { "q": "Do I need to change my CRM?", "a": "Not necessarily. We integrate with the CRM you already use or deliver a CRM integrated with the operation — you choose what makes sense." },
-        { "q": "Does the agent integrate with my system (API)?", "a": "If it has an API, we connect. ERPs, payments, inventory, internal spreadsheets, legacy systems — we build the integration to fit." },
-        { "q": "What if I need a human or support after going live?", "a": "The agent transfers to a real agent when needed, with the full history in the CRM. Once it goes live, we can take care of ongoing operations — monitoring, tuning and agent evolution." },
-        { "q": "How much does it cost?", "a": "It depends on scope and channels. Every operation is different. Talk to us and we'll put together a technical proposal within 24 hours." }
+        {
+          "q": "How long does it take to go live?",
+          "a": "The first version typically runs in 2 to 4 weeks, depending on channels and integrations. Leaner projects can go live in days."
+        },
+        {
+          "q": "Do I need to change my CRM?",
+          "a": "Not necessarily. We integrate with the CRM you already use or deliver a CRM integrated with the operation — you choose what makes sense."
+        },
+        {
+          "q": "Does the agent integrate with my system (API)?",
+          "a": "If it has an API, we connect. ERPs, payments, inventory, internal spreadsheets, legacy systems — we build the integration to fit."
+        },
+        {
+          "q": "What if I need a human or support after going live?",
+          "a": "The agent transfers to a real agent when needed, with the full history in the CRM. Once it goes live, we can take care of ongoing operations — monitoring, tuning and agent evolution."
+        },
+        {
+          "q": "How much does it cost?",
+          "a": "It depends on scope and channels. Every operation is different. Talk to us and we'll put together a technical proposal within 24 hours."
+        }
       ]
     },
     "contact": {
@@ -383,7 +569,13 @@
     },
     "hero": {
       "staticTitle": "Your technology team",
-      "rotatingWords": ["ready tomorrow", "on demand", "integrated", "scalable", "dedicated"],
+      "rotatingWords": [
+        "ready tomorrow",
+        "on demand",
+        "integrated",
+        "scalable",
+        "dedicated"
+      ],
       "subtitle": "Full engineering, product, data and AI squads integrated with your team. Without inflating headcount or waiting months for recruitment.",
       "trustLine": "Proposal in 24h · squad running in weeks",
       "primaryCta": "Build my squad",
@@ -391,10 +583,22 @@
     },
     "stats": {
       "items": [
-        { "value": "$462 B", "label": "Global IT outsourcing market in 2026" },
-        { "value": "92%", "label": "of G2000 companies use external tech teams" },
-        { "value": "15–30%", "label": "cost reduction vs. in-house hiring" },
-        { "value": "9.3%", "label": "CAGR projected through 2033" }
+        {
+          "value": "$462 B",
+          "label": "Global IT outsourcing market in 2026"
+        },
+        {
+          "value": "92%",
+          "label": "of G2000 companies use external tech teams"
+        },
+        {
+          "value": "15–30%",
+          "label": "cost reduction vs. in-house hiring"
+        },
+        {
+          "value": "9.3%",
+          "label": "CAGR projected through 2033"
+        }
       ],
       "sources": "Sources: Coherent Market Insights, 2026 · Saigon Technology · Gartner"
     },
@@ -402,22 +606,56 @@
       "titleLead": "The challenges",
       "titleEm": "holding back your growth",
       "items": [
-        { "title": "Hiring takes months", "desc": "57% of managers find it hard to find qualified IT professionals. Meanwhile, the backlog grows." },
-        { "title": "Overloaded internal team", "desc": "Your team fights fires instead of building product. Every new project is one more plate spinning." },
-        { "title": "Lack of specialists", "desc": "AI, cloud, DevOps, mobile — you need profiles that don't exist on your current team." },
-        { "title": "Projects slipping", "desc": "Without delivery capacity, roadmaps slide and competitors get ahead." },
-        { "title": "High turnover", "desc": "Developers leave and take knowledge with them. Rehiring costs time and money." },
-        { "title": "Scaling is risky", "desc": "Hiring full-time for seasonal demand is expensive. Not hiring means missing opportunities." }
+        {
+          "title": "Hiring takes months",
+          "desc": "57% of managers find it hard to find qualified IT professionals. Meanwhile, the backlog grows."
+        },
+        {
+          "title": "Overloaded internal team",
+          "desc": "Your team fights fires instead of building product. Every new project is one more plate spinning."
+        },
+        {
+          "title": "Lack of specialists",
+          "desc": "AI, cloud, DevOps, mobile — you need profiles that don't exist on your current team."
+        },
+        {
+          "title": "Projects slipping",
+          "desc": "Without delivery capacity, roadmaps slide and competitors get ahead."
+        },
+        {
+          "title": "High turnover",
+          "desc": "Developers leave and take knowledge with them. Rehiring costs time and money."
+        },
+        {
+          "title": "Scaling is risky",
+          "desc": "Hiring full-time for seasonal demand is expensive. Not hiring means missing opportunities."
+        }
       ]
     },
     "howItWorks": {
       "titleLead": "From diagnosis to a",
       "titleEm": "squad up and running",
       "steps": [
-        { "n": "01", "title": "Diagnosis", "desc": "We understand your context, stack, processes and goals. We map the ideal profiles for your challenge." },
-        { "n": "02", "title": "Squad assembly", "desc": "We pick senior professionals with proven experience. You approve every profile before starting." },
-        { "n": "03", "title": "Integration", "desc": "The squad connects with your team, tools and rituals. It works as a natural extension of your team." },
-        { "n": "04", "title": "Management and evolution", "desc": "Ongoing metrics, feedback and continuous improvement. Scale up or down whenever you need." }
+        {
+          "n": "01",
+          "title": "Diagnosis",
+          "desc": "We understand your context, stack, processes and goals. We map the ideal profiles for your challenge."
+        },
+        {
+          "n": "02",
+          "title": "Squad assembly",
+          "desc": "We pick senior professionals with proven experience. You approve every profile before starting."
+        },
+        {
+          "n": "03",
+          "title": "Integration",
+          "desc": "The squad connects with your team, tools and rituals. It works as a natural extension of your team."
+        },
+        {
+          "n": "04",
+          "title": "Management and evolution",
+          "desc": "Ongoing metrics, feedback and continuous improvement. Scale up or down whenever you need."
+        }
       ]
     },
     "differentials": {
@@ -425,12 +663,30 @@
       "titleEm": "outsourcing",
       "subtitle": "We don't just deliver people. We deliver real delivery capacity, with management and continuity.",
       "items": [
-        { "title": "Senior professionals", "desc": "We don't allocate juniors in disguise. Every squad member has real experience on complex projects." },
-        { "title": "Active technical management", "desc": "A tech lead tracks deliveries, code quality, architecture and team growth." },
-        { "title": "Real integration", "desc": "The squad joins your dailies, sprints and decisions. It's not a vendor — it's part of the team." },
-        { "title": "Low turnover", "desc": "A retention model that preserves project knowledge. Stability is part of the delivery." },
-        { "title": "AI-native", "desc": "Every squad already operates with AI tools to speed up development, review and testing." },
-        { "title": "Full flexibility", "desc": "Grow or shrink the squad as demand changes. No red tape, no penalties, no surprises." }
+        {
+          "title": "Senior professionals",
+          "desc": "We don't allocate juniors in disguise. Every squad member has real experience on complex projects."
+        },
+        {
+          "title": "Active technical management",
+          "desc": "A tech lead tracks deliveries, code quality, architecture and team growth."
+        },
+        {
+          "title": "Real integration",
+          "desc": "The squad joins your dailies, sprints and decisions. It's not a vendor — it's part of the team."
+        },
+        {
+          "title": "Low turnover",
+          "desc": "A retention model that preserves project knowledge. Stability is part of the delivery."
+        },
+        {
+          "title": "AI-native",
+          "desc": "Every squad already operates with AI tools to speed up development, review and testing."
+        },
+        {
+          "title": "Full flexibility",
+          "desc": "Grow or shrink the squad as demand changes. No red tape, no penalties, no surprises."
+        }
       ]
     },
     "profiles": {
@@ -483,13 +739,34 @@
       "titleLead": "Clear up your",
       "titleEm": "questions",
       "items": [
-        { "q": "What's the minimum squad size?", "a": "We usually start with 2 to 3 people, but a squad can have any configuration. We tailor it to your context." },
-        { "q": "How long does it take to build the squad?", "a": "From 1 to 3 weeks, depending on the required profiles. More specialized professionals may take a bit longer." },
-        { "q": "Does the squad use my tools or bring its own?", "a": "The squad adapts to your stack, tools and processes. We operate as an extension of your team, not a separate silo." },
-        { "q": "What's the engagement model?", "a": "Monthly contract, no long-term lock-in. You can scale up or down according to project demand." },
-        { "q": "How does technical management work?", "a": "Each squad has a Braxen tech lead who tracks deliveries, code quality and team growth. You receive periodic reports." },
-        { "q": "What if a professional doesn't perform?", "a": "We replace them quickly without impacting the project. Our active management model catches problems before they affect delivery." },
-        { "q": "What time zone do you work in?", "a": "Brazil, with flexibility to align with your hours. We work remotely with efficient async communication and sync rituals when needed." }
+        {
+          "q": "What's the minimum squad size?",
+          "a": "We usually start with 2 to 3 people, but a squad can have any configuration. We tailor it to your context."
+        },
+        {
+          "q": "How long does it take to build the squad?",
+          "a": "From 1 to 3 weeks, depending on the required profiles. More specialized professionals may take a bit longer."
+        },
+        {
+          "q": "Does the squad use my tools or bring its own?",
+          "a": "The squad adapts to your stack, tools and processes. We operate as an extension of your team, not a separate silo."
+        },
+        {
+          "q": "What's the engagement model?",
+          "a": "Monthly contract, no long-term lock-in. You can scale up or down according to project demand."
+        },
+        {
+          "q": "How does technical management work?",
+          "a": "Each squad has a Braxen tech lead who tracks deliveries, code quality and team growth. You receive periodic reports."
+        },
+        {
+          "q": "What if a professional doesn't perform?",
+          "a": "We replace them quickly without impacting the project. Our active management model catches problems before they affect delivery."
+        },
+        {
+          "q": "What time zone do you work in?",
+          "a": "Brazil, with flexibility to align with your hours. We work remotely with efficient async communication and sync rituals when needed."
+        }
       ]
     },
     "contact": {
@@ -518,12 +795,36 @@
   },
   "solutions": {
     "items": {
-      "1": { "title": "Customer Service Agent", "tag": "AI · WhatsApp", "description": "Omnichannel service with automatic qualification, 24/7 answers and human handoff when needed. Up to 80% reduction in repetitive calls." },
-      "2": { "title": "Lead Qualification", "tag": "AI · Automation", "description": "Smart triage in the chat with generative AI scoring. Your sales team only sees opportunities ready to move forward." },
-      "3": { "title": "Custom CRM", "tag": "Software · CRM", "description": "Sales pipeline designed for your process — integrated with WhatsApp, email and external APIs. No generic license nobody uses." },
-      "4": { "title": "Operational Dashboard", "tag": "Analytics · BI", "description": "Team, revenue and operations metrics in real time. Visibility into what matters to decide fast and scale with control." },
-      "5": { "title": "Internal ERP", "tag": "Software · Management", "description": "Inventory, procurement and billing control connected to the rest of the operation. Software built for your workflow, not a template." },
-      "6": { "title": "WhatsApp Automation", "tag": "Integration · Bot", "description": "Automated onboarding, follow-up and notification flows in the channel your customer already uses. Integration with payments, calendar and CRM." }
+      "1": {
+        "title": "Customer Service Agent",
+        "tag": "AI · WhatsApp",
+        "description": "Omnichannel service with automatic qualification, 24/7 answers and human handoff when needed. Up to 80% reduction in repetitive calls."
+      },
+      "2": {
+        "title": "Lead Qualification",
+        "tag": "AI · Automation",
+        "description": "Smart triage in the chat with generative AI scoring. Your sales team only sees opportunities ready to move forward."
+      },
+      "3": {
+        "title": "Custom CRM",
+        "tag": "Software · CRM",
+        "description": "Sales pipeline designed for your process — integrated with WhatsApp, email and external APIs. No generic license nobody uses."
+      },
+      "4": {
+        "title": "Operational Dashboard",
+        "tag": "Analytics · BI",
+        "description": "Team, revenue and operations metrics in real time. Visibility into what matters to decide fast and scale with control."
+      },
+      "5": {
+        "title": "Internal ERP",
+        "tag": "Software · Management",
+        "description": "Inventory, procurement and billing control connected to the rest of the operation. Software built for your workflow, not a template."
+      },
+      "6": {
+        "title": "WhatsApp Automation",
+        "tag": "Integration · Bot",
+        "description": "Automated onboarding, follow-up and notification flows in the channel your customer already uses. Integration with payments, calendar and CRM."
+      }
     }
   },
   "notFound": {

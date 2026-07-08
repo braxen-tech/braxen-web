@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
-import { JsonLd } from "@/components/JsonLd";
 import { ClinicasPage } from "@/components/ClinicasPage";
-import { CLINICAS_FAQ_COUNT } from "@/lib/clinicas-faq";
-import { faqPageJsonLd } from "@/lib/json-ld";
 import { ROUTES } from "@/lib/routes";
 import { routing, type Locale } from "@/i18n/routing";
 
@@ -70,16 +67,5 @@ export default async function Page({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "clinicas.faq" });
-  const items = Array.from({ length: CLINICAS_FAQ_COUNT }, (_, i) => ({
-    q: t(`items.${i}.q`),
-    a: t(`items.${i}.a`),
-  }));
-
-  return (
-    <>
-      <JsonLd data={faqPageJsonLd(items)} />
-      <ClinicasPage />
-    </>
-  );
+  return <ClinicasPage />;
 }

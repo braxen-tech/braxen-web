@@ -11,6 +11,10 @@ export type ContactPayload = {
   message: string;
   source?: string;
   locale: Locale;
+  phone?: string;
+  segment?: string;
+  teamSize?: string;
+  monthlyConversations?: string;
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
@@ -43,6 +47,13 @@ function resolveLocale(value: unknown): Locale {
     return value as Locale;
   }
   return routing.defaultLocale;
+}
+
+function parseOptionalField(value: unknown, maxLength: number): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const trimmed = value.trim();
+  if (!trimmed) return undefined;
+  return trimmed.slice(0, maxLength);
 }
 
 export async function validateContactPayload(
@@ -104,6 +115,10 @@ export async function validateContactPayload(
       message: message.trim(),
       source: typeof source === "string" ? source.trim() : undefined,
       locale,
+      phone: parseOptionalField(record.phone, 30),
+      segment: parseOptionalField(record.segment, 100),
+      teamSize: parseOptionalField(record.teamSize, 100),
+      monthlyConversations: parseOptionalField(record.monthlyConversations, 100),
       ...attribution,
     },
   };

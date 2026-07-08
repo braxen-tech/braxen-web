@@ -94,7 +94,11 @@
       "name": "Nombre",
       "email": "Correo",
       "source": "Página",
-      "message": "Mensaje"
+      "message": "Mensaje",
+      "phone": "WhatsApp",
+      "segment": "Segmento",
+      "teamSize": "Tamaño del equipo de agendamiento",
+      "monthlyConversations": "Conversaciones de WhatsApp al mes"
     }
   },
   "home": {
@@ -106,7 +110,13 @@
     },
     "hero": {
       "staticTitle": "Software y agentes de IA",
-      "rotatingWords": ["escalables", "inteligentes", "integrados", "automatizados", "a medida"],
+      "rotatingWords": [
+        "escalables",
+        "inteligentes",
+        "integrados",
+        "automatizados",
+        "a medida"
+      ],
       "subtitle": "Desarrollamos software a medida, agentes de IA y automatizaciones que transforman operaciones manuales en crecimiento real.",
       "trustLine": "Respuesta en 24h · primera entrega en semanas",
       "primaryCta": "Quiero una solución",
@@ -130,10 +140,22 @@
       "subtitle": "Sabes que necesitas tecnología — pero no otra herramienta genérica que nadie usará.",
       "imageAlt": "Equipo sobrecargado con procesos manuales y planillas desorganizadas",
       "items": [
-        { "title": "Leads sin respuesta", "description": "Las oportunidades se enfrían mientras el equipo está ocupado apagando incendios." },
-        { "title": "Equipo al límite", "description": "La operación manual consume capacidad que debería ir al crecimiento." },
-        { "title": "Planillas en las que nadie confía", "description": "Datos dispersos, versiones desactualizadas y cero visibilidad real." },
-        { "title": "Herramientas genéricas", "description": "Licencias caras que no encajan en el proceso y se vuelven un pasivo." }
+        {
+          "title": "Leads sin respuesta",
+          "description": "Las oportunidades se enfrían mientras el equipo está ocupado apagando incendios."
+        },
+        {
+          "title": "Equipo al límite",
+          "description": "La operación manual consume capacidad que debería ir al crecimiento."
+        },
+        {
+          "title": "Planillas en las que nadie confía",
+          "description": "Datos dispersos, versiones desactualizadas y cero visibilidad real."
+        },
+        {
+          "title": "Herramientas genéricas",
+          "description": "Licencias caras que no encajan en el proceso y se vuelven un pasivo."
+        }
       ]
     },
     "solution": {
@@ -141,10 +163,22 @@
       "subtitle": "Mapeamos dónde se traba, construimos lo que resuelve y lo llevamos a producción con impacto medible.",
       "imageAlt": "Dashboard y automatizaciones a medida integrados con la operación",
       "items": [
-        { "title": "Diagnóstico y build a medida", "description": "Agente de IA, CRM y dashboard diseñados para tu flujo — sin plantillas, sin licencias." },
-        { "title": "Integración con lo que ya usas", "description": "WhatsApp, pagos, APIs externas y procesos internos conectados de extremo a extremo." },
-        { "title": "Primera entrega en semanas", "description": "Ciclos cortos con validación antes de salir a producción — no proyectos de meses sin resultados." },
-        { "title": "Impacto medible", "description": "Sigues cada etapa y mides el efecto real. Si no funciona, lo ajustamos." }
+        {
+          "title": "Diagnóstico y build a medida",
+          "description": "Agente de IA, CRM y dashboard diseñados para tu flujo — sin plantillas, sin licencias."
+        },
+        {
+          "title": "Integración con lo que ya usas",
+          "description": "WhatsApp, pagos, APIs externas y procesos internos conectados de extremo a extremo."
+        },
+        {
+          "title": "Primera entrega en semanas",
+          "description": "Ciclos cortos con validación antes de salir a producción — no proyectos de meses sin resultados."
+        },
+        {
+          "title": "Impacto medible",
+          "description": "Sigues cada etapa y mides el efecto real. Si no funciona, lo ajustamos."
+        }
       ]
     },
     "portfolio": {
@@ -158,10 +192,26 @@
       "titleEm": "construimos",
       "description": "Cuatro pilares, un equipo. Armamos equipos especializados que entregan juntos y siguen los resultados a lo largo del tiempo.",
       "cards": [
-        { "id": "service-1", "title": "Software a Medida", "description": "ERPs, CRMs, dashboards y plataformas internas construidos para tu proceso — no para una plantilla genérica." },
-        { "id": "service-2", "title": "Sitios y Aplicaciones", "description": "Presencia digital que convierte. Web, mobile y landing pages de alto rendimiento, del diseño a producción." },
-        { "id": "service-3", "title": "Agentes de IA", "description": "Atención, calificación de leads y automatización de operaciones funcionando 24/7 con IA generativa." },
-        { "id": "service-4", "title": "Automatizaciones e Integraciones", "description": "WhatsApp, pagos, APIs externas y procesos internos conectados — tu equipo hace menos, entrega más." }
+        {
+          "id": "service-1",
+          "title": "Software a Medida",
+          "description": "ERPs, CRMs, dashboards y plataformas internas construidos para tu proceso — no para una plantilla genérica."
+        },
+        {
+          "id": "service-2",
+          "title": "Sitios y Aplicaciones",
+          "description": "Presencia digital que convierte. Web, mobile y landing pages de alto rendimiento, del diseño a producción."
+        },
+        {
+          "id": "service-3",
+          "title": "Agentes de IA",
+          "description": "Atención, calificación de leads y automatización de operaciones funcionando 24/7 con IA generativa."
+        },
+        {
+          "id": "service-4",
+          "title": "Automatizaciones e Integraciones",
+          "description": "WhatsApp, pagos, APIs externas y procesos internos conectados — tu equipo hace menos, entrega más."
+        }
       ]
     },
     "products": {
@@ -185,10 +235,26 @@
       "prev": "Perfil anterior",
       "next": "Siguiente perfil",
       "members": [
-        { "name": "Hugo Lemos", "designation": "Head of Product & UI/UX", "quote": "Traduzco problemas de negocio en interfaces que funcionan — cada pantalla, cada flujo y cada detalle pensados para el usuario final y para el resultado de la operación." },
-        { "name": "Neemias Rocha", "designation": "Head of Sales", "quote": "Con diez años conectando estrategia comercial y ejecución, entiendo el dolor del cliente antes de la primera reunión y garantizo valor medible desde el día uno." },
-        { "name": "Rodrigo Gama", "designation": "Head of Engineering", "quote": "Lidero equipos pequeños en ciclos cortos, con foco en entregas que soportan carga real sin romperse en la segunda versión." },
-        { "name": "Tiago Rocha", "designation": "Head of AI & Platform", "quote": "Diseño agentes y automatizaciones que generan valor real, y mantengo la plataforma detrás de ellos confiable, observable y lista para escalar." }
+        {
+          "name": "Hugo Lemos",
+          "designation": "Head of Product & UI/UX",
+          "quote": "Traduzco problemas de negocio en interfaces que funcionan — cada pantalla, cada flujo y cada detalle pensados para el usuario final y para el resultado de la operación."
+        },
+        {
+          "name": "Neemias Rocha",
+          "designation": "Head of Sales",
+          "quote": "Con diez años conectando estrategia comercial y ejecución, entiendo el dolor del cliente antes de la primera reunión y garantizo valor medible desde el día uno."
+        },
+        {
+          "name": "Rodrigo Gama",
+          "designation": "Head of Engineering",
+          "quote": "Lidero equipos pequeños en ciclos cortos, con foco en entregas que soportan carga real sin romperse en la segunda versión."
+        },
+        {
+          "name": "Tiago Rocha",
+          "designation": "Head of AI & Platform",
+          "quote": "Diseño agentes y automatizaciones que generan valor real, y mantengo la plataforma detrás de ellos confiable, observable y lista para escalar."
+        }
       ]
     },
     "testimonials": {
@@ -199,11 +265,31 @@
       "next": "Siguiente testimonio",
       "regionLabel": "Testimonios",
       "items": [
-        { "quote": "Redujimos un 80% las llamadas con un agente de IA en WhatsApp. El equipo dejó de apagar incendios y volvió a enfocarse en lo importante.", "author": "Mariana Costa · Directora Clínica", "alt": "Mariana Costa" },
-        { "quote": "Triplicamos la atención sin contratar a nadie. Los leads calificados llegan al CRM listos para cerrar.", "author": "Rafael Mendes · Socio Inmobiliaria", "alt": "Rafael Mendes" },
-        { "quote": "El CRM se construyó para nuestro proceso — no una plantilla. El equipo lo adoptó en la primera semana.", "author": "Camila Rocha · Head Comercial", "alt": "Camila Rocha" },
-        { "quote": "La automatización de follow-up en WhatsApp transformó nuestro embudo. Onboarding y post-venta sin depender de planillas.", "author": "Felipe Santos · Marketing", "alt": "Felipe Santos" },
-        { "quote": "Primera entrega en semanas, no meses. Seguimos cada etapa y medimos impacto real desde el día uno.", "author": "Pedro Almeida · Fundador", "alt": "Pedro Almeida" }
+        {
+          "quote": "Redujimos un 80% las llamadas con un agente de IA en WhatsApp. El equipo dejó de apagar incendios y volvió a enfocarse en lo importante.",
+          "author": "Mariana Costa · Directora Clínica",
+          "alt": "Mariana Costa"
+        },
+        {
+          "quote": "Triplicamos la atención sin contratar a nadie. Los leads calificados llegan al CRM listos para cerrar.",
+          "author": "Rafael Mendes · Socio Inmobiliaria",
+          "alt": "Rafael Mendes"
+        },
+        {
+          "quote": "El CRM se construyó para nuestro proceso — no una plantilla. El equipo lo adoptó en la primera semana.",
+          "author": "Camila Rocha · Head Comercial",
+          "alt": "Camila Rocha"
+        },
+        {
+          "quote": "La automatización de follow-up en WhatsApp transformó nuestro embudo. Onboarding y post-venta sin depender de planillas.",
+          "author": "Felipe Santos · Marketing",
+          "alt": "Felipe Santos"
+        },
+        {
+          "quote": "Primera entrega en semanas, no meses. Seguimos cada etapa y medimos impacto real desde el día uno.",
+          "author": "Pedro Almeida · Fundador",
+          "alt": "Pedro Almeida"
+        }
       ]
     },
     "contact": {
@@ -228,76 +314,121 @@
       "cta": "Automatizar mi clínica"
     },
     "hero": {
-      "staticTitle": "Atención omnicanal para",
-      "rotatingWords": ["clínicas", "consultorios", "odontología", "estética", "especialidades"],
-      "subtitle": "WhatsApp, Gmail, Telegram, SMS y chat en el sitio — unificados en Chatwoot con agente de IA, agenda integrada y handoff a la recepción.",
-      "primaryCta": "Automatizar mi clínica",
-      "secondaryCta": "Ver bandeja unificada"
+      "eyebrow": "WhatsApp IA + CRM",
+      "title": "Aumente su capacidad de atención reduciendo drásticamente los costos operativos.",
+      "subtitle": "La revolución en la atención automatizada y gestión inteligente de conversaciones para escalar la facturación de su empresa.",
+      "primaryCta": "Me interesa",
+      "imageAlt": "Médica sonriente, con bata y estetoscopio"
     },
-    "omnichannel": {
-      "titleLead": "Todos los canales en",
-      "titleEm": "un solo lugar",
-      "description": "WhatsApp, correo, Telegram, SMS y chat en el sitio convergen en la misma bandeja — con agente de IA y handoff a la recepción.",
-      "imageAlt": "Bandeja unificada para clínicas: WhatsApp, correo, Telegram, SMS y chat en el sitio con agente de IA"
+    "stats": {
+      "items": [
+        {
+          "value": "10x",
+          "caption": "menos esfuerzo para reservar y agendar citas"
+        },
+        {
+          "value": "85%",
+          "caption": "de citas automáticas realizadas las 24h del día"
+        },
+        {
+          "value": "8x",
+          "caption": "más mensajes de clientes convertidos en ventas"
+        }
+      ]
+    },
+    "secondHero": {
+      "title": "La pérdida de leads y la demora en la atención al cliente ya no es un problema para su empresa",
+      "description": "Olvídese de la atención manual. Con Braxen, construye flujos en minutos y deja que su IA cierre negocios en piloto automático.",
+      "whatsappImageAlt": "Conversación de WhatsApp entre un paciente y el agente de IA de la clínica",
+      "features": [
+        {
+          "title": "Agente de IA"
+        },
+        {
+          "title": "Flujo de conversaciones"
+        },
+        {
+          "title": "CRM Kanban"
+        },
+        {
+          "title": "Automatización"
+        }
+      ]
     },
     "problem": {
-      "titleLead": "De la recepción desbordada a",
-      "titleEm": "la operación organizada",
-      "todayLabel": "Hoy",
-      "withBraxenLabel": "Con Braxen",
+      "todayLabel": "¿Su clínica enfrenta esto?",
+      "withBraxenLabel": "La Inbox lo resuelve así:",
       "pains": [
-        { "title": "Canales fragmentados", "desc": "WhatsApp en una app, correo en Gmail, chat en el sitio sin respuesta. La recepción salta entre herramientas todo el día." },
-        { "title": "Pacientes sin respuesta", "desc": "Mensaje en la noche o fin de semana y respuesta solo al día siguiente — si el equipo alcanza a responder." },
-        { "title": "Confirmaciones manuales", "desc": "Llamadas y mensajes repetidos para confirmar la cita, recordar el horario y reducir ausencias." },
-        { "title": "Equipo apagando incendios", "desc": "Horarios, cobertura, dirección, preparación de exámenes — el mismo volumen de preguntas, todos los días." }
+        "¿Demora en la atención y atención solo en horario comercial?",
+        "¿Pacientes que faltan?",
+        "¿Pocas evaluaciones en Google?",
+        "¿Varias pantallas para controlar las citas?",
+        "¿No sabe qué anuncios están trayendo más pacientes?"
       ],
       "solutions": [
-        { "title": "Omnicanal 24/7", "desc": "WhatsApp, Gmail, Telegram, SMS y chat en el sitio — un agente, una bandeja, historial unificado en Chatwoot." },
-        { "title": "Agendamiento en la conversación", "desc": "El paciente agenda y confirma por su canal preferido. Integración con Google Calendar y Cal.com." },
-        { "title": "Handoff a la recepción", "desc": "Cuando se necesita humano, el equipo toma con contexto completo — sin repetir lo que el paciente ya dijo." },
-        { "title": "Tags y visibilidad", "desc": "Agendamiento, confirmación, duda — cada conversación categorizada automáticamente para que la operación vea el volumen." }
-      ]
+        "Atención y agendamiento con IA integrada a ChatGPT",
+        "Envío de recordatorios automáticos por WhatsApp",
+        "Envío de encuesta de satisfacción con enlace de evaluación en Google",
+        "Central de mensajes integrada con todos los canales",
+        "Informe de marketing con métricas por anuncio"
+      ],
+      "cta": "Me interesa"
     },
-    "integrations": {
-      "description": "WhatsApp, mensajería, calendario, pagos y APIs — conectamos al flujo del agente sin rehacer la operación de la clínica."
+    "pullQuote": {
+      "line1": "Imagine triplicar su capacidad de atención reduciendo drásticamente los costos operativos.",
+      "line2": "La IA hace que su empresa escale sin inflar su nómina."
     },
-    "process": {
-      "titleLead": "Del diagnóstico a la clínica",
-      "titleEm": "en vivo en semanas",
-      "description": "Implementación con soporte en la operación — monitoreo, ajustes del agente y evolución continua después de salir a producción.",
-      "steps": [
-        { "id": "step-1", "title": "Diagnóstico", "description": "Mapeamos canales activos, volumen de mensajes, flujo de agendamiento e integraciones de la clínica. Priorizamos lo que más alivia a la recepción." },
-        { "id": "step-2", "title": "Entrenamiento del agente", "description": "Configuramos la IA con especialidades, horarios, coberturas, preparación de exámenes y tono de voz de la clínica." },
-        { "id": "step-3", "title": "Integración de los canales", "description": "Conectamos WhatsApp, correo, SMS, chat en el sitio y agenda en Chatwoot. Todo en la misma operación." },
-        { "id": "step-4", "title": "Salimos a producción", "description": "En 2 a 4 semanas, con acompañamiento en los primeros días. Ajustamos respuestas y flujos según la operación real." }
-      ]
-    },
-    "trust": {
+    "superpowers": {
+      "title": "Superpoderes en su WhatsApp",
       "items": [
-        { "title": "Propuesta en 24h", "desc": "Análisis técnico de tu operación sin compromiso." },
-        { "title": "En vivo en semanas", "desc": "Primera versión en 2 a 4 semanas, con acompañamiento." },
-        { "title": "Operación con privacidad", "desc": "Atención y agendamiento — sin acceso a la historia clínica." }
-      ]
-    },
-    "faq": {
-      "titleLead": "Resuelve tus",
-      "titleEm": "dudas",
-      "items": [
-        { "q": "¿Qué canales atienden?", "a": "WhatsApp, Gmail, Telegram, SMS y chat embebido en el sitio — todos unificados en la misma bandeja vía Chatwoot. Puedes empezar con un canal y expandir después." },
-        { "q": "¿Debo usar todos los canales desde el inicio?", "a": "No. Muchas clínicas comienzan por WhatsApp y agregan correo, SMS o chat en el sitio a medida que la operación evoluciona. La bandeja está lista para escalar." },
-        { "q": "¿Cómo funciona con la privacidad y los datos de salud?", "a": "El agente atiende y agenda — horarios, confirmaciones, dudas administrativas. No accede a la historia clínica, no da orientación médica y no reemplaza al profesional de salud." },
-        { "q": "¿Se integra con mi agenda actual?", "a": "Sí. Conectamos Google Calendar, Cal.com y otros sistemas vía API cuando está disponible. El paciente agenda en la conversación y el horario cae en la agenda que ya usas." },
-        { "q": "¿Y cuando la recepción necesita un humano?", "a": "El agente transfiere a un atendente real con todo el historial de la conversación — sin importar el canal. La recepción sigue en control." },
-        { "q": "¿Debo cambiar mi sistema de gestión?", "a": "No necesariamente. Integramos vía API cuando el sistema lo permite. Si no hay integración, el agente resuelve agendamiento y triage y el equipo complementa en el flujo actual." },
-        { "q": "¿Cuánto tarda salir a producción?", "a": "La primera versión suele correr en 2 a 4 semanas, según los canales e integraciones. Proyectos más simples pueden salir en días." },
-        { "q": "¿Cuánto cuesta?", "a": "Depende del alcance, canales e integraciones. Cada clínica es diferente. Contáctanos y armamos una propuesta técnica en menos de 24 horas." }
-      ]
+        {
+          "title": "Agendamiento fluido",
+          "desc": "Nuestra IA consulta su agenda comercial disponible, ofrece opciones de horarios inteligentes al cliente y confirma la reserva instantáneamente en el chat."
+        },
+        {
+          "title": "Pagos rápidos",
+          "desc": "Generación de Pix, enlaces de pago y verificación de recepción integrados nativamente. El cliente realiza la transacción con total seguridad."
+        },
+        {
+          "title": "Resolución de dudas",
+          "desc": "Base de conocimiento actualizada para responder cualquier duda técnica, precios de planes, FAQs e información institucional sin demora."
+        }
+      ],
+      "cta": "Me interesa"
     },
     "contact": {
-      "titleLead": "Automatiza la atención de tu",
-      "titleEm": "clínica",
-      "description": "Describe tus canales y volumen de mensajes. Respuesta en menos de 24 horas con análisis técnico — sin compromiso.",
-      "messagePlaceholder": "Ej.: atendemos pacientes por WhatsApp, correo y chat del sitio — necesito unificar todo y automatizar el agendamiento…"
+      "title": "¿Listo para automatizar su Atención?",
+      "description": "No importa la complejidad del desafío, tenemos la expertise para entregar. Agendemos una conversación para entender su escenario.",
+      "lgpdNote": "Al enviar este formulario, acepta ser contactado por Braxen sobre su solicitud, conforme nuestra Política de Privacidad.",
+      "form": {
+        "name": "Nombre completo",
+        "email": "Correo profesional",
+        "phone": "Su WhatsApp con código de área",
+        "segmentLabel": "Especialidad de su empresa",
+        "segmentOptions": [
+          "Odontología",
+          "Estética",
+          "Clínica general",
+          "Especialidades",
+          "Otro"
+        ],
+        "teamSizeLabel": "¿Cuántas personas trabajan con agendamiento de citas en su clínica?",
+        "teamSizeOptions": [
+          "1-2",
+          "3-5",
+          "6-10",
+          "Más de 10"
+        ],
+        "monthlyConversationsLabel": "¿Cuántas conversaciones con personas diferentes recibe su clínica por mes en WhatsApp?",
+        "monthlyConversationsOptions": [
+          "Hasta 100",
+          "100 a 500",
+          "500 a 1.000",
+          "Más de 1.000"
+        ],
+        "submitLabel": "Enviar",
+        "privacyConsent": "Al enviar este formulario, acepta ser contactado por Braxen sobre su solicitud, conforme la LGPD."
+      }
     }
   },
   "atendimentoIa": {
@@ -317,7 +448,13 @@
     },
     "hero": {
       "staticTitle": "Operación de atención",
-      "rotatingWords": ["inteligente", "omnicanal", "integrada", "automatizada", "escalable"],
+      "rotatingWords": [
+        "inteligente",
+        "omnicanal",
+        "integrada",
+        "automatizada",
+        "escalable"
+      ],
       "subtitle": "Agentes de IA con CRM integrado. Calificación 24/7, ventas en la conversación e integración con tus APIs.",
       "primaryCta": "Quiero mis agentes",
       "secondaryCta": "Ver cómo funciona"
@@ -328,14 +465,32 @@
       "todayLabel": "Hoy",
       "withAgentsLabel": "Con agentes Braxen",
       "pains": [
-        { "title": "Leads sin respuesta", "desc": "El cliente escribe en la noche y solo recibe respuesta al día siguiente — si es que la recibe." },
-        { "title": "Canales fragmentados", "desc": "WhatsApp, correo y chat en el sitio en lugares diferentes. Nada dialoga entre sí." },
-        { "title": "Cero visibilidad", "desc": "No sabes cuántos leads entraron, cuántos fueron atendidos, cuántos se convirtieron en venta." }
+        {
+          "title": "Leads sin respuesta",
+          "desc": "El cliente escribe en la noche y solo recibe respuesta al día siguiente — si es que la recibe."
+        },
+        {
+          "title": "Canales fragmentados",
+          "desc": "WhatsApp, correo y chat en el sitio en lugares diferentes. Nada dialoga entre sí."
+        },
+        {
+          "title": "Cero visibilidad",
+          "desc": "No sabes cuántos leads entraron, cuántos fueron atendidos, cuántos se convirtieron en venta."
+        }
       ],
       "solutions": [
-        { "title": "Atención 24/7 en todos los canales", "desc": "WhatsApp, Telegram, correo, SMS y chat en el sitio — un agente, una cola, historial unificado." },
-        { "title": "CRM integrado a la operación", "desc": "Pipeline visual, tags automáticos y métricas de conversión. Todo en un solo lugar." },
-        { "title": "Ventas, agenda y APIs conectadas", "desc": "Agenda reuniones, vende en el chat e integra ERP, pagos o sistemas internos." }
+        {
+          "title": "Atención 24/7 en todos los canales",
+          "desc": "WhatsApp, Telegram, correo, SMS y chat en el sitio — un agente, una cola, historial unificado."
+        },
+        {
+          "title": "CRM integrado a la operación",
+          "desc": "Pipeline visual, tags automáticos y métricas de conversión. Todo en un solo lugar."
+        },
+        {
+          "title": "Ventas, agenda y APIs conectadas",
+          "desc": "Agenda reuniones, vende en el chat e integra ERP, pagos o sistemas internos."
+        }
       ]
     },
     "process": {
@@ -343,10 +498,26 @@
       "titleEm": "en vivo en semanas",
       "description": "Implementación con soporte en la operación — monitoreo, ajustes del agente y evolución continua después de salir a producción.",
       "steps": [
-        { "id": "step-1", "title": "Diagnóstico", "description": "Mapeamos tu flujo de atención, canales activos e integraciones necesarias. Entendemos volumen, cuellos de botella y qué automatizar primero." },
-        { "id": "step-2", "title": "Entrenamiento del agente", "description": "Configuramos la IA con el conocimiento de tu negocio — productos, reglas comerciales, tono de voz y respuestas a las objeciones más comunes." },
-        { "id": "step-3", "title": "Integración", "description": "Conectamos WhatsApp, Telegram, correo, chat en el sitio, CRM y APIs externas. Todo dialogando en la misma operación." },
-        { "id": "step-4", "title": "Salimos a producción", "description": "En semanas — no meses. Acompañamos los primeros días, ajustamos el agente y garantizamos que la operación funcione sin fricción." }
+        {
+          "id": "step-1",
+          "title": "Diagnóstico",
+          "description": "Mapeamos tu flujo de atención, canales activos e integraciones necesarias. Entendemos volumen, cuellos de botella y qué automatizar primero."
+        },
+        {
+          "id": "step-2",
+          "title": "Entrenamiento del agente",
+          "description": "Configuramos la IA con el conocimiento de tu negocio — productos, reglas comerciales, tono de voz y respuestas a las objeciones más comunes."
+        },
+        {
+          "id": "step-3",
+          "title": "Integración",
+          "description": "Conectamos WhatsApp, Telegram, correo, chat en el sitio, CRM y APIs externas. Todo dialogando en la misma operación."
+        },
+        {
+          "id": "step-4",
+          "title": "Salimos a producción",
+          "description": "En semanas — no meses. Acompañamos los primeros días, ajustamos el agente y garantizamos que la operación funcione sin fricción."
+        }
       ]
     },
     "testimonials": {
@@ -356,11 +527,26 @@
       "titleLead": "Resuelve tus",
       "titleEm": "dudas",
       "items": [
-        { "q": "¿Cuánto tarda salir a producción?", "a": "La primera versión suele correr en 2 a 4 semanas, según los canales e integraciones. Proyectos más simples pueden salir en días." },
-        { "q": "¿Debo cambiar mi CRM?", "a": "No necesariamente. Integramos con el CRM que ya usas o entregamos un CRM integrado a la operación — tú eliges lo que tenga sentido." },
-        { "q": "¿El agente integra con mi sistema (API)?", "a": "Si tiene API, lo conectamos. ERPs, pagos, stock, planillas internas, sistemas legados — hacemos la integración a medida." },
-        { "q": "¿Y si necesito humano o soporte tras salir a producción?", "a": "El agente transfiere a un atendente real cuando es necesario, con todo el historial en el CRM. Después del lanzamiento, podemos encargarnos de la operación continua — monitoreo, ajustes y evolución del agente." },
-        { "q": "¿Cuánto cuesta?", "a": "Depende del alcance y los canales. Cada operación es diferente. Contáctanos y armamos una propuesta técnica en menos de 24 horas." }
+        {
+          "q": "¿Cuánto tarda salir a producción?",
+          "a": "La primera versión suele correr en 2 a 4 semanas, según los canales e integraciones. Proyectos más simples pueden salir en días."
+        },
+        {
+          "q": "¿Debo cambiar mi CRM?",
+          "a": "No necesariamente. Integramos con el CRM que ya usas o entregamos un CRM integrado a la operación — tú eliges lo que tenga sentido."
+        },
+        {
+          "q": "¿El agente integra con mi sistema (API)?",
+          "a": "Si tiene API, lo conectamos. ERPs, pagos, stock, planillas internas, sistemas legados — hacemos la integración a medida."
+        },
+        {
+          "q": "¿Y si necesito humano o soporte tras salir a producción?",
+          "a": "El agente transfiere a un atendente real cuando es necesario, con todo el historial en el CRM. Después del lanzamiento, podemos encargarnos de la operación continua — monitoreo, ajustes y evolución del agente."
+        },
+        {
+          "q": "¿Cuánto cuesta?",
+          "a": "Depende del alcance y los canales. Cada operación es diferente. Contáctanos y armamos una propuesta técnica en menos de 24 horas."
+        }
       ]
     },
     "contact": {
@@ -383,7 +569,13 @@
     },
     "hero": {
       "staticTitle": "Tu equipo de tecnología",
-      "rotatingWords": ["listo mañana", "bajo demanda", "integrado", "escalable", "dedicado"],
+      "rotatingWords": [
+        "listo mañana",
+        "bajo demanda",
+        "integrado",
+        "escalable",
+        "dedicado"
+      ],
       "subtitle": "Squads completos de desarrollo, producto, datos e IA integrados a tu equipo. Sin inflar la estructura, sin meses de reclutamiento.",
       "trustLine": "Propuesta en 24h · squad operando en semanas",
       "primaryCta": "Armar mi squad",
@@ -391,10 +583,22 @@
     },
     "stats": {
       "items": [
-        { "value": "US$ 462 B", "label": "Mercado global de IT outsourcing en 2026" },
-        { "value": "92%", "label": "de las G2000 usan equipos externos de tecnología" },
-        { "value": "15–30%", "label": "de reducción de costo vs. contratación interna" },
-        { "value": "9,3%", "label": "CAGR proyectado hasta 2033" }
+        {
+          "value": "US$ 462 B",
+          "label": "Mercado global de IT outsourcing en 2026"
+        },
+        {
+          "value": "92%",
+          "label": "de las G2000 usan equipos externos de tecnología"
+        },
+        {
+          "value": "15–30%",
+          "label": "de reducción de costo vs. contratación interna"
+        },
+        {
+          "value": "9,3%",
+          "label": "CAGR proyectado hasta 2033"
+        }
       ],
       "sources": "Fuentes: Coherent Market Insights, 2026 · Saigon Technology · Gartner"
     },
@@ -402,22 +606,56 @@
       "titleLead": "Los desafíos que",
       "titleEm": "frenan tu crecimiento",
       "items": [
-        { "title": "Contratar toma meses", "desc": "57% de los gestores considera difícil encontrar profesionales de TI calificados. Mientras tanto, el backlog crece." },
-        { "title": "Equipo interno sobrecargado", "desc": "Tu equipo apaga incendios en lugar de construir producto. Cada nuevo proyecto es otro plato girando." },
-        { "title": "Falta de especialistas", "desc": "IA, cloud, DevOps, mobile — necesitas perfiles que no existen en tu equipo actual." },
-        { "title": "Proyectos atrasados", "desc": "Sin capacidad de entrega, los roadmaps se corren y la competencia toma la delantera." },
-        { "title": "Alta rotación", "desc": "Los desarrolladores se van y se llevan el conocimiento. Recontratar cuesta tiempo y dinero." },
-        { "title": "Escalar es arriesgado", "desc": "Contratar planta permanente para demanda estacional es caro. No contratar es perder oportunidades." }
+        {
+          "title": "Contratar toma meses",
+          "desc": "57% de los gestores considera difícil encontrar profesionales de TI calificados. Mientras tanto, el backlog crece."
+        },
+        {
+          "title": "Equipo interno sobrecargado",
+          "desc": "Tu equipo apaga incendios en lugar de construir producto. Cada nuevo proyecto es otro plato girando."
+        },
+        {
+          "title": "Falta de especialistas",
+          "desc": "IA, cloud, DevOps, mobile — necesitas perfiles que no existen en tu equipo actual."
+        },
+        {
+          "title": "Proyectos atrasados",
+          "desc": "Sin capacidad de entrega, los roadmaps se corren y la competencia toma la delantera."
+        },
+        {
+          "title": "Alta rotación",
+          "desc": "Los desarrolladores se van y se llevan el conocimiento. Recontratar cuesta tiempo y dinero."
+        },
+        {
+          "title": "Escalar es arriesgado",
+          "desc": "Contratar planta permanente para demanda estacional es caro. No contratar es perder oportunidades."
+        }
       ]
     },
     "howItWorks": {
       "titleLead": "Del diagnóstico al",
       "titleEm": "squad funcionando",
       "steps": [
-        { "n": "01", "title": "Diagnóstico", "desc": "Entendemos tu contexto, stack, procesos y objetivos. Mapeamos los perfiles ideales para tu desafío." },
-        { "n": "02", "title": "Armado del squad", "desc": "Seleccionamos profesionales seniors con experiencia comprobada. Apruebas cada perfil antes de comenzar." },
-        { "n": "03", "title": "Integración", "desc": "El squad se conecta a tu equipo, herramientas y rituales. Funciona como extensión natural de tu equipo." },
-        { "n": "04", "title": "Gestión y evolución", "desc": "Acompañamiento con métricas, feedbacks y evolución continua. Escala hacia arriba o hacia abajo cuando lo necesites." }
+        {
+          "n": "01",
+          "title": "Diagnóstico",
+          "desc": "Entendemos tu contexto, stack, procesos y objetivos. Mapeamos los perfiles ideales para tu desafío."
+        },
+        {
+          "n": "02",
+          "title": "Armado del squad",
+          "desc": "Seleccionamos profesionales seniors con experiencia comprobada. Apruebas cada perfil antes de comenzar."
+        },
+        {
+          "n": "03",
+          "title": "Integración",
+          "desc": "El squad se conecta a tu equipo, herramientas y rituales. Funciona como extensión natural de tu equipo."
+        },
+        {
+          "n": "04",
+          "title": "Gestión y evolución",
+          "desc": "Acompañamiento con métricas, feedbacks y evolución continua. Escala hacia arriba o hacia abajo cuando lo necesites."
+        }
       ]
     },
     "differentials": {
@@ -425,12 +663,30 @@
       "titleEm": "tradicional",
       "subtitle": "No entregamos solo personas. Entregamos capacidad real de entrega, con gestión y continuidad.",
       "items": [
-        { "title": "Profesionales seniors", "desc": "No asignamos juniors disfrazados. Cada miembro del squad tiene experiencia real en proyectos de alta complejidad." },
-        { "title": "Gestión técnica activa", "desc": "Tech lead acompañando entregas, calidad de código, arquitectura y evolución del equipo." },
-        { "title": "Integración real", "desc": "El squad participa de tus dailies, sprints y decisiones. No es proveedor — es parte del equipo." },
-        { "title": "Baja rotación", "desc": "Modelo de retención que preserva el conocimiento del proyecto. La estabilidad es parte de la entrega." },
-        { "title": "IA nativa", "desc": "Cada squad opera con herramientas de IA para acelerar desarrollo, revisión y pruebas." },
-        { "title": "Flexibilidad total", "desc": "Aumenta o reduce el squad según la demanda. Sin burocracia, sin multas, sin sorpresas." }
+        {
+          "title": "Profesionales seniors",
+          "desc": "No asignamos juniors disfrazados. Cada miembro del squad tiene experiencia real en proyectos de alta complejidad."
+        },
+        {
+          "title": "Gestión técnica activa",
+          "desc": "Tech lead acompañando entregas, calidad de código, arquitectura y evolución del equipo."
+        },
+        {
+          "title": "Integración real",
+          "desc": "El squad participa de tus dailies, sprints y decisiones. No es proveedor — es parte del equipo."
+        },
+        {
+          "title": "Baja rotación",
+          "desc": "Modelo de retención que preserva el conocimiento del proyecto. La estabilidad es parte de la entrega."
+        },
+        {
+          "title": "IA nativa",
+          "desc": "Cada squad opera con herramientas de IA para acelerar desarrollo, revisión y pruebas."
+        },
+        {
+          "title": "Flexibilidad total",
+          "desc": "Aumenta o reduce el squad según la demanda. Sin burocracia, sin multas, sin sorpresas."
+        }
       ]
     },
     "profiles": {
@@ -483,13 +739,34 @@
       "titleLead": "Resuelve tus",
       "titleEm": "dudas",
       "items": [
-        { "q": "¿Cuál es el tamaño mínimo de un squad?", "a": "Normalmente empezamos con 2 a 3 personas, pero el squad puede tener cualquier configuración. Lo armamos a medida para tu contexto." },
-        { "q": "¿Cuánto tarda armar el squad?", "a": "De 1 a 3 semanas, según los perfiles requeridos. Profesionales más especializados pueden tardar un poco más." },
-        { "q": "¿El squad usa mis herramientas o trae las propias?", "a": "El squad se adapta a tu stack, tus herramientas y tus procesos. Operamos como extensión de tu equipo, no como un silo separado." },
-        { "q": "¿Cuál es el modelo de contratación?", "a": "Contrato mensual, sin lock-in de largo plazo. Puedes escalar hacia arriba o hacia abajo según la demanda del proyecto." },
-        { "q": "¿Cómo funciona la gestión técnica?", "a": "Cada squad tiene un tech lead de Braxen que acompaña entregas, calidad de código y evolución de los profesionales. Recibes reportes periódicos." },
-        { "q": "¿Y si un profesional no rinde?", "a": "Lo reemplazamos rápidamente sin impacto en el proyecto. Nuestro modelo de gestión activa detecta problemas antes de que afecten la entrega." },
-        { "q": "¿En qué huso horario trabajan?", "a": "Brasil, con flexibilidad para alinearse a tu horario. Trabajamos en remoto con comunicación asíncrona eficiente y rituales sincrónicos cuando es necesario." }
+        {
+          "q": "¿Cuál es el tamaño mínimo de un squad?",
+          "a": "Normalmente empezamos con 2 a 3 personas, pero el squad puede tener cualquier configuración. Lo armamos a medida para tu contexto."
+        },
+        {
+          "q": "¿Cuánto tarda armar el squad?",
+          "a": "De 1 a 3 semanas, según los perfiles requeridos. Profesionales más especializados pueden tardar un poco más."
+        },
+        {
+          "q": "¿El squad usa mis herramientas o trae las propias?",
+          "a": "El squad se adapta a tu stack, tus herramientas y tus procesos. Operamos como extensión de tu equipo, no como un silo separado."
+        },
+        {
+          "q": "¿Cuál es el modelo de contratación?",
+          "a": "Contrato mensual, sin lock-in de largo plazo. Puedes escalar hacia arriba o hacia abajo según la demanda del proyecto."
+        },
+        {
+          "q": "¿Cómo funciona la gestión técnica?",
+          "a": "Cada squad tiene un tech lead de Braxen que acompaña entregas, calidad de código y evolución de los profesionales. Recibes reportes periódicos."
+        },
+        {
+          "q": "¿Y si un profesional no rinde?",
+          "a": "Lo reemplazamos rápidamente sin impacto en el proyecto. Nuestro modelo de gestión activa detecta problemas antes de que afecten la entrega."
+        },
+        {
+          "q": "¿En qué huso horario trabajan?",
+          "a": "Brasil, con flexibilidad para alinearse a tu horario. Trabajamos en remoto con comunicación asíncrona eficiente y rituales sincrónicos cuando es necesario."
+        }
       ]
     },
     "contact": {
@@ -518,12 +795,36 @@
   },
   "solutions": {
     "items": {
-      "1": { "title": "Agente de Atención", "tag": "IA · WhatsApp", "description": "Atención omnicanal con calificación automática, respuestas 24/7 y handoff a humanos cuando es necesario. Reducción de hasta un 80% en llamadas repetitivas." },
-      "2": { "title": "Calificación de Leads", "tag": "IA · Automatización", "description": "Triage inteligente en la conversación con scoring por IA generativa. Tu equipo comercial recibe solo oportunidades listas para avanzar." },
-      "3": { "title": "CRM a Medida", "tag": "Software · CRM", "description": "Pipeline comercial diseñado para tu proceso — integrado con WhatsApp, correo y APIs externas. Sin licencia genérica que nadie usa." },
-      "4": { "title": "Dashboard Operacional", "tag": "Analytics · BI", "description": "Métricas de equipo, ingresos y operación en tiempo real. Visibilidad de lo que importa para decidir rápido y escalar con control." },
-      "5": { "title": "ERP Interno", "tag": "Software · Gestión", "description": "Control de stock, compras y facturación conectado al resto de la operación. Software hecho para tu flujo, no para una plantilla." },
-      "6": { "title": "Automatización WhatsApp", "tag": "Integración · Bot", "description": "Flujos de onboarding, follow-up y notificaciones automatizados en el canal que tu cliente ya usa. Integración con pagos, agenda y CRM." }
+      "1": {
+        "title": "Agente de Atención",
+        "tag": "IA · WhatsApp",
+        "description": "Atención omnicanal con calificación automática, respuestas 24/7 y handoff a humanos cuando es necesario. Reducción de hasta un 80% en llamadas repetitivas."
+      },
+      "2": {
+        "title": "Calificación de Leads",
+        "tag": "IA · Automatización",
+        "description": "Triage inteligente en la conversación con scoring por IA generativa. Tu equipo comercial recibe solo oportunidades listas para avanzar."
+      },
+      "3": {
+        "title": "CRM a Medida",
+        "tag": "Software · CRM",
+        "description": "Pipeline comercial diseñado para tu proceso — integrado con WhatsApp, correo y APIs externas. Sin licencia genérica que nadie usa."
+      },
+      "4": {
+        "title": "Dashboard Operacional",
+        "tag": "Analytics · BI",
+        "description": "Métricas de equipo, ingresos y operación en tiempo real. Visibilidad de lo que importa para decidir rápido y escalar con control."
+      },
+      "5": {
+        "title": "ERP Interno",
+        "tag": "Software · Gestión",
+        "description": "Control de stock, compras y facturación conectado al resto de la operación. Software hecho para tu flujo, no para una plantilla."
+      },
+      "6": {
+        "title": "Automatización WhatsApp",
+        "tag": "Integración · Bot",
+        "description": "Flujos de onboarding, follow-up y notificaciones automatizados en el canal que tu cliente ya usa. Integración con pagos, agenda y CRM."
+      }
     }
   },
   "notFound": {
