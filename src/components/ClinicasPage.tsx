@@ -240,7 +240,7 @@ function StatsBand() {
             className="animated-border grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/30 rounded-xl overflow-hidden text-white"
             style={{
               backgroundColor: "#0E9D9B",
-              ["--animated-border-color" as string]: "#000",
+              ["--animated-border-color" as string]: "#fff",
               ["--animated-border-width" as string]: "2.5px",
             }}
           >
