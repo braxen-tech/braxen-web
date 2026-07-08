@@ -39,17 +39,11 @@ export function FeatureSection({
   const Icon = variant === "problem" ? X : Check;
 
   return (
-    <section
-      id={id}
-      className={cn(
-        "border-t border-border px-6 py-20 md:px-10 md:py-28",
-        className,
-      )}
-    >
+    <section id={id} className={cn("px-6 py-20 md:px-10 md:py-28", className)}>
       <div className="mx-auto max-w-7xl">
         <div
           className={cn(
-            "grid grid-cols-1 items-center gap-8 rounded-sm border border-border p-6 md:p-8 lg:grid-cols-2 lg:gap-12",
+            "grid grid-cols-1 items-center gap-8 rounded-sm p-6 md:p-8 lg:grid-cols-2 lg:gap-12",
             reverse && "lg:[&>*:first-child]:order-2",
           )}
         >
@@ -74,7 +68,9 @@ export function FeatureSection({
                     aria-hidden
                   />
                   <div className="flex flex-col gap-1">
-                    <p className="font-sans text-sm md:text-base">{item.title}</p>
+                    <p className="font-sans text-sm md:text-base">
+                      {item.title}
+                    </p>
                     <p className="text-sm leading-relaxed text-muted-foreground">
                       {item.description}
                     </p>

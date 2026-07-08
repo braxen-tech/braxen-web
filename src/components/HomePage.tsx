@@ -145,10 +145,7 @@ function Nav() {
 function Products() {
   const t = useTranslations("home.products");
   return (
-    <section
-      id="products"
-      className="px-6 md:px-10 py-20 border-t border-border bg-card"
-    >
+    <section id="products" className="px-6 md:px-10 py-20 bg-card">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           title={
@@ -160,7 +157,10 @@ function Products() {
           className="mb-10"
           titleClassName="font-sans text-heading-2"
         />
-        <StaggerChildren className="grid gap-px bg-border md:grid-cols-2" stagger={0.1}>
+        <StaggerChildren
+          className="grid gap-px bg-border md:grid-cols-2"
+          stagger={0.1}
+        >
           <div className="flex flex-col justify-between gap-6 bg-background p-8 md:p-10">
             <div>
               <h3 className="text-heading-3 font-sans mb-2">
@@ -202,10 +202,7 @@ function Products() {
 function Contact() {
   const t = useTranslations("home.contact");
   return (
-    <section
-      id="contact"
-      className="px-6 md:px-10 py-32 md:py-48 border-t border-border"
-    >
+    <section id="contact" className="px-6 md:px-10 py-32 md:py-48">
       <div className="mx-auto max-w-3xl text-center">
         <SectionHeader
           align="center"
@@ -228,7 +225,9 @@ function Contact() {
   );
 }
 
-function useHomeFeatureItems(namespace: "home.pain" | "home.solution"): FeatureListItem[] {
+function useHomeFeatureItems(
+  namespace: "home.pain" | "home.solution",
+): FeatureListItem[] {
   const t = useTranslations(namespace);
   return Array.from({ length: 4 }, (_, i) => ({
     title: t(`items.${i}.title`),
@@ -300,12 +299,23 @@ export function HomePage() {
           label: tHero("secondaryCta"),
         }}
       />
-      <IntegrationCarousel
-        variant="logo"
-        row1={clientLogoRow1}
-        row2={clientLogoRow2}
+      <SectionHeader
+        title="O diagnóstico"
+        description="Cada processo manual que ainda roda na sua empresa é receita sendo deixada na mesa."
+        align="center"
+        className="mx-auto my-22 md:mb-14 bg-none border-none"
+        titleClassName="mt-5 max-w-none text-xl md:text-2xl"
+        descriptionClassName="font-sans text-3xl md:text-5xl max-w-2xl"
       />
       <PainFeature />
+      <SectionHeader
+        title="A transformação"
+        description="Uma clínica reduziu 80% das ligações com um agente de IA. Uma imobiliária triplicou o atendimento sem contratar ninguém, isso não é o futuro - já está acontecendo."
+        align="center"
+        className="mx-auto my-22 md:mb-14 bg-none border-none"
+        titleClassName="max-w-none text-xl md:text-2xl"
+        descriptionClassName="font-sans text-3xl md:text-5xl max-w-3xl"
+      />
       <SolutionFeature />
       <Portfolio />
       <StackedCardsSection
@@ -323,6 +333,11 @@ export function HomePage() {
         cards={serviceCards}
       />
       <Products />
+      <IntegrationCarousel
+        variant="logo"
+        row1={clientLogoRow1}
+        row2={clientLogoRow2}
+      />
       <Leadership />
       <TestimonialsSection
         id="depoimentos"

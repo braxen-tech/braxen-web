@@ -14,10 +14,7 @@ import {
   type SolutionAsset,
 } from "@/lib/solutions-data";
 import { cn } from "@/lib/utils";
-import {
-  ScrollReveal,
-  SectionHeader,
-} from "@/components/ui/scroll-reveal";
+import { ScrollReveal, SectionHeader } from "@/components/ui/scroll-reveal";
 
 export type AccordionFeatureSectionProps = {
   id?: string;
@@ -43,26 +40,18 @@ export function AccordionFeatureSection({
     features.find((feature) => `item-${feature.id}` === activeValue) ??
     features[0];
 
-  const resolvedTitle: ReactNode =
-    title ??
-    (
-      <>
-        {t("title")}
-        <span className="text-primary">{t("titleDot")}</span>
-      </>
-    );
+  const resolvedTitle: ReactNode = title ?? (
+    <>
+      {t("title")}
+      <span className="text-primary">{t("titleDot")}</span>
+    </>
+  );
   const resolvedDescription = description ?? t("description");
   const activeTitle = tSolutions(`${activeFeature.id}.title`);
   const activeTag = tSolutions(`${activeFeature.id}.tag`);
 
   return (
-    <section
-      id={id}
-      className={cn(
-        "border-t border-border px-6 py-24 md:px-10 md:py-28",
-        className,
-      )}
-    >
+    <section id={id} className={cn("px-6 py-24 md:px-10 md:py-28", className)}>
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           title={resolvedTitle}
@@ -148,9 +137,7 @@ export function AccordionFeatureSection({
               <p className="text-[10px] tracking-[0.25em] uppercase text-white/75">
                 {activeTag}
               </p>
-              <p className="mt-1 font-sans text-lg text-white">
-                {activeTitle}
-              </p>
+              <p className="mt-1 font-sans text-lg text-white">{activeTitle}</p>
             </div>
           </ScrollReveal>
         </div>

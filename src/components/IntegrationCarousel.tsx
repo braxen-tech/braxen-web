@@ -39,7 +39,10 @@ function IntegrationChip({
     <div className="flex w-[5.5rem] shrink-0 flex-col items-center gap-2.5 sm:w-24">
       <div className="flex size-14 items-center justify-center rounded-full border border-border bg-card/60 sm:size-16">
         {LucideIcon ? (
-          <LucideIcon className="size-6 text-foreground opacity-80" aria-hidden />
+          <LucideIcon
+            className="size-6 text-foreground opacity-80"
+            aria-hidden
+          />
         ) : slug ? (
           <>
             <img
@@ -155,7 +158,9 @@ export function IntegrationCarousel(props: CarouselProps = {}) {
     (variant === "logo" ? (
       <>
         {tHomeLogos("titleLead")}{" "}
-        <em className="italic text-muted-foreground">{tHomeLogos("titleEm")}</em>
+        <em className="italic text-muted-foreground">
+          {tHomeLogos("titleEm")}
+        </em>
       </>
     ) : (
       <>
@@ -179,7 +184,9 @@ export function IntegrationCarousel(props: CarouselProps = {}) {
 
   if (!rawRow1 || !rawRow2) return null;
 
-  const toChipItems = (items: IntegrationItem[] | LogoCarouselItem[]): ChipItem[] =>
+  const toChipItems = (
+    items: IntegrationItem[] | LogoCarouselItem[],
+  ): ChipItem[] =>
     variant === "logo"
       ? (items as LogoCarouselItem[]).map((item) => ({ kind: "logo", item }))
       : (items as IntegrationItem[]).map((item) => ({
@@ -194,7 +201,7 @@ export function IntegrationCarousel(props: CarouselProps = {}) {
   return (
     <section
       id={id}
-      className="relative overflow-hidden border-t border-border px-6 py-24 md:px-10 md:py-28"
+      className="relative overflow-hidden px-6 py-24 md:px-10 md:py-28"
     >
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-50" />
 
