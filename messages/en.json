@@ -117,6 +117,14 @@
       "titleEm": "companies like",
       "description": "A team with a track record in high-scale operations across media, retail and technology."
     },
+    "diagnosis": {
+      "title": "The diagnosis",
+      "description": "Every manual process still running in your company is revenue left on the table."
+    },
+    "transformation": {
+      "title": "The transformation",
+      "description": "A clinic cut 80% of its calls with an AI agent. A real estate agency tripled its service without hiring anyone — this isn't the future, it's already happening."
+    },
     "pain": {
       "title": "Your operation stalls before it can scale",
       "subtitle": "You know you need technology — but not another generic tool that no one will use.",

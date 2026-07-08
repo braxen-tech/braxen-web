@@ -300,8 +300,8 @@ export function HomePage() {
         }}
       />
       <SectionHeader
-        title="O diagnóstico"
-        description="Cada processo manual que ainda roda na sua empresa é receita sendo deixada na mesa."
+        title={t("diagnosis.title")}
+        description={t("diagnosis.description")}
         align="center"
         className="mx-auto my-22 md:mb-14 bg-none border-none"
         titleClassName="mt-5 max-w-none text-xl md:text-2xl"
@@ -309,8 +309,8 @@ export function HomePage() {
       />
       <PainFeature />
       <SectionHeader
-        title="A transformação"
-        description="Uma clínica reduziu 80% das ligações com um agente de IA. Uma imobiliária triplicou o atendimento sem contratar ninguém, isso não é o futuro - já está acontecendo."
+        title={t("transformation.title")}
+        description={t("transformation.description")}
         align="center"
         className="mx-auto my-22 md:mb-14 bg-none border-none"
         titleClassName="max-w-none text-xl md:text-2xl"

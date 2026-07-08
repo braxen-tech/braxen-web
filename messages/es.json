@@ -117,6 +117,14 @@
       "titleEm": "empresas como",
       "description": "Equipo con historial en operaciones de escala, medios, retail y tecnología."
     },
+    "diagnosis": {
+      "title": "El diagnóstico",
+      "description": "Cada proceso manual que aún corre en tu empresa es ingreso que se queda sobre la mesa."
+    },
+    "transformation": {
+      "title": "La transformación",
+      "description": "Una clínica redujo el 80% de las llamadas con un agente de IA. Una inmobiliaria triplicó la atención sin contratar a nadie — esto no es el futuro, ya está sucediendo."
+    },
     "pain": {
       "title": "Tu operación se atasca antes de escalar",
       "subtitle": "Sabes que necesitas tecnología — pero no otra herramienta genérica que nadie usará.",
