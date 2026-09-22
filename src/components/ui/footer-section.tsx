@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { useLocale, useTranslations } from "next-intl";
 import { SOCIAL_LINKS } from "@/lib/site";
 import { ROUTES } from "@/lib/routes";
+import { anchorHref } from "@/lib/anchors";
 
 interface FooterLink {
   title: string;
@@ -33,17 +34,32 @@ function useFooterLinks(): FooterSection[] {
         { title: tSolutions("atendimentoIa"), href: `${base}${ROUTES.aiAgents}` },
         { title: tSolutions("clinicas"), href: `${base}${ROUTES.clinics}` },
         { title: tSolutions("techSquads"), href: `${base}${ROUTES.techSquads}` },
-        { title: tSolutions("deliveries"), href: `${base}/#entregas` },
-        { title: tSolutions("services"), href: `${base}/#services` },
+        {
+          title: tSolutions("deliveries"),
+          href: `${base}/${anchorHref(locale, "deliveries")}`,
+        },
+        {
+          title: tSolutions("services"),
+          href: `${base}/${anchorHref(locale, "services")}`,
+        },
       ],
     },
     {
       key: "navigation",
       label: tSections("navigation"),
       links: [
-        { title: tNavigation("pain"), href: `${base}/#problema` },
-        { title: tNavigation("howWeDo"), href: `${base}/#como-fazemos` },
-        { title: tNavigation("team"), href: `${base}/#leadership` },
+        {
+          title: tNavigation("pain"),
+          href: `${base}/${anchorHref(locale, "pain")}`,
+        },
+        {
+          title: tNavigation("howWeDo"),
+          href: `${base}/${anchorHref(locale, "howWeDo")}`,
+        },
+        {
+          title: tNavigation("team"),
+          href: `${base}/${anchorHref(locale, "team")}`,
+        },
         // TODO: Re-enable when testimonials are ready
         // { title: tNavigation("testimonials"), href: `${base}/#depoimentos` },
       ],
@@ -52,9 +68,18 @@ function useFooterLinks(): FooterSection[] {
       key: "contact",
       label: tSections("contact"),
       links: [
-        { title: tContact("talkToUs"), href: `${base}/#contact` },
-        { title: tContact("automation"), href: `${base}${ROUTES.aiAgents}#contato` },
-        { title: tContact("techSquads"), href: `${base}${ROUTES.techSquads}#contato` },
+        {
+          title: tContact("talkToUs"),
+          href: `${base}/${anchorHref(locale, "contact")}`,
+        },
+        {
+          title: tContact("automation"),
+          href: `${base}${ROUTES.aiAgents}${anchorHref(locale, "contact")}`,
+        },
+        {
+          title: tContact("techSquads"),
+          href: `${base}${ROUTES.techSquads}${anchorHref(locale, "contact")}`,
+        },
       ],
     },
     {
@@ -79,7 +104,8 @@ export function Footer({ contactHref }: FooterProps = {}) {
   const base = `/${locale}`;
   const sections = useFooterLinks();
 
-  const resolvedContactHref = contactHref ?? `${base}/#contact`;
+  const resolvedContactHref =
+    contactHref ?? `${base}/${anchorHref(locale, "contact")}`;
   const links = sections.map((section) =>
     section.key === "contact"
       ? {

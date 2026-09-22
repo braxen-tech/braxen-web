@@ -14,7 +14,7 @@ import {
   X,
   Check,
 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { ClinicasQualificationForm } from "@/components/ClinicasQualificationForm";
@@ -26,6 +26,7 @@ import {
 import { Footer } from "@/components/ui/footer-section";
 import { StackedCardsSection } from "@/components/StackedCardsSection";
 import { ROUTES } from "@/lib/routes";
+import { anchorHref, anchorId } from "@/lib/anchors";
 
 const PAGE_SOURCE = ROUTES.clinics;
 const TEAL = "#00C5CD";
@@ -35,6 +36,7 @@ const SUPERPOWER_ICONS = [CalendarCheck, CreditCard, HelpCircle];
 
 function Nav() {
   const t = useTranslations("clinicas.nav");
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -63,14 +65,14 @@ function Nav() {
           <LanguageSwitcher />
           <ThemeToggle />
           <a
-            href="#contato"
+            href={anchorHref(locale, "contact")}
             data-cta="nav"
             className="btn btn-sm btn-primary md:hidden"
           >
             {t("ctaShort")}
           </a>
           <a
-            href="#contato"
+            href={anchorHref(locale, "contact")}
             data-cta="nav"
             className="btn btn-sm btn-outline btn-outline-primary hidden md:inline-flex"
           >
@@ -84,11 +86,12 @@ function Nav() {
 
 function StickyCta() {
   const t = useTranslations("clinicas.sticky");
+  const locale = useLocale();
   const [hideBar, setHideBar] = useState(true);
 
   useEffect(() => {
     const hero = document.getElementById("hero");
-    const contact = document.getElementById("contato");
+    const contact = document.getElementById(anchorId(locale, "contact"));
     if (!hero || !contact) return;
 
     const update = () => {
@@ -107,14 +110,14 @@ function StickyCta() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [locale]);
 
   if (hideBar) return null;
 
   return (
     <div className="fixed bottom-0 inset-x-0 z-50 border-t border-border bg-background/95 backdrop-blur-md p-3 lg:hidden">
       <a
-        href="#contato"
+        href={anchorHref(locale, "contact")}
         data-cta="sticky"
         className="btn btn-primary w-full max-w-lg mx-auto"
       >
@@ -127,6 +130,7 @@ function StickyCta() {
 
 function Hero() {
   const t = useTranslations("clinicas.hero");
+  const locale = useLocale();
 
   return (
     <section id="hero" className="relative overflow-hidden pt-24 md:pt-32 lg:pt-36 min-h-[420px] md:min-h-[500px] lg:min-h-[600px]">
@@ -159,7 +163,7 @@ function Hero() {
           </p>
           <div className="mt-6 md:mt-8">
             <a
-              href="#contato"
+              href={anchorHref(locale, "contact")}
               data-cta="hero"
               className="inline-flex items-center gap-3 rounded-full px-6 py-3 text-xs font-medium text-white tracking-wide transition-opacity hover:opacity-90 cursor-pointer md:px-8 md:py-3.5 md:text-sm"
               style={{ backgroundColor: TEAL }}
@@ -330,11 +334,15 @@ function Capabilities() {
 
 function ProblemSolution() {
   const t = useTranslations("clinicas.problem");
+  const locale = useLocale();
   const pains = t.raw("pains") as string[];
   const solutions = t.raw("solutions") as string[];
 
   return (
-    <section id="desafios" className="px-6 py-20 md:px-10 md:py-28">
+    <section
+      id={anchorId(locale, "challenges")}
+      className="px-6 py-20 md:px-10 md:py-28"
+    >
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-8 md:grid-cols-2 md:gap-4">
           {/* Pain column */}
@@ -424,6 +432,7 @@ function PullQuote() {
 
 function Superpowers() {
   const t = useTranslations("clinicas.superpowers");
+  const locale = useLocale();
   const items = t.raw("items") as { title: string; desc: string }[];
   const cards = items.map((item, i) => {
     const Icon = SUPERPOWER_ICONS[i] ?? CalendarCheck;
@@ -437,10 +446,14 @@ function Superpowers() {
 
   return (
     <>
-      <StackedCardsSection id="superpoderes" title={t("title")} cards={cards} />
+      <StackedCardsSection
+        id={anchorId(locale, "superpowers")}
+        title={t("title")}
+        cards={cards}
+      />
       <div className="flex justify-center px-6 pb-20 md:pb-28">
         <a
-          href="#contato"
+          href={anchorHref(locale, "contact")}
           data-cta="superpowers"
           className="inline-flex items-center gap-3 rounded-full px-8 py-3.5 text-sm font-medium text-white tracking-wide transition-opacity hover:opacity-90 cursor-pointer"
           style={{ backgroundColor: TEAL }}
@@ -454,10 +467,11 @@ function Superpowers() {
 
 function Contact() {
   const t = useTranslations("clinicas.contact");
+  const locale = useLocale();
 
   return (
     <section
-      id="contato"
+      id={anchorId(locale, "contact")}
       className="scroll-mt-24 px-6 py-20 md:px-10 md:py-28"
     >
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 items-start">
@@ -484,6 +498,7 @@ function Contact() {
 }
 
 export function ClinicasPage() {
+  const locale = useLocale();
   return (
     <main className="relative">
       <Nav />
@@ -494,7 +509,7 @@ export function ClinicasPage() {
       <PullQuote />
       <Superpowers />
       <Contact />
-      <Footer contactHref="#contato" />
+      <Footer contactHref={anchorHref(locale, "contact")} />
       <StickyCta />
     </main>
   );

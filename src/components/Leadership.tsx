@@ -1,11 +1,12 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import {
   CircularTestimonials,
   type CircularTestimonial,
 } from "@/components/CircularTestimonials";
 import { SectionHeader } from "@/components/ui/scroll-reveal";
+import { anchorId } from "@/lib/anchors";
 
 const memberSlots = [
   { key: 0, src: "/hugo_profile.webp" },
@@ -16,6 +17,7 @@ const memberSlots = [
 
 export function Leadership() {
   const t = useTranslations("home.leadership");
+  const locale = useLocale();
 
   const members: CircularTestimonial[] = memberSlots.map((slot, index) => ({
     name: t(`members.${index}.name`),
@@ -25,7 +27,10 @@ export function Leadership() {
   }));
 
   return (
-    <section id="leadership" className="px-6 py-24 md:px-10 md:py-32">
+    <section
+      id={anchorId(locale, "team")}
+      className="px-6 py-24 md:px-10 md:py-32"
+    >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           align="center"

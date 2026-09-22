@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { AnimatedHero } from "@/components/AnimatedHero";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
@@ -16,11 +16,13 @@ import {
 } from "@/components/ui/scroll-reveal";
 import { TECH_SQUADS_FAQ_COUNT } from "@/lib/faq-data";
 import { ROUTES } from "@/lib/routes";
+import { anchorHref, anchorId } from "@/lib/anchors";
 
 function Nav() {
   const tNav = useTranslations("nav.techSquads");
   const tCta = useTranslations("techSquads.nav");
   const tCommon = useTranslations("common");
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -43,11 +45,11 @@ function Nav() {
   }, [menuOpen]);
 
   const links = [
-    { href: "#desafios", label: tNav("challenges") },
-    { href: "#como-funciona", label: tNav("howItWorks") },
-    { href: "#diferenciais", label: tNav("differentials") },
-    { href: "#perfis", label: tNav("profiles") },
-    { href: "#faq", label: tNav("faq") },
+    { href: anchorHref(locale, "challenges"), label: tNav("challenges") },
+    { href: anchorHref(locale, "howItWorks"), label: tNav("howItWorks") },
+    { href: anchorHref(locale, "differentials"), label: tNav("differentials") },
+    { href: anchorHref(locale, "profiles"), label: tNav("profiles") },
+    { href: anchorHref(locale, "faq"), label: tNav("faq") },
   ];
 
   return (
@@ -81,7 +83,7 @@ function Nav() {
             <LanguageSwitcher />
             <ThemeToggle />
             <a
-              href="#contato"
+              href={anchorHref(locale, "contact")}
               className="btn btn-sm btn-outline btn-outline-primary hidden md:inline-flex"
             >
               {tCta("cta")}
@@ -115,7 +117,7 @@ function Nav() {
             </a>
           ))}
           <a
-            href="#contato"
+            href={anchorHref(locale, "contact")}
             onClick={() => setMenuOpen(false)}
             className="btn btn-lg btn-primary mt-4"
           >
@@ -162,13 +164,17 @@ function Stats() {
 
 function Challenges() {
   const t = useTranslations("techSquads.challenges");
+  const locale = useLocale();
   const items = Array.from({ length: 6 }, (_, i) => ({
     title: t(`items.${i}.title`),
     desc: t(`items.${i}.desc`),
   }));
 
   return (
-    <section id="desafios" className="px-6 md:px-10 py-32 border-t border-border">
+    <section
+      id={anchorId(locale, "challenges")}
+      className="px-6 md:px-10 py-32 border-t border-border"
+    >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           align="center"
@@ -207,6 +213,7 @@ function Challenges() {
 
 function HowItWorks() {
   const t = useTranslations("techSquads.howItWorks");
+  const locale = useLocale();
   const steps = Array.from({ length: 4 }, (_, i) => ({
     n: t(`steps.${i}.n`),
     title: t(`steps.${i}.title`),
@@ -215,7 +222,7 @@ function HowItWorks() {
 
   return (
     <section
-      id="como-funciona"
+      id={anchorId(locale, "howItWorks")}
       className="px-6 md:px-10 py-32 border-t border-border"
     >
       <div className="mx-auto max-w-7xl">
@@ -256,6 +263,7 @@ function HowItWorks() {
 
 function Differentials() {
   const t = useTranslations("techSquads.differentials");
+  const locale = useLocale();
   const items = Array.from({ length: 6 }, (_, i) => ({
     title: t(`items.${i}.title`),
     desc: t(`items.${i}.desc`),
@@ -263,7 +271,7 @@ function Differentials() {
 
   return (
     <section
-      id="diferenciais"
+      id={anchorId(locale, "differentials")}
       className="px-6 md:px-10 py-32 border-t border-border"
     >
       <div className="mx-auto max-w-7xl">
@@ -297,6 +305,7 @@ function Differentials() {
 
 function Profiles() {
   const t = useTranslations("techSquads.profiles");
+  const locale = useLocale();
   const categories = Array.from({ length: 3 }, (_, i) => {
     const roles: string[] = t.raw(`categories.${i}.roles`) ?? [];
     return {
@@ -306,7 +315,10 @@ function Profiles() {
   });
 
   return (
-    <section id="perfis" className="px-6 md:px-10 py-32 border-t border-border">
+    <section
+      id={anchorId(locale, "profiles")}
+      className="px-6 md:px-10 py-32 border-t border-border"
+    >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           align="center"
@@ -342,7 +354,7 @@ function Profiles() {
         </StaggerChildren>
 
         <ScrollReveal className="text-center mt-12">
-          <a href="#contato" className="btn btn-lg btn-primary">
+          <a href={anchorHref(locale, "contact")} className="btn btn-lg btn-primary">
             {t("cta")}
             <span aria-hidden>→</span>
           </a>
@@ -384,6 +396,7 @@ function MarketContext() {
 
 function FAQ() {
   const t = useTranslations("techSquads.faq");
+  const locale = useLocale();
   const items = Array.from({ length: TECH_SQUADS_FAQ_COUNT }, (_, i) => ({
     q: t(`items.${i}.q`),
     a: t(`items.${i}.a`),
@@ -392,7 +405,10 @@ function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="px-6 md:px-10 py-32 border-t border-border">
+    <section
+      id={anchorId(locale, "faq")}
+      className="px-6 md:px-10 py-32 border-t border-border"
+    >
       <div className="mx-auto max-w-3xl">
         <SectionHeader
           align="center"
@@ -437,9 +453,10 @@ function FAQ() {
 
 function Contact() {
   const t = useTranslations("techSquads.contact");
+  const locale = useLocale();
   return (
     <section
-      id="contato"
+      id={anchorId(locale, "contact")}
       className="px-6 md:px-10 py-32 md:py-48 border-t border-border"
     >
       <div className="mx-auto max-w-3xl text-center">
@@ -466,6 +483,7 @@ function Contact() {
 
 export function TechSquadsPage() {
   const tHero = useTranslations("techSquads.hero");
+  const locale = useLocale();
 
   const rotatingWords: string[] = tHero.raw("rotatingWords") ?? [];
 
@@ -478,12 +496,12 @@ export function TechSquadsPage() {
         subtitle={tHero("subtitle")}
         trustLine={tHero("trustLine")}
         primaryCta={{
-          href: "#contato",
+          href: anchorHref(locale, "contact"),
           label: tHero("primaryCta"),
           dataCta: "hero",
         }}
         secondaryCta={{
-          href: "#como-funciona",
+          href: anchorHref(locale, "howItWorks"),
           label: tHero("secondaryCta"),
         }}
       />
@@ -495,7 +513,7 @@ export function TechSquadsPage() {
       <MarketContext />
       <FAQ />
       <Contact />
-      <Footer contactHref="#contato" />
+      <Footer contactHref={anchorHref(locale, "contact")} />
     </main>
   );
 }

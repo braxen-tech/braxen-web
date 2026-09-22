@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { AnimatedHero } from "@/components/AnimatedHero";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { StackedCardsSection } from "@/components/StackedCardsSection";
@@ -21,12 +21,14 @@ import {
 import { ATENDIMENTO_IA_FAQ_COUNT } from "@/lib/faq-data";
 
 import { ROUTES } from "@/lib/routes";
+import { anchorHref, anchorId } from "@/lib/anchors";
 
 const PAGE_SOURCE = ROUTES.aiAgents;
 const PROCESS_STEP_IDS = ["step-1", "step-2", "step-3", "step-4"] as const;
 
 function Nav() {
   const t = useTranslations("atendimentoIa.nav");
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -55,14 +57,14 @@ function Nav() {
           <LanguageSwitcher />
           <ThemeToggle />
           <a
-            href="#contato"
+            href={anchorHref(locale, "contact")}
             data-cta="nav"
             className="btn btn-sm btn-primary md:hidden"
           >
             {t("ctaShort")}
           </a>
           <a
-            href="#contato"
+            href={anchorHref(locale, "contact")}
             data-cta="nav"
             className="btn btn-sm btn-outline btn-outline-primary hidden md:inline-flex"
           >
@@ -76,11 +78,12 @@ function Nav() {
 
 function StickyCta() {
   const t = useTranslations("atendimentoIa.sticky");
+  const locale = useLocale();
   const [hideBar, setHideBar] = useState(true);
 
   useEffect(() => {
     const hero = document.getElementById("hero");
-    const contact = document.getElementById("contato");
+    const contact = document.getElementById(anchorId(locale, "contact"));
     if (!hero || !contact) return;
 
     const update = () => {
@@ -99,14 +102,14 @@ function StickyCta() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [locale]);
 
   if (hideBar) return null;
 
   return (
     <div className="fixed bottom-0 inset-x-0 z-50 border-t border-border bg-background/95 backdrop-blur-md p-3 lg:hidden">
       <a
-        href="#contato"
+        href={anchorHref(locale, "contact")}
         data-cta="sticky"
         className="btn btn-primary w-full max-w-lg mx-auto"
       >
@@ -119,6 +122,7 @@ function StickyCta() {
 
 function ProblemSolution() {
   const t = useTranslations("atendimentoIa.problem");
+  const locale = useLocale();
   const pains = Array.from({ length: 3 }, (_, i) => ({
     title: t(`pains.${i}.title`),
     desc: t(`pains.${i}.desc`),
@@ -129,7 +133,10 @@ function ProblemSolution() {
   }));
 
   return (
-    <section id="desafios" className="px-6 md:px-10 py-24 md:py-28 border-t border-border">
+    <section
+      id={anchorId(locale, "challenges")}
+      className="px-6 md:px-10 py-24 md:py-28 border-t border-border"
+    >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           align="center"
@@ -182,6 +189,7 @@ function ProblemSolution() {
 
 function FAQ() {
   const t = useTranslations("atendimentoIa.faq");
+  const locale = useLocale();
   const items = Array.from({ length: ATENDIMENTO_IA_FAQ_COUNT }, (_, i) => ({
     q: t(`items.${i}.q`),
     a: t(`items.${i}.a`),
@@ -189,7 +197,10 @@ function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="px-6 md:px-10 py-24 md:py-28 border-t border-border">
+    <section
+      id={anchorId(locale, "faq")}
+      className="px-6 md:px-10 py-24 md:py-28 border-t border-border"
+    >
       <div className="mx-auto max-w-3xl">
         <SectionHeader
           align="center"
@@ -236,9 +247,10 @@ function FAQ() {
 function Contact() {
   const t = useTranslations("atendimentoIa.contact");
   const tCommon = useTranslations("common");
+  const locale = useLocale();
   return (
     <section
-      id="contato"
+      id={anchorId(locale, "contact")}
       className="px-6 md:px-10 py-24 md:py-36 border-t border-border scroll-mt-24"
     >
       <div className="mx-auto max-w-3xl text-center">
@@ -272,6 +284,7 @@ export function AtendimentoIaPage() {
   const tProcess = useTranslations("atendimentoIa.process");
   const tTestimonials = useTranslations("atendimentoIa.testimonials");
   const tCommon = useTranslations("common");
+  const locale = useLocale();
 
   const rotatingWords: string[] = tHero.raw("rotatingWords") ?? [];
   const cards = PROCESS_STEP_IDS.map((id, index) => ({
@@ -289,19 +302,19 @@ export function AtendimentoIaPage() {
         subtitle={tHero("subtitle")}
         trustLine={tCommon("proposalIn24")}
         primaryCta={{
-          href: "#contato",
+          href: anchorHref(locale, "contact"),
           label: tHero("primaryCta"),
           dataCta: "hero",
         }}
         secondaryCta={{
-          href: "#como-funciona",
+          href: anchorHref(locale, "howItWorks"),
           label: tHero("secondaryCta"),
         }}
       />
       <ProblemSolution />
       <IntegrationCarousel />
       <StackedCardsSection
-        id="como-funciona"
+        id={anchorId(locale, "howItWorks")}
         title={
           <>
             {tProcess("titleLead")}{" "}
@@ -317,7 +330,7 @@ export function AtendimentoIaPage() {
       <TestimonialsSection description={tTestimonials("description")} />
       <FAQ />
       <Contact />
-      <Footer contactHref="#contato" />
+      <Footer contactHref={anchorHref(locale, "contact")} />
       <StickyCta />
     </main>
   );

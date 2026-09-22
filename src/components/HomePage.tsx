@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { AnimatedHero } from "@/components/AnimatedHero";
 import { ContactForm } from "@/components/ContactForm";
 import { IntegrationCarousel } from "@/components/IntegrationCarousel";
@@ -27,10 +27,12 @@ import {
   solutionFeatureAssets,
 } from "@/lib/home-story-data";
 import { ROUTES } from "@/lib/routes";
+import { anchorHref, anchorId } from "@/lib/anchors";
 
 function Nav() {
   const t = useTranslations("nav.home");
   const tCommon = useTranslations("common");
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -53,11 +55,11 @@ function Nav() {
   }, [menuOpen]);
 
   const links = [
-    { href: "#problema", label: t("pain") },
-    { href: "#como-fazemos", label: t("howWeDo") },
-    { href: "#entregas", label: t("deliveries") },
-    { href: "#leadership", label: t("team") },
-    { href: "#contact", label: t("contact") },
+    { href: anchorHref(locale, "pain"), label: t("pain") },
+    { href: anchorHref(locale, "howWeDo"), label: t("howWeDo") },
+    { href: anchorHref(locale, "deliveries"), label: t("deliveries") },
+    { href: anchorHref(locale, "team"), label: t("team") },
+    { href: anchorHref(locale, "contact"), label: t("contact") },
   ];
 
   return (
@@ -92,7 +94,7 @@ function Nav() {
             <LanguageSwitcher />
             <ThemeToggle />
             <a
-              href="#contact"
+              href={anchorHref(locale, "contact")}
               className="btn btn-sm btn-outline btn-outline-primary hidden lg:inline-flex whitespace-nowrap tracking-[0.2em]"
             >
               {tCommon("contactCta")}
@@ -126,7 +128,7 @@ function Nav() {
             </a>
           ))}
           <a
-            href="#contact"
+            href={anchorHref(locale, "contact")}
             onClick={() => setMenuOpen(false)}
             className="btn btn-lg btn-primary mt-4"
           >
@@ -202,8 +204,12 @@ function Products() {
 
 function Contact() {
   const t = useTranslations("home.contact");
+  const locale = useLocale();
   return (
-    <section id="contact" className="px-6 md:px-10 py-32 md:py-48">
+    <section
+      id={anchorId(locale, "contact")}
+      className="px-6 md:px-10 py-32 md:py-48"
+    >
       <div className="mx-auto max-w-3xl text-center">
         <SectionHeader
           align="center"
@@ -239,9 +245,10 @@ function useHomeFeatureItems(
 function PainFeature() {
   const t = useTranslations("home.pain");
   const items = useHomeFeatureItems("home.pain");
+  const locale = useLocale();
   return (
     <FeatureSection
-      id={painFeatureAssets.id}
+      id={anchorId(locale, "pain")}
       title={t("title")}
       subtitle={t("subtitle")}
       image={painFeatureAssets.image}
@@ -255,9 +262,10 @@ function PainFeature() {
 function SolutionFeature() {
   const t = useTranslations("home.solution");
   const items = useHomeFeatureItems("home.solution");
+  const locale = useLocale();
   return (
     <FeatureSection
-      id={solutionFeatureAssets.id}
+      id={anchorId(locale, "howWeDo")}
       title={t("title")}
       subtitle={t("subtitle")}
       image={solutionFeatureAssets.image}
@@ -273,6 +281,7 @@ export function HomePage() {
   const t = useTranslations("home");
   const tHero = useTranslations("home.hero");
   const tServices = useTranslations("home.services");
+  const locale = useLocale();
 
   const rotatingWords: string[] = tHero.raw("rotatingWords") ?? [];
   const serviceCards = Array.from({ length: 4 }, (_, i) => ({
@@ -291,12 +300,12 @@ export function HomePage() {
         subtitle={tHero("subtitle")}
         trustLine={tHero("trustLine")}
         primaryCta={{
-          href: "#contact",
+          href: anchorHref(locale, "contact"),
           label: tHero("primaryCta"),
           dataCta: "hero",
         }}
         secondaryCta={{
-          href: "#services",
+          href: anchorHref(locale, "services"),
           label: tHero("secondaryCta"),
         }}
       />
@@ -320,7 +329,7 @@ export function HomePage() {
       <SolutionFeature />
       <Portfolio />
       <StackedCardsSection
-        id="services"
+        id={anchorId(locale, "services")}
         title={
           <>
             {tServices("titleLead")}{" "}
@@ -347,7 +356,7 @@ export function HomePage() {
       />
       */}
       <Contact />
-      <Footer contactHref="#contact" />
+      <Footer contactHref={anchorHref(locale, "contact")} />
     </main>
   );
 }
