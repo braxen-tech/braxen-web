@@ -309,6 +309,7 @@ export function HomePage() {
           label: tHero("secondaryCta"),
         }}
       />
+      <IndustryLogos groups={clientLogosByIndustry} />
       <SectionHeader
         title={t("diagnosis.title")}
         description={t("diagnosis.description")}
@@ -335,7 +336,6 @@ export function HomePage() {
         cards={serviceCards}
       />
       <Products />
-      <IndustryLogos groups={clientLogosByIndustry} />
       <Leadership />
       {/* TODO: Re-enable when testimonials are ready
       <TestimonialsSection
