@@ -3,7 +3,7 @@ import portfolioCrm from "@/assets/portfolio-crm.jpg";
 import portfolioDashboard from "@/assets/portfolio-dashboard.jpg";
 import portfolioLeadScoring from "@/assets/portfolio-lead-scoring.jpg";
 import portfolioErp from "@/assets/portfolio-erp.jpg";
-import portfolioWhatsappAutomation from "@/assets/portfolio-whatsapp-automation.jpg";
+import portfolioAdminPanel from "@/assets/portfolio-admin-panel.jpg";
 import { imageSrc, type ImageSrc } from "@/lib/utils";
 
 export type SolutionAsset = {
@@ -17,7 +17,7 @@ export const solutionAssets: SolutionAsset[] = [
   { id: 3, image: portfolioCrm },
   { id: 4, image: portfolioDashboard },
   { id: 5, image: portfolioErp },
-  { id: 6, image: portfolioWhatsappAutomation },
+  { id: 6, image: portfolioAdminPanel },
 ];
 
 export function solutionImageSrc(asset: SolutionAsset): string {

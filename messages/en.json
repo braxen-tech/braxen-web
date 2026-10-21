@@ -103,81 +103,94 @@
   },
   "home": {
     "metadata": {
-      "title": "Braxen Tech — Custom software, AI agents and automation",
-      "description": "We build custom software, AI agents and automation for companies. First delivery in weeks. Talk to us — reply within 24h.",
-      "ogDescription": "Custom software, AI agents and automation for companies. First delivery in weeks. Reply within 24h.",
+      "title": "Braxen Tech — Business engineering for companies ready to scale",
+      "description": "We help companies grow without multiplying operational complexity. Automation, intelligence and tailor-made systems. Reply within 24h.",
+      "ogDescription": "Business engineering for companies that need to scale without multiplying complexity. Reply within 24h.",
       "ogImageAlt": "Braxen Tech"
     },
     "hero": {
-      "staticTitle": "Software and AI agents",
+      "staticTitle": "Your business was built to grow",
       "rotatingWords": [
-        "scalable",
-        "intelligent",
-        "integrated",
-        "automated",
-        "tailor-made"
+        "Simplify operations",
+        "Engineer intelligence",
+        "Scale with control"
       ],
-      "subtitle": "We build custom software, AI agents and automation that turn manual operations into real growth.",
+      "subtitle": "We engineer the systems, automation, and intelligence that help businesses eliminate operational bottlenecks and scale without multiplying complexity.",
       "trustLine": "Reply within 24h · first delivery in weeks",
-      "primaryCta": "I want a solution",
-      "secondaryCta": "See services"
+      "primaryCta": "Talk to Braxen",
+      "secondaryCta": "See how we solve it"
     },
     "logos": {
       "titleLead": "Experience built at",
       "titleEm": "companies like",
-      "description": "A team with a track record in high-scale operations across media, retail and technology."
+      "description": "A team with a track record across finance, media, entertainment, health, automotive and telecom.",
+      "industries": {
+        "finance": "Finance & Banking",
+        "entertainment": "Entertainment & Media",
+        "health": "Health",
+        "automotive": "Automotive",
+        "telecom": "Telecom"
+      }
     },
     "diagnosis": {
       "title": "The diagnosis",
-      "description": "Every manual process still running in your company is revenue left on the table."
+      "description": "Your business grows, but your operations can't keep up. Every manual bottleneck is growth left behind."
     },
     "transformation": {
       "title": "The transformation",
-      "description": "A clinic cut 80% of its calls with an AI agent. A real estate agency tripled its service without hiring anyone — this isn't the future, it's already happening."
+      "description": ""
     },
     "pain": {
       "title": "Your operation stalls before it can scale",
       "subtitle": "You know you need technology — but not another generic tool that no one will use.",
-      "imageAlt": "Overworked team dealing with manual processes and messy spreadsheets",
+      "imageAlt": "Overworked team dealing with manual processes and disconnected systems",
       "items": [
         {
-          "title": "Leads without a response",
-          "description": "Opportunities cool down while your team is busy putting out fires."
+          "title": "Excessive manual work",
+          "description": "Repetitive processes consume the capacity that should be going to growth."
         },
         {
-          "title": "Team at the limit",
-          "description": "Manual work eats up capacity that should be going to growth."
+          "title": "Disconnected systems",
+          "description": "Information scattered across tools that don't talk to each other. Zero integrated view."
         },
         {
-          "title": "Spreadsheets no one trusts",
-          "description": "Data scattered, versions out of date and zero real visibility."
+          "title": "No operational visibility",
+          "description": "You're deciding in the dark. Data in outdated spreadsheets, no real-time metrics."
         },
         {
-          "title": "Generic tools",
-          "description": "Expensive licenses that don't fit the process and become a liability."
+          "title": "Generic tools that don't fit",
+          "description": "Expensive licenses that don't follow the business process and become a liability."
+        },
+        {
+          "title": "No technical execution capacity",
+          "description": "Ideas and roadmaps stalled because there's no team or expertise to deliver."
         }
       ]
     },
     "solution": {
-      "title": "Technology built for your process, shipped in weeks",
-      "subtitle": "We map where it breaks, build what solves it, and ship with measurable impact.",
+      "title": "Business engineering that ships in weeks",
+      "subtitle": "We map where it breaks, engineer what solves it, and ship with measurable impact.",
       "imageAlt": "Custom dashboard and automation integrated with your operation",
       "items": [
         {
-          "title": "Diagnosis and tailor-made build",
-          "description": "AI agent, CRM and dashboard designed for your workflow — no template, no license."
+          "title": "Automation + AI agents",
+          "description": "We eliminate manual, repetitive work. More operational capacity without hiring."
         },
         {
-          "title": "Integration with what you already use",
-          "description": "WhatsApp, payments, external APIs and internal processes connected end to end."
+          "title": "Integrations + software engineering",
+          "description": "We connect your systems end to end. Smooth workflows, no rework."
         },
         {
-          "title": "First delivery in weeks",
-          "description": "Short cycles with validation before going live — not multi-month projects with no results."
+          "title": "Dashboards and management systems",
+          "description": "Real-time operational visibility. Clearer, faster decisions."
         },
         {
-          "title": "Measurable impact",
-          "description": "You follow every step and measure real effect. If it doesn't work, we adjust."
+          "title": "Custom software",
+          "description": "When there's no off-the-shelf solution, we build processes adapted to your business."
+        },
+        {
+          "title": "Tech Squads",
+          "description": "Development and delivery capacity integrated with your team. Scale without recruiting."
         }
       ]
     },
@@ -189,28 +202,33 @@
     },
     "services": {
       "titleLead": "What we",
-      "titleEm": "build",
-      "description": "Four pillars, one team. We assemble specialized teams that ship together and follow results over time.",
+      "titleEm": "solve",
+      "description": "Five problems, one team. We understand the bottleneck, engineer the solution and follow the results.",
       "cards": [
         {
           "id": "service-1",
-          "title": "Custom Software",
-          "description": "ERPs, CRMs, dashboards and internal platforms built for your process — not a generic template."
+          "title": "Excessive manual work",
+          "description": "Automation and AI agents that free up operational capacity. More results without more people."
         },
         {
           "id": "service-2",
-          "title": "Websites and Apps",
-          "description": "Digital presence that converts. High-performance web, mobile and landing pages, from design to production."
+          "title": "Disconnected systems",
+          "description": "Integrations and software engineering that connect workflows end to end."
         },
         {
           "id": "service-3",
-          "title": "AI Agents",
-          "description": "Support, lead qualification and operations automation running 24/7 with generative AI."
+          "title": "No operational visibility",
+          "description": "Dashboards, data and management systems for clearer, faster decisions."
         },
         {
           "id": "service-4",
-          "title": "Automation and Integrations",
-          "description": "WhatsApp, payments, external APIs and internal processes connected — your team does less, delivers more."
+          "title": "No off-the-shelf solution",
+          "description": "Custom software, built for your business process — not a template."
+        },
+        {
+          "id": "service-5",
+          "title": "No execution capacity",
+          "description": "Tech Squads integrated with your team. Development and delivery on demand."
         }
       ]
     },
@@ -266,7 +284,7 @@
       "regionLabel": "Testimonials",
       "items": [
         {
-          "quote": "We cut calls by 80% with a WhatsApp AI agent. The team stopped putting out fires and got back to what matters.",
+          "quote": "We cut 80% of repetitive work with intelligent automation. The team stopped putting out fires and got back to what matters.",
           "author": "Mariana Costa · Clinical Director",
           "alt": "Mariana Costa"
         },
@@ -281,7 +299,7 @@
           "alt": "Camila Rocha"
         },
         {
-          "quote": "WhatsApp follow-up automation transformed our funnel. Onboarding and post-sale without depending on spreadsheets.",
+          "quote": "Follow-up automation transformed our funnel. Onboarding and post-sale without depending on spreadsheets.",
           "author": "Felipe Santos · Marketing",
           "alt": "Felipe Santos"
         },
@@ -293,9 +311,9 @@
       ]
     },
     "contact": {
-      "titleLead": "Let's build",
-      "titleEm": "your solution",
-      "description": "Tell us about the problem. Our team gets back to you within 24 hours with a technical analysis and next steps."
+      "titleLead": "Let's engineer",
+      "titleEm": "your growth",
+      "description": "Describe your operational challenge. Our team gets back to you within 24 hours with a technical analysis and next steps."
     }
   },
   "clinicas": {
@@ -797,8 +815,8 @@
     "items": {
       "1": {
         "title": "Customer Service Agent",
-        "tag": "AI · WhatsApp",
-        "description": "Omnichannel service with automatic qualification, 24/7 answers and human handoff when needed. Up to 80% reduction in repetitive calls."
+        "tag": "AI · Automation",
+        "description": "Omnichannel service with automatic qualification, 24/7 answers and human handoff when needed. Up to 80% reduction in repetitive tasks."
       },
       "2": {
         "title": "Lead Qualification",
@@ -808,7 +826,7 @@
       "3": {
         "title": "Custom CRM",
         "tag": "Software · CRM",
-        "description": "Sales pipeline designed for your process — integrated with WhatsApp, email and external APIs. No generic license nobody uses."
+        "description": "Sales pipeline designed for your process — integrated with messaging, email and external APIs. No generic license nobody uses."
       },
       "4": {
         "title": "Operational Dashboard",
@@ -821,9 +839,9 @@
         "description": "Inventory, procurement and billing control connected to the rest of the operation. Software built for your workflow, not a template."
       },
       "6": {
-        "title": "WhatsApp Automation",
-        "tag": "Integration · Bot",
-        "description": "Automated onboarding, follow-up and notification flows in the channel your customer already uses. Integration with payments, calendar and CRM."
+        "title": "Systems Integration",
+        "tag": "Engineering · Integration",
+        "description": "Connection between ERPs, CRMs, payments, service channels and internal systems. End-to-end automated workflows."
       }
     }
   },
@@ -840,6 +858,6 @@
     "goHome": "Go home"
   },
   "jsonLd": {
-    "organizationDescription": "Custom software, AI agents and automation for companies."
+    "organizationDescription": "Business engineering: automation, intelligence and tailor-made systems for companies that need to scale."
   }
 }

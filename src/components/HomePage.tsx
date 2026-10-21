@@ -3,7 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { AnimatedHero } from "@/components/AnimatedHero";
 import { ContactForm } from "@/components/ContactForm";
-import { IntegrationCarousel } from "@/components/IntegrationCarousel";
+import { IndustryLogos } from "@/components/IndustryLogos";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Leadership } from "@/components/Leadership";
 import { FeatureSection, type FeatureListItem } from "@/components/ui/feature";
@@ -21,7 +21,7 @@ import { StackedCardsSection } from "@/components/StackedCardsSection";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Footer } from "@/components/ui/footer-section";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
-import { clientLogoRow1, clientLogoRow2 } from "@/lib/client-logos-data";
+import { clientLogosByIndustry } from "@/lib/client-logos-data";
 import {
   painFeatureAssets,
   solutionFeatureAssets,
@@ -236,7 +236,7 @@ function useHomeFeatureItems(
   namespace: "home.pain" | "home.solution",
 ): FeatureListItem[] {
   const t = useTranslations(namespace);
-  return Array.from({ length: 4 }, (_, i) => ({
+  return Array.from({ length: 5 }, (_, i) => ({
     title: t(`items.${i}.title`),
     description: t(`items.${i}.description`),
   }));
@@ -284,7 +284,7 @@ export function HomePage() {
   const locale = useLocale();
 
   const rotatingWords: string[] = tHero.raw("rotatingWords") ?? [];
-  const serviceCards = Array.from({ length: 4 }, (_, i) => ({
+  const serviceCards = Array.from({ length: 5 }, (_, i) => ({
     id: tServices.raw(`cards.${i}.id`) ?? `service-${i + 1}`,
     title: tServices(`cards.${i}.title`),
     description: tServices(`cards.${i}.description`),
@@ -318,14 +318,6 @@ export function HomePage() {
         descriptionClassName="font-sans text-3xl md:text-5xl max-w-2xl"
       />
       <PainFeature />
-      <SectionHeader
-        title={t("transformation.title")}
-        description={t("transformation.description")}
-        align="center"
-        className="mx-auto my-22 md:mb-14 bg-none border-none"
-        titleClassName="max-w-none text-xl md:text-2xl"
-        descriptionClassName="font-sans text-3xl md:text-5xl max-w-3xl"
-      />
       <SolutionFeature />
       <Portfolio />
       <StackedCardsSection
@@ -343,11 +335,7 @@ export function HomePage() {
         cards={serviceCards}
       />
       <Products />
-      <IntegrationCarousel
-        variant="logo"
-        row1={clientLogoRow1}
-        row2={clientLogoRow2}
-      />
+      <IndustryLogos groups={clientLogosByIndustry} />
       <Leadership />
       {/* TODO: Re-enable when testimonials are ready
       <TestimonialsSection

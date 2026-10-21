@@ -103,81 +103,94 @@
   },
   "home": {
     "metadata": {
-      "title": "Braxen Tech — Software sob medida, agentes de IA e automações",
-      "description": "Desenvolvemos software sob medida, agentes de IA e automações para empresas no Brasil. Primeira entrega em semanas. Fale conosco — resposta em 24h.",
-      "ogDescription": "Software sob medida, agentes de IA e automações para empresas no Brasil. Primeira entrega em semanas. Resposta em 24h.",
+      "title": "Braxen Tech — Engenharia de negócios para empresas que querem escalar",
+      "description": "Ajudamos empresas a crescer sem multiplicar complexidade operacional. Automação, inteligência e sistemas sob medida. Resposta em 24h.",
+      "ogDescription": "Engenharia de negócios para empresas que precisam escalar sem multiplicar complexidade. Resposta em 24h.",
       "ogImageAlt": "Braxen Tech"
     },
     "hero": {
-      "staticTitle": "Software e agentes de IA",
+      "staticTitle": "Sua empresa foi feita para crescer",
       "rotatingWords": [
-        "escaláveis",
-        "inteligentes",
-        "integrados",
-        "automatizados",
-        "sob medida"
+        "Simplifique operações",
+        "Automatize com inteligência",
+        "Escale com controle"
       ],
-      "subtitle": "Desenvolvemos software sob medida, agentes de IA e automações que transformam operações manuais em crescimento real.",
+      "subtitle": "Projetamos sistemas, automação e inteligência que eliminam gargalos operacionais e permitem escalar sem multiplicar complexidade.",
       "trustLine": "Resposta em 24h · primeira entrega em semanas",
-      "primaryCta": "Quero uma solução",
-      "secondaryCta": "Ver serviços"
+      "primaryCta": "Fale com a Braxen",
+      "secondaryCta": "Ver como resolvemos"
     },
     "logos": {
       "titleLead": "Experiência acumulada em",
       "titleEm": "empresas como",
-      "description": "Time com histórico em operações de escala, mídia, varejo e tecnologia."
+      "description": "Time com histórico em finanças, mídia, entretenimento, saúde, automotivo e telecom.",
+      "industries": {
+        "finance": "Finanças e Banking",
+        "entertainment": "Entretenimento e Mídia",
+        "health": "Saúde",
+        "automotive": "Automotivo",
+        "telecom": "Telecom"
+      }
     },
     "diagnosis": {
       "title": "O diagnóstico",
-      "description": "Cada processo manual que ainda roda na sua empresa é receita sendo deixada na mesa."
+      "description": "Sua empresa cresce, mas a operação não acompanha. Cada gargalo manual é crescimento perdido."
     },
     "transformation": {
       "title": "A transformação",
-      "description": "Uma clínica reduziu 80% das ligações com um agente de IA. Uma imobiliária triplicou o atendimento sem contratar ninguém, isso não é o futuro - já está acontecendo."
+      "description": ""
     },
     "pain": {
       "title": "Sua operação trava antes de escalar",
       "subtitle": "Você sabe que precisa de tecnologia — mas não de mais uma ferramenta genérica que ninguém vai usar.",
-      "imageAlt": "Equipe sobrecarregada com processos manuais e planilhas desorganizadas",
+      "imageAlt": "Equipe sobrecarregada com processos manuais e sistemas desconectados",
       "items": [
         {
-          "title": "Leads sem resposta",
-          "description": "Oportunidades esfriam enquanto o time está ocupado apagando incêndio."
+          "title": "Excesso de trabalho manual",
+          "description": "Processos repetitivos consomem a capacidade que deveria ir para crescimento."
         },
         {
-          "title": "Equipe no limite",
-          "description": "Operação manual consome capacidade que deveria ir para crescimento."
+          "title": "Sistemas desconectados",
+          "description": "Informação espalhada entre ferramentas que não conversam. Zero visão integrada."
         },
         {
-          "title": "Planilhas que ninguém confia",
-          "description": "Dados espalhados, versões desatualizadas e zero visibilidade real."
+          "title": "Sem visibilidade operacional",
+          "description": "Você decide no escuro. Dados em planilhas desatualizadas, sem métricas em tempo real."
         },
         {
-          "title": "Ferramentas genéricas",
-          "description": "Licenças caras que não encaixam no processo e viram passivo."
+          "title": "Ferramentas genéricas que não encaixam",
+          "description": "Licenças caras que não seguem o processo do negócio e viram passivo."
+        },
+        {
+          "title": "Sem capacidade de execução técnica",
+          "description": "Ideias e roadmaps parados porque não há time ou expertise para entregar."
         }
       ]
     },
     "solution": {
-      "title": "Tecnologia feita pro seu processo, entrega em semanas",
-      "subtitle": "Mapeamos onde trava, construímos o que resolve e colocamos no ar com impacto mensurável.",
+      "title": "Engenharia de negócios que entrega em semanas",
+      "subtitle": "Mapeamos onde trava, engenhamos o que resolve e colocamos no ar com impacto mensurável.",
       "imageAlt": "Dashboard e automações sob medida integrados à operação",
       "items": [
         {
-          "title": "Diagnóstico e build sob medida",
-          "description": "Agente de IA, CRM e dashboard desenhados para o seu fluxo — sem template, sem licença."
+          "title": "Automação + agentes de IA",
+          "description": "Eliminamos trabalho manual e repetitivo. Mais capacidade operacional sem contratar."
         },
         {
-          "title": "Integração com o que você já usa",
-          "description": "WhatsApp, pagamentos, APIs externas e processos internos conectados de ponta a ponta."
+          "title": "Integrações + engenharia de software",
+          "description": "Conectamos seus sistemas de ponta a ponta. Workflows fluidos, sem retrabalho."
         },
         {
-          "title": "Primeira entrega em semanas",
-          "description": "Ciclos curtos com validação antes de ir pro ar — não projetos de meses sem resultado."
+          "title": "Dashboards e sistemas de gestão",
+          "description": "Visibilidade operacional em tempo real. Decisões mais claras, mais rápidas."
         },
         {
-          "title": "Impacto mensurável",
-          "description": "Você acompanha cada etapa e mede o efeito real. Se não funcionar, a gente ajusta."
+          "title": "Software sob medida",
+          "description": "Quando não existe solução pronta, construímos processos adaptados ao seu negócio."
+        },
+        {
+          "title": "Tech Squads",
+          "description": "Capacidade de desenvolvimento e entrega integrada ao seu time. Escale sem recrutar."
         }
       ]
     },
@@ -189,28 +202,33 @@
     },
     "services": {
       "titleLead": "O que",
-      "titleEm": "construímos",
-      "description": "Quatro pilares, uma equipe. Montamos times especializados que entregam juntos e acompanham os resultados ao longo do tempo.",
+      "titleEm": "resolvemos",
+      "description": "Cinco problemas, uma equipe. Entendemos o gargalo, engenhamos a solução e acompanhamos os resultados.",
       "cards": [
         {
           "id": "service-1",
-          "title": "Software Sob Medida",
-          "description": "ERPs, CRMs, dashboards e plataformas internas construídos para o seu processo — não para um template genérico."
+          "title": "Excesso de trabalho manual",
+          "description": "Automação e agentes de IA que liberam capacidade operacional. Mais resultado sem mais pessoas."
         },
         {
           "id": "service-2",
-          "title": "Sites e Aplicativos",
-          "description": "Presença digital que converte. Web, mobile e landing pages de alto desempenho, do design à produção."
+          "title": "Sistemas desconectados",
+          "description": "Integrações e engenharia de software que conectam workflows de ponta a ponta."
         },
         {
           "id": "service-3",
-          "title": "Agentes de IA",
-          "description": "Atendimento, qualificação de leads e automação de operações rodando 24h com inteligência artificial generativa."
+          "title": "Sem visibilidade operacional",
+          "description": "Dashboards, dados e sistemas de gestão para decisões mais claras e rápidas."
         },
         {
           "id": "service-4",
-          "title": "Automações e Integrações",
-          "description": "WhatsApp, pagamentos, APIs externas e processos internos conectados — seu time faz menos, entrega mais."
+          "title": "Sem solução pronta no mercado",
+          "description": "Software sob medida, construído para o processo do seu negócio — não para um template."
+        },
+        {
+          "id": "service-5",
+          "title": "Sem capacidade de execução",
+          "description": "Tech Squads integrados ao seu time. Desenvolvimento e entrega sob demanda."
         }
       ]
     },
@@ -266,7 +284,7 @@
       "regionLabel": "Depoimentos",
       "items": [
         {
-          "quote": "Reduzimos 80% das ligações com um agente de IA no WhatsApp. O time parou de apagar incêndio e voltou a focar no que importa.",
+          "quote": "Reduzimos 80% do trabalho repetitivo com automação inteligente. O time parou de apagar incêndio e voltou a focar no que importa.",
           "author": "Mariana Costa · Diretora Clínica",
           "alt": "Mariana Costa"
         },
@@ -281,7 +299,7 @@
           "alt": "Camila Rocha"
         },
         {
-          "quote": "Automação de follow-up no WhatsApp transformou nosso funil. Onboarding e pós-venda sem depender de planilha.",
+          "quote": "A automação de follow-up transformou nosso funil. Onboarding e pós-venda sem depender de planilha.",
           "author": "Felipe Santos · Marketing",
           "alt": "Felipe Santos"
         },
@@ -293,9 +311,9 @@
       ]
     },
     "contact": {
-      "titleLead": "Vamos construir",
-      "titleEm": "sua solução",
-      "description": "Descreva o problema. Nossa equipe retorna em até 24 horas com uma análise técnica e os próximos passos."
+      "titleLead": "Vamos projetar",
+      "titleEm": "seu crescimento",
+      "description": "Descreva o desafio operacional. Nossa equipe retorna em até 24 horas com uma análise técnica e os próximos passos."
     }
   },
   "clinicas": {
@@ -797,8 +815,8 @@
     "items": {
       "1": {
         "title": "Agente de Atendimento",
-        "tag": "IA · WhatsApp",
-        "description": "Atendimento omnichannel com qualificação automática, respostas 24/7 e handoff para humanos quando necessário. Redução de até 80% nas ligações repetitivas."
+        "tag": "IA · Automação",
+        "description": "Atendimento omnichannel com qualificação automática, respostas 24/7 e handoff para humanos quando necessário. Redução de até 80% em tarefas repetitivas."
       },
       "2": {
         "title": "Qualificação de Leads",
@@ -808,7 +826,7 @@
       "3": {
         "title": "CRM Sob Medida",
         "tag": "Software · CRM",
-        "description": "Pipeline comercial desenhado para o seu processo — integrado ao WhatsApp, e-mail e APIs externas. Sem licença genérica que ninguém usa."
+        "description": "Pipeline comercial desenhado para o seu processo — integrado com mensageria, e-mail e APIs externas. Sem licença genérica que ninguém usa."
       },
       "4": {
         "title": "Dashboard Operacional",
@@ -821,9 +839,9 @@
         "description": "Controle de estoque, compras e faturamento conectado ao restante da operação. Software feito para o seu fluxo, não para um template."
       },
       "6": {
-        "title": "Automação WhatsApp",
-        "tag": "Integração · Bot",
-        "description": "Fluxos de onboarding, follow-up e notificações automatizados no canal que seu cliente já usa. Integração com pagamentos, agenda e CRM."
+        "title": "Integração de Sistemas",
+        "tag": "Engenharia · Integração",
+        "description": "Conexão entre ERPs, CRMs, pagamentos, canais de atendimento e sistemas internos. Workflows automatizados de ponta a ponta."
       }
     }
   },
@@ -840,6 +858,6 @@
     "goHome": "Ir para o início"
   },
   "jsonLd": {
-    "organizationDescription": "Software sob medida, agentes de IA e automações para empresas no Brasil."
+    "organizationDescription": "Engenharia de negócios: automação, inteligência e sistemas sob medida para empresas que querem escalar."
   }
 }

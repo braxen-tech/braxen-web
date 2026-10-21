@@ -4,10 +4,10 @@ import type { ImageSrc } from "@/lib/utils";
 
 export const painFeatureAssets: { image: ImageSrc; itemsCount: number } = {
   image: chapterProblem,
-  itemsCount: 4,
+  itemsCount: 5,
 };
 
 export const solutionFeatureAssets: { image: ImageSrc; itemsCount: number } = {
   image: chapterSolution,
-  itemsCount: 4,
+  itemsCount: 5,
 };
