@@ -11,41 +11,44 @@ import type { IndustryGroup } from "@/lib/client-logos-data";
 function LogoItem({
   name,
   src,
-  subBrands,
+  href,
 }: {
   name: string;
   src: string;
-  subBrands?: string[];
+  href?: string;
 }) {
-  return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="flex h-16 w-32 items-center justify-center sm:h-20 sm:w-40">
-        <img
-          src={src}
-          alt={name}
-          className="h-12 w-auto max-w-full object-contain opacity-60 grayscale transition-opacity hover:opacity-100 sm:h-14"
-          loading="lazy"
-          decoding="async"
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = "none";
-            const parent = (e.target as HTMLImageElement).parentElement;
-            if (parent && !parent.querySelector("span")) {
-              const span = document.createElement("span");
-              span.className =
-                "text-sm font-medium text-muted-foreground opacity-60";
-              span.textContent = name;
-              parent.appendChild(span);
-            }
-          }}
-        />
-      </div>
-      {subBrands && subBrands.length > 0 && (
-        <span className="text-[10px] tracking-[0.1em] text-muted-foreground">
-          {subBrands.join(" · ")}
-        </span>
-      )}
+  const content = (
+    <div className="flex h-16 w-28 items-center justify-center sm:h-20 sm:w-36 md:h-20 md:w-40">
+      <img
+        src={src}
+        alt={name}
+        className="h-10 w-auto max-w-full object-contain opacity-70 grayscale transition-opacity hover:opacity-100 dark:invert sm:h-12 md:h-14"
+        loading="lazy"
+        decoding="async"
+        onError={(e) => {
+          (e.target as HTMLImageElement).style.display = "none";
+          const parent = (e.target as HTMLImageElement).parentElement;
+          if (parent && !parent.querySelector("span")) {
+            const span = document.createElement("span");
+            span.className =
+              "text-xs font-medium text-muted-foreground opacity-70";
+            span.textContent = name;
+            parent.appendChild(span);
+          }
+        }}
+      />
     </div>
   );
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {content}
+      </a>
+    );
+  }
+
+  return content;
 }
 
 export function IndustryLogos({
@@ -57,14 +60,17 @@ export function IndustryLogos({
 }) {
   const t = useTranslations("home.logos");
 
+  const allLogos = groups.flatMap((g) => g.logos);
+  const industries = groups.map((g) => t(`industries.${g.industry}`));
+
   return (
     <section
       id={id}
-      className="relative overflow-hidden px-6 py-24 md:px-10 md:py-28"
+      className="relative overflow-hidden px-6 py-16 md:px-10 md:py-20"
     >
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-50" />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-5xl">
         <SectionHeader
           title={
             <>
@@ -72,34 +78,24 @@ export function IndustryLogos({
               <em className="italic text-muted-foreground">{t("titleEm")}</em>
             </>
           }
-          description={t("description")}
           align="center"
-          className="mx-auto mb-14 max-w-2xl"
+          className="mx-auto mb-10 max-w-2xl"
           titleClassName="font-sans text-3xl md:text-5xl"
-          descriptionClassName="mt-5 max-w-none"
         />
 
+        <ScrollReveal>
+          <p className="mb-8 text-center text-[10px] font-medium tracking-[0.25em] uppercase text-primary">
+            {industries.join(" · ")}
+          </p>
+        </ScrollReveal>
+
         <StaggerChildren
-          className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
-          stagger={0.08}
+          className="grid grid-cols-2 place-items-center gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+          stagger={0.05}
         >
-          {groups.map((group) => (
-            <ScrollReveal key={group.industry}>
-              <div className="flex flex-col items-center gap-4">
-                <span className="text-[10px] font-medium tracking-[0.25em] uppercase text-primary">
-                  {t(`industries.${group.industry}`)}
-                </span>
-                <div className="flex flex-wrap items-center justify-center gap-4">
-                  {group.logos.map((logo) => (
-                    <LogoItem
-                      key={logo.name}
-                      name={logo.name}
-                      src={logo.src}
-                      subBrands={logo.subBrands}
-                    />
-                  ))}
-                </div>
-              </div>
+          {allLogos.map((logo) => (
+            <ScrollReveal key={logo.name}>
+              <LogoItem name={logo.name} src={logo.src} />
             </ScrollReveal>
           ))}
         </StaggerChildren>

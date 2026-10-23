@@ -119,7 +119,7 @@
     "logos": {
       "titleLead": "Nuestro equipo construyó en",
       "titleEm": "empresas como",
-      "description": "Profesionales que ya entregaron sistemas críticos en los mayores nombres de cada sector.",
+      "description": "Finanzas · Entretenimiento · Salud · Automotriz · Telecom · Educación",
       "industries": {
         "finance": "Finanzas y Banca",
         "entertainment": "Entretenimiento y Medios",
@@ -192,9 +192,9 @@
       ]
     },
     "portfolio": {
-      "title": "Lo que entregamos",
+      "title": "Resultados reales",
       "titleDot": ".",
-      "description": "Agentes de IA, CRMs, dashboards y ERPs — cada proyecto diseñado para el proceso real del cliente.",
+      "description": "De automatización a software a medida — cada proyecto está diseñado para resolver un problema específico del cliente.",
       "regionLabel": "Entregas y proyectos de Braxen"
     },
     "services": {
@@ -234,12 +234,12 @@
       "titleEm": "trabajar con Braxen",
       "aiAgents": {
         "title": "Agentes de IA",
-        "description": "Atención omnicanal con CRM, agenda, ventas e integración con tus APIs. En vivo en semanas.",
+        "description": "Agentes que atienden, califican y venden — en WhatsApp, Instagram y chat. En vivo en semanas, no en meses.",
         "cta": "Conocer la solución"
       },
       "techSquads": {
         "title": "Tech Squads",
-        "description": "Equipos de desarrollo, producto, datos e IA integrados a tu negocio. Escala sin reclutar.",
+        "description": "Ingenieros, diseñadores y PMs que se vuelven parte de tu equipo. Sin proceso de selección, sin ramp-up.",
         "cta": "Armar mi squad"
       }
     },
@@ -811,34 +811,34 @@
   "solutions": {
     "items": {
       "1": {
-        "title": "Agente de Atención",
+        "title": "Atención que escala sola",
         "tag": "IA · Automatización",
-        "description": "Atención omnicanal con calificación automática, respuestas 24/7 y derivación a humanos cuando sea necesario. Reducción de hasta el 80% en tareas repetitivas."
+        "description": "Tu cliente escribe por WhatsApp, Instagram o chat — el agente responde, califica y agenda. Cuando necesita un humano, transfiere con contexto. Reduce hasta el 80% del volumen repetitivo."
       },
       "2": {
-        "title": "Calificación de Leads",
-        "tag": "IA · Automatización",
-        "description": "Triage inteligente en la conversación con scoring por IA generativa. Tu equipo comercial recibe solo oportunidades listas para avanzar."
+        "title": "Leads calificados en piloto automático",
+        "tag": "IA · Ventas",
+        "description": "IA que conversa, puntúa y filtra leads en tiempo real. Tu equipo comercial solo recibe prospectos listos para comprar."
       },
       "3": {
-        "title": "CRM a Medida",
-        "tag": "Software · CRM",
-        "description": "Pipeline comercial diseñado para tu proceso — integrado con mensajería, e-mail y APIs externas. Sin licencia genérica que nadie usa."
+        "title": "Ventas sin perder ningún lead",
+        "tag": "Software · Proceso",
+        "description": "Embudo diseñado para tu proceso — conectado a WhatsApp, e-mail y APIs externas. Sin herramienta genérica que nadie usa."
       },
       "4": {
-        "title": "Dashboard Operacional",
-        "tag": "Analytics · BI",
-        "description": "Métricas de equipo, ingresos y operación en tiempo real. Visibilidad de lo que importa para decidir rápido y escalar con control."
+        "title": "Operación visible en tiempo real",
+        "tag": "Datos · Decisión",
+        "description": "Ingresos, equipo y operación en un solo tablero. Datos que muestran dónde actuar — no informes que nadie abre."
       },
       "5": {
-        "title": "ERP Interno",
-        "tag": "Software · Gestión",
-        "description": "Control de stock, compras y facturación conectado al resto de la operación. Software hecho para tu flujo, no para una plantilla."
+        "title": "Procesos internos conectados",
+        "tag": "Software · Operación",
+        "description": "Stock, compras y facturación en un solo sistema, integrado al resto de la operación. Hecho para tu flujo, no para una plantilla."
       },
       "6": {
-        "title": "Integración de Sistemas",
+        "title": "Sistemas que se comunican entre sí",
         "tag": "Ingeniería · Integración",
-        "description": "Conexión entre ERPs, CRMs, pagos, canales de atención y sistemas internos. Workflows automatizados de punta a punta."
+        "description": "Pasarelas de pago, canales de atención y sistemas internos conectados. Workflows automatizados de punta a punta."
       }
     }
   },

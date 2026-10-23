@@ -77,18 +77,28 @@ function IntegrationChip({
   );
 }
 
-function LogoChip({ name, src }: LogoCarouselItem) {
-  return (
+function LogoChip({ name, src, href }: LogoCarouselItem) {
+  const img = (
     <div className="flex h-28 w-48 shrink-0 items-center justify-center px-4 sm:h-32 sm:w-56 md:h-36 md:w-64">
       <img
         src={src}
         alt={name}
-        className="h-14 w-auto max-w-full object-contain opacity-60 grayscale transition-opacity hover:opacity-100 sm:h-16 md:h-20"
+        className="h-14 w-auto max-w-full object-contain opacity-60 grayscale transition-opacity hover:opacity-100 dark:invert sm:h-16 md:h-20"
         loading="lazy"
         decoding="async"
       />
     </div>
   );
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {img}
+      </a>
+    );
+  }
+
+  return img;
 }
 
 type ChipItem =
@@ -212,7 +222,7 @@ export function IntegrationCarousel(props: CarouselProps = {}) {
           align="center"
           className="mx-auto mb-12 max-w-2xl md:mb-14"
           titleClassName="font-sans text-3xl md:text-5xl"
-          descriptionClassName="mt-5 max-w-none"
+          descriptionClassName={variant === "logo" ? "mt-5 max-w-none text-[10px] font-medium tracking-[0.25em] uppercase text-primary" : "mt-5 max-w-none"}
         />
 
         <div className="relative overflow-hidden pb-2">

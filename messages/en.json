@@ -119,7 +119,7 @@
     "logos": {
       "titleLead": "Our team built at",
       "titleEm": "companies like",
-      "description": "Engineers who have shipped critical systems at the biggest names in each industry.",
+      "description": "Finance · Entertainment · Health · Automotive · Telecom · Education",
       "industries": {
         "finance": "Finance & Banking",
         "entertainment": "Entertainment & Media",
@@ -192,9 +192,9 @@
       ]
     },
     "portfolio": {
-      "title": "What we deliver",
+      "title": "Real results",
       "titleDot": ".",
-      "description": "AI agents, CRMs, dashboards and ERPs — every project shaped to fit the client's actual workflow.",
+      "description": "From automation to custom software — every project is designed to solve a specific client problem.",
       "regionLabel": "Braxen deliveries and projects"
     },
     "services": {
@@ -234,12 +234,12 @@
       "titleEm": "work with Braxen",
       "aiAgents": {
         "title": "AI Agents",
-        "description": "Omnichannel service with CRM, scheduling, sales and API integrations. Live in weeks.",
+        "description": "Agents that answer, qualify and sell — on WhatsApp, Instagram and live chat. Live in weeks, not months.",
         "cta": "See solution"
       },
       "techSquads": {
         "title": "Tech Squads",
-        "description": "Engineering, product, data and AI teams embedded in your business. Scale without recruiting.",
+        "description": "Engineers, designers and PMs that become part of your team. No hiring process, no ramp-up.",
         "cta": "Build my squad"
       }
     },
@@ -811,34 +811,34 @@
   "solutions": {
     "items": {
       "1": {
-        "title": "Customer Service Agent",
+        "title": "Support that scales itself",
         "tag": "AI · Automation",
-        "description": "Omnichannel service with automatic qualification, 24/7 answers and human handoff when needed. Up to 80% reduction in repetitive tasks."
+        "description": "Your customer messages on WhatsApp, Instagram or live chat — the agent replies, qualifies and books. When a human is needed, it hands off with full context. Cuts up to 80% of repetitive volume."
       },
       "2": {
-        "title": "Lead Qualification",
-        "tag": "AI · Automation",
-        "description": "Smart triage in the chat with generative AI scoring. Your sales team only sees opportunities ready to move forward."
+        "title": "Qualified leads on autopilot",
+        "tag": "AI · Sales",
+        "description": "AI that chats, scores and filters leads in real time. Your sales team only sees prospects ready to buy."
       },
       "3": {
-        "title": "Custom CRM",
-        "tag": "Software · CRM",
-        "description": "Sales pipeline designed for your process — integrated with messaging, email and external APIs. No generic license nobody uses."
+        "title": "Never lose a lead again",
+        "tag": "Software · Process",
+        "description": "Sales pipeline shaped to your process — connected to WhatsApp, email and external APIs. No generic tool nobody uses."
       },
       "4": {
-        "title": "Operational Dashboard",
-        "tag": "Analytics · BI",
-        "description": "Team, revenue and operations metrics in real time. Visibility into what matters to decide fast and scale with control."
+        "title": "Operations visible in real time",
+        "tag": "Data · Decision",
+        "description": "Revenue, team and operations on one single board. Data that shows where to act — not reports nobody opens."
       },
       "5": {
-        "title": "Internal ERP",
-        "tag": "Software · Management",
-        "description": "Inventory, procurement and billing control connected to the rest of the operation. Software built for your workflow, not a template."
+        "title": "Internal processes connected",
+        "tag": "Software · Operations",
+        "description": "Inventory, procurement and billing in one system, integrated with the rest of your operation. Built for your workflow, not a template."
       },
       "6": {
-        "title": "Systems Integration",
+        "title": "Systems that talk to each other",
         "tag": "Engineering · Integration",
-        "description": "Connection between ERPs, CRMs, payments, service channels and internal systems. End-to-end automated workflows."
+        "description": "Payment gateways, service channels and internal systems connected. End-to-end automated workflows."
       }
     }
   },

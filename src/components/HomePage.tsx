@@ -3,7 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { AnimatedHero } from "@/components/AnimatedHero";
 import { ContactForm } from "@/components/ContactForm";
-import { IndustryLogos } from "@/components/IndustryLogos";
+import { IntegrationCarousel } from "@/components/IntegrationCarousel";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Leadership } from "@/components/Leadership";
 import {
@@ -19,7 +19,7 @@ import { Portfolio } from "@/components/Portfolio";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Footer } from "@/components/ui/footer-section";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
-import { clientLogosByIndustry } from "@/lib/client-logos-data";
+import { clientLogoRow1, clientLogoRow2 } from "@/lib/client-logos-data";
 import { ROUTES } from "@/lib/routes";
 import { anchorHref, anchorId } from "@/lib/anchors";
 
@@ -250,7 +250,7 @@ export function HomePage() {
           label: tHero("secondaryCta"),
         }}
       />
-      <IndustryLogos groups={clientLogosByIndustry} />
+      <IntegrationCarousel variant="logo" row1={clientLogoRow1} row2={clientLogoRow2} />
       <Portfolio />
       <Products />
       <Leadership />
