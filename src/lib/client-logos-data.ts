@@ -44,6 +44,13 @@ export const clientLogosByIndustry: IndustryGroup[] = [
       { name: "Grupo Lima", src: "/grupo-lima.png" },
     ],
   },
+  {
+    industry: "education",
+    logos: [
+      { name: "Immersion U", src: "/immersion-u.png" },
+      { name: "Good Ventures", src: "/good-ventures.png" },
+    ],
+  },
 ];
 
 export const clientLogoRow1: LogoCarouselItem[] = [
@@ -51,6 +58,7 @@ export const clientLogoRow1: LogoCarouselItem[] = [
   { name: "TIM", src: "/tim.png" },
   { name: "Disney", src: "/disney.png" },
   { name: "Rivian", src: "/rivian.png" },
+  { name: "Immersion U", src: "/immersion-u.png" },
 ];
 
 export const clientLogoRow2: LogoCarouselItem[] = [
@@ -58,4 +66,5 @@ export const clientLogoRow2: LogoCarouselItem[] = [
   { name: "Sicredi", src: "/sicredi.png" },
   { name: "Bradesco", src: "/bradesco.png" },
   { name: "Prenuvo", src: "/prenuvo.png" },
+  { name: "Good Ventures", src: "/good-ventures.png" },
 ];

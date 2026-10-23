@@ -22,8 +22,6 @@
   },
   "nav": {
     "home": {
-      "pain": "A Dor",
-      "howWeDo": "Como fazemos",
       "deliveries": "Entregas",
       "team": "Time",
       "contact": "Contato"
@@ -48,14 +46,12 @@
       "atendimentoIa": "Automação de atendimento",
       "clinicas": "Clínicas e consultórios",
       "techSquads": "Tech Squads",
-      "deliveries": "Entregas",
-      "services": "Serviços"
+      "deliveries": "Entregas"
     },
     "navigation": {
-      "pain": "A Dor",
-      "howWeDo": "Como fazemos",
+      "deliveries": "Entregas",
       "team": "Time",
-      "testimonials": "Depoimentos"
+      "contact": "Contato"
     },
     "contact": {
       "talkToUs": "Fale conosco",
@@ -109,27 +105,28 @@
       "ogImageAlt": "Braxen Tech"
     },
     "hero": {
-      "staticTitle": "Sua empresa foi feita para crescer",
+      "staticTitle": "Tecnologia que faz sua operação escalar",
       "rotatingWords": [
-        "Simplifique operações",
-        "Automatize com inteligência",
-        "Escale com controle"
+        "Automação inteligente",
+        "Agentes de IA",
+        "Software sob medida"
       ],
-      "subtitle": "Projetamos sistemas, automação e inteligência que eliminam gargalos operacionais e permitem escalar sem multiplicar complexidade.",
-      "trustLine": "Resposta em 24h · primeira entrega em semanas",
+      "subtitle": "Engenhamos automação, agentes de IA e software sob medida para empresas que precisam crescer — sem crescer a estrutura.",
+      "trustLine": "Resposta em 24h · entrega em semanas",
       "primaryCta": "Fale com a Braxen",
-      "secondaryCta": "Ver como resolvemos"
+      "secondaryCta": "Ver entregas"
     },
     "logos": {
-      "titleLead": "Experiência acumulada em",
+      "titleLead": "Nosso time construiu em",
       "titleEm": "empresas como",
-      "description": "Time com histórico em finanças, mídia, entretenimento, saúde, automotivo e telecom.",
+      "description": "Profissionais que já entregaram sistemas críticos nos maiores nomes de cada setor.",
       "industries": {
         "finance": "Finanças e Banking",
         "entertainment": "Entretenimento e Mídia",
         "health": "Saúde",
         "automotive": "Automotivo",
-        "telecom": "Telecom"
+        "telecom": "Telecom",
+        "education": "Educação"
       }
     },
     "diagnosis": {
@@ -195,9 +192,9 @@
       ]
     },
     "portfolio": {
-      "title": "Entregas",
+      "title": "O que entregamos",
       "titleDot": ".",
-      "description": "De agentes de IA a dashboards sob medida — cada projeto é construído para o seu processo.",
+      "description": "Agentes de IA, CRMs, dashboards e ERPs — cada projeto desenhado para o processo real do cliente.",
       "regionLabel": "Entregas e projetos da Braxen"
     },
     "services": {
@@ -233,45 +230,45 @@
       ]
     },
     "products": {
-      "titleLead": "Pronto para",
-      "titleEm": "começar",
+      "titleLead": "Duas formas de",
+      "titleEm": "trabalhar com a Braxen",
       "aiAgents": {
         "title": "Agentes de IA",
-        "description": "Atendimento omnichannel com CRM integrado, agenda, vendas e integração com suas APIs.",
+        "description": "Atendimento omnichannel com CRM, agenda, vendas e integração com suas APIs. No ar em semanas.",
         "cta": "Conhecer solução"
       },
       "techSquads": {
         "title": "Tech Squads",
-        "description": "Times completos de desenvolvimento, produto, dados e IA integrados ao seu negócio.",
+        "description": "Times de desenvolvimento, produto, dados e IA integrados ao seu negócio. Escale sem recrutar.",
         "cta": "Montar meu squad"
       }
     },
     "leadership": {
-      "titleLead": "Liderança técnica",
-      "titleEm": "de alto nível",
-      "description": "Nosso time carrega experiência das maiores empresas de tecnologia do mundo. Cada projeto da Braxen é conduzido por especialistas que já entregaram sistemas críticos em escala.",
+      "titleLead": "Quem está por",
+      "titleEm": "trás",
+      "description": "Cada projeto é conduzido por especialistas que já entregaram sistemas críticos em escala.",
       "prev": "Perfil anterior",
       "next": "Próximo perfil",
       "members": [
         {
           "name": "Hugo Lemos",
-          "designation": "Head of Product & UI/UX",
-          "quote": "Traduzo problemas de negócio em interfaces que funcionam — cada tela, cada fluxo e cada detalhe pensados para o usuário final e para o resultado da operação."
+          "designation": "Co-Founder · Product Design",
+          "quote": "Transformo problemas de negócio em interfaces que funcionam — e que as pessoas realmente usam."
         },
         {
           "name": "Neemias Rocha",
-          "designation": "Head of Sales",
-          "quote": "Com dez anos conectando estratégia comercial à execução, entendo a dor do cliente antes da primeira reunião e garanto valor mensurável desde o dia um."
+          "designation": "Co-Founder · Vendas",
+          "quote": "Entendo a dor do cliente antes da primeira reunião. Vendo valor, não proposta."
         },
         {
           "name": "Rodrigo Gama",
-          "designation": "Head of Engineering",
-          "quote": "Conduzo times pequenos em ciclos curtos, com foco em entregas que sustentam carga real sem quebrar na segunda versão."
+          "designation": "Co-Founder · Desenvolvimento",
+          "quote": "Entrego software que roda em produção sem quebrar. Times enxutos, sprints curtos, resultado rápido."
         },
         {
           "name": "Tiago Rocha",
-          "designation": "Head of AI & Platform",
-          "quote": "Projeto agentes e automações que geram valor real, e mantenho a plataforma por trás deles confiável, observável e pronta para escalar."
+          "designation": "Co-Founder · Desenvolvimento",
+          "quote": "Construo agentes de IA e a plataforma por trás deles — observável, confiável e pronta para escalar."
         }
       ]
     },
@@ -311,9 +308,9 @@
       ]
     },
     "contact": {
-      "titleLead": "Vamos projetar",
-      "titleEm": "seu crescimento",
-      "description": "Descreva o desafio operacional. Nossa equipe retorna em até 24 horas com uma análise técnica e os próximos passos."
+      "titleLead": "Vamos",
+      "titleEm": "conversar",
+      "description": "Conte o desafio. Retornamos em até 24 horas com análise técnica e próximos passos."
     }
   },
   "clinicas": {

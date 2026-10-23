@@ -22,8 +22,6 @@
   },
   "nav": {
     "home": {
-      "pain": "El dolor",
-      "howWeDo": "Cómo lo hacemos",
       "deliveries": "Entregas",
       "team": "Equipo",
       "contact": "Contacto"
@@ -48,14 +46,12 @@
       "atendimentoIa": "Automatización de atención",
       "clinicas": "Clínicas y consultorios",
       "techSquads": "Tech Squads",
-      "deliveries": "Entregas",
-      "services": "Servicios"
+      "deliveries": "Entregas"
     },
     "navigation": {
-      "pain": "El dolor",
-      "howWeDo": "Cómo lo hacemos",
+      "deliveries": "Entregas",
       "team": "Equipo",
-      "testimonials": "Testimonios"
+      "contact": "Contacto"
     },
     "contact": {
       "talkToUs": "Contáctanos",
@@ -109,27 +105,28 @@
       "ogImageAlt": "Braxen Tech"
     },
     "hero": {
-      "staticTitle": "Tu empresa fue hecha para crecer",
+      "staticTitle": "Tecnología que escala tu operación",
       "rotatingWords": [
-        "Simplifica operaciones",
-        "Automatiza con inteligencia",
-        "Escala con control"
+        "Automatización inteligente",
+        "Agentes de IA",
+        "Software a medida"
       ],
-      "subtitle": "Diseñamos sistemas, automatización e inteligencia que eliminan cuellos de botella operacionales y permiten escalar sin multiplicar complejidad.",
-      "trustLine": "Respuesta en 24h · primera entrega en semanas",
+      "subtitle": "Ingeniamos automatización, agentes de IA y software a medida para empresas que necesitan crecer — sin crecer la estructura.",
+      "trustLine": "Respuesta en 24h · entrega en semanas",
       "primaryCta": "Habla con Braxen",
-      "secondaryCta": "Ver cómo lo resolvemos"
+      "secondaryCta": "Ver entregas"
     },
     "logos": {
-      "titleLead": "Experiencia acumulada en",
+      "titleLead": "Nuestro equipo construyó en",
       "titleEm": "empresas como",
-      "description": "Equipo con historial en finanzas, medios, entretenimiento, salud, automotor y telecomunicaciones.",
+      "description": "Profesionales que ya entregaron sistemas críticos en los mayores nombres de cada sector.",
       "industries": {
         "finance": "Finanzas y Banca",
         "entertainment": "Entretenimiento y Medios",
         "health": "Salud",
         "automotive": "Automotor",
-        "telecom": "Telecomunicaciones"
+        "telecom": "Telecomunicaciones",
+        "education": "Educación"
       }
     },
     "diagnosis": {
@@ -195,9 +192,9 @@
       ]
     },
     "portfolio": {
-      "title": "Entregas",
+      "title": "Lo que entregamos",
       "titleDot": ".",
-      "description": "De agentes de IA a dashboards a medida — cada proyecto se construye para tu proceso.",
+      "description": "Agentes de IA, CRMs, dashboards y ERPs — cada proyecto diseñado para el proceso real del cliente.",
       "regionLabel": "Entregas y proyectos de Braxen"
     },
     "services": {
@@ -233,45 +230,45 @@
       ]
     },
     "products": {
-      "titleLead": "¿Listo para",
-      "titleEm": "empezar",
+      "titleLead": "Dos formas de",
+      "titleEm": "trabajar con Braxen",
       "aiAgents": {
         "title": "Agentes de IA",
-        "description": "Atención omnicanal con CRM integrado, agenda, ventas e integración con tus APIs.",
+        "description": "Atención omnicanal con CRM, agenda, ventas e integración con tus APIs. En vivo en semanas.",
         "cta": "Conocer la solución"
       },
       "techSquads": {
         "title": "Tech Squads",
-        "description": "Equipos completos de desarrollo, producto, datos e IA integrados a tu negocio.",
+        "description": "Equipos de desarrollo, producto, datos e IA integrados a tu negocio. Escala sin reclutar.",
         "cta": "Armar mi squad"
       }
     },
     "leadership": {
-      "titleLead": "Liderazgo técnico",
-      "titleEm": "de alto nivel",
-      "description": "Nuestro equipo trae experiencia de las mayores empresas tecnológicas del mundo. Cada proyecto de Braxen es liderado por especialistas que ya entregaron sistemas críticos a escala.",
+      "titleLead": "Quién está",
+      "titleEm": "detrás",
+      "description": "Cada proyecto es liderado por especialistas que ya entregaron sistemas críticos a escala.",
       "prev": "Perfil anterior",
       "next": "Siguiente perfil",
       "members": [
         {
           "name": "Hugo Lemos",
-          "designation": "Head of Product & UI/UX",
-          "quote": "Traduzco problemas de negocio en interfaces que funcionan — cada pantalla, cada flujo y cada detalle pensados para el usuario final y para el resultado de la operación."
+          "designation": "Co-Founder · Product Design",
+          "quote": "Transformo problemas de negocio en interfaces que funcionan — y que la gente realmente usa."
         },
         {
           "name": "Neemias Rocha",
-          "designation": "Head of Sales",
-          "quote": "Con diez años conectando estrategia comercial y ejecución, entiendo el dolor del cliente antes de la primera reunión y garantizo valor medible desde el día uno."
+          "designation": "Co-Founder · Ventas",
+          "quote": "Entiendo el dolor del cliente antes de la primera reunión. Vendo valor, no propuestas."
         },
         {
           "name": "Rodrigo Gama",
-          "designation": "Head of Engineering",
-          "quote": "Lidero equipos pequeños en ciclos cortos, con foco en entregas que soportan carga real sin romperse en la segunda versión."
+          "designation": "Co-Founder · Desarrollo",
+          "quote": "Entrego software que corre en producción sin romperse. Equipos pequeños, sprints cortos, resultados rápidos."
         },
         {
           "name": "Tiago Rocha",
-          "designation": "Head of AI & Platform",
-          "quote": "Diseño agentes y automatizaciones que generan valor real, y mantengo la plataforma detrás de ellos confiable, observable y lista para escalar."
+          "designation": "Co-Founder · Desarrollo",
+          "quote": "Construyo agentes de IA y la plataforma detrás de ellos — observable, confiable y lista para escalar."
         }
       ]
     },
@@ -311,9 +308,9 @@
       ]
     },
     "contact": {
-      "titleLead": "Ingeniemos",
-      "titleEm": "tu crecimiento",
-      "description": "Describe el desafío operacional. Nuestro equipo responde en menos de 24 horas con un análisis técnico y los próximos pasos."
+      "titleLead": "Vamos a",
+      "titleEm": "conversar",
+      "description": "Cuéntanos el desafío. Respondemos en menos de 24 horas con análisis técnico y próximos pasos."
     }
   },
   "clinicas": {

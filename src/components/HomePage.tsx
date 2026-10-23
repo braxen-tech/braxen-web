@@ -6,7 +6,6 @@ import { ContactForm } from "@/components/ContactForm";
 import { IndustryLogos } from "@/components/IndustryLogos";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Leadership } from "@/components/Leadership";
-import { FeatureSection, type FeatureListItem } from "@/components/ui/feature";
 import {
   ScrollReveal,
   SectionHeader,
@@ -15,17 +14,12 @@ import {
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Portfolio } from "@/components/Portfolio";
-import { StackedCardsSection } from "@/components/StackedCardsSection";
 // TODO: Re-enable when testimonials are ready
 // import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Footer } from "@/components/ui/footer-section";
 import { siteHeaderClass, siteHeaderInnerClass } from "@/lib/site-header";
 import { clientLogosByIndustry } from "@/lib/client-logos-data";
-import {
-  painFeatureAssets,
-  solutionFeatureAssets,
-} from "@/lib/home-story-data";
 import { ROUTES } from "@/lib/routes";
 import { anchorHref, anchorId } from "@/lib/anchors";
 
@@ -55,8 +49,6 @@ function Nav() {
   }, [menuOpen]);
 
   const links = [
-    { href: anchorHref(locale, "pain"), label: t("pain") },
-    { href: anchorHref(locale, "howWeDo"), label: t("howWeDo") },
     { href: anchorHref(locale, "deliveries"), label: t("deliveries") },
     { href: anchorHref(locale, "team"), label: t("team") },
     { href: anchorHref(locale, "contact"), label: t("contact") },
@@ -154,7 +146,7 @@ function Products() {
           title={
             <>
               {t("titleLead")}{" "}
-              <em className="italic text-muted-foreground">{t("titleEm")}</em>?
+              <em className="italic text-muted-foreground">{t("titleEm")}</em>
             </>
           }
           className="mb-10"
@@ -232,63 +224,12 @@ function Contact() {
   );
 }
 
-function useHomeFeatureItems(
-  namespace: "home.pain" | "home.solution",
-): FeatureListItem[] {
-  const t = useTranslations(namespace);
-  return Array.from({ length: 5 }, (_, i) => ({
-    title: t(`items.${i}.title`),
-    description: t(`items.${i}.description`),
-  }));
-}
-
-function PainFeature() {
-  const t = useTranslations("home.pain");
-  const items = useHomeFeatureItems("home.pain");
-  const locale = useLocale();
-  return (
-    <FeatureSection
-      id={anchorId(locale, "pain")}
-      title={t("title")}
-      subtitle={t("subtitle")}
-      image={painFeatureAssets.image}
-      imageAlt={t("imageAlt")}
-      items={items}
-      variant="problem"
-    />
-  );
-}
-
-function SolutionFeature() {
-  const t = useTranslations("home.solution");
-  const items = useHomeFeatureItems("home.solution");
-  const locale = useLocale();
-  return (
-    <FeatureSection
-      id={anchorId(locale, "howWeDo")}
-      title={t("title")}
-      subtitle={t("subtitle")}
-      image={solutionFeatureAssets.image}
-      imageAlt={t("imageAlt")}
-      items={items}
-      variant="solution"
-      reverse
-    />
-  );
-}
-
 export function HomePage() {
   const t = useTranslations("home");
   const tHero = useTranslations("home.hero");
-  const tServices = useTranslations("home.services");
   const locale = useLocale();
 
   const rotatingWords: string[] = tHero.raw("rotatingWords") ?? [];
-  const serviceCards = Array.from({ length: 5 }, (_, i) => ({
-    id: tServices.raw(`cards.${i}.id`) ?? `service-${i + 1}`,
-    title: tServices(`cards.${i}.title`),
-    description: tServices(`cards.${i}.description`),
-  }));
 
   return (
     <main className="relative">
@@ -305,36 +246,12 @@ export function HomePage() {
           dataCta: "hero",
         }}
         secondaryCta={{
-          href: anchorHref(locale, "services"),
+          href: anchorHref(locale, "deliveries"),
           label: tHero("secondaryCta"),
         }}
       />
       <IndustryLogos groups={clientLogosByIndustry} />
-      <SectionHeader
-        title={t("diagnosis.title")}
-        description={t("diagnosis.description")}
-        align="center"
-        className="mx-auto my-22 md:mb-14 bg-none border-none"
-        titleClassName="mt-5 max-w-none text-xl md:text-2xl"
-        descriptionClassName="font-sans text-3xl md:text-5xl max-w-2xl"
-      />
-      <PainFeature />
-      <SolutionFeature />
       <Portfolio />
-      <StackedCardsSection
-        id={anchorId(locale, "services")}
-        title={
-          <>
-            {tServices("titleLead")}{" "}
-            <em className="italic text-muted-foreground">
-              {tServices("titleEm")}
-            </em>
-            .
-          </>
-        }
-        description={tServices("description")}
-        cards={serviceCards}
-      />
       <Products />
       <Leadership />
       {/* TODO: Re-enable when testimonials are ready

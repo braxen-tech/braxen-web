@@ -22,8 +22,6 @@
   },
   "nav": {
     "home": {
-      "pain": "The Pain",
-      "howWeDo": "How we do it",
       "deliveries": "Deliveries",
       "team": "Team",
       "contact": "Contact"
@@ -48,14 +46,12 @@
       "atendimentoIa": "Customer service automation",
       "clinicas": "Clinics & practices",
       "techSquads": "Tech Squads",
-      "deliveries": "Deliveries",
-      "services": "Services"
+      "deliveries": "Deliveries"
     },
     "navigation": {
-      "pain": "The Pain",
-      "howWeDo": "How we do it",
+      "deliveries": "Deliveries",
       "team": "Team",
-      "testimonials": "Testimonials"
+      "contact": "Contact"
     },
     "contact": {
       "talkToUs": "Get in touch",
@@ -109,27 +105,28 @@
       "ogImageAlt": "Braxen Tech"
     },
     "hero": {
-      "staticTitle": "Your business was built to grow",
+      "staticTitle": "Technology that scales your operation",
       "rotatingWords": [
-        "Simplify operations",
-        "Engineer intelligence",
-        "Scale with control"
+        "Intelligent automation",
+        "AI agents",
+        "Custom software"
       ],
-      "subtitle": "We engineer the systems, automation, and intelligence that help businesses eliminate operational bottlenecks and scale without multiplying complexity.",
-      "trustLine": "Reply within 24h · first delivery in weeks",
+      "subtitle": "We engineer automation, AI agents and custom software for businesses that need to grow — without growing the overhead.",
+      "trustLine": "Reply within 24h · delivery in weeks",
       "primaryCta": "Talk to Braxen",
-      "secondaryCta": "See how we solve it"
+      "secondaryCta": "See deliveries"
     },
     "logos": {
-      "titleLead": "Experience built at",
+      "titleLead": "Our team built at",
       "titleEm": "companies like",
-      "description": "A team with a track record across finance, media, entertainment, health, automotive and telecom.",
+      "description": "Engineers who have shipped critical systems at the biggest names in each industry.",
       "industries": {
         "finance": "Finance & Banking",
         "entertainment": "Entertainment & Media",
         "health": "Health",
         "automotive": "Automotive",
-        "telecom": "Telecom"
+        "telecom": "Telecom",
+        "education": "Education"
       }
     },
     "diagnosis": {
@@ -195,9 +192,9 @@
       ]
     },
     "portfolio": {
-      "title": "Deliveries",
+      "title": "What we deliver",
       "titleDot": ".",
-      "description": "From AI agents to custom dashboards — every project is built for your process.",
+      "description": "AI agents, CRMs, dashboards and ERPs — every project shaped to fit the client's actual workflow.",
       "regionLabel": "Braxen deliveries and projects"
     },
     "services": {
@@ -233,45 +230,45 @@
       ]
     },
     "products": {
-      "titleLead": "Ready to",
-      "titleEm": "start",
+      "titleLead": "Two ways to",
+      "titleEm": "work with Braxen",
       "aiAgents": {
         "title": "AI Agents",
-        "description": "Omnichannel service with integrated CRM, scheduling, sales and API integrations.",
+        "description": "Omnichannel service with CRM, scheduling, sales and API integrations. Live in weeks.",
         "cta": "See solution"
       },
       "techSquads": {
         "title": "Tech Squads",
-        "description": "Full engineering, product, data and AI teams integrated with your business.",
+        "description": "Engineering, product, data and AI teams embedded in your business. Scale without recruiting.",
         "cta": "Build my squad"
       }
     },
     "leadership": {
-      "titleLead": "Senior technical",
-      "titleEm": "leadership",
-      "description": "Our team brings experience from the world's largest technology companies. Every Braxen project is led by specialists who have shipped critical systems at scale.",
+      "titleLead": "Who's",
+      "titleEm": "behind it",
+      "description": "Every project is led by specialists who have shipped critical systems at scale.",
       "prev": "Previous profile",
       "next": "Next profile",
       "members": [
         {
           "name": "Hugo Lemos",
-          "designation": "Head of Product & UI/UX",
-          "quote": "I translate business problems into interfaces that work — every screen, every flow and every detail thought out for the end user and for operational results."
+          "designation": "Co-Founder · Product Design",
+          "quote": "I turn business problems into interfaces that work — and that people actually use."
         },
         {
           "name": "Neemias Rocha",
-          "designation": "Head of Sales",
-          "quote": "With ten years connecting sales strategy to execution, I understand the customer's pain before the first meeting and ensure measurable value from day one."
+          "designation": "Co-Founder · Sales",
+          "quote": "I understand the customer's pain before the first meeting. I sell value, not proposals."
         },
         {
           "name": "Rodrigo Gama",
-          "designation": "Head of Engineering",
-          "quote": "I lead small teams in short cycles, focused on deliveries that hold real load without breaking on the second version."
+          "designation": "Co-Founder · Engineering",
+          "quote": "I ship software that runs in production without breaking. Lean teams, short sprints, fast results."
         },
         {
           "name": "Tiago Rocha",
-          "designation": "Head of AI & Platform",
-          "quote": "I design agents and automations that create real value, and I keep the platform behind them reliable, observable and ready to scale."
+          "designation": "Co-Founder · Engineering",
+          "quote": "I build AI agents and the platform behind them — observable, reliable and ready to scale."
         }
       ]
     },
@@ -311,9 +308,9 @@
       ]
     },
     "contact": {
-      "titleLead": "Let's engineer",
-      "titleEm": "your growth",
-      "description": "Describe your operational challenge. Our team gets back to you within 24 hours with a technical analysis and next steps."
+      "titleLead": "Let's",
+      "titleEm": "talk",
+      "description": "Tell us the challenge. We get back within 24 hours with a technical analysis and next steps."
     }
   },
   "clinicas": {

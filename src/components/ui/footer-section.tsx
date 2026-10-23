@@ -38,10 +38,6 @@ function useFooterLinks(): FooterSection[] {
           title: tSolutions("deliveries"),
           href: `${base}/${anchorHref(locale, "deliveries")}`,
         },
-        {
-          title: tSolutions("services"),
-          href: `${base}/${anchorHref(locale, "services")}`,
-        },
       ],
     },
     {
@@ -49,19 +45,17 @@ function useFooterLinks(): FooterSection[] {
       label: tSections("navigation"),
       links: [
         {
-          title: tNavigation("pain"),
-          href: `${base}/${anchorHref(locale, "pain")}`,
-        },
-        {
-          title: tNavigation("howWeDo"),
-          href: `${base}/${anchorHref(locale, "howWeDo")}`,
+          title: tNavigation("deliveries"),
+          href: `${base}/${anchorHref(locale, "deliveries")}`,
         },
         {
           title: tNavigation("team"),
           href: `${base}/${anchorHref(locale, "team")}`,
         },
-        // TODO: Re-enable when testimonials are ready
-        // { title: tNavigation("testimonials"), href: `${base}/#depoimentos` },
+        {
+          title: tNavigation("contact"),
+          href: `${base}/${anchorHref(locale, "contact")}`,
+        },
       ],
     },
     {
