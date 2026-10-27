@@ -21,7 +21,7 @@ export function ZenarateNav() {
   }, []);
 
   const links = [
-    { label: t("solutions"), href: `${base}${ROUTES.aiAgents}` },
+    { label: t("industries"), href: `${base}#industrias` },
     { label: t("cases"), href: `${base}#cases` },
     { label: t("contact"), href: `${base}#contato` },
   ];

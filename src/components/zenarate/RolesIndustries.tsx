@@ -56,7 +56,7 @@ export function RolesIndustries() {
   const t = useTranslations("home.rolesIndustries");
 
   return (
-    <section className="relative w-full overflow-hidden bg-white py-20 md:py-28">
+    <section id="industrias" className="relative w-full overflow-hidden bg-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
