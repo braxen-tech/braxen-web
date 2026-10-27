@@ -91,7 +91,7 @@ export function ZenarateNav() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="mx-4 mt-1 rounded-2xl bg-white p-4 shadow-xl md:hidden">
+        <div className="mx-4 mt-1 overflow-visible rounded-2xl bg-white p-4 shadow-xl md:hidden">
           {links.map((link) => (
             <a
               key={link.label}
