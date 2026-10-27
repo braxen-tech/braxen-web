@@ -82,7 +82,6 @@ function useFooterLinks(): FooterSection[] {
       links: [
         { title: "LinkedIn", href: SOCIAL_LINKS.linkedin },
         { title: "Instagram", href: SOCIAL_LINKS.instagram },
-        { title: "GitHub", href: SOCIAL_LINKS.github },
       ],
     },
   ];

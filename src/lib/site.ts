@@ -1,8 +1,7 @@
 export const SITE_URL = "https://braxentech.com";
 
 export const SOCIAL_LINKS = {
-  linkedin: "https://www.linkedin.com/company/braxentech",
-  github: "https://github.com/braxentech",
+  linkedin: "https://www.linkedin.com/company/braxen-tech",
   instagram: "https://www.instagram.com/braxentech",
 } as const;
 
