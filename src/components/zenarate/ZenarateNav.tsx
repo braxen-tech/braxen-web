@@ -21,7 +21,7 @@ export function ZenarateNav() {
   }, []);
 
   const links = [
-    { label: t("industries"), href: `${base}#industrias` },
+    { label: t("industries"), href: "#industrias" },
     { label: t("cases"), href: `${base}#cases` },
     { label: t("contact"), href: `${base}#contato` },
   ];
