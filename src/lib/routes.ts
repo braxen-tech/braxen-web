@@ -3,6 +3,10 @@ export const ROUTES = {
   clinics: "/clinics",
   aiAgents: "/ai-agents",
   techSquads: "/tech-squads",
+  caseGrupoLima: "/cases/grupo-lima",
+  casePlanoAssinatura: "/cases/plano-assinatura",
+  caseArboreto: "/cases/arboreto",
+  caseCpfSemPendencia: "/cases/cpf-sem-pendencia",
 } as const;
 
 /** Legacy Portuguese slugs → canonical English slugs (301 redirects). */

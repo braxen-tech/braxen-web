@@ -2,12 +2,25 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Playfair_Display, Manrope } from "next/font/google";
 import { AttributionCapture } from "@/components/AttributionCapture";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { JsonLd } from "@/components/JsonLd";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/json-ld";
 import { routing, type Locale } from "@/i18n/routing";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
 
 const OG_LOCALE_MAP: Record<Locale, string> = {
   pt: "pt_BR",
@@ -95,11 +108,11 @@ export default async function LocaleLayout({
   const tJsonLd = await getTranslations({ locale, namespace: "jsonLd" });
 
   return (
-    <html lang={HTML_LANG_MAP[locale]} suppressHydrationWarning>
+    <html lang={HTML_LANG_MAP[locale]} suppressHydrationWarning className={`${playfair.variable} ${manrope.variable}`}>
       <body>
         <GoogleAnalytics />
         <NextIntlClientProvider>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
             <AttributionCapture />
             <JsonLd
               data={organizationJsonLd(tJsonLd("organizationDescription"), locale)}

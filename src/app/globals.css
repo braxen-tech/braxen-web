@@ -49,8 +49,8 @@
   --color-destructive-foreground: var(--destructive-foreground);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --font-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: var(--font-playfair), "Times New Roman", serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: var(--font-sans);
   --animate-marquee: marquee var(--duration, 40s) linear infinite;
   --animate-marquee-vertical: marquee-vertical var(--duration, 40s) linear infinite;
@@ -64,9 +64,9 @@
   --card: #ffffff;
   --ring: #d4d4d8;
   --input: #d4d4d8;
-  --muted: #f4f4f5;
-  --accent: #f4f4f5;
-  --border: #e4e4e7;
+  --muted: #f6f6f4;
+  --accent: #f6f6f4;
+  --border: rgba(208, 208, 206, 0.25);
   --radius: 0.625rem;
   --chart-1: #ea580c;
   --chart-2: #0d9488;
@@ -74,26 +74,28 @@
   --chart-4: #fbbf24;
   --chart-5: #f59e0b;
   --popover: #ffffff;
-  --primary: #18181b;
+  --primary: #1a1a1a;
   --sidebar: #fafafa;
-  --secondary: #f4f4f5;
+  --secondary: #f6f6f4;
   --background: #ffffff;
-  --foreground: #0a0a0a;
+  --foreground: #1a1a1a;
   --destructive: #ef4444;
+  --accent-gold: #c5a44e;
+  --accent-gold-hover: #b8963f;
   --sidebar-ring: #d4d4d8;
   --sidebar-accent: #f4f4f5;
   --sidebar-border: #e4e4e7;
-  --card-foreground: #0a0a0a;
-  --sidebar-primary: #18181b;
-  --muted-foreground: #71717a;
-  --accent-foreground: #18181b;
-  --popover-foreground: #0a0a0a;
-  --primary-foreground: #fafafa;
-  --sidebar-foreground: #0a0a0a;
-  --secondary-foreground: #18181b;
+  --card-foreground: #1a1a1a;
+  --sidebar-primary: #1a1a1a;
+  --muted-foreground: #6b7280;
+  --accent-foreground: #1a1a1a;
+  --popover-foreground: #1a1a1a;
+  --primary-foreground: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --secondary-foreground: #1a1a1a;
   --destructive-foreground: #ef4444;
-  --sidebar-accent-foreground: #18181b;
-  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-primary-foreground: #ffffff;
 }
 
 .dark {
@@ -179,6 +181,27 @@
     line-height: 1.1;
     font-size: clamp(1.25rem, 2vw, 1.5rem);
   }
+  .text-display-1 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    font-size: clamp(2.75rem, 5.5vw, 4.5rem);
+  }
+  .text-display-2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    font-size: clamp(1.75rem, 3.8vw, 3.25rem);
+  }
+  .text-display-3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
 }
 
 @layer components {
@@ -236,6 +259,34 @@
   }
   .btn-ghost:hover {
     background-color: var(--card);
+  }
+  .btn-gold {
+    background-color: var(--accent-gold);
+    color: #1a1a1a;
+    border-radius: 200px;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0.75rem 1.75rem;
+  }
+  .btn-gold:hover {
+    background-color: var(--accent-gold-hover);
+  }
+  .btn-pill {
+    border-radius: 200px;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0.625rem 1.5rem;
+    border: 1px solid var(--foreground);
+  }
+  .btn-pill:hover {
+    background-color: var(--foreground);
+    color: var(--background);
   }
 }
 
@@ -417,5 +468,114 @@
     .animated-border::before {
       animation: none;
     }
+  }
+
+  /* Logo Orbit */
+  .orbit-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .orbit-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(208, 208, 206, 0.2);
+  }
+
+  .orbit-ring--small {
+    --orbit-radius: 220px;
+    width: calc(var(--orbit-radius) * 2);
+    height: calc(var(--orbit-radius) * 2);
+  }
+  .orbit-ring--medium {
+    --orbit-radius: 360px;
+    width: calc(var(--orbit-radius) * 2);
+    height: calc(var(--orbit-radius) * 2);
+  }
+  .orbit-ring--large {
+    --orbit-radius: 500px;
+    width: calc(var(--orbit-radius) * 2);
+    height: calc(var(--orbit-radius) * 2);
+  }
+
+  .orbit-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+  }
+
+  .logo-tile {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid rgba(208, 208, 206, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
+
+  .logo-tile img {
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+  }
+
+  .orbit-fade-wrapper {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    background:
+      radial-gradient(
+        ellipse 280px 200px at center,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.95) 40%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, transparent 15%, transparent 85%, rgba(255, 255, 255, 0.9) 100%);
+  }
+
+  @media (max-width: 1200px) {
+    .orbit-ring--large { display: none; }
+    .orbit-ring--medium { --orbit-radius: 300px; }
+    .orbit-ring--small { --orbit-radius: 180px; }
+  }
+
+  @media (max-width: 767px) {
+    .orbit-ring--medium { --orbit-radius: 220px; }
+    .orbit-ring--small { --orbit-radius: 140px; }
+    .logo-tile { width: 44px; height: 44px; border-radius: 8px; }
+  }
+}
+
+@keyframes canopy-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes canopy-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
   }
 }

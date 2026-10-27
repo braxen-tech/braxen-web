@@ -105,16 +105,11 @@
       "ogImageAlt": "Braxen Tech"
     },
     "hero": {
-      "staticTitle": "Tecnología que escala tu operación",
-      "rotatingWords": [
-        "Automatización inteligente",
-        "Agentes de IA",
-        "Software a medida"
-      ],
-      "subtitle": "Ingeniamos automatización, agentes de IA y software a medida para empresas que necesitan crecer — sin crecer la estructura.",
-      "trustLine": "Respuesta en 24h · entrega en semanas",
-      "primaryCta": "Habla con Braxen",
-      "secondaryCta": "Ver entregas"
+      "headlineLead": "Tu empresa crece.",
+      "headlineEm": "Tu día, no.",
+      "subtitle": "Braxen construye agentes de IA, sistemas y equipos de tecnología que quitan el trabajo repetitivo de tus manos. Ganas horas para vender, decidir y vivir.",
+      "primaryCta": "Quiero mi tiempo de vuelta",
+      "seal": "Respuesta en 24h · en línea en semanas"
     },
     "logos": {
       "titleLead": "Nuestro equipo construyó en",
@@ -244,31 +239,31 @@
       }
     },
     "leadership": {
-      "titleLead": "Quién está",
-      "titleEm": "detrás",
-      "description": "Cada proyecto es liderado por especialistas que ya entregaron sistemas críticos a escala.",
+      "titleLead": "Quién cuida de tu",
+      "titleEm": "tiempo",
+      "description": "Los fundadores de Braxen lideraron tecnología en empresas de alto crecimiento. Ahora aplican esa experiencia para devolver horas a tu día.",
       "prev": "Perfil anterior",
       "next": "Siguiente perfil",
       "members": [
         {
           "name": "Hugo Lemos",
           "designation": "Co-Founder · Product Design",
-          "quote": "Transformo problemas de negocio en interfaces que funcionan — y que la gente realmente usa."
+          "quote": ""
         },
         {
           "name": "Neemias Rocha",
           "designation": "Co-Founder · Ventas",
-          "quote": "Entiendo el dolor del cliente antes de la primera reunión. Vendo valor, no propuestas."
+          "quote": ""
         },
         {
           "name": "Rodrigo Gama",
           "designation": "Co-Founder · Desarrollo",
-          "quote": "Entrego software que corre en producción sin romperse. Equipos pequeños, sprints cortos, resultados rápidos."
+          "quote": ""
         },
         {
           "name": "Tiago Rocha",
           "designation": "Co-Founder · Desarrollo",
-          "quote": "Construyo agentes de IA y la plataforma detrás de ellos — observable, confiable y lista para escalar."
+          "quote": ""
         }
       ]
     },
@@ -311,6 +306,209 @@
       "titleLead": "Vamos a",
       "titleEm": "conversar",
       "description": "Cuéntanos el desafío. Respondemos en menos de 24 horas con análisis técnico y próximos pasos."
+    },
+    "nav": {
+      "solutions": "Soluciones",
+      "cases": "Cases",
+      "faq": "FAQ",
+      "contact": "Contacto",
+      "cta": "Quiero mi tiempo de vuelta"
+    },
+    "logoCloud": {
+      "titleLead": "Nuestro equipo ya construyó tecnología para",
+      "titleEm": "empresas como estas",
+      "titleTail": "."
+    },
+    "productShowcase": {
+      "headingLead": "Nosotros asumimos lo repetitivo.",
+      "headingEm": "Tú asumes lo que importa.",
+      "headingTail": "",
+      "description": "Creamos la tecnología adecuada para tu cuello de botella: un agente, un sistema o un equipo. No necesitas entender de tecnología, solo dónde pierdes tiempo.",
+      "tabs": {
+        "cto": "CTO",
+        "headComercial": "Head Comercial",
+        "ceo": "CEO",
+        "headProduto": "Head de Producto"
+      },
+      "products": {
+        "aiAgents": {
+          "name": "Agentes de IA",
+          "description": "Agentes que atienden, califican y venden — en WhatsApp, Instagram y chat. En producción en semanas.",
+          "cta": "Explorar",
+          "mockupLabel": "Agentes de IA en acción",
+          "href": "/es/ai-agents"
+        },
+        "techSquads": {
+          "name": "Tech Squads",
+          "description": "Ingenieros, diseñadores y PMs que se vuelven parte de tu equipo. Sin proceso de selección, sin ramp-up.",
+          "cta": "Explorar",
+          "mockupLabel": "Tech Squads en acción",
+          "href": "/es/tech-squads"
+        },
+        "software": {
+          "name": "Software a Medida",
+          "description": "CRMs, dashboards, integraciones y herramientas internas hechas para tu proceso. No un template.",
+          "cta": "Explorar",
+          "mockupLabel": "Software a medida en acción",
+          "href": "/es/ai-agents"
+        }
+      }
+    },
+    "customerStories": {
+      "headingLead": "Historias de éxito de",
+      "headingEm": "empresas que escalan",
+      "viewAll": "Ver todos",
+      "viewAllHref": "#cases",
+      "items": [
+        {
+          "quote": "Redujimos el 80% del trabajo repetitivo con automatización inteligente.",
+          "author": "Mariana Costa · Directora Clínica"
+        },
+        {
+          "quote": "Triplicamos la atención sin contratar a nadie.",
+          "author": "Rafael Mendes · Socio Inmobiliaria"
+        },
+        {
+          "quote": "El CRM fue construido para nuestro proceso — no un template.",
+          "author": "Camila Rocha · Head Comercial"
+        },
+        {
+          "quote": "La automatización de follow-up transformó nuestro embudo.",
+          "author": "Felipe Santos · Marketing"
+        },
+        {
+          "quote": "Primera entrega en semanas, no meses.",
+          "author": "Pedro Almeida · Fundador"
+        }
+      ],
+      "stats": [
+        {
+          "value": "80%",
+          "label": "Menos trabajo manual"
+        },
+        {
+          "value": "3x",
+          "label": "Más atención"
+        },
+        {
+          "value": "$3M",
+          "label": "Ahorro generado"
+        }
+      ]
+    },
+    "highlight": {
+      "tag": "",
+      "headingLead": "La tecnología es el medio.",
+      "headingEm": "El tiempo es lo que queda.",
+      "headingTail": "",
+      "description": "Lo que realmente entregamos no aparece en la pantalla. Es la reunión que finalmente pudiste tener. Es la cena en que el celular se quedó en el bolsillo.",
+      "cta": "Contactar",
+      "href": "#cases"
+    },
+    "faq": {
+      "headingLead": "Tus preguntas",
+      "headingEm": "respondidas",
+      "items": [
+        {
+          "q": "¿Cuánto tiempo tarda en estar en producción?",
+          "a": "La primera versión suele estar lista en 2 a 4 semanas. Proyectos más sencillos pueden salir en días."
+        },
+        {
+          "q": "¿Necesito cambiar mis sistemas actuales?",
+          "a": "No. Nos integramos con lo que ya usas — CRM, ERP, herramientas de comunicación."
+        },
+        {
+          "q": "¿Solo hacen automatización o también software?",
+          "a": "Ambas cosas. Agentes de IA, automatizaciones, dashboards, CRMs a medida, integraciones y equipos dedicados."
+        },
+        {
+          "q": "¿Cómo funciona el modelo comercial?",
+          "a": "Depende del alcance. Agentes de IA tienen setup + mensual. Tech Squads son retainer mensual. Software a medida es por proyecto."
+        }
+      ]
+    },
+    "insights": {
+      "headingLead": "Conoce nuestras",
+      "headingEm": "entregas",
+      "viewAll": "Ver todos",
+      "items": [
+        {
+          "category": "Ecosistema Digital",
+          "title": "Proyecto Grupo Lima",
+          "href": "/cases/grupo-lima",
+          "image": "/cases/grupo-lima.webp"
+        },
+        {
+          "category": "Plataforma de Recurrencia",
+          "title": "Plan de Suscripción",
+          "href": "/cases/plano-assinatura",
+          "image": "/cases/plano-assinatura.webp"
+        },
+        {
+          "category": "Experiencia Premium",
+          "title": "Proyecto Arboreto",
+          "href": "/cases/arboreto",
+          "image": "/cases/arboreto.webp"
+        },
+        {
+          "category": "Conversión & Performance",
+          "title": "Proyecto CPF sem Pendência",
+          "href": "/cases/cpf-sem-pendencia",
+          "image": "/cases/cpf-sem-pendencia.webp"
+        }
+      ]
+    },
+    "rolesIndustries": {
+      "headingLead": "Nuestras",
+      "headingEm": "industrias",
+      "roles": [
+        "CTO",
+        "Head Comercial",
+        "CEO",
+        "Head de Producto",
+        "COO",
+        "Head de Operaciones"
+      ],
+      "industries": [
+        "Salud",
+        "Finanzas",
+        "Inmobiliario",
+        "E-commerce",
+        "Telecom",
+        "Educación",
+        "Automotriz",
+        "SaaS"
+      ]
+    },
+    "closingCta": {
+      "headingLead": "Braxen.",
+      "headingEm": "Tiempo para lo que importa",
+      "headingTail": ".",
+      "headingEm2": "",
+      "cta": "Quiero mi tiempo de vuelta"
+    },
+    "contactStrip": {
+      "headingLead": "¿A dónde va tu",
+      "headingEm": "tiempo",
+      "headingTail": "?",
+      "placeholder": "tu@email.com",
+      "submit": "Quiero mi diagnóstico"
+    },
+    "footer": {
+      "cities": {
+        "saoPaulo": {
+          "name": "São Paulo"
+        },
+        "lisboa": {
+          "name": "Lisboa"
+        },
+        "novaYork": {
+          "name": "Nueva York"
+        },
+        "delhi": {
+          "name": "Delhi"
+        }
+      }
     }
   },
   "clinicas": {
@@ -853,6 +1051,40 @@
     "description": "Algo salió mal de nuestro lado. Puedes intentar recargar o volver al inicio.",
     "tryAgain": "Reintentar",
     "goHome": "Ir al inicio"
+  },
+  "cases": {
+    "grupoLima": {
+      "category": "Ecosistema Digital",
+      "title": "Proyecto Grupo Lima",
+      "description": "Grupo Lima, consolidado como el mayor proveedor de internet del interior de Espírito Santo, necesitaba un ecosistema digital que estuviera a la altura de su tamaño y credibilidad. Braxen entró en escena para firmar el nuevo sitio web de la empresa, uniendo estética y rendimiento.",
+      "image": "/cases/grupo-lima.webp",
+      "body": "El proyecto fue diseñado íntegramente bajo la óptica de la conversión, utilizando técnicas avanzadas de UX/UI Design para guiar al usuario de forma fluida hasta la contratación. Visualmente, el sitio fue construido para impresionar: una interfaz inmersiva que atrae la atención inmediata, transmitiendo la seriedad, la robustez y la autoridad que Grupo Lima representa para miles de conectados.",
+      "cta": "Quiero algo parecido"
+    },
+    "planoAssinatura": {
+      "category": "Plataforma de Recurrencia",
+      "title": "Plan de Suscripción",
+      "description": "Desarrollamos una landing page enfocada en la venta de planes de suscripción, diseñada para transformar visitantes en suscriptores recurrentes. Ya sea para clubes de carnes premium o suscripciones de cervezas artesanales, toda la experiencia fue construida para despertar deseo y evidenciar el valor de la recurrencia.",
+      "image": "/cases/plano-assinatura.webp",
+      "body": "Uno de los principales desafíos de este modelo de negocio es convencer al cliente de que una suscripción va mucho más allá de una compra puntual. Es necesario transmitir exclusividad, practicidad, economía y la experiencia de recibir productos seleccionados con calidad, sin que el consumidor tenga que preocuparse por nuevas compras todos los meses.",
+      "cta": "Quiero algo parecido"
+    },
+    "arboreto": {
+      "category": "Experiencia Premium",
+      "title": "Proyecto Arboreto",
+      "description": "Desarrollamos una landing page para una empresa de muebles a medida de alto nivel con el objetivo de posicionar la marca en el segmento premium y transmitir la calidad presente en cada proyecto.",
+      "image": "/cases/arboreto.webp",
+      "body": "En el mercado de muebles a medida, muchos clientes buscan más que un buen precio: buscan confianza, exclusividad, atención personalizada y la certeza de que están invirtiendo en una empresa capaz de entregar ambientes sofisticados y duraderos. Pensando en eso, creamos una experiencia digital que comunica esos valores desde el primer acceso.",
+      "cta": "Quiero algo parecido"
+    },
+    "cpfSemPendencia": {
+      "category": "Conversión & Performance",
+      "title": "Proyecto CPF sem Pendência",
+      "description": "Desarrollamos una landing page para CPF Sem Pendência totalmente orientada a la conversión, creada para hablar directamente con un público que enfrenta una de las mayores dificultades financieras del día a día: el CPF negativado.",
+      "image": "/cases/cpf-sem-pendencia.webp",
+      "body": "Quienes tienen restricciones crediticias frecuentemente encuentran dificultades para obtener crédito, financiamiento, tarjeta de crédito, realizar compras a plazos e incluso aprovechar oportunidades profesionales. Pensando en eso, diseñamos una experiencia que transmite credibilidad desde el primer contacto. Unimos un diseño moderno y profesional con las mejores prácticas de UX, creando una navegación intuitiva, rápida y objetiva, reduciendo al máximo los puntos de fricción durante el recorrido del usuario.",
+      "cta": "Quiero algo parecido"
+    }
   },
   "jsonLd": {
     "organizationDescription": "Ingeniería de negocios: automatización, inteligencia y sistemas a medida para empresas que quieren escalar."

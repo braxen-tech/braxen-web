@@ -105,16 +105,11 @@
       "ogImageAlt": "Braxen Tech"
     },
     "hero": {
-      "staticTitle": "Technology that scales your operation",
-      "rotatingWords": [
-        "Intelligent automation",
-        "AI agents",
-        "Custom software"
-      ],
-      "subtitle": "We engineer automation, AI agents and custom software for businesses that need to grow — without growing the overhead.",
-      "trustLine": "Reply within 24h · delivery in weeks",
-      "primaryCta": "Talk to Braxen",
-      "secondaryCta": "See deliveries"
+      "headlineLead": "Your company grows.",
+      "headlineEm": "Your day doesn't.",
+      "subtitle": "Braxen builds AI agents, systems and tech teams that take repetitive work off your hands. You gain hours to sell, decide and live.",
+      "primaryCta": "I want my time back",
+      "seal": "Reply in 24h · live in weeks"
     },
     "logos": {
       "titleLead": "Our team built at",
@@ -244,31 +239,31 @@
       }
     },
     "leadership": {
-      "titleLead": "Who's",
-      "titleEm": "behind it",
-      "description": "Every project is led by specialists who have shipped critical systems at scale.",
+      "titleLead": "Who takes care of your",
+      "titleEm": "time",
+      "description": "Braxen's founders have led technology at high-growth companies. Now they apply that experience to give hours back to your day.",
       "prev": "Previous profile",
       "next": "Next profile",
       "members": [
         {
           "name": "Hugo Lemos",
           "designation": "Co-Founder · Product Design",
-          "quote": "I turn business problems into interfaces that work — and that people actually use."
+          "quote": ""
         },
         {
           "name": "Neemias Rocha",
           "designation": "Co-Founder · Sales",
-          "quote": "I understand the customer's pain before the first meeting. I sell value, not proposals."
+          "quote": ""
         },
         {
           "name": "Rodrigo Gama",
           "designation": "Co-Founder · Engineering",
-          "quote": "I ship software that runs in production without breaking. Lean teams, short sprints, fast results."
+          "quote": ""
         },
         {
           "name": "Tiago Rocha",
           "designation": "Co-Founder · Engineering",
-          "quote": "I build AI agents and the platform behind them — observable, reliable and ready to scale."
+          "quote": ""
         }
       ]
     },
@@ -311,6 +306,209 @@
       "titleLead": "Let's",
       "titleEm": "talk",
       "description": "Tell us the challenge. We get back within 24 hours with a technical analysis and next steps."
+    },
+    "nav": {
+      "solutions": "Solutions",
+      "cases": "Cases",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "cta": "I want my time back"
+    },
+    "logoCloud": {
+      "titleLead": "Our team has already built technology for",
+      "titleEm": "companies like these",
+      "titleTail": "."
+    },
+    "productShowcase": {
+      "headingLead": "We handle the repetitive.",
+      "headingEm": "You handle what matters.",
+      "headingTail": "",
+      "description": "We build the right technology for your bottleneck: an agent, a system, or a team. You don't need to understand technology, just where you're losing time.",
+      "tabs": {
+        "cto": "CTO",
+        "headComercial": "Sales Lead",
+        "ceo": "CEO",
+        "headProduto": "Product Lead"
+      },
+      "products": {
+        "aiAgents": {
+          "name": "AI Agents",
+          "description": "Agents that answer, qualify and sell — on WhatsApp, Instagram and chat. Live in weeks.",
+          "cta": "Explore",
+          "mockupLabel": "AI Agents in action",
+          "href": "/en/ai-agents"
+        },
+        "techSquads": {
+          "name": "Tech Squads",
+          "description": "Engineers, designers and PMs that become part of your team. No hiring process, no ramp-up.",
+          "cta": "Explore",
+          "mockupLabel": "Tech Squads in action",
+          "href": "/en/tech-squads"
+        },
+        "software": {
+          "name": "Custom Software",
+          "description": "CRMs, dashboards, integrations and internal tools built for your process. Not a template.",
+          "cta": "Explore",
+          "mockupLabel": "Custom Software in action",
+          "href": "/en/ai-agents"
+        }
+      }
+    },
+    "customerStories": {
+      "headingLead": "Success stories from",
+      "headingEm": "companies that scale",
+      "viewAll": "View all",
+      "viewAllHref": "#cases",
+      "items": [
+        {
+          "quote": "We reduced 80% of repetitive work with intelligent automation.",
+          "author": "Mariana Costa · Clinic Director"
+        },
+        {
+          "quote": "We tripled customer service without hiring anyone.",
+          "author": "Rafael Mendes · Real Estate Partner"
+        },
+        {
+          "quote": "The CRM was built for our process — not a template.",
+          "author": "Camila Rocha · Sales Lead"
+        },
+        {
+          "quote": "Follow-up automation transformed our funnel.",
+          "author": "Felipe Santos · Marketing"
+        },
+        {
+          "quote": "First delivery in weeks, not months.",
+          "author": "Pedro Almeida · Founder"
+        }
+      ],
+      "stats": [
+        {
+          "value": "80%",
+          "label": "Less manual work"
+        },
+        {
+          "value": "3x",
+          "label": "More customer service"
+        },
+        {
+          "value": "$3M",
+          "label": "Savings generated"
+        }
+      ]
+    },
+    "highlight": {
+      "tag": "",
+      "headingLead": "Technology is the means.",
+      "headingEm": "Time is what stays.",
+      "headingTail": "",
+      "description": "What we truly deliver doesn't show on a screen. It's the meeting you finally got to have. It's the dinner where your phone stayed in your pocket.",
+      "cta": "Get in touch",
+      "href": "#cases"
+    },
+    "faq": {
+      "headingLead": "Your questions",
+      "headingEm": "answered",
+      "items": [
+        {
+          "q": "How long does it take to go live?",
+          "a": "The first version usually runs in 2 to 4 weeks, depending on complexity. Leaner projects can go live in days."
+        },
+        {
+          "q": "Do I need to replace my current systems?",
+          "a": "No. We integrate with what you already use — CRM, ERP, communication tools. We work with what makes sense."
+        },
+        {
+          "q": "Do you only do automation or also software?",
+          "a": "Both. AI agents, automations, dashboards, custom CRMs, integrations and dedicated teams (Tech Squads)."
+        },
+        {
+          "q": "How does the commercial model work?",
+          "a": "It depends on the scope. AI Agents have setup + monthly. Tech Squads are monthly retainer. Custom software is project-based."
+        }
+      ]
+    },
+    "insights": {
+      "headingLead": "Discover our",
+      "headingEm": "deliveries",
+      "viewAll": "View all",
+      "items": [
+        {
+          "category": "Digital Ecosystem",
+          "title": "Grupo Lima Project",
+          "href": "/cases/grupo-lima",
+          "image": "/cases/grupo-lima.webp"
+        },
+        {
+          "category": "Recurring Platform",
+          "title": "Subscription Plan",
+          "href": "/cases/plano-assinatura",
+          "image": "/cases/plano-assinatura.webp"
+        },
+        {
+          "category": "Premium Experience",
+          "title": "Arboreto Project",
+          "href": "/cases/arboreto",
+          "image": "/cases/arboreto.webp"
+        },
+        {
+          "category": "Conversion & Performance",
+          "title": "CPF sem Pendência Project",
+          "href": "/cases/cpf-sem-pendencia",
+          "image": "/cases/cpf-sem-pendencia.webp"
+        }
+      ]
+    },
+    "rolesIndustries": {
+      "headingLead": "Our",
+      "headingEm": "industries",
+      "roles": [
+        "CTO",
+        "Sales Lead",
+        "CEO",
+        "Product Lead",
+        "COO",
+        "Head of Operations"
+      ],
+      "industries": [
+        "Healthcare",
+        "Finance",
+        "Real Estate",
+        "E-commerce",
+        "Telecom",
+        "Education",
+        "Automotive",
+        "SaaS"
+      ]
+    },
+    "closingCta": {
+      "headingLead": "Braxen.",
+      "headingEm": "Time for what matters",
+      "headingTail": ".",
+      "headingEm2": "",
+      "cta": "I want my time back"
+    },
+    "contactStrip": {
+      "headingLead": "Where is your",
+      "headingEm": "time",
+      "headingTail": "going?",
+      "placeholder": "your@email.com",
+      "submit": "I want my diagnosis"
+    },
+    "footer": {
+      "cities": {
+        "saoPaulo": {
+          "name": "São Paulo"
+        },
+        "lisboa": {
+          "name": "Lisbon"
+        },
+        "novaYork": {
+          "name": "New York"
+        },
+        "delhi": {
+          "name": "Delhi"
+        }
+      }
     }
   },
   "clinicas": {
@@ -853,6 +1051,40 @@
     "description": "Something went wrong on our end. You can try refreshing or head back home.",
     "tryAgain": "Try again",
     "goHome": "Go home"
+  },
+  "cases": {
+    "grupoLima": {
+      "category": "Digital Ecosystem",
+      "title": "Grupo Lima Project",
+      "description": "Grupo Lima, established as the largest internet provider in rural Espírito Santo, needed a digital ecosystem that matched its size and credibility. Braxen stepped in to design the company's new website, combining aesthetics and performance.",
+      "image": "/cases/grupo-lima.webp",
+      "body": "The project was entirely designed with a conversion-first approach, using advanced UX/UI Design techniques to guide users seamlessly toward sign-up. Visually, the site was built to impress: an immersive interface that captures immediate attention, conveying the seriousness, robustness, and authority that Grupo Lima represents for thousands of connected users.",
+      "cta": "I want something like this"
+    },
+    "planoAssinatura": {
+      "category": "Recurring Platform",
+      "title": "Subscription Plan",
+      "description": "We developed a landing page focused on selling subscription plans, designed to turn visitors into recurring subscribers. Whether for premium meat clubs or craft beer subscriptions, the entire experience was built to spark desire and highlight the value of recurrence.",
+      "image": "/cases/plano-assinatura.webp",
+      "body": "One of the main challenges of this business model is convincing customers that a subscription goes far beyond a one-time purchase. It requires conveying exclusivity, convenience, savings, and the experience of receiving quality-selected products without having to worry about new purchases every month.",
+      "cta": "I want something like this"
+    },
+    "arboreto": {
+      "category": "Premium Experience",
+      "title": "Arboreto Project",
+      "description": "We developed a landing page for a high-end custom furniture company with the goal of positioning the brand in the premium segment and conveying the quality present in every project.",
+      "image": "/cases/arboreto.webp",
+      "body": "In the custom furniture market, many clients look for more than a good price: they seek trust, exclusivity, personalized service, and the certainty that they are investing in a company capable of delivering sophisticated and lasting environments. With that in mind, we created a digital experience that communicates these values from the very first visit.",
+      "cta": "I want something like this"
+    },
+    "cpfSemPendencia": {
+      "category": "Conversion & Performance",
+      "title": "CPF sem Pendência Project",
+      "description": "We developed a fully conversion-oriented landing page for CPF Sem Pendência, designed to speak directly to an audience facing one of the biggest everyday financial struggles: a negative CPF status.",
+      "image": "/cases/cpf-sem-pendencia.webp",
+      "body": "People with credit restrictions often struggle to get loans, financing, credit cards, installment purchases, and even professional opportunities. With that in mind, we designed an experience that conveys credibility from the very first contact. We combined modern, professional design with UX best practices, creating an intuitive, fast, and objective navigation that minimizes friction throughout the user journey.",
+      "cta": "I want something like this"
+    }
   },
   "jsonLd": {
     "organizationDescription": "Business engineering: automation, intelligence and tailor-made systems for companies that need to scale."
