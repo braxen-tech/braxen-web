@@ -34,7 +34,7 @@ export function ContactStrip() {
             <em className="italic">{t("headingEm")}</em>{" "}
             {t("headingTail")}
           </h2>
-          <form onSubmit={handleSubmit} className="flex gap-3">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
             <input
               type="email"
               required
